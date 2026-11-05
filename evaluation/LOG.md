@@ -50,3 +50,7 @@ A first launch processed one company only (n8n executed the prompt-fetch step on
 | TSLA | 220,277 | 4,696 | end_turn | valid |
 
 No report was too long for the window. Outputs: `evaluation/runs/`. Not scored yet. Cost from the account balance: to be added.
+
+## 2026-11-05: key check by the author
+
+13 of the 17 sampled figures confirmed, no error found. 4 could not be located by the author (three of them are sums of several debt lines or a line named differently) and were rechecked by Claude only. Deviation from the rule "the author checks the whole 20 % sample" is declared here.

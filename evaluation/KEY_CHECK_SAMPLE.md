@@ -9,20 +9,23 @@ Rule fixed before any model ran on the full panel: the figures key is extracted 
 
 | Company | Item | Key value (USD millions; EPS in USD) | File | Where | OK? |
 |---|---|---|---|---|---|
-| AAPL | capex | 9,041 | `data/10k/AAPL_10-K_FY2026.md` | line 1910: Payments for acquisition of property, plant and equipment | |
-| AAPL | revenue | 478,834 | `data/10k/AAPL_10-K_FY2026.md` | line 1449: Total net sales | |
-| BA | cash | 10,921 | `data/10k/BA_10-K_FY2025.md` | line 2071: Cash and cash equivalents | |
-| BA | debt | 54,098 | `data/10k/BA_10-K_FY2025.md` | line 2091: Short-term debt and current portion of long-term debt 8,461; line 2097: Long-term debt 45,637 | |
-| JPM | equity | 362,438 | `data/10k/JPM_10-K_FY2025.md` | line 4549: Total stockholders’ equity | |
-| JPM | net_income | 57,048 | `data/10k/JPM_10-K_FY2025.md` | line 4492: Net income | |
-| MSFT | operating_cash_flow | 182,935 | `data/10k/MSFT_10-K_FY2026.md` | line 3054: Net cash from operations | |
-| NKE | diluted_eps | 2.10 | `data/10k/NKE_10-K_FY2026.md` | line 1721: Diluted | |
-| SBUX | debt | 16,074.8 | `data/10k/SBUX_10-K_FY2025.md` | line 1954: Current portion of long-term debt 1,498.9; line 1954: Long-term debt 14,575.9 | |
-| SBUX | revenue | 37,184.4 | `data/10k/SBUX_10-K_FY2025.md` | line 1250: Total net revenues | |
-| TSLA | cash | 16,513 | `data/10k/TSLA_10-K_FY2025.md` | line 1995: Cash and cash equivalents | |
-| TSLA | operating_income | 4,355 | `data/10k/TSLA_10-K_FY2025.md` | line 2070: Income from operations | |
-| WMT | debt | 44,762 | `data/10k/WMT_10-K_FY2026.md` | line 2331: Short-term borrowings 6,596; line 2588: Long-term debt due within one year 3,542; line 2193: Long-term debt 34,624 | |
-| WMT | equity | 99,617 | `data/10k/WMT_10-K_FY2026.md` | line 2605: Total Walmart shareholders' equity | |
-| WMT | net_income | 21,893 | `data/10k/WMT_10-K_FY2026.md` | line 2526: Consolidated net income attributable to Walmart | |
-| WMT | revenue | 713,163 | `data/10k/WMT_10-K_FY2026.md` | line 1910: Total revenues | |
-| XOM | debt | 43,537 | `data/10k/XOM_10-K_FY2025.md` | line 1654: Notes and loans payable 9,296; line 1564: Long-term debt 34,241 | |
+| AAPL | capex | 9,041 | `data/10k/AAPL_10-K_FY2026.md` | line 1910: Payments for acquisition of property, plant and equipment | OK (author) |
+| AAPL | revenue | 478,834 | `data/10k/AAPL_10-K_FY2026.md` | line 1449: Total net sales | OK (author) |
+| BA | cash | 10,921 | `data/10k/BA_10-K_FY2025.md` | line 2071: Cash and cash equivalents | OK (author) |
+| BA | debt | 54,098 | `data/10k/BA_10-K_FY2025.md` | line 2091: Short-term debt and current portion of long-term debt 8,461; line 2097: Long-term debt 45,637 | OK (author, total debt 54,098 line 3573) |
+| JPM | equity | 362,438 | `data/10k/JPM_10-K_FY2025.md` | line 4549: Total stockholders’ equity | OK (author) |
+| JPM | net_income | 57,048 | `data/10k/JPM_10-K_FY2025.md` | line 4492: Net income | OK (author) |
+| MSFT | operating_cash_flow | 182,935 | `data/10k/MSFT_10-K_FY2026.md` | line 3054: Net cash from operations | OK (author) |
+| NKE | diluted_eps | 2.10 | `data/10k/NKE_10-K_FY2026.md` | line 1721: Diluted | OK (author) |
+| SBUX | debt | 16,074.8 | `data/10k/SBUX_10-K_FY2025.md` | line 1954: Current portion of long-term debt 1,498.9; line 1954: Long-term debt 14,575.9 | not verified by the author (sums or not found); rechecked by Claude against the statement, not independent |
+| SBUX | revenue | 37,184.4 | `data/10k/SBUX_10-K_FY2025.md` | line 1250: Total net revenues | OK (author) |
+| TSLA | cash | 16,513 | `data/10k/TSLA_10-K_FY2025.md` | line 1995: Cash and cash equivalents | OK (author) |
+| TSLA | operating_income | 4,355 | `data/10k/TSLA_10-K_FY2025.md` | line 2070: Income from operations | not verified by the author (sums or not found); rechecked by Claude against the statement, not independent |
+| WMT | debt | 44,762 | `data/10k/WMT_10-K_FY2026.md` | line 2331: Short-term borrowings 6,596; line 2588: Long-term debt due within one year 3,542; line 2193: Long-term debt 34,624 | not verified by the author (sums or not found); rechecked by Claude against the statement, not independent |
+| WMT | equity | 99,617 | `data/10k/WMT_10-K_FY2026.md` | line 2605: Total Walmart shareholders' equity | OK (author) |
+| WMT | net_income | 21,893 | `data/10k/WMT_10-K_FY2026.md` | line 2526: Consolidated net income attributable to Walmart | OK (author) |
+| WMT | revenue | 713,163 | `data/10k/WMT_10-K_FY2026.md` | line 1910: Total revenues | OK (author) |
+| XOM | debt | 43,537 | `data/10k/XOM_10-K_FY2025.md` | line 1654: Notes and loans payable 9,296; line 1564: Long-term debt 34,241 | not verified by the author (sums or not found); rechecked by Claude against the statement, not independent |
+
+
+Result (5 Nov 2026): 13 of 17 figures confirmed by the author, 0 error. 4 figures (SBUX debt, TSLA operating income, WMT debt, XOM debt) could not be located by the author; Claude rechecked them against the statements, which is not independent. Accepted as is; the key is rechecked in full if the scoring shows any inconsistency.
