@@ -143,3 +143,4 @@ Scores: scores_test_pass2_agent_v2_haiku.md. Each company took about 20 s, 3-4 m
 - Versus Sonnet single prompt (v1): read 53/54, computed 23/24, wrong 2 (XOM revenue). Versus Haiku agent v3: read 52/54, wrong 3.
 - Caveat: one run per company; XOM revenue has flipped between runs of the same prompt, so a 0 vs 2 difference on one ambiguous line is not conclusive.
 - Cost of this pass: to be derived from the balance (before: 3.56).
+- Cost of agent v3 Sonnet test pass: balance 3.56 -> 2.78 USD = 0.78 USD for 6 companies, about 0.13 per company (Sonnet agent is about 16 times dearer than Haiku agent).
