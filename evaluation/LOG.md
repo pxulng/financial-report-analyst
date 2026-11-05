@@ -129,4 +129,4 @@ Scores: scores_test_pass2_agent_v2_haiku.md. Each company took about 20 s, 3-4 m
 - Fixed by v3: TSLA debt (searched Note 9, removed finance leases: 8,153 = key; 18 tool calls, the only run above 13). XOM revenue now matches the key, but it flipped back and forth between v2 and v3 with an unchanged definition, so it is run-to-run variation, not a v3 effect.
 - Tool use: 10-13 calls per company, TSLA 18. No iteration-limit hit.
 - Caveat: one run per company, so differences of 1-2 figures between versions are within run-to-run noise (XOM revenue shows it). The test set is now closed for the agent (v1, v2, v3 used). The frozen design allows at most 2 prompt versions per method, so v3 is a third version: the miscount (I told Paul one version remained after v2) is declared here. v1 never produced a usable full test run, but it still counts. The v3 result is therefore reported as exploratory; the validation run will use v3 and the 3-version count will be stated in the case study..
-- Cost of v3 pass: to be derived from the balance.
+- Cost of v3 pass (6 runs): balance 5.51 -> 5.46 USD, about 0.05 USD, roughly 0.008 USD per company on Haiku 5.5 (rounded to 0.01).
