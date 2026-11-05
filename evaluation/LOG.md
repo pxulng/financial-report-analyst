@@ -116,3 +116,8 @@ Scores: scores_test_pass2_agent_v2_haiku.md. Each company took about 20 s, 3-4 m
 - score.py: now tolerates run files without token counts (agent node exposes none).
 - Not yet measured: cost of this pass (to be derived from the account balance).
 - Cost of the single-company agent pass (diagnostic XOM + 6 runs = 7 executions): balance 5.54 -> 5.51 USD, about 0.03 USD in total, roughly 0.004 USD per company on Haiku 5.5 (balance rounded to 0.01, so +/- 0.01). The failed 6-company run (execution 232) cost about 0.14 USD (5.68 -> 5.54): the loop made it about 6 times dearer than a normal run.
+
+## 2026-11-05 - Agent prompt v3 (last allowed version on the test set)
+- File prompts/agent_system_prompt_v3.txt, sha256 103573f4dbd359cdd38ae681750df95e056303d81a30cb8b6b944eca0fa23365. Two additions to v2: (1) every value field must hold the final correct number, computed items consistent with reported figures, no provisional value corrected later in notes; (2) if the balance sheet merges debt and finance leases, search the debt note once to find the borrowings alone; (3) the last message must have no sentence, heading or code fence around the JSON.
+- Definitions are unchanged on purpose (same as reference 2), so the XOM revenue ambiguity is not addressed.
+- Runs: one execution per company, same 6 test companies, Haiku 5.5.
