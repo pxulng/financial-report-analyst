@@ -1,0 +1,266 @@
+{
+  "name": "Annual-report analyst: agent with tools",
+  "nodes": [
+    {
+      "name": "Run",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        0,
+        112
+      ],
+      "parameters": {}
+    },
+    {
+      "name": "Fetch prompt",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.3,
+      "position": [
+        224,
+        112
+      ],
+      "parameters": {
+        "method": "GET",
+        "url": "https://raw.githubusercontent.com/pxulng/financial-report-analyst/main/prompts/agent_system_prompt_v3.txt",
+        "options": {
+          "timeout": 60000,
+          "response": {
+            "response": {
+              "responseFormat": "text",
+              "outputPropertyName": "data"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Reports",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        448,
+        112
+      ],
+      "parameters": {
+        "jsCode": "const IDS = [\"MSFT\"]; // one company per execution; change the ticker for each run\nreturn IDS.map(id => ({ json: { id } }));"
+      }
+    },
+    {
+      "name": "Analyst agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 3.1,
+      "position": [
+        800,
+        112
+      ],
+      "parameters": {
+        "promptType": "define",
+        "text": "=Company ticker: {{ $json.id }}. Analyze its annual report with the tools and fill in the fact sheet.",
+        "options": {
+          "systemMessage": "={{ $(\"Fetch prompt\").first().json.data }}",
+          "maxIterations": 15,
+          "returnIntermediateSteps": true,
+          "enableStreaming": false
+        }
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "name": "Claude model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatAnthropic",
+      "typeVersion": 1.6,
+      "position": [
+        672,
+        336
+      ],
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "mode": "list",
+          "value": "claude-haiku-5-5",
+          "cachedResultName": "claude-haiku-5-5"
+        },
+        "options": {
+          "maxTokensToSample": 16000,
+          "thinkingMode": "disabled"
+        }
+      },
+      "credentials": {
+        "anthropicApi": {
+          "name": "<your Anthropic credential>"
+        }
+      }
+    },
+    {
+      "id": "search_report",
+      "name": "search_report",
+      "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
+      "typeVersion": 2.2,
+      "position": [
+        0,
+        0
+      ],
+      "parameters": {
+        "description": "Search the annual report. Returns up to 8 short passages containing the words of the query, with line number and section heading.",
+        "source": "database",
+        "workflowId": {
+          "__rl": true,
+          "mode": "id",
+          "value": "<ID of the report-tools sub-workflow>"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "ticker": "={{ $fromAI('ticker', 'Company ticker, for example AAPL') }}",
+            "tool": "search",
+            "query": "={{ $fromAI('query', 'Words to search for in the report') }}",
+            "statement": ""
+          }
+        }
+      }
+    },
+    {
+      "id": "read_statement",
+      "name": "read_statement",
+      "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
+      "typeVersion": 2.2,
+      "position": [
+        0,
+        0
+      ],
+      "parameters": {
+        "description": "Read a whole financial statement of the annual report as printed. statement is one of income, balance, cashflow.",
+        "source": "database",
+        "workflowId": {
+          "__rl": true,
+          "mode": "id",
+          "value": "<ID of the report-tools sub-workflow>"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "ticker": "={{ $fromAI('ticker', 'Company ticker, for example AAPL') }}",
+            "tool": "statement",
+            "query": "",
+            "statement": "={{ $fromAI('statement', 'One of: income, balance, cashflow') }}"
+          }
+        }
+      }
+    },
+    {
+      "name": "Calculator",
+      "type": "@n8n/n8n-nodes-langchain.toolCalculator",
+      "typeVersion": 1,
+      "position": [
+        1056,
+        336
+      ],
+      "parameters": {}
+    },
+    {
+      "name": "Reading",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1264,
+        112
+      ],
+      "parameters": {
+        "jsCode": "const reports = $(\"Reports\").all();\nconst outs = $input.all();\nconst results = outs.map((it, i) => {\n  const idx = (it.pairedItem && it.pairedItem.item !== undefined) ? it.pairedItem.item : i;\n  const id = reports[idx] ? reports[idx].json.id : \"unknown_\" + i;\n  const raw = String(it.json.output || \"\");\n  let sheet = null, valid_json = false, lenient = false;\n  try { sheet = JSON.parse(raw.replace(/^\\s*```(?:json)?/i, \"\").replace(/```\\s*$/, \"\").trim()); valid_json = true; } catch (e) {}\n  if (!valid_json) {\n    const a = raw.indexOf(\"{\"), b = raw.lastIndexOf(\"}\");\n    if (a >= 0 && b > a) { try { sheet = JSON.parse(raw.slice(a, b + 1)); lenient = true; } catch (e) {} }\n  }\n  const steps = Array.isArray(it.json.intermediateSteps) ? it.json.intermediateSteps : [];\n  const calls = steps.map(s => (s.action && s.action.tool) || \"?\");\n  return { id, model: \"agent\", stop_reason: it.json.error ? \"error\" : \"end\", error: it.json.error ? String(it.json.error).slice(0, 300) : undefined, valid_json, valid_after_extraction: valid_json || lenient, input_tokens: null, output_tokens: null, tool_calls: calls.length, tools_used: calls, sheet, raw: valid_json ? undefined : raw.slice(0, 12000) };\n});\nreturn [{ json: { n: results.length, n_invalid: results.filter(r => !r.valid_json).length, results: JSON.stringify(results) } }];"
+      }
+    }
+  ],
+  "connections": {
+    "Run": {
+      "main": [
+        [
+          {
+            "node": "Fetch prompt",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Fetch prompt": {
+      "main": [
+        [
+          {
+            "node": "Reports",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Reports": {
+      "main": [
+        [
+          {
+            "node": "Analyst agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Analyst agent": {
+      "main": [
+        [
+          {
+            "node": "Reading",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Claude model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Analyst agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "search_report": {
+      "ai_tool": [
+        [
+          {
+            "node": "Analyst agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "read_statement": {
+      "ai_tool": [
+        [
+          {
+            "node": "Analyst agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Calculator": {
+      "ai_tool": [
+        [
+          {
+            "node": "Analyst agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  }
+}

@@ -1,0 +1,181 @@
+{
+  "name": "Annual-report analyst: reference 2 (single prompt)",
+  "nodes": [
+    {
+      "name": "Run",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        0,
+        0
+      ],
+      "parameters": {}
+    },
+    {
+      "name": "Reports",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        224,
+        0
+      ],
+      "parameters": {
+        "jsCode": "const BASE = \"https://raw.githubusercontent.com/pxulng/financial-report-analyst/main/data/10k/\";\nconst REPORTS = [\n  { id: \"AAPL\", file: \"AAPL_10-K_FY2026.md\" },\n  { id: \"MSFT\", file: \"MSFT_10-K_FY2026.md\" },\n  { id: \"WMT\", file: \"WMT_10-K_FY2026.md\" },\n  { id: \"NKE\", file: \"NKE_10-K_FY2026.md\" },\n  { id: \"JNJ\", file: \"JNJ_10-K_FY2025.md\" },\n  { id: \"XOM\", file: \"XOM_10-K_FY2025.md\" },\n  { id: \"BA\", file: \"BA_10-K_FY2025.md\" },\n  { id: \"SBUX\", file: \"SBUX_10-K_FY2025.md\" },\n  { id: \"TSLA\", file: \"TSLA_10-K_FY2025.md\" },\n  { id: \"JPM\", file: \"JPM_10-K_FY2025.md\" }\n];\nreturn REPORTS.map(r => ({ json: { id: r.id, url: BASE + r.file } }));"
+      }
+    },
+    {
+      "name": "Fetch prompt",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.3,
+      "position": [
+        448,
+        0
+      ],
+      "executeOnce": true,
+      "parameters": {
+        "method": "GET",
+        "url": "https://raw.githubusercontent.com/pxulng/financial-report-analyst/main/prompts/reference2_system_prompt.txt",
+        "options": {
+          "timeout": 60000,
+          "response": {
+            "response": {
+              "responseFormat": "text",
+              "outputPropertyName": "data"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Fetch report",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.3,
+      "position": [
+        672,
+        0
+      ],
+      "parameters": {
+        "method": "GET",
+        "url": "={{ $(\"Reports\").item.json.url }}",
+        "options": {
+          "timeout": 120000,
+          "response": {
+            "response": {
+              "responseFormat": "text",
+              "outputPropertyName": "data"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Message a model",
+      "type": "@n8n/n8n-nodes-langchain.anthropic",
+      "typeVersion": 1,
+      "position": [
+        896,
+        0
+      ],
+      "parameters": {
+        "resource": "text",
+        "operation": "message",
+        "modelId": {
+          "__rl": true,
+          "mode": "list",
+          "value": "claude-sonnet-5-5",
+          "cachedResultName": "claude-sonnet-5-5"
+        },
+        "messages": {
+          "values": [
+            {
+              "role": "user",
+              "content": "Analyze the annual report given in the system message and fill in the fact sheet."
+            }
+          ]
+        },
+        "simplify": false,
+        "options": {
+          "system": "={{ $(\"Fetch prompt\").first().json.data }}\n\n# ANNUAL REPORT\n\n{{ $json.data }}",
+          "maxTokens": 16000
+        }
+      },
+      "credentials": {
+        "anthropicApi": {
+          "name": "<your Anthropic credential>"
+        }
+      }
+    },
+    {
+      "name": "Reading",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1248,
+        0
+      ],
+      "parameters": {
+        "jsCode": "const reports = $(\"Reports\").all();\nconst outs = $input.all();\nconst textOf = (j) => (j && Array.isArray(j.content)) ? j.content.filter(c => c.type === \"text\").map(c => c.text).join(\"\") : \"\";\nconst results = outs.map((it, i) => {\n  const id = reports[i] ? reports[i].json.id : \"unknown_\" + i;\n  const raw = textOf(it.json);\n  let sheet = null, valid_json = false;\n  try { sheet = JSON.parse(raw.replace(/^\\s*```(?:json)?/i, \"\").replace(/```\\s*$/, \"\").trim()); valid_json = true; } catch (e) {}\n  const u = it.json.usage || {};\n  return { id, model: it.json.model, stop_reason: it.json.stop_reason, valid_json, input_tokens: u.input_tokens ?? null, output_tokens: u.output_tokens ?? null, sheet, raw: valid_json ? undefined : raw };\n});\nreturn [{ json: { n: results.length, n_invalid: results.filter(r => !r.valid_json).length, results: JSON.stringify(results) } }];"
+      }
+    }
+  ],
+  "connections": {
+    "Run": {
+      "main": [
+        [
+          {
+            "node": "Fetch prompt",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Fetch prompt": {
+      "main": [
+        [
+          {
+            "node": "Reports",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Reports": {
+      "main": [
+        [
+          {
+            "node": "Fetch report",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Fetch report": {
+      "main": [
+        [
+          {
+            "node": "Message a model",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Message a model": {
+      "main": [
+        [
+          {
+            "node": "Reading",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  }
+}
