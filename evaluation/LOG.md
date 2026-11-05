@@ -136,3 +136,10 @@ Scores: scores_test_pass2_agent_v2_haiku.md. Each company took about 20 s, 3-4 m
 - The only errors are XOM revenue and revenue_growth (323,905 "Sales and other operating revenue" vs key 332,238): the XOM definition ambiguity already logged, not a reading error.
 - Tokens (5 companies): about 851k input and 19.6k output; at the inferred Sonnet price (2 / 10 USD per million) about 1.9 USD, i.e. about 0.38 USD per company, versus about 0.09 for Haiku. To be checked against the balance.
 - Measured cost: balance 5.46 -> 3.56 USD = 1.90 USD for the 5 companies of execution 513, i.e. 0.38 USD per company with Sonnet 5.5 (the 2.24 USD token estimate above included the AAPL run done earlier). Cumulative spend stays below 10 USD.
+
+## 2026-11-05 - Agent prompt v3, Sonnet 5.5, test set (executions 515/524/534/541/549/556) - scores_test_pass3_agent_v3_sonnet.md
+- Setting change versus Haiku: Sonnet 5.5 refuses "thinking disabled" (first attempt, execution 514, failed at once with an API error); the model node uses thinking mode "adaptive". Haiku runs had thinking disabled. The single-prompt Sonnet runs used the Anthropic node default.
+- Read 54/54, computed 24/24, absent 18/18, wrong or invented 0, JSON strict valid 6/6, no iteration-limit hit; 10-13 tool calls per company; BA and TSLA both ran the debt-note search and removed finance leases (53,848 and 8,153 = key). XOM took "Total revenues and other income" (key) and flagged the ambiguity in its notes.
+- Versus Sonnet single prompt (v1): read 53/54, computed 23/24, wrong 2 (XOM revenue). Versus Haiku agent v3: read 52/54, wrong 3.
+- Caveat: one run per company; XOM revenue has flipped between runs of the same prompt, so a 0 vs 2 difference on one ambiguous line is not conclusive.
+- Cost of this pass: to be derived from the balance (before: 3.56).
