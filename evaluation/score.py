@@ -12,7 +12,8 @@ def close(item,a,b):
     return abs(a-b)<=max(1.0,abs(b)*0.0006)   # rounding of the report's own unit
 def score(path):
     r=json.load(open(path)); t=r['id']; k=key[t]; out={'id':t,'valid_json':r['valid_json'],'in':r['input_tokens'],'out':r['output_tokens'],'errors':[]}
-    if not r['valid_json']: return out
+    out['strict_json']=r['valid_json']
+    if r.get('sheet') is None: out['valid_json']=False; return out
     s=r['sheet']; txt=re.sub(r'\s+',' ',open('../data/10k/'+k['file'],encoding='utf-8',errors='ignore').read())
     fig={f['item']:f for f in s.get('figures',[])}; com={f['item']:f for f in s.get('computed',[])}
     n_read=ok_read=n_comp=ok_comp=wrong=0; src_n=src_ok=0
@@ -46,7 +47,7 @@ def score(path):
 if __name__=='__main__':
     files=sorted(glob.glob(sys.argv[1])); res=[score(f) for f in files]
     print('| Company | JSON | Read | Computed | Absent | Wrong/invented | Value found in report | Risks (keyword proxy) |\n|---|---|---|---|---|---|---|---|')
-    for o in res: print(f"| {o['id']} | {'ok' if o['valid_json'] else 'INVALID'} | {o.get('read','')} | {o.get('comp','')} | {o.get('absent','')} | {o.get('wrong','')} | {o.get('src','')} | {o.get('risks_auto','')} |")
+    for o in res: print(f"| {o['id']} | {'ok' if o.get('strict_json',o['valid_json']) else ('lenient' if o['valid_json'] else 'INVALID')} | {o.get('read','')} | {o.get('comp','')} | {o.get('absent','')} | {o.get('wrong','')} | {o.get('src','')} | {o.get('risks_auto','')} |")
     for k in ['n_ok_read','n_read','n_ok_comp','n_comp','n_ok_abs','n_abs','n_src_ok','n_src']: globals()[k]=sum(o.get(k,0) for o in res)
     print(f"\nTotals: read {n_ok_read}/{n_read} = {n_ok_read/n_read:.1%}; computed {n_ok_comp}/{n_comp} = {n_ok_comp/n_comp:.1%}; absent {n_ok_abs}/{n_abs}; wrong or invented {sum(o.get('wrong',0) for o in res)}; value-in-report {n_src_ok}/{n_src}")
     print('\nErrors:'); 

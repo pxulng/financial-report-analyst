@@ -87,3 +87,11 @@ First launch (execution 54): all tool calls failed because the sub-workflow was 
 - The final answer is **not valid JSON**: the model wrote a truncated item (`"net_debt", "value": 44...}`) and a confused note on total debt (it first put net debt in the debt field, then talked itself out of it in the note). Counts as an invalid JSON for measure 7.
 - Tokens are not reported by the agent node; the cost is read from the account balance.
 - Run kept in `evaluation/runs/AAPL_agent_v1_haiku-5-5.json`. It uses one of the two prompt versions allowed on the test set for the agent only if the prompt is changed; this is the first version.
+
+## 2026-11-05: agent v1, five companies, Haiku 5.5: all reached the iteration limit
+
+Execution 64 (JNJ, XOM, BA, SBUX, TSLA, prompt `agent_system_prompt.txt` v1): all five agents stopped on "Max iterations (15) reached" with no sheet. Measure 8 fails 5/5 and no figure can be scored. Cause not established: Apple (execution 55) and a diagnostic Exxon run needed only 5 model steps (13 tool calls batched), so the failure may come from running the five agents at once; this is checked on the next run.
+
+Diagnostic (execution 223, Exxon alone, limit raised to 30, not scored, not kept as a result): the agent finished in 5 steps, but (a) its final message began with a paragraph of prose before the JSON, which breaks the format ("answer with one JSON object only"); (b) one calculator input was garbled (`(328? )`), another divided income before tax by total revenue, a figure that is not an operating margin; the model corrected itself in the final sheet; (c) the Apple run of execution 55 ended with a truncated item ("value": 44...).
+
+Decision: agent prompt v2 (`prompts/agent_system_prompt_v2.txt`, sha256 `c24c3fb7…81a9c`; the first of the two versions allowed on the test set after v1): efficiency instructions (call independent tools in the same step, one search per topic, one calculation per computed item) and a strict last-message rule (starts with `{`, no prose, no abbreviation). The iteration limit stays at 15. Scoring: JSON validity is reported strictly (prose before or after the object counts as invalid, as in the frozen format) and the figures are also scored from the extracted object so that accuracy is not hidden by format; both are published.
