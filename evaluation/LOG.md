@@ -115,3 +115,4 @@ Scores: scores_test_pass2_agent_v2_haiku.md. Each company took about 20 s, 3-4 m
 - Reading: on this test set the agent is less accurate than the single prompt on Haiku with prompt v1, and also needs a harness workaround (one execution per company). Run files were saved by hand from the n8n output: long free-text fields were shortened, figures/statuses/segments/risks are unchanged.
 - score.py: now tolerates run files without token counts (agent node exposes none).
 - Not yet measured: cost of this pass (to be derived from the account balance).
+- Cost of the single-company agent pass (diagnostic XOM + 6 runs = 7 executions): balance 5.54 -> 5.51 USD, about 0.03 USD in total, roughly 0.004 USD per company on Haiku 5.5 (balance rounded to 0.01, so +/- 0.01). The failed 6-company run (execution 232) cost about 0.14 USD (5.68 -> 5.54): the loop made it about 6 times dearer than a normal run.
