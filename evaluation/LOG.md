@@ -100,3 +100,8 @@ Decision: agent prompt v2 (`prompts/agent_system_prompt_v2.txt`, sha256 `c24c3fb
 - Result: 6/6 runs stopped at the 15-iteration limit (90 model calls = 15 per company). No fact sheet produced for any company (0/6 valid JSON, strict or lenient).
 - The prompt v2 instructions (parallel calls, at most 15 steps) did not change the behaviour. The Reading node reports no tool-call count (agent node does not expose it), so tool usage is unknown for this run.
 - Prompt v2 therefore failed; one more prompt version is allowed under the protocol. Cause not yet established: need the per-step trace of one run before changing anything.
+
+### Diagnostic 2026-11-05 (n8n execution 419)
+- Same agent (prompt v2, Haiku 5.5), XOM alone: finished in about 20 s, 4 model steps, 11 tool calls (3 read_statement, 4 search_report, 4 Calculator), strict-valid JSON.
+- So the 6/6 iteration-limit failures of execution 232 (and of the v1 5-company run) come from running several companies in one execution, not from the prompt. Cause inside n8n not established. Protocol change: one execution per company. The prompt is unchanged, so this is not a new prompt version.
+- XOM run file was saved by hand from the execution output: free-text fields (notes, risk sentences) are shortened; figures, statuses, segments and absent answers are as returned.
