@@ -54,3 +54,19 @@ No report was too long for the window. Outputs: `evaluation/runs/`. Not scored y
 ## 2026-11-05: key check by the author
 
 13 of the 17 sampled figures confirmed, no error found. 4 could not be located by the author (three of them are sums of several debt lines or a line named differently) and were rechecked by Claude only. Deviation from the rule "the author checks the whole 20 % sample" is declared here.
+
+## 2026-11-05: cost of the Haiku test pass
+
+Balance 6.64 to 6.04 USD for six Haiku runs (five companies, Johnson & Johnson twice): about 0.10 USD per report. Consistent with Haiku 5.5 at about 0.50 USD per million input tokens and 2.50 per million output tokens; Sonnet 5.5 (0.34 USD for Apple) then comes out near 2 and 10 USD. Prices are inferred from balances, not read from a price list.
+
+## 2026-11-05: scoring, test set pass 1, reference 2 (prompt v1), Haiku 5.5
+
+Script: `evaluation/score.py`; table: `evaluation/scores_test_pass1_haiku.md`. Scoring rules as in `docs/DESIGN.md`. Risks are scored by a keyword proxy only for now; the human reading comes later. Measure 5 (source) is implemented in a weaker form than designed: the script checks that the value given appears somewhere in the report, not in the cited section.
+
+Result: figures read 53/54 (98.1 %), computed 23/24 (95.8 %), absent items 18/18, JSON valid 6/6, wrong or invented figures: 2 (both Exxon revenue, one cause).
+
+Findings:
+
+1. **Key correction (Boeing debt), made after seeing the model output.** The first key took the balance-sheet debt (54,098), which includes finance lease obligations; the definition excludes them. Haiku read 53,848 and cited the company's own line "Debt, excluding finance lease obligations" (line 4282 of the file), which is exactly the frozen definition. The key now uses that line; Boeing net debt follows (42,927). This correction favours the model on this item and is declared as such. The scoring script showed 4 errors before the correction and 2 after it.
+2. **Exxon revenue is a definition ambiguity, not corrected.** The key uses "Total revenues and other income" (332,238); Haiku used "Sales and other operating revenue" (323,905) and said so in its note. Both readings fit the wording "total sales or total revenues line". The key is left as it is and the error counts; the ambiguity is reported next to the score. Revenue growth inherits the difference.
+3. **Exxon debt:** Haiku and the key agree (43,537) but both include finance lease obligations that Exxon does not break out; Haiku flagged it in its limits. The strict definition cannot be applied to this report.

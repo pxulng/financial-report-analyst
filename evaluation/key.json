@@ -722,19 +722,13 @@
    },
    "debt": {
     "status": "found",
-    "value": 54098,
+    "value": 53848,
     "parts": [
      {
-      "label": "Short-term debt and current portion of long-term debt",
-      "printed": "8,461",
-      "value": 8461,
-      "line": 2091
-     },
-     {
-      "label": "Long-term debt",
-      "printed": "45,637",
-      "value": 45637,
-      "line": 2097
+      "label": "Debt, excluding finance lease obligations",
+      "printed": "53,848",
+      "value": 53848,
+      "line": 4282
      }
     ]
    }
@@ -754,7 +748,7 @@
    },
    "net_debt": {
     "status": "found",
-    "value": 43177
+    "value": 42927
    }
   },
   "segments": [

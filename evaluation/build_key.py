@@ -60,7 +60,7 @@ D = {
   operating_cash_flow=("Net cash provided/\\(used\\) by operating activities","1,065",1065),
   capex=("Payments to acquire property, plant and equipment","2,942",2942),
   cash=("Cash and cash equivalents","10,921",10921),
-  debt=[("Short-term debt and current portion of long-term debt","8,461",8461),("Long-term debt","45,637",45637)],
+  debt=[("Debt, excluding finance lease obligations","53,848",53848)],  # corrected 2026-11-05 after scoring, see LOG.md (was 8,461 + 45,637 = 54,098 including finance leases)
   equity=("Total shareholders' equity","5,454",5454), segments=["Commercial Airplanes","Defense, Space & Security","Global Services"]),
 "SBUX": dict(file="SBUX_10-K_FY2025.md", fy="FY2025 (ended 2025-09-28)", prev_revenue=("Total net revenues","36,176.2",36176.2),
   revenue=("Total net revenues","37,184.4",37184.4), operating_income=("Operating income","2,936.6",2936.6),
