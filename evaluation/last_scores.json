@@ -1,5 +1,30 @@
 [
  {
+  "id": "JPM",
+  "valid_json": true,
+  "in": 552576,
+  "out": 4428,
+  "errors": [
+   "cash: invented number 21742 (key: not applicable)",
+   "total_financial_debt: missing (status not_applicable), key 499982"
+  ],
+  "strict_json": true,
+  "read": "7/9",
+  "comp": "4/4",
+  "absent": "2/3",
+  "wrong": 1,
+  "src": "6/6",
+  "risks_auto": "2/3",
+  "n_ok_read": 7,
+  "n_read": 9,
+  "n_ok_comp": 4,
+  "n_comp": 4,
+  "n_ok_abs": 2,
+  "n_abs": 3,
+  "n_src_ok": 6,
+  "n_src": 6
+ },
+ {
   "id": "MSFT",
   "valid_json": true,
   "in": 134306,
