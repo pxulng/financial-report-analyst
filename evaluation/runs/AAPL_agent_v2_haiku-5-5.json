@@ -1,0 +1,11 @@
+{
+ "id": "AAPL",
+ "model": "agent",
+ "stop_reason": "error",
+ "error": "Max iterations (15) reached",
+ "valid_json": false,
+ "valid_after_extraction": false,
+ "tool_calls": null,
+ "sheet": null,
+ "raw": ""
+}
