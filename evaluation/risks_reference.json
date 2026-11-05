@@ -7,7 +7,7 @@
     "single or limited"
    ],
    "keyword_counts": {
-    "outsourcing partners": 4,
+    "outsourcing partners": 6,
     "single or limited": 5
    },
    "grounded": true
@@ -110,7 +110,7 @@
    ],
    "keyword_counts": {
     "tariff": 10,
-    "supply chain": 31
+    "supply chain": 32
    },
    "grounded": true
   }
@@ -147,7 +147,7 @@
     "tariff"
    ],
    "keyword_counts": {
-    "contract manufacturers": 27,
+    "contract manufacturers": 29,
     "tariff": 27
    },
    "grounded": true
@@ -174,7 +174,7 @@
    ],
    "keyword_counts": {
     "talc": 59,
-    "product liability": 17
+    "product liability": 21
    },
    "grounded": true
   },
@@ -185,7 +185,7 @@
     "reimbursement"
    ],
    "keyword_counts": {
-    "pricing pressure": 4,
+    "pricing pressure": 5,
     "reimbursement": 9
    },
    "grounded": true
@@ -199,7 +199,7 @@
     "prices"
    ],
    "keyword_counts": {
-    "commodity price": 23,
+    "commodity price": 24,
     "prices": 112
    },
    "grounded": true
@@ -211,8 +211,8 @@
     "energy transition"
    ],
    "keyword_counts": {
-    "climate change": 10,
-    "energy transition": 7
+    "climate change": 11,
+    "energy transition": 8
    },
    "grounded": true
   },
@@ -262,7 +262,7 @@
    ],
    "keyword_counts": {
     "supplier": 96,
-    "supply chain": 30
+    "supply chain": 40
    },
    "grounded": true
   }
@@ -300,7 +300,7 @@
    ],
    "keyword_counts": {
     "coffee": 163,
-    "supply chain": 17
+    "supply chain": 18
    },
    "grounded": true
   }
@@ -314,7 +314,7 @@
    ],
    "keyword_counts": {
     "production": 79,
-    "new products": 0
+    "new products": 7
    },
    "grounded": true
   },
@@ -325,7 +325,7 @@
     "tariff"
    ],
    "keyword_counts": {
-    "regulatory credits": 0,
+    "regulatory credits": 23,
     "tariff": 27
    },
    "grounded": true
@@ -337,10 +337,10 @@
     "qualified personnel"
    ],
    "keyword_counts": {
-    "key employees": 0,
-    "qualified personnel": 0
+    "key employees": 3,
+    "qualified personnel": 2
    },
-   "grounded": false
+   "grounded": true
   }
  ],
  "JPM": [
@@ -351,8 +351,8 @@
     "credit losses"
    ],
    "keyword_counts": {
-    "credit risk": 148,
-    "credit losses": 204
+    "credit risk": 156,
+    "credit losses": 228
    },
    "grounded": true
   },
@@ -376,7 +376,7 @@
    ],
    "keyword_counts": {
     "cyber": 95,
-    "operational risk": 96
+    "operational risk": 100
    },
    "grounded": true
   }

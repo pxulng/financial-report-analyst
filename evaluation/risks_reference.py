@@ -36,7 +36,7 @@ R={
 }
 key=json.load(open("key.json")); out={}; bad=[]
 for t,lst in R.items():
-    txt=open("../data/10k/"+key[t]["file"],encoding="utf-8",errors="ignore").read()
+    txt=re.sub(r"\s+"," ",open("../data/10k/"+key[t]["file"],encoding="utf-8",errors="ignore").read())
     out[t]=[]
     for lab,kws in lst:
         counts={k:len(re.findall(re.escape(k),txt,re.I)) for k in kws}
