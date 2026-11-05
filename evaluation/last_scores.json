@@ -1,5 +1,33 @@
 [
  {
+  "id": "JPM",
+  "valid_json": true,
+  "in": 552576,
+  "out": 3259,
+  "errors": [
+   "capex: should be not_applicable, got status not_in_report",
+   "cash: invented number 21742 (key: not applicable)",
+   "total_financial_debt: WRONG 500, key 499982",
+   "free_cash_flow: should be not_applicable, got status not_in_report",
+   "net_debt: invented number 477251 (key: not applicable)"
+  ],
+  "strict_json": true,
+  "read": "6/9",
+  "comp": "2/4",
+  "absent": "2/3",
+  "wrong": 3,
+  "src": "7/7",
+  "risks_auto": "2/3",
+  "n_ok_read": 6,
+  "n_read": 9,
+  "n_ok_comp": 2,
+  "n_comp": 4,
+  "n_ok_abs": 2,
+  "n_abs": 3,
+  "n_src_ok": 7,
+  "n_src": 7
+ },
+ {
   "id": "MSFT",
   "valid_json": true,
   "in": 134306,
