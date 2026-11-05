@@ -121,3 +121,12 @@ Scores: scores_test_pass2_agent_v2_haiku.md. Each company took about 20 s, 3-4 m
 - File prompts/agent_system_prompt_v3.txt, sha256 103573f4dbd359cdd38ae681750df95e056303d81a30cb8b6b944eca0fa23365. Two additions to v2: (1) every value field must hold the final correct number, computed items consistent with reported figures, no provisional value corrected later in notes; (2) if the balance sheet merges debt and finance leases, search the debt note once to find the borrowings alone; (3) the last message must have no sentence, heading or code fence around the JSON.
 - Definitions are unchanged on purpose (same as reference 2), so the XOM revenue ambiguity is not addressed.
 - Runs: one execution per company, same 6 test companies, Haiku 5.5.
+
+## 2026-11-05 - Agent prompt v3, Haiku 5.5, test set (executions 464/471/480/488/496/503) - scores_test_pass3_agent_v3_haiku.md
+- Read 52/54 (96.3%), computed 23/24 (95.8%), absent 18/18, wrong or invented 3. JSON strict 4/6 (JNJ and BA had a prose paragraph before the JSON despite the v3 instruction), 6/6 after extraction.
+- Versus v2: read 50 -> 52, computed 21 -> 23, wrong 7 -> 3. Versus reference 2 Haiku v1: read 53/54, computed 23/24, wrong 2.
+- Remaining wrong: AAPL total debt 43,806 (key 80,111; the note text even says the sum of the three lines; v3 did not fix it, the agent did not run the extra debt-note search either); BA total debt and net debt (54,098/43,177 vs key 53,848/42,927: finance leases, the agent says it did not search the debt note).
+- Fixed by v3: TSLA debt (searched Note 9, removed finance leases: 8,153 = key; 18 tool calls, the only run above 13). XOM revenue now matches the key, but it flipped back and forth between v2 and v3 with an unchanged definition, so it is run-to-run variation, not a v3 effect.
+- Tool use: 10-13 calls, 3-4... TSLA 18. No iteration-limit hit.
+- Caveat: one run per company, so differences of 1-2 figures between versions are within run-to-run noise (XOM revenue shows it). The test set is now closed for the agent (v1, v2, v3 used; v1 was the failed 5-company run, so the protocol "at most 2 versions" was exceeded by one: declared here).
+- Cost of v3 pass: to be derived from the balance.
