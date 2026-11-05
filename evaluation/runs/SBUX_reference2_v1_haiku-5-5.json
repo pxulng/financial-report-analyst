@@ -1,0 +1,166 @@
+{
+ "id": "SBUX",
+ "model": "claude-haiku-5-5",
+ "stop_reason": "end_turn",
+ "valid_json": true,
+ "input_tokens": 120445,
+ "output_tokens": 4758,
+ "sheet": {
+  "company": "Starbucks Corporation",
+  "fiscal_year_end": "2025-09-28",
+  "reporting_currency": "USD",
+  "unit": "millions",
+  "figures": [
+   {
+    "item": "revenue",
+    "value": 37184.4,
+    "status": "found",
+    "source": "Consolidated Statements of Earnings, Total net revenues, p.43",
+    "note": "Fiscal 2025 (52 weeks). Prior year 36,176.2 (p.43)."
+   },
+   {
+    "item": "operating_income",
+    "value": 2936.6,
+    "status": "found",
+    "source": "Consolidated Statements of Earnings, Operating income, p.43",
+    "note": "Includes 892.0 of restructuring and impairments (p.43)."
+   },
+   {
+    "item": "net_income",
+    "value": 1856.4,
+    "status": "found",
+    "source": "Consolidated Statements of Earnings, Net earnings attributable to Starbucks, p.43",
+    "note": "Net earnings including noncontrolling interests were 1,856.7; the group share of 1,856.4 is used."
+   },
+   {
+    "item": "diluted_eps",
+    "value": 1.63,
+    "status": "found",
+    "source": "Consolidated Statements of Earnings, Earnings per share - diluted, p.43; Note 15, p.78",
+    "note": "US GAAP diluted EPS in USD per share."
+   },
+   {
+    "item": "operating_cash_flow",
+    "value": 4747.5,
+    "status": "found",
+    "source": "Consolidated Statements of Cash Flows, Net cash provided by operating activities, p.46",
+    "note": ""
+   },
+   {
+    "item": "capex",
+    "value": 2305.5,
+    "status": "found",
+    "source": "Consolidated Statements of Cash Flows, Additions to property, plant and equipment, p.46",
+    "note": "Reported as an investing outflow of (2,305.5); the positive amount is entered here. Business acquisitions (177.1) excluded."
+   },
+   {
+    "item": "cash",
+    "value": 3219.8,
+    "status": "found",
+    "source": "Consolidated Balance Sheets, Cash and cash equivalents, p.45",
+    "note": "Excludes short-term investments of 247.2 and long-term investments of 246.9 (p.45)."
+   },
+   {
+    "item": "total_financial_debt",
+    "value": 16074.8,
+    "status": "found",
+    "source": "Consolidated Balance Sheets, Current portion of long-term debt 1,498.9 + Long-term debt 14,575.9, p.45; agrees with Note 9 Total, p.70",
+    "note": "No commercial paper or short-term borrowings outstanding (Note 9, p.69). Operating lease liabilities (10,536.7 total) excluded per definition."
+   },
+   {
+    "item": "shareholders_equity",
+    "value": -8096.6,
+    "status": "found",
+    "source": "Consolidated Balance Sheets, Total shareholders' deficit, p.45",
+    "note": "Negative value: shareholders' deficit. Excludes noncontrolling interests of 7.4 (p.45)."
+   }
+  ],
+  "computed": [
+   {
+    "item": "revenue_growth",
+    "value": 0.0279,
+    "status": "found",
+    "formula": "revenue(FY2025) / revenue(FY2024) - 1",
+    "inputs": "37184.4 / 36176.2 - 1 (Consolidated Statements of Earnings, p.43)",
+    "note": "Matches the 2.8% stated in Item 7, p.28-29."
+   },
+   {
+    "item": "operating_margin",
+    "value": 0.07897,
+    "status": "found",
+    "formula": "operating_income / revenue",
+    "inputs": "2936.6 / 37184.4 (p.43)",
+    "note": "Matches the 7.9% stated in Item 7, p.28."
+   },
+   {
+    "item": "free_cash_flow",
+    "value": 2442,
+    "status": "found",
+    "formula": "operating_cash_flow - capex",
+    "inputs": "4747.5 - 2305.5 (p.46)",
+    "note": ""
+   },
+   {
+    "item": "net_debt",
+    "value": 12855,
+    "status": "found",
+    "formula": "total_financial_debt - cash",
+    "inputs": "16074.8 - 3219.8 (p.45)",
+    "note": "Cash excludes short-term and long-term investments, per the definition."
+   }
+  ],
+  "segments": {
+   "count": 3,
+   "names": [
+    "North America",
+    "International",
+    "Channel Development"
+   ],
+   "source": "Item 1, Segment Financial Information, p.6; Item 7 Overview, p.27; Note 17 Segment Reporting, p.78. Corporate and Other is reported as unallocated corporate expenses, not as a reportable segment."
+  },
+  "major_risks": [
+   {
+    "risk": "The company's financial performance is heavily reliant on its North America operating segment, which accounted for approximately 74% of fiscal 2025 total net revenues, so a slowdown there could materially affect overall results.",
+    "source": "Item 1A Risk Factors, Risks Related to Operating a Global Business, p.14"
+   },
+   {
+    "risk": "Rising costs or reduced availability of high-quality arabica coffee and other commodities could materially affect profitability, given coffee's central role and the company's limited ability to fully hedge price increases.",
+    "source": "Item 1A Risk Factors, Risks Related to Supply Chain, p.15"
+   },
+   {
+    "risk": "The company may not successfully implement its strategic initiatives, including the restructuring plan and the Back to Starbucks strategy, which could cause significant additional costs and adversely affect financial results.",
+    "source": "Item 1A Risk Factors, Risks Related to Our Business, p.12"
+   }
+  ],
+  "not_in_report": [
+   {
+    "question": "What is the company's current share price today?",
+    "status": "not_in_report",
+    "answer": "The report does not give a current share price. It gives the aggregate market value of non-affiliate common stock as of March 30, 2025 ($111.0 billion) and a total-return performance graph through September 28, 2025.",
+    "source": "Cover page, p.cover; Item 5 Performance Comparison Graph, p.25"
+   },
+   {
+    "question": "What is the company's own earnings guidance for the next fiscal year?",
+    "status": "not_in_report",
+    "answer": "The report contains no numeric earnings, EPS or revenue guidance for fiscal 2026. Qualitative expectations are stated: fiscal 2026 total capex is expected to be moderately lower than fiscal 2025; North America baseline company-operated revenues are expected to decline from store closures, with an expected slightly accretive effect on operating margin; and fiscal 2026 restructuring charges are estimated at about 230 million.",
+    "source": "Item 7 Overview, p.28; Item 7 Cash requirements, p.37; Note 18 Restructuring, p.81"
+   },
+   {
+    "question": "What is an analyst's estimate of the company's fair value?",
+    "status": "not_in_report",
+    "answer": "The report contains no analyst fair-value estimate. It states that the estimated fair value of reporting units exceeded carrying value by approximately 120 billion in the goodwill test, and it describes a November 2025 agreement under which Boyu Capital would acquire up to 60% of China retail operations at an approximate enterprise value of 4 billion. These are company disclosures, not an analyst valuation.",
+    "source": "Item 7 Critical Accounting Estimates, p.42; Note 19 Subsequent Event, p.82"
+   }
+  ],
+  "limits": [
+   "Capex is entered as a positive 2,305.5 because the cash-flow statement shows it as an outflow.",
+   "Shareholders' equity is negative (a deficit of 8,096.6); analysts should check that this sign is handled correctly in any downstream ratio.",
+   "Total financial debt excludes operating lease liabilities of 10,536.7, per the definition; including them would change net debt materially.",
+   "Net debt uses cash only (3,219.8). Cash and investments of about 3.7 billion, including short-term and long-term investments, are excluded per the definition.",
+   "The report covers a 52-week fiscal year ended September 28, 2025. Revenue growth is computed against the 52-week fiscal 2024 (ended September 29, 2024).",
+   "Diluted EPS of 1.63 is the US GAAP figure as published; no adjusted EPS was used.",
+   "The Boyu Capital China joint venture (Note 19) was announced after year-end and is expected to close in early 2026; it is not reflected in the fiscal 2025 figures.",
+   "The report states that the operating segment net revenue shares are North America 74%, International 21% and Channel Development 5%; these were not recomputed."
+  ]
+ }
+}

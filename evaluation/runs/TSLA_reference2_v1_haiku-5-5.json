@@ -1,0 +1,165 @@
+{
+ "id": "TSLA",
+ "model": "claude-haiku-5-5",
+ "stop_reason": "end_turn",
+ "valid_json": true,
+ "input_tokens": 220277,
+ "output_tokens": 4696,
+ "sheet": {
+  "company": "Tesla, Inc.",
+  "fiscal_year_end": "2025-12-31",
+  "reporting_currency": "USD",
+  "unit": "millions",
+  "figures": [
+   {
+    "item": "revenue",
+    "value": 94827,
+    "status": "found",
+    "source": "Consolidated Statements of Operations, Total revenues, p.50",
+    "note": "Fiscal 2025. Prior year 97,690 (2024), used for revenue_growth."
+   },
+   {
+    "item": "operating_income",
+    "value": 4355,
+    "status": "found",
+    "source": "Consolidated Statements of Operations, Income from operations, p.50",
+    "note": "Tesla publishes this line as 'Income from operations'; used as the operating_income line."
+   },
+   {
+    "item": "net_income",
+    "value": 3794,
+    "status": "found",
+    "source": "Consolidated Statements of Operations, Net income attributable to common stockholders, p.50",
+    "note": "Group share. Total net income including noncontrolling interests is 3,855 (p.50)."
+   },
+   {
+    "item": "diluted_eps",
+    "value": 1.08,
+    "status": "found",
+    "source": "Consolidated Statements of Operations, Net income per share, Diluted, p.50",
+    "note": "USD per share, as published (GAAP). Basic EPS is 1.18."
+   },
+   {
+    "item": "operating_cash_flow",
+    "value": 14747,
+    "status": "found",
+    "source": "Consolidated Statements of Cash Flows, Net cash provided by operating activities, p.53",
+    "note": ""
+   },
+   {
+    "item": "capex",
+    "value": 8527,
+    "status": "found",
+    "source": "Consolidated Statements of Cash Flows, Purchases of property and equipment excluding finance leases, net of sales, p.53",
+    "note": "Reported as an outflow of (8,527); shown here as a positive amount. Excludes investment purchases and business combinations."
+   },
+   {
+    "item": "cash",
+    "value": 16513,
+    "status": "found",
+    "source": "Consolidated Balance Sheets, Cash and cash equivalents, p.49",
+    "note": "Excludes short-term investments of 27,546 (p.49)."
+   },
+   {
+    "item": "total_financial_debt",
+    "value": 8153,
+    "status": "found",
+    "source": "Note 9 Debt, summary as of December 31, 2025, Total debt net carrying value: current 1,569 plus long-term 6,584, p.73",
+    "note": "Excludes finance leases of 223 (71 current, 152 long-term). The balance sheet line 'Current portion of debt and finance leases' 1,640 plus 'Debt and finance leases, net of current portion' 6,736 totals 8,376, which includes those finance leases. Net carrying values are used, not unpaid principal of 8,177."
+   },
+   {
+    "item": "shareholders_equity",
+    "value": 82137,
+    "status": "found",
+    "source": "Consolidated Balance Sheets, Total stockholders' equity, p.49",
+    "note": "Attributable to the company's stockholders; excludes noncontrolling interests of 670."
+   }
+  ],
+  "computed": [
+   {
+    "item": "revenue_growth",
+    "value": -0.0293,
+    "status": "found",
+    "formula": "revenue_2025 / revenue_2024 - 1",
+    "inputs": "revenue_2025 = 94,827; revenue_2024 = 97,690 (Consolidated Statements of Operations, p.50)",
+    "note": "Rounded to four decimals (about -2.9%)."
+   },
+   {
+    "item": "operating_margin",
+    "value": 0.0459,
+    "status": "found",
+    "formula": "operating_income / revenue",
+    "inputs": "operating_income = 4,355; revenue = 94,827",
+    "note": "Rounded to four decimals."
+   },
+   {
+    "item": "free_cash_flow",
+    "value": 6220,
+    "status": "found",
+    "formula": "operating_cash_flow - capex",
+    "inputs": "operating_cash_flow = 14,747; capex = 8,527",
+    "note": "Millions of USD."
+   },
+   {
+    "item": "net_debt",
+    "value": -8360,
+    "status": "found",
+    "formula": "total_financial_debt - cash",
+    "inputs": "total_financial_debt = 8,153; cash = 16,513",
+    "note": "Negative value means net cash position on this definition."
+   }
+  ],
+  "segments": {
+   "count": 2,
+   "names": [
+    "Automotive",
+    "Energy generation and storage"
+   ],
+   "source": "Item 1, Business, Segment Information, p.2; Note 16, Segment Reporting, p.93"
+  },
+  "major_risks": [
+   {
+    "risk": "The company may experience delays or cost problems in developing, launching and ramping production of its products, services and features, including Cybercab, Bots and new factories.",
+    "source": "Item 1A, Risk Factors, p.12-13"
+   },
+   {
+    "risk": "Suppliers may fail to deliver components on acceptable schedules, prices, quality and volumes, and some components are single-sourced, while 2025 US tariffs and retaliatory measures have raised supply chain costs.",
+    "source": "Item 1A, Risk Factors, p.13 and p.16"
+   },
+   {
+    "risk": "The company is highly dependent on Elon Musk, who does not devote his full time to Tesla and holds management roles at other companies, and key employees are not bound by employment agreements for a set term.",
+    "source": "Item 1A, Risk Factors, p.18"
+   }
+  ],
+  "not_in_report": [
+   {
+    "question": "What is the company's current share price today?",
+    "status": "not_in_report",
+    "answer": "The report gives no current share price. It gives only historical data: an aggregate non-affiliate market value of $892.93 billion as of June 30, 2025, and a 52-week intra-day range of $498.83 high and $214.25 low, both as stated in the risk factors.",
+    "source": "Cover page, p.1; Item 1A, Risk Factors, Trading price of our common stock, p.25"
+   },
+   {
+    "question": "What is the company's own earnings guidance for the next fiscal year?",
+    "status": "not_in_report",
+    "answer": "The report gives no earnings or EPS guidance for fiscal 2026. It does state an expectation that capital expenditures will exceed $20 billion in 2026, which is capex guidance, not earnings guidance.",
+    "source": "Item 7, MD&A, Cash Flow and Capital Expenditure Trends, p.33; Liquidity, Material Cash Requirements, p.42"
+   },
+   {
+    "question": "What is an analyst's estimate of the company's fair value?",
+    "status": "not_in_report",
+    "answer": "The report contains no analyst fair-value estimate. Management's own grant-date fair value estimates for equity awards appear in the notes but are not a valuation of the company.",
+    "source": "Not applicable; no such content in the report"
+   }
+  ],
+  "limits": [
+   "Operating income is the published 'Income from operations' line (4,355). Tesla does not use the label 'Operating income'.",
+   "Net income uses the group share (3,794). Total net income including noncontrolling interests is 3,855.",
+   "Capex is shown as a positive 8,527; the cash flow statement presents it as an outflow. Free cash flow of 6,220 is calculated on that basis.",
+   "Total financial debt excludes finance leases (223), as required. It uses net carrying values (8,153), not unpaid principal (8,177). The balance-sheet debt lines include finance leases and therefore total 8,376.",
+   "Computed ratios are rounded to four decimal places.",
+   "The fact sheet relies on the financial statements and notes. Page numbers follow the printed page numbers in the report text.",
+   "Only the first risk factors are summarised; the report lists many more risks, and the three selected were chosen for their prominence in Item 1A.",
+   "The report notes that the company entered into a January 2026 agreement to invest about $2 billion in xAI; this is a post-year-end event and does not change the 2025 figures."
+  ]
+ }
+}

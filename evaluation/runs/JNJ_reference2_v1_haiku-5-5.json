@@ -1,0 +1,165 @@
+{
+ "id": "JNJ",
+ "model": "claude-haiku-5-5",
+ "stop_reason": "end_turn",
+ "valid_json": true,
+ "input_tokens": 171226,
+ "output_tokens": 5101,
+ "sheet": {
+  "company": "Johnson & Johnson",
+  "fiscal_year_end": "2025-12-28",
+  "reporting_currency": "USD",
+  "unit": "millions",
+  "figures": [
+   {
+    "item": "revenue",
+    "value": 94193,
+    "status": "found",
+    "source": "Consolidated Statements of Earnings, 'Sales to customers', p.44",
+    "note": "Total sales to customers for fiscal 2025 (prior year 88,821)."
+   },
+   {
+    "item": "operating_income",
+    "value": null,
+    "status": "not_applicable",
+    "source": "Consolidated Statements of Earnings, p.44",
+    "note": "The income statement does not publish an 'Operating income' line. It goes from gross profit through SM&A, R&D, IPR&D impairments, interest, other (income) expense and restructuring to earnings before taxes (32,581). Segment income before tax is shown in Note 17, but that is not operating income as defined."
+   },
+   {
+    "item": "net_income",
+    "value": 26804,
+    "status": "found",
+    "source": "Consolidated Statements of Earnings, 'Net earnings', p.44",
+    "note": "Equal to net earnings from continuing operations (no discontinued operations and no non-controlling interests in 2025). Prior year 14,066."
+   },
+   {
+    "item": "diluted_eps",
+    "value": 11.03,
+    "status": "found",
+    "source": "Consolidated Statements of Earnings, 'Total net earnings per share - diluted', p.44",
+    "note": "US GAAP diluted EPS in USD. Continuing operations diluted EPS is the same, 11.03."
+   },
+   {
+    "item": "operating_cash_flow",
+    "value": 24530,
+    "status": "found",
+    "source": "Consolidated Statements of Cash Flows, 'Net cash flows from operating activities', p.47",
+    "note": "Prior year 24,266."
+   },
+   {
+    "item": "capex",
+    "value": 4832,
+    "status": "found",
+    "source": "Consolidated Statements of Cash Flows, 'Additions to property, plant and equipment', p.47",
+    "note": "Shown as an outflow of (4,832) in the cash-flow statement. Entered here as a positive amount. Acquisitions (17,541) and purchases of investments are excluded."
+   },
+   {
+    "item": "cash",
+    "value": 19709,
+    "status": "found",
+    "source": "Consolidated Balance Sheets, 'Cash and cash equivalents', p.43",
+    "note": "Excludes marketable securities of 393 (p.43). Prior year 24,105."
+   },
+   {
+    "item": "total_financial_debt",
+    "value": 47933,
+    "status": "found",
+    "source": "Consolidated Balance Sheets, 'Loans and notes payable' 8,495 + 'Long-term debt' 39,438, p.43; Note 7 Borrowings, p.65-66",
+    "note": "Loans and notes payable (8,495) includes commercial paper, local borrowings and the current portion of long-term debt (2,000), per Note 7. Lease liabilities are excluded. The MD&A states total debt of 47.9 billion, consistent with this figure. Prior year 36,634 (5,983 + 30,651)."
+   },
+   {
+    "item": "shareholders_equity",
+    "value": 81544,
+    "status": "found",
+    "source": "Consolidated Balance Sheets, 'Total shareholders' equity', p.43; Consolidated Statements of Equity, p.46",
+    "note": "No non-controlling interest line is shown for 2025, so this is total equity. Prior year 71,490."
+   }
+  ],
+  "computed": [
+   {
+    "item": "revenue_growth",
+    "value": 0.0605,
+    "status": "found",
+    "formula": "revenue_2025 / revenue_2024 - 1",
+    "inputs": "revenue_2025 = 94,193 (p.44); revenue_2024 = 88,821 (p.44). 94,193 / 88,821 - 1 = 0.06048",
+    "note": "The MD&A reports worldwide sales growth of 6.0% (p.23), which agrees."
+   },
+   {
+    "item": "operating_margin",
+    "value": null,
+    "status": "not_applicable",
+    "formula": "operating_income / revenue",
+    "inputs": "operating_income = not_applicable (no published line); revenue = 94,193",
+    "note": "Cannot be computed because the company does not publish an operating income line."
+   },
+   {
+    "item": "free_cash_flow",
+    "value": 19698,
+    "status": "found",
+    "formula": "operating_cash_flow - capex",
+    "inputs": "operating_cash_flow = 24,530 (p.47); capex = 4,832 (p.47). 24,530 - 4,832 = 19,698",
+    "note": "Computed on the defined basis. Cash used for acquisitions (17,541) is not deducted."
+   },
+   {
+    "item": "net_debt",
+    "value": 28224,
+    "status": "found",
+    "formula": "total_financial_debt - cash",
+    "inputs": "total_financial_debt = 47,933; cash = 19,709. 47,933 - 19,709 = 28,224",
+    "note": "The company's own net debt figure is 27.8 billion (MD&A p.34 and p.35). It uses cash plus current marketable securities (20,102), so it is lower: 47,933 - 20,102 = 27,831. The difference comes from the definition used here, which counts cash only as instructed."
+   }
+  ],
+  "segments": {
+   "count": 2,
+   "names": [
+    "Innovative Medicine",
+    "MedTech"
+   ],
+   "source": "Item 1, Business, 'Segments of business' p.1; Item 7, p.22; Note 17 Segments of business and geographic areas, p.88-89"
+  },
+  "major_risks": [
+   {
+    "risk": "Loss of patent exclusivity, or a successful challenge to patents, can lead to generic or biosimilar competition and a rapid, substantial decline in revenue for key Innovative Medicine products.",
+    "source": "Item 1A, Risks related to our intellectual property (p.12) and Risks related to our business, industry and operations (p.9)"
+   },
+   {
+    "risk": "The company is a defendant in numerous lawsuits over talc-containing body powders, and settlements or judgments could exceed accruals and have a material adverse effect on results and cash flows in a given period.",
+    "source": "Item 1A, Risks related to government regulation and legal proceedings (p.11); Note 19 Legal proceedings (p.95-96)"
+   },
+   {
+    "risk": "Healthcare reform and pricing pressure, including Inflation Reduction Act government-set prices starting in 2026 for selected drugs and 340B program expansion, may reduce sales and margins.",
+    "source": "Item 1A, Risks related to government regulation and legal proceedings (p.10)"
+   }
+  ],
+  "not_in_report": [
+   {
+    "question": "What is the company's current share price today?",
+    "status": "not_in_report",
+    "answer": "The report gives no current share price. It gives the aggregate market value of non-affiliate common stock (about 367 billion USD) at the last business day of Q2 2025, average repurchase prices for Q4 2025 (192.15 to 204.81 USD), and five- and ten-year total-return indexes. None of these is a current price.",
+    "source": "Cover page; Item 5, p.21; Item 7, Shareholder return performance graphs, p.112-113"
+   },
+   {
+    "question": "What is the company's own earnings guidance for the next fiscal year?",
+    "status": "not_in_report",
+    "answer": "The report contains no earnings or financial guidance for fiscal 2026. It mentions that fiscal 2026 will be a 53-week year and gives a declared quarterly dividend of 1.30 USD per share, but no earnings forecast.",
+    "source": "Note 1, Annual closing date, p.55; Item 7, Dividends, p.34"
+   },
+   {
+    "question": "What is an analyst's estimate of the company's fair value?",
+    "status": "not_in_report",
+    "answer": "The report contains no analyst estimate or fair value estimate. The company gives no valuation of its own shares.",
+    "source": "Not applicable; the full report was reviewed."
+   }
+  ],
+  "limits": [
+   "Operating income is not published as a line in the income statement, so operating_income and operating_margin are not_applicable under the rules. Segment income before tax (Innovative Medicine 22,266; MedTech 4,113) is not operating income and was not substituted.",
+   "The company's 'net debt' of 27.8 billion uses cash plus current marketable securities. The fact sheet uses the defined cash-only basis, giving 28,224. Check which basis the analyst needs.",
+   "Capex is reported as a positive amount (4,832), though the cash-flow statement shows it as an outflow.",
+   "The 2025 balance sheet shows no non-controlling interests, so shareholders' equity equals total equity. Confirm this against the full statements if the analyst's definition differs.",
+   "Pages for the balance sheet (p.43), income statement (p.44), equity statement (p.46) and cash-flow statement (p.47) are taken from the page footers in the text. Note 7 page references are approximate because the text extraction is mixed.",
+   "Total financial debt includes commercial paper and local borrowings inside 'Loans and notes payable', as defined in the rules. The split of 8,495 between short-term borrowings and current debt is per Note 7 (about 8.5 billion total, of which 2.0 billion is current long-term debt).",
+   "Fiscal 2025 includes a reversal of about 7.0 billion of talc reserves and an 0.8 billion Auris judgment. These affect net income and EPS comparability; the report does not give an adjusted figure, and none was used.",
+   "The 2023 comparative figures are not recast for discontinued operations (Kenvue). Only 2025 and 2024 were used for computations."
+  ]
+ }
+}

@@ -1,0 +1,168 @@
+{
+ "id": "XOM",
+ "model": "claude-haiku-5-5",
+ "stop_reason": "end_turn",
+ "valid_json": true,
+ "input_tokens": 178223,
+ "output_tokens": 7019,
+ "sheet": {
+  "company": "Exxon Mobil Corporation",
+  "fiscal_year_end": "2025-12-31",
+  "reporting_currency": "USD",
+  "unit": "millions",
+  "figures": [
+   {
+    "item": "revenue",
+    "value": 323905,
+    "status": "found",
+    "source": "Consolidated Statement of Income, 'Sales and other operating revenue', p.71",
+    "note": "Total revenues and other income is 332,238 (p.71), which includes income from equity affiliates and other income. The sales line is used as revenue per the definition."
+   },
+   {
+    "item": "operating_income",
+    "value": null,
+    "status": "not_applicable",
+    "source": "Consolidated Statement of Income, p.71",
+    "note": "The company does not publish an 'Operating income' line. Income before income taxes is 41,268 (p.71), but it is not an operating income line and was not substituted."
+   },
+   {
+    "item": "net_income",
+    "value": 28844,
+    "status": "found",
+    "source": "Consolidated Statement of Income, 'Net income (loss) attributable to ExxonMobil', p.71",
+    "note": "Net income including noncontrolling interests is 29,764 (p.71). The group share is used per the definition."
+   },
+   {
+    "item": "diluted_eps",
+    "value": 6.7,
+    "status": "found",
+    "source": "Consolidated Statement of Income, 'Earnings (loss) per common share - assuming dilution (dollars)', p.71",
+    "note": "Basic and diluted EPS are identical in all years shown (Note 2, p.80)."
+   },
+   {
+    "item": "operating_cash_flow",
+    "value": 51970,
+    "status": "found",
+    "source": "Consolidated Statement of Cash Flows, 'Net cash provided by operating activities', p.74",
+    "note": ""
+   },
+   {
+    "item": "capex",
+    "value": 28358,
+    "status": "found",
+    "source": "Consolidated Statement of Cash Flows, 'Additions to property, plant, and equipment', p.74",
+    "note": "The company's non-GAAP 'Total Cash Capex' is 28,997 (p.35). It includes additional investments and advances and other items, so it was not used. The 2,600 of acquisitions referred to in the MD&A is not separated in the cash flow line."
+   },
+   {
+    "item": "cash",
+    "value": 10681,
+    "status": "found",
+    "source": "Consolidated Balance Sheet, 'Cash and cash equivalents', p.73",
+    "note": "Restricted cash at 31 Dec 2025 is nil (p.73). Marketable securities are not reported as a separate line."
+   },
+   {
+    "item": "total_financial_debt",
+    "value": 43537,
+    "status": "found",
+    "source": "Consolidated Balance Sheet, 'Notes and loans payable' 9,296 and 'Long-term debt' 34,241, p.73; Note 10, p.99; Note 12, p.100",
+    "note": "Caution: the definition excludes lease liabilities, but the balance-sheet borrowing lines include finance lease obligations. Note 13 (p.102) shows 2,406 of finance lease liability included in long-term debt, and Note 12 shows 'Finance leases & other obligations' of 6,313 within long-term debt. The current finance-lease portion is not separately disclosed. The 43,537 figure is therefore above the strict definition by at least 2,406. Note 13 also says 137 of operating lease liability is included in notes and loans payable, which does not reconcile to Note 10 (9,296 = bank loans 3 + commercial paper 3,059 + current LTD 6,234). The analyst should check this."
+   },
+   {
+    "item": "shareholders_equity",
+    "value": 259386,
+    "status": "found",
+    "source": "Consolidated Balance Sheet, 'ExxonMobil share of equity', p.73",
+    "note": "Total equity including noncontrolling interests is 266,626 (p.73). Noncontrolling interests of 7,240 are excluded."
+   }
+  ],
+  "computed": [
+   {
+    "item": "revenue_growth",
+    "value": -0.0452,
+    "status": "found",
+    "formula": "revenue_2025 / revenue_2024 - 1",
+    "inputs": "Sales and other operating revenue: 2025 = 323,905; 2024 = 339,247 (Consolidated Statement of Income, p.71)",
+    "note": "Computed as a decimal fraction, rounded to four decimals."
+   },
+   {
+    "item": "operating_margin",
+    "value": null,
+    "status": "not_applicable",
+    "formula": "operating_income / revenue",
+    "inputs": "operating_income is not_applicable (no published line)",
+    "note": "Cannot be computed because the report does not publish an operating income line."
+   },
+   {
+    "item": "free_cash_flow",
+    "value": 23612,
+    "status": "found",
+    "formula": "operating_cash_flow - capex",
+    "inputs": "operating_cash_flow = 51,970; capex = 28,358 (Consolidated Statement of Cash Flows, p.74)",
+    "note": ""
+   },
+   {
+    "item": "net_debt",
+    "value": 32856,
+    "status": "found",
+    "formula": "total_financial_debt - cash",
+    "inputs": "total_financial_debt = 43,537; cash = 10,681 (Consolidated Balance Sheet, p.73)",
+    "note": "Inherits the finance-lease caveat on total_financial_debt. Using the company's own 'net debt' in Financial Information (p.30) is not possible because that metric is not stated as a value in the report, only as a ratio (net debt to capital 11.0%)."
+   }
+  ],
+  "segments": {
+   "count": 4,
+   "names": [
+    "Upstream",
+    "Energy Products",
+    "Chemical Products",
+    "Specialty Products"
+   ],
+   "source": "Note 3, Disclosures about Segments and Related Information, p.80; Item 7 MD&A Overview, p.37"
+  },
+  "major_risks": [
+   {
+    "risk": "As fundamentally commodity businesses, ExxonMobil's operations and earnings may be significantly affected by changes in oil, gas and petrochemical prices and margins, and a material decline in oil or natural gas prices could have a material adverse effect, especially on the Upstream segment.",
+    "source": "Item 1A Risk Factors, 'Supply and Demand', p.2"
+   },
+   {
+    "risk": "Changes in government policy, including increased or new taxes and royalties (such as windfall profit taxes), environmental and emissions regulation, licensing restrictions and litigation, could adversely affect the company's results.",
+    "source": "Item 1A Risk Factors, 'Government and Political Factors', pp.3-4"
+   },
+   {
+    "risk": "Failure or delay of supportive government policies and markets for carbon capture and storage and other new energy technologies could adversely affect or delay the company's lower-emission investments and the growth and returns of its Low Carbon Solutions and other emerging businesses.",
+    "source": "Item 1A Risk Factors, 'Climate Change and Energy Transition - Policy and market development', pp.5-6"
+   }
+  ],
+  "not_in_report": [
+   {
+    "question": "What is the company's current share price today?",
+    "status": "not_in_report",
+    "answer": "The report does not give a current share price. The cover page gives a closing price of $107.80 on June 30, 2025 (a past date, not today). Item 5 gives an average price paid for shares repurchased in Q4 2025 of $116.01. Neither is a current price.",
+    "source": "Cover page; Item 5, p.24"
+   },
+   {
+    "question": "What is the company's own earnings guidance for the next fiscal year?",
+    "status": "not_in_report",
+    "answer": "The report contains no earnings guidance for 2026. It does state some forward-looking plans: a 2026 capital investment range of $27 to $29 billion (p.59), expected share repurchases of $20 billion in 2026 (p.24), a declared dividend of $1.03 per share payable March 10, 2026 (p.24), and environmental expenditures of about $9 billion annually in 2026 and 2027 (p.62). These are not earnings guidance.",
+    "source": "Item 5, p.24; Item 7 Liquidity and Capital Resources, p.59; Environmental Matters, p.62"
+   },
+   {
+    "question": "What is an analyst's estimate of the company's fair value?",
+    "status": "not_in_report",
+    "answer": "The report contains no fair value estimate by an analyst. The company's standardized measure of discounted future net cash flows (149,129 at 31 Dec 2025, p.127) is a reserves-based regulatory measure that the company states is not a reliable estimate of value, so it is not a fair value estimate.",
+    "source": "Supplemental Information on Oil and Gas E&P Activities, pp.124-127"
+   }
+  ],
+  "limits": [
+   "Operating income is not published as a line, so operating income and operating margin are not_applicable. Income before income taxes (41,268) was not substituted.",
+   "Total financial debt (43,537) uses balance-sheet borrowing lines that include finance lease obligations, which the definition excludes. The current finance-lease portion is not disclosed, so the strict figure cannot be determined from the report. At least 2,406 of non-current finance lease liability sits within long-term debt (Note 13, p.102). Net debt (32,856) inherits this caveat.",
+   "Note 13 (p.102) says 137 of operating lease liability is included in notes and loans payable, but Note 10 (p.99) totals notes and loans payable as 9,296 with no lease line. The analyst should check this inconsistency.",
+   "Revenue uses 'Sales and other operating revenue' (323,905). Total revenues and other income is 332,238 (p.71).",
+   "Capex uses the cash flow line 'Additions to property, plant, and equipment' (28,358). The company's non-GAAP Cash Capex of 28,997 (p.35) was not used.",
+   "Net income and EPS are the amounts attributable to ExxonMobil. Net income including noncontrolling interests is 29,764.",
+   "Shareholders' equity excludes noncontrolling interests of 7,240.",
+   "Page numbers refer to the printed page numbers in the report. Item 1A starts on page 2.",
+   "Revenue growth is computed from the 2024 sales figure of 339,247, as shown in the 2025 report. No restatement of 2024 is indicated."
+  ]
+ }
+}

@@ -36,3 +36,17 @@ Check sample for the author (20 %): `evaluation/KEY_CHECK_SAMPLE.md`.
 `evaluation/risks_reference.py` and `risks_reference.json`: three major risks per company, each with keywords. A risk is "grounded" when one of its keywords appears at least three times in the 10-K file (all 30 are). The list was written from the companies' risk-factor sections and general knowledge of their business, before the nine other companies were run.
 
 Declared limit: the Apple list was written after the author and Claude had seen one Haiku output for Apple, whose three risks (supply constraints, concentrated manufacturing, antitrust litigation) overlap with the reference list. Apple's risk score therefore carries a bias in favour of the models and will be reported with that note. Scoring of a model's risk against the list is by topic, not by wording; it is done by a human reader for the test set and spot-checked on validation.
+
+## 2026-11-05: test set, reference 2 (single prompt), prompt v1, Haiku 5.5, five companies
+
+A first launch processed one company only (n8n executed the prompt-fetch step once for the whole list); the workflow was reordered and rerun. Johnson & Johnson was therefore run twice; the outputs kept are from the second run (execution 53).
+
+| Company | Input tokens | Output tokens | Stop | JSON |
+|---|---|---|---|---|
+| JNJ | 171,226 | 5,101 | end_turn | valid |
+| XOM | 178,223 | 7,019 | end_turn | valid |
+| BA | 161,264 | 5,819 | end_turn | valid |
+| SBUX | 120,445 | 4,758 | end_turn | valid |
+| TSLA | 220,277 | 4,696 | end_turn | valid |
+
+No report was too long for the window. Outputs: `evaluation/runs/`. Not scored yet. Cost from the account balance: to be added.
