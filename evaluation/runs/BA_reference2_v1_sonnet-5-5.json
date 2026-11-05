@@ -1,0 +1,165 @@
+{
+ "id": "BA",
+ "model": "claude-sonnet-5-5",
+ "stop_reason": "end_turn",
+ "valid_json": true,
+ "input_tokens": 161264,
+ "output_tokens": 4161,
+ "sheet": {
+  "company": "The Boeing Company",
+  "fiscal_year_end": "2025-12-31",
+  "reporting_currency": "USD",
+  "unit": "millions",
+  "figures": [
+   {
+    "item": "revenue",
+    "value": 89463,
+    "status": "found",
+    "source": "Consolidated Statements of Operations, p. 54 (Total revenues)",
+    "note": ""
+   },
+   {
+    "item": "operating_income",
+    "value": 4281,
+    "status": "found",
+    "source": "Consolidated Statements of Operations, p. 54 (Earnings/(loss) from operations)",
+    "note": "Includes a $9,566 gain on the Digital Aviation Solutions Divestiture (Note 3, p. 72; Gain on dispositions, net $9,672 on the income statement). It also includes $4,899 of 777X and $384 of 767 reach-forward losses (Item 7, p. 37 and Note 9)."
+   },
+   {
+    "item": "net_income",
+    "value": 2235,
+    "status": "found",
+    "source": "Consolidated Statements of Operations, p. 54 (Net earnings attributable to Boeing shareholders)",
+    "note": "Group share. Total net earnings are 2,238, including 3 attributable to non-controlling interests. Net earnings attributable to common shareholders, after 345 of preferred dividends, are 1,890."
+   },
+   {
+    "item": "diluted_eps",
+    "value": 2.48,
+    "status": "found",
+    "source": "Consolidated Statements of Operations, p. 54; Note 5, p. 75",
+    "note": "GAAP diluted EPS in USD per share, as published. The non-GAAP core EPS of 1.19 is not used."
+   },
+   {
+    "item": "operating_cash_flow",
+    "value": 1065,
+    "status": "found",
+    "source": "Consolidated Statements of Cash Flows, p. 57 (Net cash provided/(used) by operating activities)",
+    "note": ""
+   },
+   {
+    "item": "capex",
+    "value": 2942,
+    "status": "found",
+    "source": "Consolidated Statements of Cash Flows, p. 57 (Payments to acquire property, plant and equipment)",
+    "note": "Acquisitions (1,248) and investment purchases are excluded."
+   },
+   {
+    "item": "cash",
+    "value": 10921,
+    "status": "found",
+    "source": "Consolidated Statements of Financial Position, p. 56 (Cash and cash equivalents)",
+    "note": "Excludes short-term and other investments of 18,479 and restricted cash of 742. The cash-flow statement total including restricted cash is 11,663."
+   },
+   {
+    "item": "total_financial_debt",
+    "value": 53848,
+    "status": "found",
+    "source": "Consolidated Statements of Financial Position, p. 56; Note 17 - Debt, pp. 94-95; Note 22, p. 113",
+    "note": "Short-term debt and current portion of long-term debt 8,461 plus long-term debt 45,637 equals 54,098. I excluded 250 of finance lease obligations, as the lease-exclusion rule requires, which gives 53,848. This matches 'Debt, excluding finance lease obligations' in Note 22. Published total debt including finance leases is 54,098."
+   },
+   {
+    "item": "shareholders_equity",
+    "value": 5454,
+    "status": "found",
+    "source": "Consolidated Statements of Financial Position, p. 56 (Total shareholders' equity)",
+    "note": "Excludes non-controlling interests of 3. Total equity is 5,457. The prior year was a deficit of (3,908)."
+   }
+  ],
+  "computed": [
+   {
+    "item": "revenue_growth",
+    "value": 0.34497,
+    "status": "found",
+    "formula": "revenue 2025 / revenue 2024 - 1",
+    "inputs": "89,463 / 66,517 - 1 (both from the Consolidated Statements of Operations, p. 54)",
+    "note": "Increase of 22,946, or about 34.5%. Revenue was depressed in 2024 by the IAM 751 strike and 737 production disruption."
+   },
+   {
+    "item": "operating_margin",
+    "value": 0.04785,
+    "status": "found",
+    "formula": "operating_income / revenue",
+    "inputs": "4,281 / 89,463",
+    "note": "Matches the 4.8% published in Item 7, p. 26. The margin includes the one-off divestiture gain."
+   },
+   {
+    "item": "free_cash_flow",
+    "value": -1877,
+    "status": "found",
+    "formula": "operating_cash_flow - capex",
+    "inputs": "1,065 - 2,942",
+    "note": "Negative free cash flow."
+   },
+   {
+    "item": "net_debt",
+    "value": 42927,
+    "status": "found",
+    "formula": "total_financial_debt - cash",
+    "inputs": "53,848 - 10,921",
+    "note": "Uses cash and cash equivalents only. Short-term and other investments of 18,479 are not deducted, per the definition. Using published debt of 54,098 would give 43,177."
+   }
+  ],
+  "segments": {
+   "count": 3,
+   "names": [
+    "Commercial Airplanes (BCA)",
+    "Defense, Space & Security (BDS)",
+    "Global Services (BGS)"
+   ],
+   "source": "Item 1, p. 1; Note 24 - Segment and Revenue Information, p. 115. Unallocated items, eliminations and other is a reconciling category, not a reportable segment."
+  },
+  "major_risks": [
+   {
+    "risk": "Commercial Airplanes depends on maintaining a stable production system, meeting FAA-supervised 737 and 787 rate increases and certifying the 777X, 737-7 and 737-10, with delays having already produced large reach-forward losses (777X $4.9 billion in 2025) and customer remedies.",
+    "source": "Item 1A, Risks Related to Our Business and Operations, pp. 7-8"
+   },
+   {
+    "risk": "Fixed-price contracts, especially BDS development programs such as KC-46A, T-7A, MQ-25, VC-25B and Commercial Crew, expose Boeing to cost overruns and further material reach-forward losses (BDS recorded $5.0 billion of such losses in 2024).",
+    "source": "Item 1A, Risks Related to Our Contracts, pp. 13-14"
+   },
+   {
+    "risk": "Boeing must manage liquidity with $54.1 billion of debt (about $15.5 billion of principal due within three years), $15.2 billion of airplane financing commitments and up to $345 million a year of preferred dividends, and a credit-rating downgrade or capital-market disruption could raise borrowing costs or restrict access to funding.",
+    "source": "Item 1A, Risks Related to Financing and Liquidity, p. 17"
+   }
+  ],
+  "not_in_report": [
+   {
+    "question": "The company's current share price today",
+    "status": "not_in_report",
+    "answer": "The report gives no current share price. Only historical reference points appear: the aggregate market value of non-affiliate shares was about $158.3 billion at June 30, 2025 (cover page), and the average price paid on Q4 2025 employee share transfers was $194.23 (Item 5, p. 23).",
+    "source": "Cover page; Item 5, p. 23"
+   },
+   {
+    "question": "The company's own earnings guidance for the next fiscal year",
+    "status": "not_in_report",
+    "answer": "The report contains no quantified earnings, revenue or cash-flow guidance for 2026. It gives only qualitative or operational statements: the 737 rate is planned to rise to 47 per month in 2026 with FAA concurrence, capital expenditures are expected to grow in 2026, first 777-9 delivery is expected in 2027, and 737-7/737-10 certification is expected in 2026.",
+    "source": "Item 7, pp. 36-37 and p. 43"
+   },
+   {
+    "question": "An analyst's estimate of the company's fair value",
+    "status": "not_in_report",
+    "answer": "The report contains no fair-value estimate of the company. The only 'fair value' disclosures concern financial instruments, such as debt fair value of $53,769 in Note 22.",
+    "source": "Not in report"
+   }
+  ],
+  "limits": [
+   "Operating income of 4,281 and net income of 2,235 include a $9,566 gain on the Digital Aviation Solutions Divestiture (Note 3, p. 72). Without it, the company would have reported an operating loss. The analyst should not read the margin as run-rate profitability.",
+   "Total financial debt of 53,848 excludes finance lease obligations of 250 under the lease-exclusion rule. The balance sheet shows 54,098 including them. The operating lease liabilities of 2,267 are also excluded.",
+   "Net debt uses cash and cash equivalents only (10,921). The report also shows short-term and other investments of 18,479, mostly time deposits, which would reduce net debt substantially if included.",
+   "The 2025 figures include Spirit AeroSystems only from December 8, 2025 (less than 1% of revenue). Revenue growth is therefore mostly organic, but the Spirit goodwill (9,997) and the assumed debt are included in the year-end balance sheet. The purchase price allocation is preliminary (Note 2, p. 72).",
+   "Shareholders' equity of 5,454 follows a prior-year deficit of (3,908). The 2024 comparison year was heavily affected by the IAM 751 strike and 737-9 grounding effects, so growth comparisons are distorted.",
+   "The page numbers cited are the 10-K's own printed page numbers."
+  ]
+ },
+ "run_mode": "batch of 5 (n8n execution 513), prompt reference2 v1, model sonnet"
+}

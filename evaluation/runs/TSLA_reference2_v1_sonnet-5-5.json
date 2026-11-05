@@ -1,0 +1,166 @@
+{
+ "id": "TSLA",
+ "model": "claude-sonnet-5-5",
+ "stop_reason": "end_turn",
+ "valid_json": true,
+ "input_tokens": 220277,
+ "output_tokens": 3538,
+ "sheet": {
+  "company": "Tesla, Inc.",
+  "fiscal_year_end": "2025-12-31",
+  "reporting_currency": "USD",
+  "unit": "millions",
+  "figures": [
+   {
+    "item": "revenue",
+    "value": 94827,
+    "status": "found",
+    "source": "Consolidated Statements of Operations, 'Total revenues', p. 50",
+    "note": "FY2025. FY2024 was 97,690."
+   },
+   {
+    "item": "operating_income",
+    "value": 4355,
+    "status": "found",
+    "source": "Consolidated Statements of Operations, 'Income from operations', p. 50",
+    "note": "The report calls this line 'Income from operations'. It is after restructuring and other of 494."
+   },
+   {
+    "item": "net_income",
+    "value": 3794,
+    "status": "found",
+    "source": "Consolidated Statements of Operations, 'Net income attributable to common stockholders', p. 50",
+    "note": "Group's share, excluding non-controlling interests. Total net income including non-controlling interests is 3,855."
+   },
+   {
+    "item": "diluted_eps",
+    "value": 1.08,
+    "status": "found",
+    "source": "Consolidated Statements of Operations, Diluted net income per share, p. 50",
+    "note": "US GAAP, in USD per share. Diluted weighted average shares were 3,528 million."
+   },
+   {
+    "item": "operating_cash_flow",
+    "value": 14747,
+    "status": "found",
+    "source": "Consolidated Statements of Cash Flows, 'Net cash provided by operating activities', p. 53",
+    "note": ""
+   },
+   {
+    "item": "capex",
+    "value": 8527,
+    "status": "found",
+    "source": "Consolidated Statements of Cash Flows, 'Purchases of property and equipment excluding finance leases, net of sales', p. 53",
+    "note": "Published as a net-of-sales figure (outflow of 8,527). Item 7 also gives capital expenditures of $8.53 billion. Excludes purchases of investments and business combinations."
+   },
+   {
+    "item": "cash",
+    "value": 16513,
+    "status": "found",
+    "source": "Consolidated Balance Sheets, 'Cash and cash equivalents', p. 49",
+    "note": "Excludes short-term investments of 27,546 and restricted cash."
+   },
+   {
+    "item": "total_financial_debt",
+    "value": 8153,
+    "status": "found",
+    "source": "Note 9 Debt, 'Total debt' net carrying value, current 1,569 + long-term 6,584, p. 73",
+    "note": "The balance sheet shows 'debt and finance leases' of 1,640 current and 6,736 long-term. I removed finance lease liabilities (71 current, 152 long-term) to get 8,153. Unpaid principal is 8,177. All debt is non-recourse except 3 of recourse debt. No separate commercial paper line is reported."
+   },
+   {
+    "item": "shareholders_equity",
+    "value": 82137,
+    "status": "found",
+    "source": "Consolidated Balance Sheets, 'Total stockholders' equity', p. 49",
+    "note": "Excludes non-controlling interests in subsidiaries (670) and redeemable non-controlling interests (58)."
+   }
+  ],
+  "computed": [
+   {
+    "item": "revenue_growth",
+    "value": -0.0293,
+    "status": "found",
+    "formula": "revenue_2025 / revenue_2024 - 1",
+    "inputs": "94,827 / 97,690 - 1",
+    "note": "Decrease of 2,863, about -2.9%. Both figures are from the Consolidated Statements of Operations."
+   },
+   {
+    "item": "operating_margin",
+    "value": 0.0459,
+    "status": "found",
+    "formula": "operating_income / revenue",
+    "inputs": "4,355 / 94,827",
+    "note": "About 4.6%."
+   },
+   {
+    "item": "free_cash_flow",
+    "value": 6220,
+    "status": "found",
+    "formula": "operating_cash_flow - capex",
+    "inputs": "14,747 - 8,527",
+    "note": ""
+   },
+   {
+    "item": "net_debt",
+    "value": -8360,
+    "status": "found",
+    "formula": "total_financial_debt - cash",
+    "inputs": "8,153 - 16,513",
+    "note": "Negative value means cash exceeds financial debt. Short-term investments of 27,546 are not counted, per the definition."
+   }
+  ],
+  "segments": {
+   "count": 2,
+   "names": [
+    "Automotive",
+    "Energy generation and storage"
+   ],
+   "source": "Item 1 'Segment Information', p. 2, and Note 16 Segment Reporting, p. 93. MD&A labels the first segment 'Automotive & Services and Other'."
+  },
+  "major_risks": [
+   {
+    "risk": "Tesla may face delays or cost problems in developing, launching and ramping production of new products and services (Cybercab, Robotaxi, Bots/Optimus, energy products and new factories), which could harm its brand, profitability and results.",
+    "source": "Item 1A, Risks Related to Our Ability to Grow Our Business, p. 12"
+   },
+   {
+    "risk": "Demand and profitability depend on government incentives and trade policy, because the OBBBA repealed or restricted EV consumer tax credits and regulatory credit programs and higher tariffs raise costs and may hurt demand.",
+    "source": "Item 1A, Risks Related to Government Laws and Regulations, p. 23, and Item 7, Overview, p. 31"
+   },
+   {
+    "risk": "Tesla faces strong and growing competition in electric vehicles, autonomous driving and energy storage, which could lead to lower unit sales, price reductions and loss of market share.",
+    "source": "Item 1A, Risks Related to Our Ability to Grow Our Business, p. 15"
+   }
+  ],
+  "not_in_report": [
+   {
+    "question": "The company's current share price today",
+    "status": "not_in_report",
+    "answer": "The report gives no current share price. It only gives a 52-week intra-day range ($214.25 to $498.83, Item 1A p. 25) and the non-affiliate market value at June 30, 2025 ($892.93 billion, cover page).",
+    "source": "Cover page; Item 1A, p. 25"
+   },
+   {
+    "question": "The company's own earnings guidance for the next fiscal year",
+    "status": "not_in_report",
+    "answer": "The report contains no earnings or revenue guidance for 2026. It states only that capital expenditures are expected to exceed $20 billion in 2026, and that Tesla will ramp six new production lines in 2026.",
+    "source": "Item 7, Cash Flow and Capital Expenditure Trends, p. 33; Item 1, Infrastructure, p. 4"
+   },
+   {
+    "question": "An analyst's estimate of the company's fair value",
+    "status": "not_in_report",
+    "answer": "The report contains no fair-value estimate of the company by an analyst or by the company.",
+    "source": "Not in report"
+   }
+  ],
+  "limits": [
+   "Total financial debt of 8,153 is the net carrying value of debt from Note 9. The unpaid principal is 8,177, and the Item 1A and Item 7 text cites $8.18 billion. The analyst should decide which basis to use.",
+   "The balance sheet presents 'Debt and finance leases' as a combined line. I separated finance leases (223 in total) using Note 9 and Note 10. Operating lease liabilities (6,343) are excluded.",
+   "Capex is the cash-flow line 'Purchases of property and equipment excluding finance leases, net of sales'. Non-cash property and equipment acquisitions in liabilities (1,913) are not included.",
+   "Net debt is negative (net cash) only when short-term investments (27,546) are ignored. Including them would raise the net cash position further.",
+   "Net income used is the common stockholders' share (3,794), not the total of 3,855.",
+   "Operating income includes restructuring and other of 494. Interest income of 1,680 and other expense of 419 are below the operating line.",
+   "The report includes a January 2026 agreement to invest about $2 billion in xAI Series E Preferred Stock (Item 9B, Note 15). This is after year-end and not in the FY2025 figures.",
+   "The report contains exhibit text (equity plan forms and a subsidiary list) that does not affect the figures."
+  ]
+ },
+ "run_mode": "batch of 5 (n8n execution 513), prompt reference2 v1, model sonnet"
+}

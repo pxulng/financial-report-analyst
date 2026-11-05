@@ -1,0 +1,164 @@
+{
+ "id": "JNJ",
+ "model": "claude-sonnet-5-5",
+ "stop_reason": "end_turn",
+ "valid_json": true,
+ "input_tokens": 171226,
+ "output_tokens": 3642,
+ "sheet": {
+  "company": "Johnson & Johnson",
+  "fiscal_year_end": "2025-12-28",
+  "reporting_currency": "USD",
+  "unit": "millions",
+  "figures": [
+   {
+    "item": "revenue",
+    "value": 94193,
+    "status": "found",
+    "source": "Consolidated Statements of Earnings, 'Sales to customers', p. 44",
+    "note": "Fiscal 2025 (52 weeks ended December 28, 2025)."
+   },
+   {
+    "item": "operating_income",
+    "value": null,
+    "status": "not_applicable",
+    "source": "Consolidated Statements of Earnings, p. 44",
+    "note": "The income statement has no 'Operating income' line. It goes from gross profit to 'Earnings before provision for taxes on income' (32,581), which includes other (income) expense, net of (7,209) and interest items. No figure is forced."
+   },
+   {
+    "item": "net_income",
+    "value": 26804,
+    "status": "found",
+    "source": "Consolidated Statements of Earnings, 'Net earnings', p. 44",
+    "note": "No non-controlling interest is shown. Equals net earnings from continuing operations; there were no discontinued operations in 2025."
+   },
+   {
+    "item": "diluted_eps",
+    "value": 11.03,
+    "status": "found",
+    "source": "Consolidated Statements of Earnings, 'Total net earnings per share - diluted', p. 44",
+    "note": "US GAAP, in dollars per share."
+   },
+   {
+    "item": "operating_cash_flow",
+    "value": 24530,
+    "status": "found",
+    "source": "Consolidated Statements of Cash Flows, 'Net cash flows from operating activities', p. 47",
+    "note": ""
+   },
+   {
+    "item": "capex",
+    "value": 4832,
+    "status": "found",
+    "source": "Consolidated Statements of Cash Flows, 'Additions to property, plant and equipment', p. 47",
+    "note": "Shown as an outflow of (4,832); entered as a positive amount. Excludes acquisitions (17,541) and investment purchases."
+   },
+   {
+    "item": "cash",
+    "value": 19709,
+    "status": "found",
+    "source": "Consolidated Balance Sheets, 'Cash and cash equivalents', p. 43",
+    "note": "Excludes current marketable securities of 393."
+   },
+   {
+    "item": "total_financial_debt",
+    "value": 47933,
+    "status": "found",
+    "source": "Consolidated Balance Sheets, p. 43: 'Loans and notes payable' 8,495 + 'Long-term debt' 39,438; Note 7 Borrowings, p. 65-66",
+    "note": "Loans and notes payable includes the current portion of long-term debt (2,000) and commercial paper (6,500) per Note 7. Lease liabilities are excluded. The MD&A states total borrowings of $47.9 billion, which is consistent."
+   },
+   {
+    "item": "shareholders_equity",
+    "value": 81544,
+    "status": "found",
+    "source": "Consolidated Balance Sheets, 'Total shareholders' equity', p. 43",
+    "note": "No non-controlling interest is shown in 2025."
+   }
+  ],
+  "computed": [
+   {
+    "item": "revenue_growth",
+    "value": 0.0605,
+    "status": "found",
+    "formula": "revenue 2025 / revenue 2024 - 1",
+    "inputs": "94,193 / 88,821 - 1 = 0.06048 (2024 revenue from Consolidated Statements of Earnings, p. 44)",
+    "note": "Matches the 6.0% growth stated in Item 7, p. 23."
+   },
+   {
+    "item": "operating_margin",
+    "value": null,
+    "status": "not_applicable",
+    "formula": "operating_income / revenue",
+    "inputs": "operating_income is not_applicable",
+    "note": "The company does not publish an operating income line. The report shows pre-tax earnings of 32,581, or 34.6% of sales (Item 7, p. 29), but that is not operating income."
+   },
+   {
+    "item": "free_cash_flow",
+    "value": 19698,
+    "status": "found",
+    "formula": "operating_cash_flow - capex",
+    "inputs": "24,530 - 4,832",
+    "note": ""
+   },
+   {
+    "item": "net_debt",
+    "value": 28224,
+    "status": "found",
+    "formula": "total_financial_debt - cash",
+    "inputs": "47,933 - 19,709",
+    "note": "The company's own net debt of $27.8 billion (Item 7, p. 34 and 36) also subtracts current marketable securities (393), which are excluded here under the stated definition. 47,933 - 19,709 - 393 = 27,831."
+   }
+  ],
+  "segments": {
+   "count": 2,
+   "names": [
+    "Innovative Medicine",
+    "MedTech"
+   ],
+   "source": "Item 1, Segments of business, p. 1; Note 17 Segments of business and geographic areas, p. 83"
+  },
+  "major_risks": [
+   {
+    "risk": "Competition and loss of patent exclusivity (generic and biosimilar entry, e.g. STELARA biosimilars and expected OPSUMIT generics in 2026) can sharply reduce sales of key products.",
+    "source": "Item 1A Risk factors: 'highly competitive product markets' and 'increased challenges to intellectual property rights'; Item 7, p. 26"
+   },
+   {
+    "risk": "Healthcare reform and pricing pressure, notably Inflation Reduction Act government-set Medicare prices starting in 2026, could reduce sales of Innovative Medicine and MedTech products.",
+    "source": "Item 1A Risk factors: 'healthcare reforms and increasing pricing pressures'; Item 1, Regulation"
+   },
+   {
+    "risk": "Significant legal proceedings, especially talc personal-injury claims (about 74,360 plaintiffs, with a reserve of about $3.4 billion), could lead to settlements or judgments exceeding accruals.",
+    "source": "Item 1A Risk factors: 'significant legal proceedings'; Note 19 Legal proceedings"
+   }
+  ],
+  "not_in_report": [
+   {
+    "question": "The company's current share price today",
+    "status": "not_in_report",
+    "answer": "The report gives no current share price. It gives only an aggregate market value of non-affiliate stock of about $367 billion at the end of the second fiscal quarter (cover page) and Q4 2025 average repurchase prices of $192.15 to $204.81 per share (Item 5, p. 21).",
+    "source": "Cover page; Item 5"
+   },
+   {
+    "question": "The company's own earnings guidance for the next fiscal year",
+    "status": "not_in_report",
+    "answer": "The report contains no earnings or sales guidance for fiscal 2026. It mentions only that fiscal 2026 will be a 53-week year, a declared Q1 2026 dividend of $1.30 per share, and the targeted Orthopaedics separation within 18 to 24 months.",
+    "source": "Item 7; Note 1 Annual closing date"
+   },
+   {
+    "question": "An analyst's estimate of the company's fair value",
+    "status": "not_in_report",
+    "answer": "The report contains no estimate of the company's fair value. It is the company's own filing, not analyst research.",
+    "source": "Not applicable"
+   }
+  ],
+  "limits": [
+   "The company does not report operating income, so operating_income and operating_margin are not_applicable. The analyst may want to use pre-tax earnings (32,581) instead, but note that it includes a roughly $7.0 billion talc reserve reversal within Other (income) expense, net.",
+   "Fiscal 2025 results include large non-recurring items: the talc reserve reversal of about $7.0 billion, an $0.8 billion Auris litigation charge, and a one-time $1.0 billion tax remeasurement for the One Big Beautiful Bill Act. Year-over-year comparability is limited.",
+   "Net debt here (28,224) differs from the company's reported $27.8 billion because the company also nets current marketable securities of 393.",
+   "Total financial debt is the sum of two balance sheet lines. Loans and notes payable includes commercial paper and local borrowings, and Note 7 describes it as 8.5 billion, including 2.0 billion of current long-term debt.",
+   "Revenue growth was reduced by about 6.2 points from the STELARA decline and helped by about 1.1 points from acquisitions and divestitures, mainly CAPLYTA and Shockwave (Item 7, p. 23).",
+   "Page numbers refer to the report's own pagination."
+  ]
+ },
+ "run_mode": "batch of 5 (n8n execution 513), prompt reference2 v1, model sonnet"
+}

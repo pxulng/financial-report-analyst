@@ -130,3 +130,8 @@ Scores: scores_test_pass2_agent_v2_haiku.md. Each company took about 20 s, 3-4 m
 - Tool use: 10-13 calls per company, TSLA 18. No iteration-limit hit.
 - Caveat: one run per company, so differences of 1-2 figures between versions are within run-to-run noise (XOM revenue shows it). The test set is now closed for the agent (v1, v2, v3 used). The frozen design allows at most 2 prompt versions per method, so v3 is a third version: the miscount (I told Paul one version remained after v2) is declared here. v1 never produced a usable full test run, but it still counts. The v3 result is therefore reported as exploratory; the validation run will use v3 and the 3-version count will be stated in the case study..
 - Cost of v3 pass (6 runs): balance 5.51 -> 5.46 USD, about 0.05 USD, roughly 0.008 USD per company on Haiku 5.5 (rounded to 0.01).
+
+## 2026-11-05 - Reference 2 (single prompt v1), Sonnet 5.5, test set (JNJ XOM BA SBUX TSLA in execution 513; AAPL from the earlier cost run) - scores_test_pass1_sonnet.md
+- Read 53/54 (98.1%), computed 23/24 (95.8%), absent 18/18, wrong or invented 2, JSON valid 6/6. Same totals as Haiku with the same prompt.
+- The only errors are XOM revenue and revenue_growth (323,905 "Sales and other operating revenue" vs key 332,238): the XOM definition ambiguity already logged, not a reading error.
+- Tokens (5 companies): about 851k input and 19.6k output; at the inferred Sonnet price (2 / 10 USD per million) about 1.9 USD, i.e. about 0.38 USD per company, versus about 0.09 for Haiku. To be checked against the balance.
