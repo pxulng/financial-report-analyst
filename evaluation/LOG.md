@@ -144,3 +144,9 @@ Scores: scores_test_pass2_agent_v2_haiku.md. Each company took about 20 s, 3-4 m
 - Caveat: one run per company; XOM revenue has flipped between runs of the same prompt, so a 0 vs 2 difference on one ambiguous line is not conclusive.
 - Cost of this pass: to be derived from the balance (before: 3.56).
 - Cost of agent v3 Sonnet test pass: balance 3.56 -> 2.78 USD = 0.78 USD for 6 companies, about 0.13 per company (Sonnet agent is about 16 times dearer than Haiku agent).
+
+## Validation pass 1: agent v3, Haiku 5.5 (executions 565, 572, 580, 589)
+Frozen prompt v3, one execution per company, no change between runs.
+- MSFT: 9/9, 4/4, 0 wrong. WMT: 8/9, 4/4, 1 wrong (value field 45,162 against 44,762 in the agent's own note and in net_debt). NKE: 8/9, 3/4, 2 wrong (derived operating income presented as found; the key says not applicable); strict JSON invalid because two sentences precede the fenced block, valid after extraction.
+- JPM: the agent hit the 15-step limit and returned no sheet. Counted as a failure, not retried (frozen protocol).
+- Hand-saved files: free text shortened, figures as returned. Scores in `scores_validation_agent_v3_haiku.md`.
