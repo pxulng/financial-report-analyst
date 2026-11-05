@@ -172,3 +172,6 @@ Frozen prompt. MSFT, WMT, NKE in one batch (650); JPM alone (651).
 
 ## Validation summary
 Paul's balance after the Sonnet single-prompt passes: 4.36 USD (6.66 after top-up), so the single-prompt Sonnet pass cost 2.30 USD, equal to the token-based estimate. The agent Sonnet validation cost cannot be read from the balance (top-up in between); estimated from the test set. Decision and caveats in `docs/VALIDATION_RESULTS.md`.
+
+## Blind human check (8 sheets, Sonnet, validation set)
+Ratings received; results and key in `human_review_ratings.md`. Faithful 24/24 both methods; top-risk mean single prompt 0.96, agent 0.62. The reviewer identified the method of all 8 sheets, so the blinding failed (agent limits speak in the first person about tools).
