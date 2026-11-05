@@ -1,0 +1,82 @@
+{
+ "id": "NKE",
+ "model": "none (keyword search)",
+ "stop_reason": "n/a",
+ "valid_json": true,
+ "input_tokens": 0,
+ "output_tokens": 0,
+ "sheet": {
+  "figures": [
+   {
+    "item": "revenue",
+    "value": 20511.0,
+    "status": "found",
+    "source": "line 1995",
+    "note": ""
+   },
+   {
+    "item": "operating_income",
+    "value": null,
+    "status": "not_in_report",
+    "source": "",
+    "note": ""
+   },
+   {
+    "item": "net_income",
+    "value": 3108.0,
+    "status": "found",
+    "source": "line 1628",
+    "note": ""
+   },
+   {
+    "item": "diluted_eps",
+    "value": 2.1,
+    "status": "found",
+    "source": "line 1721",
+    "note": ""
+   },
+   {
+    "item": "operating_cash_flow",
+    "value": null,
+    "status": "not_in_report",
+    "source": "",
+    "note": ""
+   },
+   {
+    "item": "capex",
+    "value": 275.0,
+    "status": "found",
+    "source": "line 2437",
+    "note": ""
+   },
+   {
+    "item": "cash",
+    "value": 7563.0,
+    "status": "found",
+    "source": "line 2888",
+    "note": ""
+   },
+   {
+    "item": "total_financial_debt",
+    "value": 5942.0,
+    "status": "found",
+    "source": "line 2908",
+    "note": ""
+   },
+   {
+    "item": "shareholders_equity",
+    "value": 14865.0,
+    "status": "found",
+    "source": "line 2920",
+    "note": ""
+   }
+  ],
+  "computed": [],
+  "segments": {},
+  "major_risks": [],
+  "not_in_report": [],
+  "limits": [
+   "keyword search, no reasoning"
+  ]
+ }
+}

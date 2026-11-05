@@ -1,0 +1,82 @@
+{
+ "id": "MSFT",
+ "model": "none (keyword search)",
+ "stop_reason": "n/a",
+ "valid_json": true,
+ "input_tokens": 0,
+ "output_tokens": 0,
+ "sheet": {
+  "figures": [
+   {
+    "item": "revenue",
+    "value": 331839.0,
+    "status": "found",
+    "source": "line 2788",
+    "note": ""
+   },
+   {
+    "item": "operating_income",
+    "value": 155237.0,
+    "status": "found",
+    "source": "line 1989",
+    "note": ""
+   },
+   {
+    "item": "net_income",
+    "value": 133749.0,
+    "status": "found",
+    "source": "line 1990",
+    "note": ""
+   },
+   {
+    "item": "diluted_eps",
+    "value": 17.95,
+    "status": "found",
+    "source": "line 1991",
+    "note": ""
+   },
+   {
+    "item": "operating_cash_flow",
+    "value": 46.8,
+    "status": "found",
+    "source": "line 2485",
+    "note": ""
+   },
+   {
+    "item": "capex",
+    "value": 30.0,
+    "status": "found",
+    "source": "line 4467",
+    "note": ""
+   },
+   {
+    "item": "cash",
+    "value": 20935.0,
+    "status": "found",
+    "source": "line 2939",
+    "note": ""
+   },
+   {
+    "item": "total_financial_debt",
+    "value": 9250.0,
+    "status": "found",
+    "source": "line 2538",
+    "note": ""
+   },
+   {
+    "item": "shareholders_equity",
+    "value": 442387.0,
+    "status": "found",
+    "source": "line 3007",
+    "note": ""
+   }
+  ],
+  "computed": [],
+  "segments": {},
+  "major_risks": [],
+  "not_in_report": [],
+  "limits": [
+   "keyword search, no reasoning"
+  ]
+ }
+}

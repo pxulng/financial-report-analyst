@@ -1,0 +1,82 @@
+{
+ "id": "TSLA",
+ "model": "none (keyword search)",
+ "stop_reason": "n/a",
+ "valid_json": true,
+ "input_tokens": 0,
+ "output_tokens": 0,
+ "sheet": {
+  "figures": [
+   {
+    "item": "revenue",
+    "value": 94827.0,
+    "status": "found",
+    "source": "line 1592",
+    "note": ""
+   },
+   {
+    "item": "operating_income",
+    "value": 4355.0,
+    "status": "found",
+    "source": "line 2070",
+    "note": ""
+   },
+   {
+    "item": "net_income",
+    "value": 3794.0,
+    "status": "found",
+    "source": "line 2079",
+    "note": ""
+   },
+   {
+    "item": "diluted_eps",
+    "value": 1.08,
+    "status": "found",
+    "source": "line 2084",
+    "note": ""
+   },
+   {
+    "item": "operating_cash_flow",
+    "value": 14747.0,
+    "status": "found",
+    "source": "line 1817",
+    "note": ""
+   },
+   {
+    "item": "capex",
+    "value": 8527.0,
+    "status": "found",
+    "source": "line 2216",
+    "note": ""
+   },
+   {
+    "item": "cash",
+    "value": 16513.0,
+    "status": "found",
+    "source": "line 1995",
+    "note": ""
+   },
+   {
+    "item": "total_financial_debt",
+    "value": 152.0,
+    "status": "found",
+    "source": "line 3239",
+    "note": ""
+   },
+   {
+    "item": "shareholders_equity",
+    "value": 82137.0,
+    "status": "found",
+    "source": "line 2031",
+    "note": ""
+   }
+  ],
+  "computed": [],
+  "segments": {},
+  "major_risks": [],
+  "not_in_report": [],
+  "limits": [
+   "keyword search, no reasoning"
+  ]
+ }
+}

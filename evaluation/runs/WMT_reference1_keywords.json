@@ -1,0 +1,82 @@
+{
+ "id": "WMT",
+ "model": "none (keyword search)",
+ "stop_reason": "n/a",
+ "valid_json": true,
+ "input_tokens": 0,
+ "output_tokens": 0,
+ "sheet": {
+  "figures": [
+   {
+    "item": "revenue",
+    "value": 713163.0,
+    "status": "found",
+    "source": "line 1910",
+    "note": ""
+   },
+   {
+    "item": "operating_income",
+    "value": 29825.0,
+    "status": "found",
+    "source": "line 1741",
+    "note": ""
+   },
+   {
+    "item": "net_income",
+    "value": 2.74,
+    "status": "found",
+    "source": "line 2527",
+    "note": ""
+   },
+   {
+    "item": "diluted_eps",
+    "value": 2.73,
+    "status": "found",
+    "source": "line 2529",
+    "note": ""
+   },
+   {
+    "item": "operating_cash_flow",
+    "value": 41565.0,
+    "status": "found",
+    "source": "line 1875",
+    "note": ""
+   },
+   {
+    "item": "capex",
+    "value": 15.1,
+    "status": "found",
+    "source": "line 1821",
+    "note": ""
+   },
+   {
+    "item": "cash",
+    "value": 10.7,
+    "status": "found",
+    "source": "line 2114",
+    "note": ""
+   },
+   {
+    "item": "total_financial_debt",
+    "value": 3542.0,
+    "status": "found",
+    "source": "line 2334",
+    "note": ""
+   },
+   {
+    "item": "shareholders_equity",
+    "value": 105887.0,
+    "status": "found",
+    "source": "line 2607",
+    "note": ""
+   }
+  ],
+  "computed": [],
+  "segments": {},
+  "major_risks": [],
+  "not_in_report": [],
+  "limits": [
+   "keyword search, no reasoning"
+  ]
+ }
+}

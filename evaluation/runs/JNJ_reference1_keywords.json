@@ -1,0 +1,82 @@
+{
+ "id": "JNJ",
+ "model": "none (keyword search)",
+ "stop_reason": "n/a",
+ "valid_json": true,
+ "input_tokens": 0,
+ "output_tokens": 0,
+ "sheet": {
+  "figures": [
+   {
+    "item": "revenue",
+    "value": 30.0,
+    "status": "found",
+    "source": "line 1644",
+    "note": ""
+   },
+   {
+    "item": "operating_income",
+    "value": null,
+    "status": "not_in_report",
+    "source": "",
+    "note": ""
+   },
+   {
+    "item": "net_income",
+    "value": 10.4,
+    "status": "found",
+    "source": "line 1539",
+    "note": ""
+   },
+   {
+    "item": "diluted_eps",
+    "value": 11.03,
+    "status": "found",
+    "source": "line 3462",
+    "note": ""
+   },
+   {
+    "item": "operating_cash_flow",
+    "value": null,
+    "status": "not_in_report",
+    "source": "",
+    "note": ""
+   },
+   {
+    "item": "capex",
+    "value": 17.0,
+    "status": "found",
+    "source": "line 921",
+    "note": ""
+   },
+   {
+    "item": "cash",
+    "value": 19.7,
+    "status": "found",
+    "source": "line 1523",
+    "note": ""
+   },
+   {
+    "item": "total_financial_debt",
+    "value": 7.0,
+    "status": "found",
+    "source": "line 1902",
+    "note": ""
+   },
+   {
+    "item": "shareholders_equity",
+    "value": 81544.0,
+    "status": "found",
+    "source": "line 1915",
+    "note": ""
+   }
+  ],
+  "computed": [],
+  "segments": {},
+  "major_risks": [],
+  "not_in_report": [],
+  "limits": [
+   "keyword search, no reasoning"
+  ]
+ }
+}

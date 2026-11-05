@@ -1,0 +1,82 @@
+{
+ "id": "SBUX",
+ "model": "none (keyword search)",
+ "stop_reason": "n/a",
+ "valid_json": true,
+ "input_tokens": 0,
+ "output_tokens": 0,
+ "sheet": {
+  "figures": [
+   {
+    "item": "revenue",
+    "value": 3.0,
+    "status": "found",
+    "source": "line 1222",
+    "note": ""
+   },
+   {
+    "item": "operating_income",
+    "value": 2936.6,
+    "status": "found",
+    "source": "line 1289",
+    "note": ""
+   },
+   {
+    "item": "net_income",
+    "value": 1856.4,
+    "status": "found",
+    "source": "line 1330",
+    "note": ""
+   },
+   {
+    "item": "diluted_eps",
+    "value": 1.63,
+    "status": "found",
+    "source": "line 1878",
+    "note": ""
+   },
+   {
+    "item": "operating_cash_flow",
+    "value": 4.7,
+    "status": "found",
+    "source": "line 1604",
+    "note": ""
+   },
+   {
+    "item": "capex",
+    "value": 2305.5,
+    "status": "found",
+    "source": "line 2013",
+    "note": ""
+   },
+   {
+    "item": "cash",
+    "value": 3219.8,
+    "status": "found",
+    "source": "line 1930",
+    "note": ""
+   },
+   {
+    "item": "total_financial_debt",
+    "value": 14968.0,
+    "status": "found",
+    "source": "line 1703",
+    "note": ""
+   },
+   {
+    "item": "shareholders_equity",
+    "value": null,
+    "status": "not_in_report",
+    "source": "",
+    "note": ""
+   }
+  ],
+  "computed": [],
+  "segments": {},
+  "major_risks": [],
+  "not_in_report": [],
+  "limits": [
+   "keyword search, no reasoning"
+  ]
+ }
+}

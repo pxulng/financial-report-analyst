@@ -70,3 +70,9 @@ Findings:
 1. **Key correction (Boeing debt), made after seeing the model output.** The first key took the balance-sheet debt (54,098), which includes finance lease obligations; the definition excludes them. Haiku read 53,848 and cited the company's own line "Debt, excluding finance lease obligations" (line 4282 of the file), which is exactly the frozen definition. The key now uses that line; Boeing net debt follows (42,927). This correction favours the model on this item and is declared as such. The scoring script showed 4 errors before the correction and 2 after it.
 2. **Exxon revenue is a definition ambiguity, not corrected.** The key uses "Total revenues and other income" (332,238); Haiku used "Sales and other operating revenue" (323,905) and said so in its note. Both readings fit the wording "total sales or total revenues line". The key is left as it is and the error counts; the ambiguity is reported next to the score. Revenue growth inherits the difference.
 3. **Exxon debt:** Haiku and the key agree (43,537) but both include finance lease obligations that Exxon does not break out; Haiku flagged it in its limits. The strict definition cannot be applied to this report.
+
+## 2026-11-05: reference 1 (keyword search, no AI)
+
+`baseline/reference1_keyword_search.py`: one fixed list of label patterns for all companies, first line that matches and carries a number. Written once and not tuned after seeing results (frozen as of this entry). It was run on all 10 companies at once, validation included, because it uses no model and no prompt that could be tuned on them.
+
+Figures read correct: 48/90 (53 %); wrong numbers presented as found: 30 over 10 companies. It cannot say "not applicable" or "absent", and does no computation, so only the nine figures read are scored. Outputs: `evaluation/runs/*_reference1_keywords.json`. This is the floor of the study.

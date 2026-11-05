@@ -1,0 +1,82 @@
+{
+ "id": "XOM",
+ "model": "none (keyword search)",
+ "stop_reason": "n/a",
+ "valid_json": true,
+ "input_tokens": 0,
+ "output_tokens": 0,
+ "sheet": {
+  "figures": [
+   {
+    "item": "revenue",
+    "value": 332238.0,
+    "status": "found",
+    "source": "line 3780",
+    "note": ""
+   },
+   {
+    "item": "operating_income",
+    "value": null,
+    "status": "not_in_report",
+    "source": "",
+    "note": ""
+   },
+   {
+    "item": "net_income",
+    "value": 28844.0,
+    "status": "found",
+    "source": "line 1544",
+    "note": ""
+   },
+   {
+    "item": "diluted_eps",
+    "value": null,
+    "status": "not_in_report",
+    "source": "",
+    "note": ""
+   },
+   {
+    "item": "operating_cash_flow",
+    "value": 51970.0,
+    "status": "found",
+    "source": "line 1622",
+    "note": ""
+   },
+   {
+    "item": "capex",
+    "value": 31476.0,
+    "status": "found",
+    "source": "line 1559",
+    "note": ""
+   },
+   {
+    "item": "cash",
+    "value": 10681.0,
+    "status": "found",
+    "source": "line 3859",
+    "note": ""
+   },
+   {
+    "item": "total_financial_debt",
+    "value": 34241.0,
+    "status": "found",
+    "source": "line 1564",
+    "note": ""
+   },
+   {
+    "item": "shareholders_equity",
+    "value": 476.0,
+    "status": "found",
+    "source": "line 555",
+    "note": ""
+   }
+  ],
+  "computed": [],
+  "segments": {},
+  "major_risks": [],
+  "not_in_report": [],
+  "limits": [
+   "keyword search, no reasoning"
+  ]
+ }
+}

@@ -1,0 +1,82 @@
+{
+ "id": "JPM",
+ "model": "none (keyword search)",
+ "stop_reason": "n/a",
+ "valid_json": true,
+ "input_tokens": 0,
+ "output_tokens": 0,
+ "sheet": {
+  "figures": [
+   {
+    "item": "revenue",
+    "value": 27275.0,
+    "status": "found",
+    "source": "line 18538",
+    "note": ""
+   },
+   {
+    "item": "operating_income",
+    "value": null,
+    "status": "not_in_report",
+    "source": "",
+    "note": ""
+   },
+   {
+    "item": "net_income",
+    "value": 57048.0,
+    "status": "found",
+    "source": "line 4492",
+    "note": ""
+   },
+   {
+    "item": "diluted_eps",
+    "value": 20.02,
+    "status": "found",
+    "source": "line 4495",
+    "note": ""
+   },
+   {
+    "item": "operating_cash_flow",
+    "value": null,
+    "status": "not_in_report",
+    "source": "",
+    "note": ""
+   },
+   {
+    "item": "capex",
+    "value": null,
+    "status": "not_in_report",
+    "source": "",
+    "note": ""
+   },
+   {
+    "item": "cash",
+    "value": null,
+    "status": "not_in_report",
+    "source": "",
+    "note": ""
+   },
+   {
+    "item": "total_financial_debt",
+    "value": 435206.0,
+    "status": "found",
+    "source": "line 4547",
+    "note": ""
+   },
+   {
+    "item": "shareholders_equity",
+    "value": 362438.0,
+    "status": "found",
+    "source": "line 4549",
+    "note": ""
+   }
+  ],
+  "computed": [],
+  "segments": {},
+  "major_risks": [],
+  "not_in_report": [],
+  "limits": [
+   "keyword search, no reasoning"
+  ]
+ }
+}

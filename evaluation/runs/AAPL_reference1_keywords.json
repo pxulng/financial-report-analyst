@@ -1,0 +1,82 @@
+{
+ "id": "AAPL",
+ "model": "none (keyword search)",
+ "stop_reason": "n/a",
+ "valid_json": true,
+ "input_tokens": 0,
+ "output_tokens": 0,
+ "sheet": {
+  "figures": [
+   {
+    "item": "revenue",
+    "value": 478834.0,
+    "status": "found",
+    "source": "line 1449",
+    "note": ""
+   },
+   {
+    "item": "operating_income",
+    "value": 158063.0,
+    "status": "found",
+    "source": "line 1702",
+    "note": ""
+   },
+   {
+    "item": "net_income",
+    "value": 132175.0,
+    "status": "found",
+    "source": "line 1710",
+    "note": ""
+   },
+   {
+    "item": "diluted_eps",
+    "value": 8.98,
+    "status": "found",
+    "source": "line 1715",
+    "note": ""
+   },
+   {
+    "item": "operating_cash_flow",
+    "value": 145097.0,
+    "status": "found",
+    "source": "line 1902",
+    "note": ""
+   },
+   {
+    "item": "capex",
+    "value": 9041.0,
+    "status": "found",
+    "source": "line 1910",
+    "note": ""
+   },
+   {
+    "item": "cash",
+    "value": 36305.0,
+    "status": "found",
+    "source": "line 1766",
+    "note": ""
+   },
+   {
+    "item": "total_financial_debt",
+    "value": 9906.0,
+    "status": "found",
+    "source": "line 1803",
+    "note": ""
+   },
+   {
+    "item": "shareholders_equity",
+    "value": 112093.0,
+    "status": "found",
+    "source": "line 1823",
+    "note": ""
+   }
+  ],
+  "computed": [],
+  "segments": {},
+  "major_risks": [],
+  "not_in_report": [],
+  "limits": [
+   "keyword search, no reasoning"
+  ]
+ }
+}
