@@ -169,3 +169,6 @@ Frozen prompt. MSFT, WMT, NKE in one batch (650); JPM alone (651).
 - MSFT, WMT, NKE: 27/27 read, 12/12 computed, 0 wrong.
 - JPM: accepted in a single call (552,576 input tokens), valid JSON. 7/9, 4/4, 1 wrong (cash 21,742 presented as found; key: not applicable); total_financial_debt marked not_applicable (key 499,982), absent 2/3.
 - Totals: read 34/36, computed 16/16, absent 11/12, wrong 1, strict JSON 4/4. Tokens 1,059,267 in / 18,086 out, about 2.30 USD at Sonnet prices. Scores in `scores_validation_reference2_sonnet.md`.
+
+## Validation summary
+Paul's balance after the Sonnet single-prompt passes: 4.36 USD (6.66 after top-up), so the single-prompt Sonnet pass cost 2.30 USD, equal to the token-based estimate. The agent Sonnet validation cost cannot be read from the balance (top-up in between); estimated from the test set. Decision and caveats in `docs/VALIDATION_RESULTS.md`.
