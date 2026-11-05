@@ -11,7 +11,7 @@ def close(item,a,b):
     if item=='diluted_eps': return abs(a-b)<=0.0051
     return abs(a-b)<=max(1.0,abs(b)*0.0006)   # rounding of the report's own unit
 def score(path):
-    r=json.load(open(path)); t=r['id']; k=key[t]; out={'id':t,'valid_json':r['valid_json'],'in':r['input_tokens'],'out':r['output_tokens'],'errors':[]}
+    r=json.load(open(path)); t=r['id']; k=key[t]; out={'id':t,'valid_json':r['valid_json'],'in':r.get('input_tokens'),'out':r.get('output_tokens'),'errors':[]}
     out['strict_json']=r['valid_json']
     if r.get('sheet') is None: out['valid_json']=False; return out
     s=r['sheet']; txt=re.sub(r'\s+',' ',open('../data/10k/'+k['file'],encoding='utf-8',errors='ignore').read())

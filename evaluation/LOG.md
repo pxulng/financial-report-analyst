@@ -105,3 +105,13 @@ Decision: agent prompt v2 (`prompts/agent_system_prompt_v2.txt`, sha256 `c24c3fb
 - Same agent (prompt v2, Haiku 5.5), XOM alone: finished in about 20 s, 4 model steps, 11 tool calls (3 read_statement, 4 search_report, 4 Calculator), strict-valid JSON.
 - So the 6/6 iteration-limit failures of execution 232 (and of the v1 5-company run) come from running several companies in one execution, not from the prompt. Cause inside n8n not established. Protocol change: one execution per company. The prompt is unchanged, so this is not a new prompt version.
 - XOM run file was saved by hand from the execution output: free-text fields (notes, risk sentences) are shortened; figures, statuses, segments and absent answers are as returned.
+
+## 2026-11-05 - Agent prompt v2, Haiku 5.5, test set, one execution per company (executions 419/427/436/443/450/457)
+Scores: scores_test_pass2_agent_v2_haiku.md. Each company took about 20 s, 3-4 model steps, 10-12 tool calls. No iteration-limit hit when run alone.
+- JSON: strict 5/6 valid; JNJ had two prose paragraphs before a fenced JSON block (valid after extraction: 6/6).
+- Read figures 50/54 (92.6%), computed 21/24 (87.5%), absent questions 18/18, wrong or invented figures: 7.
+- Reference 2, Haiku, prompt v1 (for comparison): read 53/54, computed 23/24, absent 18/18, wrong 2.
+- The 7 errors: AAPL total debt (agent wrote 43,806 = net debt in the value field and corrected it to 80,111 only in "limits": counts as wrong); BA total debt and net debt (54,098 vs key 53,848: finance leases included, 250 gap); TSLA total debt and net debt (8,376 vs key 8,153: the balance sheet merges debt and finance leases; the agent flagged it); XOM revenue and growth (323,905 "Sales and other operating revenue" vs key 332,238 "Total revenues and other income": the XOM ambiguity already logged).
+- Reading: on this test set the agent is less accurate than the single prompt on Haiku with prompt v1, and also needs a harness workaround (one execution per company). Run files were saved by hand from the n8n output: long free-text fields were shortened, figures/statuses/segments/risks are unchanged.
+- score.py: now tolerates run files without token counts (agent node exposes none).
+- Not yet measured: cost of this pass (to be derived from the account balance).
