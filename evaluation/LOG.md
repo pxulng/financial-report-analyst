@@ -76,3 +76,14 @@ Findings:
 `baseline/reference1_keyword_search.py`: one fixed list of label patterns for all companies, first line that matches and carries a number. Written once and not tuned after seeing results (frozen as of this entry). It was run on all 10 companies at once, validation included, because it uses no model and no prompt that could be tuned on them.
 
 Figures read correct: 48/90 (53 %); wrong numbers presented as found: 30 over 10 companies. It cannot say "not applicable" or "absent", and does no computation, so only the nine figures read are scored. Outputs: `evaluation/runs/*_reference1_keywords.json`. This is the floor of the study.
+
+## 2026-11-05: agent v1, Apple, Haiku 5.5 (first test)
+
+Agent: n8n AI Agent node, tools `search_report`, `read_statement` (a sub-workflow that fetches the report from GitHub and searches or extracts a statement) and a calculator; 15 iterations maximum; prompt `prompts/agent_system_prompt.txt` v1 (sha256 `650b0c75…811c9`).
+
+First launch (execution 54): all tool calls failed because the sub-workflow was not published; the agent answered honestly that it could not read the report and filled nothing in. Not counted. Sub-workflow published, second launch (execution 55):
+
+- 12 tool calls (3 statements, 5 searches, 4 calculator), well under the 15 limit.
+- The final answer is **not valid JSON**: the model wrote a truncated item (`"net_debt", "value": 44...}`) and a confused note on total debt (it first put net debt in the debt field, then talked itself out of it in the note). Counts as an invalid JSON for measure 7.
+- Tokens are not reported by the agent node; the cost is read from the account balance.
+- Run kept in `evaluation/runs/AAPL_agent_v1_haiku-5-5.json`. It uses one of the two prompt versions allowed on the test set for the agent only if the prompt is changed; this is the first version.
