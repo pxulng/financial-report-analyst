@@ -157,3 +157,9 @@ Frozen prompt, no change. MSFT, WMT, NKE in one batch (612); JPM alone (613, mea
 - JPM: the 1.59 MB report did go through in a single call (552,576 input tokens, answer valid JSON), so the window assumption was wrong: measure 9 outcome is "accepted". The sheet is poor, though: cash 21,742 and net_debt 477,251 presented as found (key: not applicable), total_financial_debt 500 (key 499,982), capex and free cash flow not_in_report where the key says not applicable. 3 wrong figures, read 6/9.
 - Totals over the 4 companies: read 32/36, computed 13/16, absent 11/12, wrong or invented 5. Strict JSON 4/4.
 - Tokens: 1,059,267 in, 17,063 out, about 0.57 USD at Haiku prices. Scores in `scores_validation_reference2_haiku.md`.
+
+## Validation pass 3: agent v3, Sonnet 5.5, thinking adaptive (executions 614, 621, 630, 638)
+Frozen prompt v3, one execution per company.
+- MSFT 9/9, 4/4, 0 wrong. WMT 9/9, 4/4, 0 wrong. NKE 9/9, 4/4, 0 wrong (operating income and margin not_applicable, as the key says).
+- JPM: finished in 14 tool calls with valid JSON (Haiku failed at the step limit on the same company). 8/9, 3/4, 2 wrong: cash and net_debt given as found where the key says not applicable. Risks were weakly supported by the agent's own admission.
+- Totals: read 35/36, computed 15/16, absent 11/12, wrong 2, strict JSON 4/4. Scores in `scores_validation_agent_v3_sonnet.md`.
