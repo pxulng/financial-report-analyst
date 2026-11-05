@@ -30,3 +30,9 @@ Choices made while applying the frozen definitions (to confirm or overrule befor
 - **Johnson & Johnson debt:** "Loans and notes payable" plus long-term debt.
 
 Check sample for the author (20 %): `evaluation/KEY_CHECK_SAMPLE.md`.
+
+## 2026-11-05: risk reference list
+
+`evaluation/risks_reference.py` and `risks_reference.json`: three major risks per company, each with keywords. A risk is "grounded" when one of its keywords appears at least three times in the 10-K file (all 30 are). The list was written from the companies' risk-factor sections and general knowledge of their business, before the nine other companies were run.
+
+Declared limit: the Apple list was written after the author and Claude had seen one Haiku output for Apple, whose three risks (supply constraints, concentrated manufacturing, antitrust litigation) overlap with the reference list. Apple's risk score therefore carries a bias in favour of the models and will be reported with that note. Scoring of a model's risk against the list is by topic, not by wording; it is done by a human reader for the test set and spot-checked on validation.

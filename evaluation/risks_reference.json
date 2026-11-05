@@ -1,0 +1,384 @@
+{
+ "AAPL": [
+  {
+   "risk": "Supply chain concentration: outsourced manufacturing in Asia, single or limited-source components",
+   "keywords": [
+    "outsourcing partners",
+    "single or limited"
+   ],
+   "keyword_counts": {
+    "outsourcing partners": 4,
+    "single or limited": 5
+   },
+   "grounded": true
+  },
+  {
+   "risk": "Legal and regulatory pressure on the business model: antitrust, App Store rules, Digital Markets Act",
+   "keywords": [
+    "antitrust",
+    "Digital Markets Act"
+   ],
+   "keyword_counts": {
+    "antitrust": 10,
+    "Digital Markets Act": 2
+   },
+   "grounded": true
+  },
+  {
+   "risk": "Tariffs, trade restrictions and geopolitical tension affecting costs and operations",
+   "keywords": [
+    "tariff",
+    "geopolitical"
+   ],
+   "keyword_counts": {
+    "tariff": 26,
+    "geopolitical": 4
+   },
+   "grounded": true
+  }
+ ],
+ "MSFT": [
+  {
+   "risk": "Intense competition across all markets, including platform ecosystems",
+   "keywords": [
+    "intense competition",
+    "competitors"
+   ],
+   "keyword_counts": {
+    "intense competition": 2,
+    "competitors": 16
+   },
+   "grounded": true
+  },
+  {
+   "risk": "Risks from AI development and deployment: costs, regulation, reputational harm",
+   "keywords": [
+    "artificial intelligence",
+    "AI"
+   ],
+   "keyword_counts": {
+    "artificial intelligence": 6,
+    "AI": 997
+   },
+   "grounded": true
+  },
+  {
+   "risk": "Cybersecurity incidents and data protection",
+   "keywords": [
+    "cyberattack",
+    "cybersecurity",
+    "security breach"
+   ],
+   "keyword_counts": {
+    "cyberattack": 6,
+    "cybersecurity": 54,
+    "security breach": 1
+   },
+   "grounded": true
+  }
+ ],
+ "WMT": [
+  {
+   "risk": "Execution of the omnichannel and eCommerce strategy and cost of the investments",
+   "keywords": [
+    "omnichannel",
+    "eCommerce"
+   ],
+   "keyword_counts": {
+    "omnichannel": 50,
+    "eCommerce": 64
+   },
+   "grounded": true
+  },
+  {
+   "risk": "Economic conditions, inflation and consumer spending",
+   "keywords": [
+    "inflation",
+    "consumer spending"
+   ],
+   "keyword_counts": {
+    "inflation": 10,
+    "consumer spending": 3
+   },
+   "grounded": true
+  },
+  {
+   "risk": "Tariffs, trade policy and supply chain disruption",
+   "keywords": [
+    "tariff",
+    "supply chain"
+   ],
+   "keyword_counts": {
+    "tariff": 10,
+    "supply chain": 31
+   },
+   "grounded": true
+  }
+ ],
+ "NKE": [
+  {
+   "risk": "Global economic conditions and consumer discretionary spending",
+   "keywords": [
+    "global economic conditions",
+    "discretionary spending"
+   ],
+   "keyword_counts": {
+    "global economic conditions": 3,
+    "discretionary spending": 2
+   },
+   "grounded": true
+  },
+  {
+   "risk": "Intense competition and the ability to innovate and keep brand strength",
+   "keywords": [
+    "intense competition",
+    "brand"
+   ],
+   "keyword_counts": {
+    "intense competition": 5,
+    "brand": 188
+   },
+   "grounded": true
+  },
+  {
+   "risk": "Dependence on contract manufacturers in Asia, supply chain and tariffs",
+   "keywords": [
+    "contract manufacturers",
+    "tariff"
+   ],
+   "keyword_counts": {
+    "contract manufacturers": 27,
+    "tariff": 27
+   },
+   "grounded": true
+  }
+ ],
+ "JNJ": [
+  {
+   "risk": "Competition and loss of patent exclusivity (Innovative Medicine)",
+   "keywords": [
+    "loss of patent exclusivity",
+    "patent"
+   ],
+   "keyword_counts": {
+    "loss of patent exclusivity": 2,
+    "patent": 108
+   },
+   "grounded": true
+  },
+  {
+   "risk": "Product liability and litigation, including talc",
+   "keywords": [
+    "talc",
+    "product liability"
+   ],
+   "keyword_counts": {
+    "talc": 59,
+    "product liability": 17
+   },
+   "grounded": true
+  },
+  {
+   "risk": "Pricing pressure, reimbursement and healthcare regulation",
+   "keywords": [
+    "pricing pressure",
+    "reimbursement"
+   ],
+   "keyword_counts": {
+    "pricing pressure": 4,
+    "reimbursement": 9
+   },
+   "grounded": true
+  }
+ ],
+ "XOM": [
+  {
+   "risk": "Volatility of oil, gas and chemical prices and margins",
+   "keywords": [
+    "commodity price",
+    "prices"
+   ],
+   "keyword_counts": {
+    "commodity price": 23,
+    "prices": 112
+   },
+   "grounded": true
+  },
+  {
+   "risk": "Climate change policies and the energy transition",
+   "keywords": [
+    "climate change",
+    "energy transition"
+   ],
+   "keyword_counts": {
+    "climate change": 10,
+    "energy transition": 7
+   },
+   "grounded": true
+  },
+  {
+   "risk": "Geopolitical and operational risks, including project execution and operating in unstable regions",
+   "keywords": [
+    "geopolitical",
+    "project"
+   ],
+   "keyword_counts": {
+    "geopolitical": 7,
+    "project": 157
+   },
+   "grounded": true
+  }
+ ],
+ "BA": [
+  {
+   "risk": "Dependence on commercial airlines and cyclical aircraft demand",
+   "keywords": [
+    "commercial airlines",
+    "airline"
+   ],
+   "keyword_counts": {
+    "commercial airlines": 2,
+    "airline": 33
+   },
+   "grounded": true
+  },
+  {
+   "risk": "Aircraft safety, quality and regulatory oversight (FAA, 737 MAX)",
+   "keywords": [
+    "FAA",
+    "737"
+   ],
+   "keyword_counts": {
+    "FAA": 24,
+    "737": 87
+   },
+   "grounded": true
+  },
+  {
+   "risk": "Supplier and supply chain disruption, labor disruption and production rate",
+   "keywords": [
+    "supplier",
+    "supply chain"
+   ],
+   "keyword_counts": {
+    "supplier": 96,
+    "supply chain": 30
+   },
+   "grounded": true
+  }
+ ],
+ "SBUX": [
+  {
+   "risk": "Economic conditions and consumer spending",
+   "keywords": [
+    "economic conditions",
+    "consumer"
+   ],
+   "keyword_counts": {
+    "economic conditions": 11,
+    "consumer": 27
+   },
+   "grounded": true
+  },
+  {
+   "risk": "Intense competition and brand strength",
+   "keywords": [
+    "competition",
+    "brand"
+   ],
+   "keyword_counts": {
+    "competition": 12,
+    "brand": 77
+   },
+   "grounded": true
+  },
+  {
+   "risk": "Commodity costs (coffee) and supply chain",
+   "keywords": [
+    "coffee",
+    "supply chain"
+   ],
+   "keyword_counts": {
+    "coffee": 163,
+    "supply chain": 17
+   },
+   "grounded": true
+  }
+ ],
+ "TSLA": [
+  {
+   "risk": "Production ramp-up, new products and manufacturing execution",
+   "keywords": [
+    "production",
+    "new products"
+   ],
+   "keyword_counts": {
+    "production": 79,
+    "new products": 0
+   },
+   "grounded": true
+  },
+  {
+   "risk": "Government incentives, regulatory credits, tariffs and trade policy",
+   "keywords": [
+    "regulatory credits",
+    "tariff"
+   ],
+   "keyword_counts": {
+    "regulatory credits": 0,
+    "tariff": 27
+   },
+   "grounded": true
+  },
+  {
+   "risk": "Attracting and retaining key employees and qualified personnel",
+   "keywords": [
+    "key employees",
+    "qualified personnel"
+   ],
+   "keyword_counts": {
+    "key employees": 0,
+    "qualified personnel": 0
+   },
+   "grounded": false
+  }
+ ],
+ "JPM": [
+  {
+   "risk": "Credit risk and economic conditions",
+   "keywords": [
+    "credit risk",
+    "credit losses"
+   ],
+   "keyword_counts": {
+    "credit risk": 148,
+    "credit losses": 204
+   },
+   "grounded": true
+  },
+  {
+   "risk": "Regulation, capital and liquidity requirements",
+   "keywords": [
+    "capital",
+    "liquidity"
+   ],
+   "keyword_counts": {
+    "capital": 624,
+    "liquidity": 205
+   },
+   "grounded": true
+  },
+  {
+   "risk": "Cybersecurity and operational risk",
+   "keywords": [
+    "cyber",
+    "operational risk"
+   ],
+   "keyword_counts": {
+    "cyber": 95,
+    "operational risk": 96
+   },
+   "grounded": true
+  }
+ ]
+}
