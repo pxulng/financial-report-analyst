@@ -8,6 +8,10 @@ Each method was run once per company. Scores: `evaluation/scores_validation_*.md
 | Single prompt, Haiku 5.5 | 32/36 | 13/16 | 11/12 | 5 | 4/4 | about 0.57 USD (tokens x price) |
 | Agent v3, Sonnet 5.5 | 35/36 | 15/16 | 11/12 | 2 | 4/4 | not measured (see below) |
 | Single prompt, Sonnet 5.5 | 34/36 | 16/16 | 11/12 | 1 | 4/4 | 2.30 USD (tokens x price, matches the balance drop 6.66 to 4.36) |
+| Agent v2 (prompt v4b, tools v2), Haiku 5.5 | 35/36 | 16/16 | 12/12 | 1 (JPM cash) | 2/4 (4/4 after extraction) | about 0.12 USD for all 16 Haiku runs of round 2, test sets included (balance 4.36 to 4.24) |
+| Agent v2 (prompt v4b, tools v2), Sonnet 5.5 | 36/36 | 16/16 | 11/12 | 0 | 4/4 | about 0.43 USD (balance 4.24 to 3.81) |
+
+The two agent v2 rows come from a second round: prompt v4b and the read_section tool were written after the round-1 errors were seen on these same four companies (and the test set), so these four companies are no longer a clean holdout. The one absent item missed on Sonnet is JPM's guidance: the agent reported the 2026 net interest income outlook (about 103 billion dollars) as guidance, which the key does not accept as earnings guidance.
 
 Agent Haiku on JPM stopped at the 15-step limit (measure 8: one report, which is the acceptable maximum). Counting JPM's missing sheet as 9 figures not read, its read rate is 25/36.
 
@@ -24,4 +28,5 @@ Agent Haiku on JPM stopped at the 15-step limit (measure 8: one report, which is
 - The agent prompt went through three versions against two allowed (declared in LOG.md); the single prompt stayed at version 1. This favours the agent, and it still does not win.
 - Agent Sonnet cost: not measured on validation, because the account was topped up in between. Test-set measure for reference: about 0.13 USD per company, so roughly 0.5 USD for the four.
 - Hand-saved agent runs have shortened free text; figures, statuses, segments, risks and absent answers are as returned.
-- Still to do: blind human check of risks and limits on 8 sheets, measure 5 (cited figure appears in cited section), export of the n8n workflows.
+- Round 2 against the decision rule (same model): on Haiku the agent v2 has fewer wrong figures than the single prompt (1 against 5) and reads more (35/36 against 32/36); on Sonnet it has 0 wrong figures against 1. The rule favours the agent v2 on both models, with the contamination caveat above and five agent prompt versions against the single prompt's one. The test-set record of the agent prompt is in `evaluation/scores_test_agent_v4_haiku.md` (v4 was worse than v3: 6 wrong figures) and `evaluation/scores_test_agent_v4b_haiku.md` (v4b: 3 wrong, equal to v3).
+- Still to do (round 1): blind human check of risks and limits on 8 sheets, measure 5 (cited figure appears in cited section), export of the n8n workflows.

@@ -35,6 +35,16 @@ The agent needed three prompt versions to get here. The design allowed two per m
 
 Applying the decision rule written beforehand (fewer wrong figures first, then accuracy, then cost, same model): the single prompt wins on both models. On Haiku the agent has fewer wrong figures but reads fewer figures; on Sonnet it has more wrong figures. No method reaches the target of zero wrong figures on validation, so the design's recommendation is systematic human review, and the best method is the single prompt on Sonnet 5.5, with one wrong figure (JPMorgan's cash, where the key says not applicable).
 
+## Round 2: agent v2 (better tools, prompt v4b)
+After round 1, I gave the agent a `read_section` tool (long sections such as the risk factors or the debt note, read in pages), a statement finder that avoids parent-company-only tables, and prompt v4b (net debt must not go in the debt field, finance leases are subtracted, revenue growth uses the same line in both years). Prompt v4 was worse than v3 on the test set (6 wrong figures against 3); v4b matched v3 (3 wrong) and was then run on the validation set.
+
+| Agent v2 | Read | Computed | Absent flagged | Wrong figures | Strict JSON | Cost |
+|---|---|---|---|---|---|---|
+| Haiku 5.5 | 35/36 | 16/16 | 12/12 | 1 | 2/4 | about 0.12 USD for 16 runs (test sets included) |
+| Sonnet 5.5 | 36/36 | 16/16 | 11/12 | 0 | 4/4 | about 0.43 USD for 4 companies |
+
+On the same four companies, the Sonnet agent now beats the Sonnet single prompt (0 wrong figures against 1, for about a fifth of the cost), and the Haiku agent beats the Haiku single prompt (1 against 5). By the pre-written rule the agent v2 wins. I do not claim it as a clean result: the changes responded to errors seen on these companies, and the agent has had five prompt versions against one. On the test set, Haiku still puts net debt in the debt field for Apple and misses Boeing's finance leases. The next step is a clean holdout of new reports including a bank.
+
 ## What the numbers do not say on their own
 - **The errors are concentrated on the bank.** On Microsoft, Walmart and Nike both Sonnet methods make no wrong figure, and the agent costs about four to five times less. That reading came after seeing the results and does not change the decision.
 - **A long report fits.** JPMorgan's 1.59 MB report went through in a single call (about 552,000 input tokens). My assumption that it would exceed the window was wrong, so the "too long" measure counted zero reports.
@@ -45,10 +55,13 @@ Applying the decision rule written beforehand (fewer wrong figures first, then a
 Per company on the test set: single prompt about 0.09 USD (Haiku) and 0.38 USD (Sonnet); agent about 0.004 to 0.008 USD (Haiku) and 0.13 USD (Sonnet). Costs were derived from the account balance, and on validation from token counts at the model's price. The agent exposes no token usage in n8n, which is why its cost is read from the balance.
 
 ## Limits
-10 companies and about 150 items; one reviewer; a key built from the same reports that are analysed; the agent had three prompt versions against the single prompt's one; the human check was not blind; the agent's cost on the validation set was not measured; some agent run files were saved by hand with shortened free text (figures, statuses and segments as returned); the keyword search was written once and never tuned. Hand-saved files are marked in each run file.
+10 companies and about 150 items; one reviewer; a key built from the same reports that are analysed; the agent had three prompt versions against the single prompt's one; the human check was not blind; the agent's round-1 cost on the validation set was not measured (round 2 was measured from the balance); some agent run files were saved by hand with shortened free text (figures, statuses and segments as returned); the keyword search was written once and never tuned. Hand-saved files are marked in each run file.
 
-## Conclusion
+## Conclusion (round 1)
 With the whole report affordable in one call, the single prompt remained at least as good as the agent: it made fewer wrong figures on validation and its risks were judged better. This confirms project 3's conclusion at the scale of a 10-K. The agent's advantage is cost, strongest when the report is a standard corporate one. Neither method removes the need for human review of a bank's sheet, and a wrong figure on a bank's cash is exactly what a reviewer must catch.
+
+## Conclusion (round 2)
+Round 1 favoured the single prompt; round 2 shows that part of the agent's gap came from its tools and prompt, not from the approach: with a section reader and tighter definitions the Sonnet agent reached 0 wrong figures at a fifth of the cost. Because the tuning used the same companies, the claim is limited to: the agent is competitive and much cheaper, and a clean holdout would settle it.
 
 ## Reproducing
 Prompts in `prompts/`, the three n8n workflows in `workflow/`, reports in `data/10k/`, runs and scores in `evaluation/`. Prompt hashes and settings are in `VALIDATION_FREEZE.md`; results and the decision in `VALIDATION_RESULTS.md`.

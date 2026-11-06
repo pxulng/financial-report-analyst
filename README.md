@@ -2,7 +2,7 @@
 
 Project 4 of an AI portfolio (n8n + Claude). An assistant that reads a US company's annual report (10-K) and produces a sourced fact sheet: key figures, ratios, segments, risks, and what the report does not say. The study measures whether an **agent with tools** beats a **single prompt containing the whole report**, on real public filings.
 
-> **Status: study complete.** On four validation companies with prompts frozen in advance, the single prompt (whole report in one call) beat the agent on the pre-written decision rule: Sonnet 5.5 single prompt made 1 wrong figure, the Sonnet agent 2, the Haiku agent 3 and the Haiku single prompt 5. The agent costs about four to five times less. Read the [case study](docs/CASE_STUDY.md), the [validation results](docs/VALIDATION_RESULTS.md) and the [design](docs/DESIGN.md) (frozen before any model was run).
+> **Status: study complete, with a second round.** Round 1 (agent v3, prompts frozen in advance): the single prompt (whole report in one call) beat the agent on the pre-written decision rule (wrong figures on four validation companies: Sonnet single prompt 1, Sonnet agent 2, Haiku agent 3, Haiku single prompt 5). Round 2 (agent v2: better tools and prompt v4b, tuned after seeing round-1 errors, so exploratory, not a clean holdout): the Sonnet agent made 0 wrong figures on the same four companies for about 0.43 USD, against 2.30 USD for the Sonnet single prompt. A clean holdout is still to do. Read the [case study](docs/CASE_STUDY.md), the [validation results](docs/VALIDATION_RESULTS.md) and the [design](docs/DESIGN.md) (frozen before any model was run).
 
 > **What this is not.** It is not investment advice. The tool makes no buy or sell recommendation and no valuation estimate. Reports are public SEC filings; no confidential data is used.
 
@@ -23,7 +23,7 @@ Project 4 of an AI portfolio (n8n + Claude). An assistant that reads a US compan
 |---|---|
 | `data/10k/` | The annual reports used, as supplied (public SEC filings) |
 | `docs/` | Case study, design document, freeze records, validation results |
-| `prompts/` | The frozen prompts (single prompt, agent v2 and v3) |
-| `workflow/` | The three n8n workflows (agent, report-tools sub-workflow, single prompt), without credentials |
+| `prompts/` | The frozen prompts (single prompt, agent v2, v3, v4 and v4b) |
+| `workflow/` | The three n8n workflows (agent v2 with three report tools, report-tools sub-workflow v2, single prompt), without credentials |
 | `baseline/` | Keyword-search floor, no AI |
 | `evaluation/` | Key, scoring script, every run, scores, error log, human review |
