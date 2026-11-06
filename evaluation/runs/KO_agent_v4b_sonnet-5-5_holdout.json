@@ -1,0 +1,180 @@
+{
+ "id": "KO",
+ "model": "agent",
+ "stop_reason": "end",
+ "valid_json": true,
+ "valid_after_extraction": true,
+ "tool_calls": 11,
+ "tools_used": [
+  "read_statement",
+  "read_statement",
+  "read_statement",
+  "read_section",
+  "search_report",
+  "search_report",
+  "Calculator",
+  "Calculator",
+  "Calculator",
+  "Calculator",
+  "Calculator"
+ ],
+ "run_mode": "single company per execution (n8n execution 887), prompt v4b, tools v2, Sonnet 5.5 with thinking mode adaptive, holdout set (docs/HOLDOUT_FREEZE.md)",
+ "sheet": {
+  "company": "The Coca-Cola Company",
+  "fiscal_year_end": "2025-12-31",
+  "reporting_currency": "USD",
+  "unit": "millions",
+  "figures": [
+   {
+    "item": "revenue",
+    "value": 47941,
+    "status": "found",
+    "source": "Consolidated Statements of Income, p. 61",
+    "note": "Net Operating Revenues"
+   },
+   {
+    "item": "operating_income",
+    "value": 13762,
+    "status": "found",
+    "source": "Consolidated Statements of Income, p. 61",
+    "note": "Includes other operating charges of 1,261."
+   },
+   {
+    "item": "net_income",
+    "value": 13107,
+    "status": "found",
+    "source": "Consolidated Statements of Income, p. 61",
+    "note": "Attributable to shareowners; consolidated 13,137."
+   },
+   {
+    "item": "diluted_eps",
+    "value": 3.04,
+    "status": "found",
+    "source": "Consolidated Statements of Income, p. 61",
+    "note": ""
+   },
+   {
+    "item": "operating_cash_flow",
+    "value": 7408,
+    "status": "found",
+    "source": "Consolidated Statements of Cash Flows, p. 64",
+    "note": ""
+   },
+   {
+    "item": "capex",
+    "value": 2112,
+    "status": "found",
+    "source": "Consolidated Statements of Cash Flows, p. 64",
+    "note": ""
+   },
+   {
+    "item": "cash",
+    "value": 10270,
+    "status": "found",
+    "source": "Consolidated Balance Sheets, p. 63",
+    "note": "Short-term investments and marketable securities excluded."
+   },
+   {
+    "item": "total_financial_debt",
+    "value": 45492,
+    "status": "found",
+    "source": "Consolidated Balance Sheets, p. 63",
+    "note": "1,551 + 1,822 + 42,119; debt note not checked for finance leases."
+   },
+   {
+    "item": "shareholders_equity",
+    "value": 32169,
+    "status": "found",
+    "source": "Consolidated Balance Sheets, p. 63",
+    "note": "Noncontrolling interests 2,106 excluded."
+   }
+  ],
+  "computed": [
+   {
+    "item": "revenue_growth",
+    "value": 0.018699135164999,
+    "status": "found",
+    "formula": "47941/47061-1",
+    "inputs": "47,941 and 47,061",
+    "note": ""
+   },
+   {
+    "item": "operating_margin",
+    "value": 0.287061179366304,
+    "status": "found",
+    "formula": "13762/47941",
+    "inputs": "13,762 and 47,941",
+    "note": ""
+   },
+   {
+    "item": "free_cash_flow",
+    "value": 5296,
+    "status": "found",
+    "formula": "7408-2112",
+    "inputs": "7,408 and 2,112",
+    "note": ""
+   },
+   {
+    "item": "net_debt",
+    "value": 35222,
+    "status": "found",
+    "formula": "45492-10270",
+    "inputs": "45,492 and 10,270",
+    "note": ""
+   }
+  ],
+  "segments": {
+   "count": 5,
+   "names": [
+    "EMEA",
+    "Latin America",
+    "North America",
+    "Asia Pacific",
+    "Bottling Investments"
+   ],
+   "source": "Note 20, p. 116"
+  },
+  "major_risks": [
+   {
+    "risk": "Unfavorable economic and geopolitical conditions, inflation, rates, currencies, trade policies and conflicts could reduce demand and profitability.",
+    "source": "Item 1A"
+   },
+   {
+    "risk": "Increased competition could force price cuts and higher marketing costs and limit market share.",
+    "source": "Item 1A"
+   },
+   {
+    "risk": "Failure to innovate or adapt to a changing retail landscape, or loss of key customers, could hurt results.",
+    "source": "Item 1A"
+   }
+  ],
+  "not_in_report": [
+   {
+    "question": "Current share price today",
+    "status": "not_in_report",
+    "answer": "No current share price; only the aggregate market value of non-affiliates at June 27, 2025.",
+    "source": "Cover page"
+   },
+   {
+    "question": "Company's own earnings guidance for the next fiscal year",
+    "status": "not_in_report",
+    "answer": "No explicit earnings guidance for 2026 found by search; the whole MD&A was not read.",
+    "source": "Search of the report"
+   },
+   {
+    "question": "Analyst estimate of fair value",
+    "status": "not_in_report",
+    "answer": "None in the report.",
+    "source": "Search of the report"
+   }
+  ],
+  "limits": [
+   "Debt note not read.",
+   "Only the first page of the risk factors was read.",
+   "Operating income includes other operating charges (1,261 in 2025, 4,163 in 2024).",
+   "Assets and liabilities held for sale may affect comparability.",
+   "Page numbers are those visible."
+  ]
+ },
+ "note": "Free-text fields shortened when saved by hand; figures, statuses, segments, risks and absent answers as returned."
+}
