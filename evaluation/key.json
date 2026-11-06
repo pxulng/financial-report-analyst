@@ -1807,5 +1807,106 @@
    }
   },
   "segments": null
+ },
+ "MCD": {
+  "file": "MCD_10-K_FY2025.md",
+  "fiscal_year": "FY2025 (ended 2025-12-31)",
+  "sha256": "ec6db5f6994fe8528622d6462a528ab9d74e2c6bea05cd709469c04b96803641",
+  "unit": "USD millions (EPS in USD per share)",
+  "items": {
+   "revenue": {
+    "status": "found",
+    "value": 26885,
+    "printed": "26,885",
+    "label": "Total revenues",
+    "line": 461
+   },
+   "operating_income": {
+    "status": "found",
+    "value": 12393,
+    "printed": "12,393",
+    "label": "Operating income",
+    "line": 481
+   },
+   "net_income": {
+    "status": "found",
+    "value": 8563,
+    "printed": "8,563",
+    "label": "Net income",
+    "line": 491
+   },
+   "diluted_eps": {
+    "status": "found",
+    "value": 11.95,
+    "printed": "11.95",
+    "label": "Earnings per common share.diluted",
+    "line": 493
+   },
+   "operating_cash_flow": {
+    "status": "found",
+    "value": 10551,
+    "printed": "10,551",
+    "label": "Cash provided by operations",
+    "line": 1611
+   },
+   "capex": {
+    "status": "found",
+    "value": 3365,
+    "printed": "3,365",
+    "label": "Capital expenditures",
+    "line": 1615
+   },
+   "cash": {
+    "status": "found",
+    "value": 774,
+    "printed": "774",
+    "label": "Cash and equivalents",
+    "line": 861
+   },
+   "equity": {
+    "status": "found",
+    "value": -1791,
+    "printed": "( 1,791 )",
+    "label": "Total shareholders.{1,2}equity (deficit)",
+    "line": 1567
+   },
+   "prev_revenue": {
+    "status": "found",
+    "value": 25920,
+    "printed": "25,920",
+    "line": 461
+   },
+   "debt": {
+    "status": "found",
+    "value": 39973,
+    "parts": [
+     {
+      "label": "Long-term debt",
+      "printed": "39,973",
+      "value": 39973,
+      "line": 1541
+     }
+    ]
+   }
+  },
+  "computed": {
+   "revenue_growth": {
+    "status": "found",
+    "value": 0.0372
+   },
+   "operating_margin": {
+    "status": "found",
+    "value": 0.461
+   },
+   "free_cash_flow": {
+    "status": "found",
+    "value": 7186
+   },
+   "net_debt": {
+    "status": "found",
+    "value": 39199
+   }
+  },
+  "segments": null
  }
 }

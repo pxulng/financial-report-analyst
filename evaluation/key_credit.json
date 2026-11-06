@@ -277,5 +277,22 @@
    "status": "found",
    "value": 1.81
   }
+ },
+ "MCD": {
+  "interest_expense": {
+   "status": "found",
+   "value": 1582
+  },
+  "debt_to_equity": {
+   "status": "not_applicable"
+  },
+  "cfo_to_debt": {
+   "status": "found",
+   "value": 0.264
+  },
+  "interest_coverage": {
+   "status": "found",
+   "value": 7.83
+  }
  }
 }

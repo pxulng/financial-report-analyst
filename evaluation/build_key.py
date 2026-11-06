@@ -140,6 +140,14 @@ D = {
   cash=("Cash and cash equivalents","2,812",2812),
   debt=[("Commercial paper","1,955",1955),("Other short-term debt","608",608),("Current portion of long-term debt","3,500",3500),("Long-term debt","89,556",89556)],
   equity=("Total common shareholders' equity","54,608",54608), segments=None),
+"MCD": dict(file="MCD_10-K_FY2025.md", fy="FY2025 (ended 2025-12-31)", prev_revenue=("Total revenues","25,920",25920),
+  revenue=("Total revenues","26,885",26885), operating_income=("Operating income","12,393",12393),
+  net_income=("Net income","8,563",8563), diluted_eps=("Earnings per common share.diluted","11.95",11.95),
+  operating_cash_flow=("Cash provided by operations","10,551",10551),
+  capex=("Capital expenditures","( 3,365 )",-3365) if False else ("Capital expenditures","3,365",3365),
+  cash=("Cash and equivalents","774",774),
+  debt=[("Long-term debt","39,973",39973)],
+  equity=("Total shareholders.{1,2}equity \\(deficit\\)","( 1,791 )",-1791), segments=None),
 }
 BASE="../data/10k/"
 out={}; problems=[]

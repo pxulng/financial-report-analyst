@@ -8,7 +8,7 @@ key=json.load(open("key.json"))
 NA={"status":"not_applicable"}; NIR={"status":"not_in_report"}; EXC={"status":"excluded"}
 IE={"AAPL":NIR,"MSFT":NIR,"NKE":NIR,"WMT":EXC,"CAT":EXC,"JPM":NA,"BAC":NA,
     "JNJ":971,"XOM":603,"BA":2771,"SBUX":542.6,"TSLA":338,"VZ":6694,"KO":1654,
-    "GS":NA,"PFE":NIR,"NEE":4572}
+    "GS":NA,"PFE":NIR,"NEE":4572,"MCD":1582}
 out={}
 for t,k in key.items():
     it=k["items"]; bank=t in("JPM","BAC","GS"); c={}
