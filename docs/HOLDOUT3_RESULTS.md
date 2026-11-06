@@ -5,7 +5,7 @@ Reports never used to build any rule: Honeywell (HON), Home Depot (HD), Wells Fa
 | Company | Original items read | Computed | Wrong or invented | Credit items right |
 |---|---|---|---|---|
 | HD | 9/9 | 4/4 | 0 | 4/4 |
-| WFC (bank) | 8/8 | 3/3 | 0 | 4/4 (all correctly not_applicable) |
+| WFC (bank) | 9/9 | 4/4 | 0 | 4/4 (all correctly not_applicable) |
 | HON | 8/9 | 3/4 | 2 | 2/2 scored (2 excluded) |
 
 Total: 0 wrong for HD and WFC; 2 wrong for HON (operating income and the operating margin that depends on it). For comparison, the first holdout on prompt v4b had 3 wrong figures on 4 reports.
