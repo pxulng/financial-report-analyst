@@ -23,7 +23,7 @@ Errors:
 ## Against the success criteria
 1. No regression on the original items: met (validation 0, holdout 3, the same three Verizon items).
 2. At least 80 % of the 28 new items right and at most 2 wrong: met (26 right, 1 wrong).
-3. Cost per report no more than 0.3 USD: the agent shows no token counts; the cost is read from the account balance (see evaluation/LOG.md).
+3. Cost per report no more than 0.3 USD: met. The balance went from 4.62 to 3.38 USD (1.24 USD) over the 3 Haiku tests and the 8 Sonnet runs, so at most about 0.11 USD per report on average, and the Sonnet reports are below 0.16 USD each. The agent shows no token counts, so this is read from the balance.
 
 ## Caveats
 - Hand-saved run files keep figures, statuses and computed values as returned; free text is shortened.

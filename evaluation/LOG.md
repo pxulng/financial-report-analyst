@@ -250,4 +250,4 @@ Balance: 2.93 before, 5 USD added by Paul, about 4.6 after. Holdout spend: about
 - Original items: validation 0 wrong (36/36 read, 16/16 computed); holdout 3 wrong (VZ, same as v4b), 34/36 read, 15/16 computed.
 - New items: 26/28 right, 1 wrong (VZ debt to equity, follows from VZ debt/equity key ambiguity), 1 status mismatch (NKE coverage). Criteria 1 and 2 met.
 - JPM and CAT answered the guidance question as found (outlook text in the report); scored as in earlier rounds.
-- Cost: not exposed by the agent; to be read from the balance (about 0.15 to 0.2 USD per Sonnet report expected).
+- Cost: balance 4.62 USD before the Haiku tests, 3.38 USD after the 8 Sonnet runs, so 1.24 USD for 11 reports (at most about 0.11 USD per report on average). Criterion 3 met.
