@@ -1908,5 +1908,226 @@
    }
   },
   "segments": null
+ },
+ "HON": {
+  "file": "HON_10-K_FY2025.md",
+  "fiscal_year": "FY2025 (ended 2025-12-31)",
+  "sha256": "7d7ef814df8d52c24a34a6a798b7e8ec1a94086c983c26393cac3d3be375286e",
+  "unit": "USD millions (EPS in USD per share)",
+  "items": {
+   "revenue": {
+    "status": "found",
+    "value": 37442,
+    "printed": "37,442",
+    "label": "Net sales",
+    "line": 1367
+   },
+   "operating_income": {
+    "status": "not_applicable"
+   },
+   "net_income": {
+    "status": "found",
+    "value": 4729,
+    "printed": "4,729",
+    "label": "Net income attributable to Honeywell",
+    "line": 3450
+   },
+   "diluted_eps": {
+    "status": "found",
+    "value": 7.36,
+    "printed": "7.36",
+    "label": "Total earnings per share of common stock.assuming dilution",
+    "line": 3458
+   },
+   "operating_cash_flow": {
+    "status": "found",
+    "value": 6408,
+    "printed": "6,408",
+    "label": "Net cash provided by operating activities",
+    "line": 2620
+   },
+   "capex": {
+    "status": "found",
+    "value": 986,
+    "printed": "986",
+    "label": "Capital expenditures",
+    "line": 2658
+   },
+   "cash": {
+    "status": "found",
+    "value": 12487,
+    "printed": "12,487",
+    "label": "Cash and cash equivalents",
+    "line": 2644
+   },
+   "equity": {
+    "status": "found",
+    "value": 13904,
+    "printed": "13,904",
+    "label": "Total Honeywell shareowners.{1,2}equity",
+    "line": 3567
+   },
+   "prev_revenue": {
+    "status": "found",
+    "value": 34717,
+    "printed": "34,717",
+    "line": 1367
+   },
+   "debt": {
+    "status": "found",
+    "value": 34580,
+    "parts": [
+     {
+      "label": "Commercial paper and other short-term borrowings",
+      "printed": "5,893",
+      "value": 5893,
+      "line": 3544
+     },
+     {
+      "label": "Current maturities of long-term debt",
+      "printed": "1,546",
+      "value": 1546,
+      "line": 3545
+     },
+     {
+      "label": "Long-term debt",
+      "printed": "27,141",
+      "value": 27141,
+      "line": 3550
+     }
+    ]
+   }
+  },
+  "computed": {
+   "revenue_growth": {
+    "status": "found",
+    "value": 0.0785
+   },
+   "operating_margin": {
+    "status": "not_applicable"
+   },
+   "free_cash_flow": {
+    "status": "found",
+    "value": 5422
+   },
+   "net_debt": {
+    "status": "found",
+    "value": 22093
+   }
+  },
+  "segments": null
+ },
+ "HD": {
+  "file": "HD_10-K_FY2025.md",
+  "fiscal_year": "FY2025 (ended 2026-02-01)",
+  "sha256": "e685f52447cee81ce49f08a04d71c0c12763d39bee6adc62449b6d934260c554",
+  "unit": "USD millions (EPS in USD per share)",
+  "items": {
+   "revenue": {
+    "status": "found",
+    "value": 164683,
+    "printed": "164,683",
+    "label": "Net sales",
+    "line": 2249
+   },
+   "operating_income": {
+    "status": "found",
+    "value": 20890,
+    "printed": "20,890",
+    "label": "Operating income",
+    "line": 2255
+   },
+   "net_income": {
+    "status": "found",
+    "value": 14156,
+    "printed": "14,156",
+    "label": "Net earnings",
+    "line": 2266
+   },
+   "diluted_eps": {
+    "status": "found",
+    "value": 14.23,
+    "printed": "14.23",
+    "label": "Diluted earnings per share",
+    "line": 2291
+   },
+   "operating_cash_flow": {
+    "status": "found",
+    "value": 16325,
+    "printed": "16,325",
+    "label": "Net cash provided by operating activities",
+    "line": 2967
+   },
+   "capex": {
+    "status": "found",
+    "value": 3679,
+    "printed": "3,679",
+    "label": "Capital expenditures",
+    "line": 2970
+   },
+   "cash": {
+    "status": "found",
+    "value": 1389,
+    "printed": "1,389",
+    "label": "Cash and cash equivalents",
+    "line": 2769
+   },
+   "equity": {
+    "status": "found",
+    "value": 12813,
+    "printed": "12,813",
+    "label": "Total stockholders.{1,2}equity",
+    "line": 2815
+   },
+   "prev_revenue": {
+    "status": "found",
+    "value": 159514,
+    "printed": "159,514",
+    "line": 2249
+   },
+   "debt": {
+    "status": "found",
+    "value": 55772,
+    "parts": [
+     {
+      "label": "Short-term debt",
+      "printed": "4,464",
+      "value": 4464,
+      "line": 2782
+     },
+     {
+      "label": "Current installments of long-term debt",
+      "printed": "4,967",
+      "value": 4967,
+      "line": 2788
+     },
+     {
+      "label": "Long-term debt, excluding current installments",
+      "printed": "46,341",
+      "value": 46341,
+      "line": 2792
+     }
+    ]
+   }
+  },
+  "computed": {
+   "revenue_growth": {
+    "status": "found",
+    "value": 0.0324
+   },
+   "operating_margin": {
+    "status": "found",
+    "value": 0.1268
+   },
+   "free_cash_flow": {
+    "status": "found",
+    "value": 12646
+   },
+   "net_debt": {
+    "status": "found",
+    "value": 54383
+   }
+  },
+  "segments": null
  }
 }

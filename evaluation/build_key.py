@@ -148,6 +148,22 @@ D = {
   cash=("Cash and equivalents","774",774),
   debt=[("Long-term debt","39,973",39973)],
   equity=("Total shareholders.{1,2}equity \\(deficit\\)","( 1,791 )",-1791), segments=None),
+"HON": dict(file="HON_10-K_FY2025.md", fy="FY2025 (ended 2025-12-31)", prev_revenue=("Net sales","34,717",34717),
+  revenue=("Net sales","37,442",37442), operating_income=NA,
+  net_income=("Net income attributable to Honeywell","4,729",4729), diluted_eps=("Total earnings per share of common stock.assuming dilution","7.36",7.36),
+  operating_cash_flow=("Net cash provided by operating activities","6,408",6408),
+  capex=("Capital expenditures","986",986),
+  cash=("Cash and cash equivalents","12,487",12487),
+  debt=[("Commercial paper and other short-term borrowings","5,893",5893),("Current maturities of long-term debt","1,546",1546),("Long-term debt","27,141",27141)],
+  equity=("Total Honeywell shareowners.{1,2}equity","13,904",13904), segments=None),
+"HD": dict(file="HD_10-K_FY2025.md", fy="FY2025 (ended 2026-02-01)", prev_revenue=("Net sales","159,514",159514),
+  revenue=("Net sales","164,683",164683), operating_income=("Operating income","20,890",20890),
+  net_income=("Net earnings","14,156",14156), diluted_eps=("Diluted earnings per share","14.23",14.23),
+  operating_cash_flow=("Net cash provided by operating activities","16,325",16325),
+  capex=("Capital expenditures","3,679",3679),
+  cash=("Cash and cash equivalents","1,389",1389),
+  debt=[("Short-term debt","4,464",4464),("Current installments of long-term debt","4,967",4967),("Long-term debt, excluding current installments","46,341",46341)],
+  equity=("Total stockholders.{1,2}equity","12,813",12813), segments=None),
 }
 BASE="../data/10k/"
 out={}; problems=[]

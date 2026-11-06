@@ -294,5 +294,39 @@
    "status": "found",
    "value": 7.83
   }
+ },
+ "HON": {
+  "interest_expense": {
+   "status": "excluded"
+  },
+  "debt_to_equity": {
+   "status": "found",
+   "value": 2.4871
+  },
+  "cfo_to_debt": {
+   "status": "found",
+   "value": 0.1853
+  },
+  "interest_coverage": {
+   "status": "excluded"
+  }
+ },
+ "HD": {
+  "interest_expense": {
+   "status": "found",
+   "value": 2412
+  },
+  "debt_to_equity": {
+   "status": "found",
+   "value": 4.3528
+  },
+  "cfo_to_debt": {
+   "status": "found",
+   "value": 0.2927
+  },
+  "interest_coverage": {
+   "status": "found",
+   "value": 8.66
+  }
  }
 }
