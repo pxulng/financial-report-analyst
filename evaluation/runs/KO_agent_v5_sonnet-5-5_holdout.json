@@ -1,0 +1,204 @@
+{
+ "id": "KO",
+ "model": "agent",
+ "stop_reason": "end",
+ "valid_json": true,
+ "valid_after_extraction": true,
+ "tool_calls": 14,
+ "tools_used": [
+  "read_statement",
+  "read_statement",
+  "read_statement",
+  "search_report",
+  "read_section",
+  "search_report",
+  "Calculator",
+  "Calculator",
+  "Calculator",
+  "Calculator",
+  "Calculator",
+  "Calculator",
+  "Calculator",
+  "Calculator"
+ ],
+ "run_mode": "agent prompt v5, tools v2, Sonnet 5.5 adaptive thinking, holdout (n8n execution 974)",
+ "sheet": {
+  "unit": "millions",
+  "figures": [
+   {
+    "item": "revenue",
+    "value": 47941,
+    "status": "found",
+    "source": "as returned (shortened)",
+    "note": ""
+   },
+   {
+    "item": "operating_income",
+    "value": 13762,
+    "status": "found",
+    "source": "as returned (shortened)",
+    "note": ""
+   },
+   {
+    "item": "net_income",
+    "value": 13107,
+    "status": "found",
+    "source": "as returned (shortened)",
+    "note": ""
+   },
+   {
+    "item": "diluted_eps",
+    "value": 3.04,
+    "status": "found",
+    "source": "as returned (shortened)",
+    "note": ""
+   },
+   {
+    "item": "operating_cash_flow",
+    "value": 7408,
+    "status": "found",
+    "source": "as returned (shortened)",
+    "note": ""
+   },
+   {
+    "item": "capex",
+    "value": 2112,
+    "status": "found",
+    "source": "as returned (shortened)",
+    "note": ""
+   },
+   {
+    "item": "cash",
+    "value": 10270,
+    "status": "found",
+    "source": "as returned (shortened)",
+    "note": ""
+   },
+   {
+    "item": "total_financial_debt",
+    "value": 45492,
+    "status": "found",
+    "source": "as returned (shortened)",
+    "note": "1551+1822+42119"
+   },
+   {
+    "item": "shareholders_equity",
+    "value": 32169,
+    "status": "found",
+    "source": "as returned (shortened)",
+    "note": ""
+   },
+   {
+    "item": "interest_expense",
+    "value": 1654,
+    "status": "found",
+    "source": "as returned (shortened)",
+    "note": ""
+   }
+  ],
+  "computed": [
+   {
+    "item": "revenue_growth",
+    "value": 0.018699135164999,
+    "status": "found",
+    "formula": "",
+    "inputs": "",
+    "note": ""
+   },
+   {
+    "item": "operating_margin",
+    "value": 0.287061179366304,
+    "status": "found",
+    "formula": "",
+    "inputs": "",
+    "note": ""
+   },
+   {
+    "item": "free_cash_flow",
+    "value": 5296,
+    "status": "found",
+    "formula": "",
+    "inputs": "",
+    "note": ""
+   },
+   {
+    "item": "net_debt",
+    "value": 35222,
+    "status": "found",
+    "formula": "",
+    "inputs": "",
+    "note": ""
+   },
+   {
+    "item": "interest_coverage",
+    "value": 8.32043530834341,
+    "status": "found",
+    "formula": "",
+    "inputs": "",
+    "note": ""
+   },
+   {
+    "item": "debt_to_equity",
+    "value": 1.414156486058006,
+    "status": "found",
+    "formula": "",
+    "inputs": "",
+    "note": ""
+   },
+   {
+    "item": "cfo_to_debt",
+    "value": 0.162841818341686,
+    "status": "found",
+    "formula": "",
+    "inputs": "",
+    "note": ""
+   }
+  ],
+  "segments": {
+   "count": 5,
+   "names": [
+    "EMEA",
+    "Latin America",
+    "North America",
+    "Asia Pacific",
+    "Bottling Investments"
+   ],
+   "source": "Note 20"
+  },
+  "major_risks": [
+   {
+    "risk": "Unfavorable economic and geopolitical conditions, inflation, tariffs, currency.",
+    "source": "Item 1A"
+   },
+   {
+    "risk": "Increased competition in the beverage industry.",
+    "source": "Item 1A"
+   },
+   {
+    "risk": "Dependence on independent bottling partners.",
+    "source": "Item 1A"
+   }
+  ],
+  "not_in_report": [
+   {
+    "question": "share price",
+    "status": "not_in_report",
+    "answer": "not in report",
+    "source": ""
+   },
+   {
+    "question": "guidance",
+    "status": "not_in_report",
+    "answer": "none found; only a dividend increase",
+    "source": ""
+   },
+   {
+    "question": "fair value",
+    "status": "not_in_report",
+    "answer": "not in report",
+    "source": ""
+   }
+  ]
+ },
+ "note": "Free-text fields shortened when saved by hand; figures, statuses, computed values, segments, risk topics and absent answers as returned."
+}

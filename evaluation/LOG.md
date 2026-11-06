@@ -242,3 +242,12 @@ Balance: 2.93 before, 5 USD added by Paul, about 4.6 after. Holdout spend: about
 - Credit items (score_credit.py): 11/12 right, 1 wrong. The wrong item is BA debt_to_equity (9.919 vs key 9.8731), caused by the known BA finance-lease error in total_financial_debt, not by the new definitions.
 - New definitions behaved as designed: SBUX (negative equity) debt_to_equity = not_applicable; AAPL (no interest line) interest_expense and interest_coverage = not_in_report; BA interest_expense = 2,771 and coverage 1.54 right.
 - AAPL: the final message had one sentence before the JSON (valid only after extraction, valid_json false). Tool calls: BA 13, SBUX 14, AAPL 17 (message count in the 15-step limit is not the same as tool calls).
+
+## Prompt v5: final Sonnet runs
+
+- Configuration: agent prompt v5, tools v2 (unchanged), Sonnet 5.5, adaptive thinking, one company per execution. Execution 916 (MSFT) failed before any model call (model parameter must be a resource locator), not counted; MSFT was rerun as execution 917.
+- Validation: MSFT 917, WMT 924, NKE 931, JPM 937. Holdout: BAC 944, VZ 954, CAT 963, KO 974. Run files: `runs/*_agent_v5_sonnet-5-5_{validation,holdout}.json`.
+- Original items: validation 0 wrong (36/36 read, 16/16 computed); holdout 3 wrong (VZ, same as v4b), 34/36 read, 15/16 computed.
+- New items: 26/28 right, 1 wrong (VZ debt to equity, follows from VZ debt/equity key ambiguity), 1 status mismatch (NKE coverage). Criteria 1 and 2 met.
+- JPM and CAT answered the guidance question as found (outlook text in the report); scored as in earlier rounds.
+- Cost: not exposed by the agent; to be read from the balance (about 0.15 to 0.2 USD per Sonnet report expected).
