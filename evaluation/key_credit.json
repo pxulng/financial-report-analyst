@@ -328,5 +328,19 @@
    "status": "found",
    "value": 8.66
   }
+ },
+ "WFC": {
+  "interest_expense": {
+   "status": "not_applicable"
+  },
+  "debt_to_equity": {
+   "status": "not_applicable"
+  },
+  "cfo_to_debt": {
+   "status": "not_applicable"
+  },
+  "interest_coverage": {
+   "status": "not_applicable"
+  }
  }
 }

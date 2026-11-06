@@ -164,6 +164,13 @@ D = {
   cash=("Cash and cash equivalents","1,389",1389),
   debt=[("Short-term debt","4,464",4464),("Current installments of long-term debt","4,967",4967),("Long-term debt, excluding current installments","46,341",46341)],
   equity=("Total stockholders.{1,2}equity","12,813",12813), segments=None),
+"WFC": dict(file="WFC_10-K_FY2025.md", fy="FY2025 (ended 2025-12-31)", prev_revenue=("Total revenue","82,296",82296),
+  revenue=("Total revenue","83,699",83699), operating_income=NA,
+  net_income=("Wells Fargo net income","21,338",21338), diluted_eps=("Diluted earnings per common share","6.26",6.26),
+  operating_cash_flow=("Net cash provided \\(used\\) by operating activities","(19,001)",-19001),
+  capex=NA, cash=NA,
+  debt=[("Short-term borrowings","18,323",18323),("Long-term debt","174,712",174712)],
+  equity=("Total Wells Fargo stockholders.{1,2}equity","181,117",181117), segments=None),
 }
 BASE="../data/10k/"
 out={}; problems=[]

@@ -14,3 +14,8 @@ First test of prompt v6 and the fixed statement finder on 10-Ks never used to bu
 - HON interest_expense and interest_coverage = excluded: the only candidate line, "Interest and other financial charges" (1,344), is not clearly a gross interest expense line.
 - HD fiscal 2025 ended 2026-02-01; revenue growth uses 159,514 (a 53-week year). debt = 4,464 + 4,967 + 46,341 = 55,772 (lease liabilities not counted); equity 12,813; interest_expense = 2,412 (printed line); coverage 8.66.
 - Known before the run: the statement finder does not locate the HON income statement and cash-flow statement (it returns notes). The runs are done without fixing it, to see whether the agent recovers with its other tools. The fix comes after.
+
+## Addition: Wells Fargo (WFC), frozen before its run
+A second Wells Fargo file arrived: the 2025 Annual Report (Exhibit 13) with the financial statements (`data/10k/WFC_10-K_FY2025.md`, sha256 `c9cfb45ac479bdc185ac092e5e42f9785ebc52f82061a8cc32aa53371e6355cc`). The earlier wrapper-only file stays unused.
+- Key (bank, same conventions as JPM, BAC, GS): revenue = Total revenue 83,699 (prev 82,296); operating income, capex, cash, free cash flow, net debt and operating margin = not_applicable; net income = Wells Fargo net income 21,338; diluted EPS = 6.26; operating cash flow = -19,001; debt = short-term borrowings 18,323 + long-term debt 174,712 = 193,035 (repos and deposits not counted); equity = Total Wells Fargo stockholders' equity 181,117.
+- Credit items: interest_expense, interest_coverage, debt_to_equity, cfo_to_debt all not_applicable (prompt v6 bank rule). The income statement prints "Total interest expense" 39,830, which for a bank is operating cost, not a debt-service line.

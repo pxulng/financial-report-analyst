@@ -2129,5 +2129,97 @@
    }
   },
   "segments": null
+ },
+ "WFC": {
+  "file": "WFC_10-K_FY2025.md",
+  "fiscal_year": "FY2025 (ended 2025-12-31)",
+  "sha256": "c9cfb45ac479bdc185ac092e5e42f9785ebc52f82061a8cc32aa53371e6355cc",
+  "unit": "USD millions (EPS in USD per share)",
+  "items": {
+   "revenue": {
+    "status": "found",
+    "value": 83699,
+    "printed": "83,699",
+    "label": "Total revenue",
+    "line": 465
+   },
+   "operating_income": {
+    "status": "not_applicable"
+   },
+   "net_income": {
+    "status": "found",
+    "value": 21338,
+    "printed": "21,338",
+    "label": "Wells Fargo net income",
+    "line": 469
+   },
+   "diluted_eps": {
+    "status": "found",
+    "value": 6.26,
+    "printed": "6.26",
+    "label": "Diluted earnings per common share",
+    "line": 472
+   },
+   "operating_cash_flow": {
+    "status": "found",
+    "value": -19001,
+    "printed": "(19,001)",
+    "label": "Net cash provided (used) by operating activities",
+    "line": 9107
+   },
+   "capex": {
+    "status": "not_applicable"
+   },
+   "cash": {
+    "status": "not_applicable"
+   },
+   "equity": {
+    "status": "found",
+    "value": 181117,
+    "printed": "181,117",
+    "label": "Total Wells Fargo stockholders.{1,2}equity",
+    "line": 8968
+   },
+   "prev_revenue": {
+    "status": "found",
+    "value": 82296,
+    "printed": "82,296",
+    "line": 465
+   },
+   "debt": {
+    "status": "found",
+    "value": 193035,
+    "parts": [
+     {
+      "label": "Short-term borrowings",
+      "printed": "18,323",
+      "value": 18323,
+      "line": 8940
+     },
+     {
+      "label": "Long-term debt",
+      "printed": "174,712",
+      "value": 174712,
+      "line": 8949
+     }
+    ]
+   }
+  },
+  "computed": {
+   "revenue_growth": {
+    "status": "found",
+    "value": 0.017
+   },
+   "operating_margin": {
+    "status": "not_applicable"
+   },
+   "free_cash_flow": {
+    "status": "not_applicable"
+   },
+   "net_debt": {
+    "status": "not_applicable"
+   }
+  },
+  "segments": null
  }
 }
