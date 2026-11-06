@@ -1,0 +1,35 @@
+{"company":"GE Aerospace (General Electric Company)","fiscal_year_end":"2025-12-31","reporting_currency":"USD","unit":"millions",
+"figures":[
+{"item":"revenue","value":45855,"status":"found","source":"Statement of Operations, Total revenue, p. 36","note":"Total revenue line, which includes sales of equipment, sales of services and insurance revenue."},
+{"item":"operating_income","value":null,"status":"not_applicable","source":"Statement of Operations, p. 36","note":"The income statement prints no 'Operating income' line. It goes from total costs and expenses and other income to income from continuing operations before income taxes. I did not build the figure from other lines."},
+{"item":"net_income","value":8704,"status":"found","source":"Statement of Operations, p. 36","note":"Net income attributable to the Company. Net income including noncontrolling interests is 8,698. Net income from continuing operations attributable to the Company is 8,601."},
+{"item":"diluted_eps","value":8.14,"status":"found","source":"Statement of Operations, Net earnings per share, diluted, p. 36","note":"Diluted EPS from continuing operations is 8.05."},
+{"item":"operating_cash_flow","value":8537,"status":"found","source":"Statement of Cash Flows, p. 38","note":"Total cash from operating activities, including discontinued operations (-6). Continuing operations alone are 8,543."},
+{"item":"capex","value":1273,"status":"found","source":"Statement of Cash Flows, p. 38","note":"Line is 'Additions to property, plant and equipment and internal-use software'. It includes internal-use software and is the closest published line to purchases of PP&E."},
+{"item":"cash","value":12392,"status":"found","source":"Statement of Financial Position, p. 37","note":"Caption is 'Cash, cash equivalents and restricted cash'. The balance sheet does not show cash equivalents alone, so this figure includes restricted cash. Investment securities are excluded."},
+{"item":"total_financial_debt","value":20494,"status":"found","source":"Statement of Financial Position, p. 37","note":"Short-term borrowings 1,686 plus long-term borrowings 18,808. The captions are 'borrowings' and I did not check whether Note 10 includes finance leases."},
+{"item":"shareholders_equity","value":18677,"status":"found","source":"Statement of Financial Position, p. 37","note":"Total shareholders' equity attributable to GE Aerospace, excluding noncontrolling interests of 221."},
+{"item":"interest_expense","value":843,"status":"found","source":"Statement of Operations, 'Interest and other financial charges', p. 36","note":"This is the gross interest line printed on the income statement. Its name says 'and other financial charges'."}],
+"computed":[
+{"item":"revenue_growth","value":0.184822489793809,"status":"found","formula":"45855 / 38702 - 1","inputs":"45,855 / 38,702 - 1","note":"Uses the Total revenue line for both years."},
+{"item":"operating_margin","value":null,"status":"not_applicable","formula":"operating_income / revenue","inputs":"operating_income is not_applicable","note":"No operating income line on the income statement."},
+{"item":"free_cash_flow","value":7264,"status":"found","formula":"8537 - 1273","inputs":"8537 - 1273","note":"Operating cash flow includes discontinued operations."},
+{"item":"net_debt","value":8102,"status":"found","formula":"20494 - 12392","inputs":"20494 - 12392","note":"Cash includes restricted cash."},
+{"item":"interest_coverage","value":null,"status":"not_applicable","formula":"operating_income / interest_expense","inputs":"operating_income is not_applicable; interest_expense is 843","note":"Operating income is not_applicable, so this item takes the same status."},
+{"item":"debt_to_equity","value":1.097285431279113,"status":"found","formula":"20494 / 18677","inputs":"20494 / 18677","note":""},
+{"item":"cfo_to_debt","value":0.416560944666732,"status":"found","formula":"8537 / 20494","inputs":"8537 / 20494","note":""}],
+"segments":{"count":2,"names":["Commercial Engines & Services","Defense & Propulsion Technologies"],"source":"Item 1 Business, Segments, p. 3, and Note 25. Note 25 says there are two reportable segments and three operating segments."},
+"major_risks":[
+{"risk":"The commercial aviation sector, including the health of airframers, airlines and suppliers, drives demand for the company's engines and services, so a downturn or disruption would hurt results.","source":"Item 1A Risk Factors (Commercial aviation sector), pp. 23-28. I identified this from references and search snippets, not a full read of the section."},
+{"risk":"Operational risks, including supply chain disruption, product safety and quality failures, and cybersecurity, could adversely affect the business, reputation and financial position.","source":"Item 1A Risk Factors, Operational risks, p. 26"},
+{"risk":"Macroeconomic and geopolitical conditions, including recession, inflation, tariffs, conflicts, sanctions, interest rates and commodity prices, could disrupt markets and supply chains and hurt results.","source":"Item 1A Risk Factors, pp. 23 and 26, and the forward-looking statements section"}],
+"not_in_report":[
+{"question":"The company's current share price today","status":"not_in_report","answer":"The report gives no current share price. It gives only the aggregate market value of common equity held by non-affiliates as of the end of Q2 2025 (at least $270.2 billion), which is not a current price.","source":"Cover page"},
+{"question":"The company's own earnings guidance for the next fiscal year","status":"not_in_report","answer":"I found no 2026 earnings guidance in the searches I ran. I did not read the whole MD&A.","source":"Searches for outlook and guidance"},
+{"question":"An analyst's estimate of the company's fair value","status":"not_in_report","answer":"The report contains no analyst fair-value estimate.","source":"Whole report, by search"}],
+"limits":[
+"read_section for risk_factors returned 'Section not found'. The three risks come from search snippets and are not from a full read of Item 1A.",
+"Operating income, operating margin and interest coverage are not_applicable because the income statement prints no operating income line.",
+"Cash includes restricted cash. Total debt is the sum of the short-term and long-term borrowings captions, and I did not check the debt note for finance leases.",
+"Operating cash flow includes discontinued operations, and capex includes internal-use software.",
+"On January 15, 2026 the company announced a segment realignment, in which Aeroderivative moves from CES to Defense Propulsion & Technologies. The 2025 segment count and names are as reported for 2025."]}

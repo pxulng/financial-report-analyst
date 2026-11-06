@@ -9,3 +9,9 @@
 Checked: formulas recalculated in LibreOffice give the same values as the agent's calculator (7 of 7 ratios).
 
 Not done: the n8n workflow still returns JSON; connecting this converter to the workflow output is the next step.
+
+## Comparison of two companies
+`tools/compare_excel.py a.json b.json out.xlsx` puts two fact sheets side by side (example: `examples/LMT_vs_GE_comparison.xlsx`, Lockheed Martin vs GE Aerospace, real agent outputs). No extra model call: the agent runs once per company, so a comparison costs two runs.
+- **Comparison**: every figure and ratio for both companies (ratios are live formulas), the gap, and an automatic "comparability" column: red when a number exists for one company only (here: GE prints no operating income, so operating margin and interest coverage cannot be compared), yellow when the agent made a definition choice for one company (restricted cash in GE's cash, discontinued operations in its net income and cash flow, internal-use software in its capex). A warning appears at the top if the fiscal year ends, currency or unit differ.
+- **Sources and notes** and **To verify** carry both companies' sources, notes and review items.
+- Checked: formulas recalculated in LibreOffice; the rules do not know if two companies use the same accounting definitions beyond what the agent wrote in its notes.
