@@ -1,0 +1,211 @@
+{
+ "id": "VZ",
+ "model": "agent",
+ "stop_reason": "end",
+ "valid_json": true,
+ "valid_after_extraction": true,
+ "input_tokens": null,
+ "output_tokens": null,
+ "tool_calls": 14,
+ "tools_used": [
+  "read_statement",
+  "read_statement",
+  "read_statement",
+  "read_section",
+  "search_report",
+  "search_report",
+  "search_report",
+  "Calculator",
+  "Calculator",
+  "Calculator",
+  "Calculator",
+  "Calculator",
+  "Calculator",
+  "Calculator"
+ ],
+ "sheet": {
+  "company": "Verizon Communications Inc.",
+  "fiscal_year_end": "2025-12-31",
+  "reporting_currency": "USD",
+  "unit": "millions",
+  "figures": [
+   {
+    "item": "revenue",
+    "value": 138191,
+    "status": "found",
+    "source": "Consolidated Statements of Income, p. 52",
+    "note": "Line printed as Total Operating Revenues."
+   },
+   {
+    "item": "operating_income",
+    "value": 29259,
+    "status": "found",
+    "source": "Consolidated Statements of Income, p. 52",
+    "note": "Line printed as Operating Income."
+   },
+   {
+    "item": "net_income",
+    "value": 17174,
+    "status": "found",
+    "source": "Consolidated Statements of Income, p. 52",
+    "note": "Net income attributable to Verizon. Total net income including noncontrolling interests is 17,608."
+   },
+   {
+    "item": "diluted_eps",
+    "value": 4.06,
+    "status": "found",
+    "source": "Consolidated Statements of Income, p. 52",
+    "note": "Diluted EPS in dollars, based on 4,231 million weighted-average diluted shares."
+   },
+   {
+    "item": "operating_cash_flow",
+    "value": 37137,
+    "status": "found",
+    "source": "Consolidated Statements of Cash Flows, p. 55",
+    "note": "Net cash provided by operating activities."
+   },
+   {
+    "item": "capex",
+    "value": 17011,
+    "status": "found",
+    "source": "Consolidated Statements of Cash Flows, p. 55",
+    "note": "Line printed as Capital expenditures (including capitalized software), shown as an outflow of (17,011). Reported here as a positive number."
+   },
+   {
+    "item": "cash",
+    "value": 19048,
+    "status": "found",
+    "source": "Consolidated Balance Sheets, p. 54",
+    "note": "Cash and cash equivalents. Cash, cash equivalents and restricted cash is 19,499 and is not used."
+   },
+   {
+    "item": "total_financial_debt",
+    "value": 158150,
+    "status": "found",
+    "source": "Consolidated Balance Sheets, p. 54; debt note total of $158,150",
+    "note": "Debt maturing within one year 18,618 plus Long-term debt 139,532. This matches the total debt of 158,150 in the debt note. No balance-sheet caption names finance leases, so no finance-lease amount was subtracted. The debt note mentions finance lease obligations as part of the debt note total, but this review did not find an exact amount included in the captions."
+   },
+   {
+    "item": "shareholders_equity",
+    "value": 105741,
+    "status": "found",
+    "source": "Consolidated Balance Sheets, p. 54",
+    "note": "The balance sheet prints only Total equity, which includes noncontrolling interests of 1,281. The attributable amount was not computed."
+   },
+   {
+    "item": "interest_expense",
+    "value": 6694,
+    "status": "found",
+    "source": "Consolidated Statements of Income, p. 52",
+    "note": "Printed as (6,694) and given here as a positive number."
+   }
+  ],
+  "computed": [
+   {
+    "item": "revenue_growth",
+    "value": 0.025247,
+    "status": "found",
+    "formula": "138191 / 134788 - 1",
+    "inputs": "Total Operating Revenues 2025 = 138,191; 2024 = 134,788",
+    "note": ""
+   },
+   {
+    "item": "operating_margin",
+    "value": 0.211729,
+    "status": "found",
+    "formula": "29259 / 138191",
+    "inputs": "Operating income 29,259; revenue 138,191",
+    "note": ""
+   },
+   {
+    "item": "free_cash_flow",
+    "value": 20126,
+    "status": "found",
+    "formula": "37137 - 17011",
+    "inputs": "Operating cash flow 37,137; capex 17,011",
+    "note": ""
+   },
+   {
+    "item": "net_debt",
+    "value": 139102,
+    "status": "found",
+    "formula": "158150 - 19048",
+    "inputs": "Total financial debt 158,150; cash 19,048",
+    "note": ""
+   },
+   {
+    "item": "interest_coverage",
+    "value": 4.37,
+    "status": "found",
+    "formula": "29259 / 6694",
+    "inputs": "Operating income 29,259; interest expense 6,694",
+    "note": "Number of times."
+   },
+   {
+    "item": "debt_to_equity",
+    "value": 1.4956,
+    "status": "found",
+    "formula": "158150 / 105741",
+    "inputs": "Total financial debt 158,150; total equity 105,741",
+    "note": "The equity figure includes noncontrolling interests of 1,281."
+   },
+   {
+    "item": "cfo_to_debt",
+    "value": 0.2348,
+    "status": "found",
+    "formula": "37137 / 158150",
+    "inputs": "Operating cash flow 37,137; total financial debt 158,150",
+    "note": ""
+   }
+  ],
+  "segments": {
+   "count": 2,
+   "names": [
+    "Verizon Consumer Group (Consumer)",
+    "Verizon Business Group (Business)"
+   ],
+   "source": "Item 1 Business, General; Note 1; Item 7 Segment Results of Operations"
+  },
+  "major_risks": [
+   {
+    "risk": "Significant competition, including aggressive pricing and promotions from telecom, cable, satellite and other providers and a moderating wireless customer growth rate, may hurt market share, pricing, margins and results, and could lead to impairment charges.",
+    "source": "Item 1A Risk Factors, Economic and Strategic Risks"
+   },
+   {
+    "risk": "If the company fails to keep up with rapid technological change and shifting customer demand, including the risks of deploying AI, it could lose customers, be unable to implement its strategy and see reduced profits.",
+    "source": "Item 1A Risk Factors, Economic and Strategic Risks"
+   },
+   {
+    "risk": "Cyberattacks, including ransomware and other malware, on the company's or its suppliers' networks and systems could have an adverse effect on its business.",
+    "source": "Item 1A Risk Factors, Operational Risks"
+   }
+  ],
+  "not_in_report": [
+   {
+    "question": "The company's current share price today",
+    "status": "not_in_report",
+    "answer": "The report gives no current share price. It gives only the aggregate market value of voting stock held by non-affiliates at June 30, 2025 (about $182.4 billion) and the number of shares outstanding at January 30, 2026.",
+    "source": "Cover page"
+   },
+   {
+    "question": "The company's own earnings guidance for the next fiscal year",
+    "status": "not_in_report",
+    "answer": "My search found no earnings guidance for 2026 in the report.",
+    "source": "Search of the report; Item 7"
+   },
+   {
+    "question": "An analyst's estimate of the company's fair value",
+    "status": "not_in_report",
+    "answer": "The report contains no analyst fair-value estimate.",
+    "source": "Whole report"
+   }
+  ],
+  "limits": [
+   "Shareholders' equity is total equity including noncontrolling interests of 1,281, because the balance sheet prints no separate attributable total.",
+   "Total financial debt includes finance lease and vendor financing obligations carried in the debt captions. The exact amount was not isolated, and nothing was subtracted.",
+   "Only the first page of the risk factors was read, so the three risks were chosen from that page.",
+   "The guidance search was a keyword search, so a forward-looking statement elsewhere in the report cannot be fully excluded."
+  ]
+ },
+ "run_mode": "manual"
+}

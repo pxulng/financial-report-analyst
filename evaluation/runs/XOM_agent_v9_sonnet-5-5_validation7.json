@@ -1,0 +1,212 @@
+{
+ "id": "XOM",
+ "model": "agent",
+ "stop_reason": "end",
+ "valid_json": true,
+ "valid_after_extraction": true,
+ "input_tokens": null,
+ "output_tokens": null,
+ "tool_calls": 13,
+ "tools_used": [
+  "read_statement",
+  "read_statement",
+  "read_statement",
+  "read_section",
+  "search_report",
+  "search_report",
+  "search_report",
+  "Calculator",
+  "Calculator",
+  "Calculator",
+  "Calculator",
+  "Calculator",
+  "Calculator"
+ ],
+ "sheet": {
+  "company": "Exxon Mobil Corporation",
+  "fiscal_year_end": "2025-12-31",
+  "reporting_currency": "USD",
+  "unit": "millions",
+  "figures": [
+   {
+    "item": "revenue",
+    "value": 332238,
+    "status": "found",
+    "source": "Consolidated Statement of Income, 'Total revenues and other income', p. 71",
+    "note": "Sales and other operating revenue alone was 323,905."
+   },
+   {
+    "item": "operating_income",
+    "value": null,
+    "status": "not_applicable",
+    "source": "Consolidated Statement of Income, p. 71",
+    "note": "The income statement does not print an operating income line. It shows income before income taxes of 41,268. No figure was built from other lines."
+   },
+   {
+    "item": "net_income",
+    "value": 28844,
+    "status": "found",
+    "source": "Consolidated Statement of Income, p. 71",
+    "note": "Net income attributable to ExxonMobil. Including noncontrolling interests it was 29,764."
+   },
+   {
+    "item": "diluted_eps",
+    "value": 6.7,
+    "status": "found",
+    "source": "Consolidated Statement of Income, p. 71",
+    "note": "Earnings per common share, assuming dilution, in dollars."
+   },
+   {
+    "item": "operating_cash_flow",
+    "value": 51970,
+    "status": "found",
+    "source": "Consolidated Statement of Cash Flows, p. 74",
+    "note": "Net cash provided by operating activities."
+   },
+   {
+    "item": "capex",
+    "value": 28358,
+    "status": "found",
+    "source": "Consolidated Statement of Cash Flows, p. 74",
+    "note": "'Additions to property, plant, and equipment', shown as an outflow of (28,358) and reported here as a positive number."
+   },
+   {
+    "item": "cash",
+    "value": 10681,
+    "status": "found",
+    "source": "Consolidated Balance Sheet, 31 December 2025, p. 73",
+    "note": "Cash and cash equivalents. Restricted cash was nil at year-end 2025."
+   },
+   {
+    "item": "total_financial_debt",
+    "value": 43537,
+    "status": "found",
+    "source": "Consolidated Balance Sheet, p. 73",
+    "note": "Notes and loans payable 9,296 plus Long-term debt 34,241. This matches the 'Total debt' of 43,537 printed in the report's summary tables. No balance-sheet caption names finance leases, so nothing was subtracted. The Note 12 finance-lease amount was not retrieved."
+   },
+   {
+    "item": "shareholders_equity",
+    "value": 259386,
+    "status": "found",
+    "source": "Consolidated Balance Sheet, p. 73",
+    "note": "ExxonMobil share of equity. Noncontrolling interests of 7,240 are excluded; total equity is 266,626."
+   },
+   {
+    "item": "interest_expense",
+    "value": 603,
+    "status": "found",
+    "source": "Consolidated Statement of Income, p. 71",
+    "note": "'Interest expense' line."
+   }
+  ],
+  "computed": [
+   {
+    "item": "revenue_growth",
+    "value": -0.049621694294664,
+    "status": "found",
+    "formula": "332238 / 349585 - 1",
+    "inputs": "Total revenues and other income: 332,238 in 2025 and 349,585 in 2024",
+    "note": "A decline of about 5.0 %."
+   },
+   {
+    "item": "operating_margin",
+    "value": null,
+    "status": "not_applicable",
+    "formula": "operating_income / revenue",
+    "inputs": "operating_income is not_applicable",
+    "note": "The income statement prints no operating income line."
+   },
+   {
+    "item": "free_cash_flow",
+    "value": 23612,
+    "status": "found",
+    "formula": "operating_cash_flow - capex",
+    "inputs": "51,970 - 28,358",
+    "note": ""
+   },
+   {
+    "item": "net_debt",
+    "value": 32856,
+    "status": "found",
+    "formula": "total_financial_debt - cash",
+    "inputs": "43,537 - 10,681",
+    "note": ""
+   },
+   {
+    "item": "interest_coverage",
+    "value": null,
+    "status": "not_applicable",
+    "formula": "operating_income / interest_expense",
+    "inputs": "operating_income is not_applicable; interest_expense is 603",
+    "note": "Not computed because operating income is not_applicable."
+   },
+   {
+    "item": "debt_to_equity",
+    "value": 0.167846375671779,
+    "status": "found",
+    "formula": "total_financial_debt / shareholders_equity",
+    "inputs": "43,537 / 259,386",
+    "note": "Equity is the ExxonMobil share, excluding noncontrolling interests."
+   },
+   {
+    "item": "cfo_to_debt",
+    "value": 1.193697314927533,
+    "status": "found",
+    "formula": "operating_cash_flow / total_financial_debt",
+    "inputs": "51,970 / 43,537",
+    "note": ""
+   }
+  ],
+  "segments": {
+   "count": 4,
+   "names": [
+    "Upstream",
+    "Energy Products",
+    "Chemical Products",
+    "Specialty Products"
+   ],
+   "source": "Note 3. Disclosures about Segments and Related Information"
+  },
+  "major_risks": [
+   {
+    "risk": "Oil, gas and petrochemical prices and refining and chemical margins are volatile. A material decline in oil or natural gas prices could materially harm results, financial condition and proved reserves, especially in Upstream.",
+    "source": "Item 1A, Risk Factors - Supply and Demand"
+   },
+   {
+    "risk": "Economic downturns, geopolitical conflict, trade tariffs and sanctions, and financial-market disruption can reduce demand for energy and petrochemicals and impair partners, suppliers and customers.",
+    "source": "Item 1A, Risk Factors - Supply and Demand, Economic conditions"
+   },
+   {
+    "risk": "Political and regulatory developments can limit access to oil and gas resources or restrict production. These include restrictions on leasing, licensing and permitting, and policies aimed at reducing greenhouse gas emissions.",
+    "source": "Item 1A, Risk Factors - Government and Political Factors"
+   }
+  ],
+  "not_in_report": [
+   {
+    "question": "The company's current share price today",
+    "status": "not_in_report",
+    "answer": "The search of the report found no current share price.",
+    "source": "Searched the report; nothing found"
+   },
+   {
+    "question": "The company's own earnings guidance for the next fiscal year",
+    "status": "not_in_report",
+    "answer": "The report gives no earnings guidance. It gives only price-sensitivity illustrations for 2026, for example about $700 million of annual after-tax Upstream earnings for a $1 per barrel change in Brent.",
+    "source": "Item 7, MD&A (price sensitivity discussion)"
+   },
+   {
+    "question": "An analyst's estimate of the company's fair value",
+    "status": "not_in_report",
+    "answer": "The report contains no analyst fair-value estimate. The 'fair value' hits found are accounting fair values used in acquisitions and impairments.",
+    "source": "Searched the report; nothing found"
+   }
+  ],
+  "limits": [
+   "The income statement prints no operating income line, so operating_income, operating_margin and interest_coverage are not_applicable.",
+   "The finance-lease amount in Note 12 was not retrieved. The balance-sheet debt captions do not name finance leases, so the amount of finance leases included in total_financial_debt is not stated here.",
+   "Page numbers are taken from the statement footers (71, 73) and the cash-flow statement is assumed to be p. 74.",
+   "The debt-to-capital and 'total debt' tables are in the report's summary section. total_financial_debt here is computed from the balance-sheet captions."
+  ]
+ },
+ "run_mode": "manual"
+}

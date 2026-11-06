@@ -1,0 +1,213 @@
+{
+ "id": "HON",
+ "model": "agent",
+ "stop_reason": "end",
+ "valid_json": true,
+ "valid_after_extraction": true,
+ "input_tokens": null,
+ "output_tokens": null,
+ "tool_calls": 13,
+ "tools_used": [
+  "read_statement",
+  "read_statement",
+  "read_statement",
+  "read_section",
+  "search_report",
+  "search_report",
+  "search_report",
+  "Calculator",
+  "Calculator",
+  "Calculator",
+  "Calculator",
+  "Calculator",
+  "Calculator"
+ ],
+ "sheet": {
+  "company": "Honeywell International Inc.",
+  "fiscal_year_end": "2025-12-31",
+  "reporting_currency": "USD",
+  "unit": "millions",
+  "figures": [
+   {
+    "item": "revenue",
+    "value": 37442,
+    "status": "found",
+    "source": "Consolidated Statement of Operations, p. 55",
+    "note": "Printed as 'Net sales'. It is the last revenue total line on the income statement."
+   },
+   {
+    "item": "operating_income",
+    "value": null,
+    "status": "not_applicable",
+    "source": "Consolidated Statement of Operations, p. 55",
+    "note": "The income statement does not print an operating income line. A figure of 5,573 appears in Note 25 text, but the definition excludes figures taken from outside the income statement."
+   },
+   {
+    "item": "net_income",
+    "value": 4729,
+    "status": "found",
+    "source": "Consolidated Statement of Operations, p. 55",
+    "note": "Net income attributable to Honeywell. Total net income including noncontrolling interest is 4,772. The figure includes 304 from discontinued operations."
+   },
+   {
+    "item": "diluted_eps",
+    "value": 7.36,
+    "status": "found",
+    "source": "Consolidated Statement of Operations, p. 55",
+    "note": "Total earnings per share assuming dilution. The continuing-operations figure is 6.94."
+   },
+   {
+    "item": "operating_cash_flow",
+    "value": 6408,
+    "status": "found",
+    "source": "Consolidated Statement of Cash Flows, p. 58",
+    "note": "Net cash provided by operating activities, including 333 from discontinued operations. The continuing-operations figure is 6,075."
+   },
+   {
+    "item": "capex",
+    "value": 986,
+    "status": "found",
+    "source": "Consolidated Statement of Cash Flows, p. 58",
+    "note": "Line 'Capital expenditures'."
+   },
+   {
+    "item": "cash",
+    "value": 12487,
+    "status": "found",
+    "source": "Consolidated Balance Sheet, p. 57",
+    "note": "Cash and cash equivalents only. Short-term investments of 443 are excluded."
+   },
+   {
+    "item": "total_financial_debt",
+    "value": 34580,
+    "status": "found",
+    "source": "Consolidated Balance Sheet, p. 57",
+    "note": "Commercial paper and other short-term borrowings 5,893, plus current maturities of long-term debt 1,546, plus long-term debt 27,141. The debt captions do not name finance leases, so nothing was subtracted. Finance lease liabilities are included in the current maturities and long-term debt captions (Note 10). I did not look up the amount."
+   },
+   {
+    "item": "shareholders_equity",
+    "value": 13904,
+    "status": "found",
+    "source": "Consolidated Balance Sheet, p. 57",
+    "note": "Total Honeywell shareowners' equity. It excludes noncontrolling interest of 1,126."
+   },
+   {
+    "item": "interest_expense",
+    "value": 1344,
+    "status": "found",
+    "source": "Consolidated Statement of Operations, p. 55",
+    "note": "Line 'Interest and other financial charges'. It is the only interest line on the income statement."
+   }
+  ],
+  "computed": [
+   {
+    "item": "revenue_growth",
+    "value": 0.078491805,
+    "status": "found",
+    "formula": "revenue 2025 / revenue 2024 - 1",
+    "inputs": "37442 / 34717 - 1 (Net sales)",
+    "note": ""
+   },
+   {
+    "item": "operating_margin",
+    "value": null,
+    "status": "not_applicable",
+    "formula": "operating_income / revenue",
+    "inputs": "operating_income is not printed on the income statement",
+    "note": "Same status as operating_income."
+   },
+   {
+    "item": "free_cash_flow",
+    "value": 5422,
+    "status": "found",
+    "formula": "operating_cash_flow - capex",
+    "inputs": "6408 - 986",
+    "note": "Operating cash flow includes discontinued operations."
+   },
+   {
+    "item": "net_debt",
+    "value": 22093,
+    "status": "found",
+    "formula": "total_financial_debt - cash",
+    "inputs": "34580 - 12487",
+    "note": ""
+   },
+   {
+    "item": "interest_coverage",
+    "value": null,
+    "status": "not_applicable",
+    "formula": "operating_income / interest_expense",
+    "inputs": "operating_income is not applicable; interest_expense is 1344",
+    "note": "Same status as operating_income."
+   },
+   {
+    "item": "debt_to_equity",
+    "value": 2.487054085,
+    "status": "found",
+    "formula": "total_financial_debt / shareholders_equity",
+    "inputs": "34580 / 13904",
+    "note": "Uses equity attributable to Honeywell shareowners."
+   },
+   {
+    "item": "cfo_to_debt",
+    "value": 0.185309427,
+    "status": "found",
+    "formula": "operating_cash_flow / total_financial_debt",
+    "inputs": "6408 / 34580",
+    "note": ""
+   }
+  ],
+  "segments": {
+   "count": 4,
+   "names": [
+    "Aerospace Technologies",
+    "Industrial Automation",
+    "Building Automation",
+    "Energy and Sustainability Solutions"
+   ],
+   "source": "Item 1, Major Businesses, and MD&A, Review of Business Segments. A realignment expected in Q1 2026 will create a new Process Automation and Technology segment."
+  },
+  "major_risks": [
+   {
+    "risk": "Demand in each of the company's businesses depends on industry and macroeconomic conditions, including air travel, industrial and construction activity, energy markets, inflation, high interest rates, and supply chain disruptions.",
+    "source": "Item 1A Risk Factors, Macroeconomic and Industry Risks"
+   },
+   {
+    "risk": "International operations account for more than half of sales and expose the company to foreign exchange, regulatory, geopolitical and sanctions risks.",
+    "source": "Item 1A Risk Factors, Macroeconomic and Industry Risks"
+   },
+   {
+    "risk": "Changes in U.S. and global trade policy, including tariffs, retaliatory tariffs and trade restrictions, could raise costs, reduce demand and disrupt the supply chain.",
+    "source": "Item 1A Risk Factors, Macroeconomic and Industry Risks"
+   }
+  ],
+  "not_in_report": [
+   {
+    "question": "The company's current share price today",
+    "status": "not_in_report",
+    "answer": "The report does not give a current share price.",
+    "source": "Item 5 and the rest of the report searched"
+   },
+   {
+    "question": "The company's own earnings guidance for the next fiscal year",
+    "status": "not_in_report",
+    "answer": "My search found no 2026 earnings guidance in the report. It only states an intent to keep paying quarterly dividends in 2026.",
+    "source": "Searched for guidance and outlook text; Item 5"
+   },
+   {
+    "question": "An analyst's estimate of the company's fair value",
+    "status": "not_in_report",
+    "answer": "The report does not contain any analyst fair-value estimate.",
+    "source": "Report searched"
+   }
+  ],
+  "limits": [
+   "Operating income is not printed on the income statement, so operating margin and interest coverage are not applicable.",
+   "Revenue growth uses Net sales for 2025 and 2024, both as printed in this report.",
+   "Net income, diluted EPS and operating cash flow include discontinued operations (the Advanced Materials spin-off).",
+   "Risks were chosen from the first page of the risk factors only.",
+   "The amount of finance leases included in the debt captions was not retrieved."
+  ]
+ },
+ "run_mode": "manual"
+}

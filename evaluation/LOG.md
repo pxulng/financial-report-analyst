@@ -271,3 +271,4 @@ GE + LMT with prompt v7: balance 1.58 -> 1.29 USD (0.29 USD, about 0.15 per repo
 
 - 2026-11-06: comparison workflow (parent, one agent run per ticker) tested on LMT + GE, about 0.30 USD. Prompt v8 (debt note check) tested on LMT, about 0.15 USD, 0 wrong. Risk factors finder fixed offline (no cost). See docs/V8_DEBT_NOTE_AND_RISKS.md.
 - 2026-11-06: v8 validated on 7 reports with finance leases (about 1 USD): 13 wrong, v8 rejected, workflow back to v7. See docs/V8_VALIDATION.md.
+- 2026-11-06: prompt v9 on the same 7 reports (about 1 USD): 2 wrong (Boeing key written under the old debt definition), 62/63 read. Workflow uses v9. See docs/V9_RESULTS.md.

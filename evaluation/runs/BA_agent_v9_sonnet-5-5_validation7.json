@@ -1,0 +1,214 @@
+{
+ "id": "BA",
+ "model": "agent",
+ "stop_reason": "end",
+ "valid_json": true,
+ "valid_after_extraction": true,
+ "input_tokens": null,
+ "output_tokens": null,
+ "tool_calls": 15,
+ "tools_used": [
+  "read_statement",
+  "read_statement",
+  "read_statement",
+  "search_report",
+  "search_report",
+  "read_section",
+  "search_report",
+  "Calculator",
+  "Calculator",
+  "Calculator",
+  "Calculator",
+  "Calculator",
+  "Calculator",
+  "Calculator",
+  "Calculator"
+ ],
+ "sheet": {
+  "company": "The Boeing Company",
+  "fiscal_year_end": "2025-12-31",
+  "reporting_currency": "USD",
+  "unit": "millions",
+  "figures": [
+   {
+    "item": "revenue",
+    "value": 89463,
+    "status": "found",
+    "source": "Consolidated Statements of Operations, page 54",
+    "note": "Line 'Total revenues'."
+   },
+   {
+    "item": "operating_income",
+    "value": 4281,
+    "status": "found",
+    "source": "Consolidated Statements of Operations, page 54",
+    "note": "Line 'Earnings/(loss) from operations'. It includes a $9,672 gain on dispositions, net."
+   },
+   {
+    "item": "net_income",
+    "value": 2235,
+    "status": "found",
+    "source": "Consolidated Statements of Operations, page 54",
+    "note": "Net earnings attributable to Boeing shareholders, before $345 of mandatory convertible preferred dividends. Net earnings attributable to Boeing common shareholders were 1,890."
+   },
+   {
+    "item": "diluted_eps",
+    "value": 2.48,
+    "status": "found",
+    "source": "Consolidated Statements of Operations, page 54",
+    "note": "Diluted earnings per share, in US dollars."
+   },
+   {
+    "item": "operating_cash_flow",
+    "value": 1065,
+    "status": "found",
+    "source": "Consolidated Statements of Cash Flows, page 57",
+    "note": "Net cash provided by operating activities."
+   },
+   {
+    "item": "capex",
+    "value": 2942,
+    "status": "found",
+    "source": "Consolidated Statements of Cash Flows, page 57",
+    "note": "Payments to acquire property, plant and equipment, shown as a positive number."
+   },
+   {
+    "item": "cash",
+    "value": 10921,
+    "status": "found",
+    "source": "Consolidated Statements of Financial Position, page 56",
+    "note": "Cash and cash equivalents only. Short-term and other investments of 18,479 are excluded."
+   },
+   {
+    "item": "total_financial_debt",
+    "value": 54098,
+    "status": "found",
+    "source": "Consolidated Statements of Financial Position, page 56; Note on debt, page 94",
+    "note": "Short-term debt and current portion of long-term debt 8,461 plus long-term debt 45,637. It includes finance lease obligations of 111 current and 250 non-current (361 in total). The captions do not name finance leases, so nothing was subtracted. The debt note also shows total debt of 54,098."
+   },
+   {
+    "item": "shareholders_equity",
+    "value": 5454,
+    "status": "found",
+    "source": "Consolidated Statements of Financial Position, page 56",
+    "note": "Total shareholders' equity, excluding noncontrolling interests of 3. Total equity is 5,457."
+   },
+   {
+    "item": "interest_expense",
+    "value": 2771,
+    "status": "found",
+    "source": "Consolidated Statements of Operations, page 54",
+    "note": "Line 'Interest and debt expense'."
+   }
+  ],
+  "computed": [
+   {
+    "item": "revenue_growth",
+    "value": 0.344964445179428,
+    "status": "found",
+    "formula": "89463 / 66517 - 1",
+    "inputs": "Total revenues 2025 = 89463; 2024 = 66517",
+    "note": "2024 revenue was depressed. The report's material shows a strike and other disruptions, but I did not check this in the text I read."
+   },
+   {
+    "item": "operating_margin",
+    "value": 0.047852184702056,
+    "status": "found",
+    "formula": "4281 / 89463",
+    "inputs": "Earnings from operations 4281; total revenues 89463",
+    "note": "Operating income includes a 9,672 gain on dispositions, net."
+   },
+   {
+    "item": "free_cash_flow",
+    "value": -1877,
+    "status": "found",
+    "formula": "1065 - 2942",
+    "inputs": "Operating cash flow 1065; capex 2942",
+    "note": ""
+   },
+   {
+    "item": "net_debt",
+    "value": 43177,
+    "status": "found",
+    "formula": "54098 - 10921",
+    "inputs": "Total financial debt 54098; cash 10921",
+    "note": "Short-term and other investments of 18,479 are not deducted."
+   },
+   {
+    "item": "interest_coverage",
+    "value": 1.544929628293035,
+    "status": "found",
+    "formula": "4281 / 2771",
+    "inputs": "Operating income 4281; interest expense 2771",
+    "note": "Operating income includes the 9,672 gain on dispositions."
+   },
+   {
+    "item": "debt_to_equity",
+    "value": 9.918958562522919,
+    "status": "found",
+    "formula": "54098 / 5454",
+    "inputs": "Total financial debt 54098; shareholders' equity 5454",
+    "note": "Equity was a deficit of 3,908 at the end of 2024."
+   },
+   {
+    "item": "cfo_to_debt",
+    "value": 0.019686494879663,
+    "status": "found",
+    "formula": "1065 / 54098",
+    "inputs": "Operating cash flow 1065; total financial debt 54098",
+    "note": ""
+   }
+  ],
+  "segments": {
+   "count": 3,
+   "names": [
+    "Commercial Airplanes (BCA)",
+    "Defense, Space & Security (BDS)",
+    "Global Services (BGS)"
+   ],
+   "source": "Item 1. Business; Note 24 \u2013 Segment and Revenue Information. Activities outside the three segments fall within Unallocated items, eliminations and other."
+  },
+  "major_risks": [
+   {
+    "risk": "Boeing depends heavily on commercial airlines, whose demand is cyclical and sensitive to economic conditions, customer finances and trade policy, so a downturn could cut orders, revenues and cash flows.",
+    "source": "Item 1A. Risk Factors, Risks Related to Our Business and Operations"
+   },
+   {
+    "risk": "Delays and cost overruns in developing, certifying and producing aircraft (777X, 737-7, 737-10) and in raising production rates could cause further reach-forward losses (777X: $4.9 billion in 2025 and $3.5 billion in 2024), customer remedies and order cancellations.",
+    "source": "Item 1A. Risk Factors, Risks Related to Our Business and Operations"
+   },
+   {
+    "risk": "Firm fixed-price aircraft contracts with indexed price escalation expose Boeing to losses if cost overruns or cost increases exceed the escalation rate.",
+    "source": "Item 1A. Risk Factors, Risks Related to Our Business and Operations"
+   }
+  ],
+  "not_in_report": [
+   {
+    "question": "The company's current share price today",
+    "status": "not_in_report",
+    "answer": "The report does not state a current share price. It gives only a 15-trading-day volume weighted average price of $190.493 per share ending December 4, 2025, used for the Spirit acquisition exchange ratio. That is not a current price.",
+    "source": "Note on the Spirit acquisition, page 70"
+   },
+   {
+    "question": "The company's own earnings guidance for the next fiscal year",
+    "status": "not_in_report",
+    "answer": "I found no earnings guidance for 2026 in the searches I ran. The report does mention planned operating targets, such as raising the 737 production rate to 47 per month in 2026.",
+    "source": "Item 1A. Risk Factors"
+   },
+   {
+    "question": "An analyst's estimate of the company's fair value",
+    "status": "not_in_report",
+    "answer": "The report contains no analyst fair value estimate. The fair value figures it gives relate to financial instruments and acquisitions.",
+    "source": "Note 22 \u2013 Fair Value Measurements"
+   }
+  ],
+  "limits": [
+   "Only the first page of the risk factors was read. The three risks were chosen from that page.",
+   "The guidance answer rests on keyword searches and not on a full read of the MD&A, so the analyst should check the MD&A outlook.",
+   "Operating income, operating margin and interest coverage include a 9,672 gain on dispositions, net. They are not comparable with earlier years.",
+   "Page numbers are taken from the printed footers. The balance sheet is on page 56 and the cash flow statement on page 57.",
+   "The revenue_growth note refers to a strike and other disruptions in 2024 that I did not verify in the text I read. Treat it as unconfirmed."
+  ]
+ },
+ "run_mode": "manual"
+}

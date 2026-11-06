@@ -1,0 +1,212 @@
+{
+ "id": "WMT",
+ "model": "agent",
+ "stop_reason": "end",
+ "valid_json": true,
+ "valid_after_extraction": true,
+ "input_tokens": null,
+ "output_tokens": null,
+ "tool_calls": 14,
+ "tools_used": [
+  "read_statement",
+  "read_statement",
+  "read_statement",
+  "search_report",
+  "search_report",
+  "read_section",
+  "search_report",
+  "Calculator",
+  "Calculator",
+  "Calculator",
+  "Calculator",
+  "Calculator",
+  "Calculator",
+  "Calculator"
+ ],
+ "sheet": {
+  "company": "Walmart Inc.",
+  "fiscal_year_end": "2026-01-31",
+  "reporting_currency": "USD",
+  "unit": "millions",
+  "figures": [
+   {
+    "item": "revenue",
+    "value": 713163,
+    "status": "found",
+    "source": "Consolidated Statements of Income, p. 52",
+    "note": "Total revenues, fiscal 2026. Net sales were 706,413 and membership and other income was 6,750."
+   },
+   {
+    "item": "operating_income",
+    "value": 29825,
+    "status": "found",
+    "source": "Consolidated Statements of Income, p. 52",
+    "note": "Operating income line as printed."
+   },
+   {
+    "item": "net_income",
+    "value": 21893,
+    "status": "found",
+    "source": "Consolidated Statements of Income, p. 52",
+    "note": "Consolidated net income attributable to Walmart. Consolidated net income including noncontrolling interest is 22,270."
+   },
+   {
+    "item": "diluted_eps",
+    "value": 2.73,
+    "status": "found",
+    "source": "Consolidated Statements of Income, p. 52",
+    "note": "Diluted net income per common share attributable to Walmart, in USD."
+   },
+   {
+    "item": "operating_cash_flow",
+    "value": 41565,
+    "status": "found",
+    "source": "Consolidated Statements of Cash Flows, p. 56",
+    "note": "Net cash provided by operating activities."
+   },
+   {
+    "item": "capex",
+    "value": 26642,
+    "status": "found",
+    "source": "Consolidated Statements of Cash Flows, p. 56",
+    "note": "Payments for property and equipment, shown as an outflow of (26,642). Reported here as a positive number."
+   },
+   {
+    "item": "cash",
+    "value": 10727,
+    "status": "found",
+    "source": "Consolidated Balance Sheets, p. 54",
+    "note": "Cash and cash equivalents only. Cash, cash equivalents and restricted cash is 11,321 and is not used."
+   },
+   {
+    "item": "total_financial_debt",
+    "value": 44762,
+    "status": "found",
+    "source": "Consolidated Balance Sheets, p. 54",
+    "note": "Short-term borrowings 6,596, plus long-term debt due within one year 3,542, plus long-term debt 34,624. No balance-sheet debt caption names finance leases. The separate finance lease obligations (856 current and 5,905 long-term) and operating lease obligations are excluded. I did not read the debt note, so I cannot say whether the debt captions include any finance leases."
+   },
+   {
+    "item": "shareholders_equity",
+    "value": 99617,
+    "status": "found",
+    "source": "Consolidated Balance Sheets, p. 54",
+    "note": "Total Walmart shareholders' equity. It excludes nonredeemable noncontrolling interest of 6,270. Total shareholders' equity is 105,887."
+   },
+   {
+    "item": "interest_expense",
+    "value": null,
+    "status": "not_in_report",
+    "source": "Consolidated Statements of Income, p. 52",
+    "note": "The income statement prints no single gross interest expense line. It prints separate lines for Debt interest (2,318) and Finance lease interest (481), then interest income (368) and Interest, net (2,431). I did not add the two lines, to follow the rule against building figures."
+   }
+  ],
+  "computed": [
+   {
+    "item": "revenue_growth",
+    "value": 0.047252142117668,
+    "status": "found",
+    "formula": "713163 / 680985 - 1",
+    "inputs": "Total revenues: 713,163 for fiscal 2026 and 680,985 for fiscal 2025",
+    "note": "Both years use the Total revenues line."
+   },
+   {
+    "item": "operating_margin",
+    "value": 0.041820733829433,
+    "status": "found",
+    "formula": "29825 / 713163",
+    "inputs": "Operating income 29,825; total revenues 713,163",
+    "note": ""
+   },
+   {
+    "item": "free_cash_flow",
+    "value": 14923,
+    "status": "found",
+    "formula": "41565 - 26642",
+    "inputs": "Operating cash flow 41,565; capex 26,642",
+    "note": ""
+   },
+   {
+    "item": "net_debt",
+    "value": 34035,
+    "status": "found",
+    "formula": "44762 - 10727",
+    "inputs": "Total financial debt 44,762; cash 10,727",
+    "note": ""
+   },
+   {
+    "item": "interest_coverage",
+    "value": null,
+    "status": "not_in_report",
+    "formula": "operating_income / interest_expense",
+    "inputs": "Operating income 29,825; interest expense not available",
+    "note": "Interest expense is not_in_report, so this item takes the same status."
+   },
+   {
+    "item": "debt_to_equity",
+    "value": 0.449340975937842,
+    "status": "found",
+    "formula": "44762 / 99617",
+    "inputs": "Total financial debt 44,762; Walmart shareholders' equity 99,617",
+    "note": ""
+   },
+   {
+    "item": "cfo_to_debt",
+    "value": 0.928577811536571,
+    "status": "found",
+    "formula": "41565 / 44762",
+    "inputs": "Operating cash flow 41,565; total financial debt 44,762",
+    "note": ""
+   }
+  ],
+  "segments": {
+   "count": 3,
+   "names": [
+    "Walmart U.S.",
+    "Walmart International",
+    "Sam's Club U.S."
+   ],
+   "source": "Item 1 Business; Note 1; Note 11 Segments and Disaggregated Revenue, p. 76"
+  },
+  "major_risks": [
+   {
+    "risk": "Failure to execute the omnichannel strategy, and the cost of investments in eCommerce, technology, AI and automation, could hurt market position, net sales and financial performance, and could lead to impairment charges.",
+    "source": "Item 1A Risk Factors, Strategic Risks"
+   },
+   {
+    "risk": "If the company does not identify or respond to consumer trends and preferences, or suffers reputational harm (for example from a data breach, misuse of AI or negative publicity), demand, market share and results could suffer.",
+    "source": "Item 1A Risk Factors, Strategic Risks"
+   },
+   {
+    "risk": "Changes in tax and trade laws, including tariffs and trade barriers, could materially hurt financial performance, because much of the general merchandise sold in U.S. stores and clubs is made in other countries.",
+    "source": "Item 1A Risk Factors, tax and trade laws risk"
+   }
+  ],
+  "not_in_report": [
+   {
+    "question": "The company's current share price today",
+    "status": "not_in_report",
+    "answer": "The report gives no current share price.",
+    "source": "Searched the report; no such figure found"
+   },
+   {
+    "question": "The company's own earnings guidance for the next fiscal year",
+    "status": "not_in_report",
+    "answer": "One search of the report found no earnings guidance for the next fiscal year.",
+    "source": "Item 7 MD&A; search for guidance"
+   },
+   {
+    "question": "An analyst's estimate of the company's fair value",
+    "status": "not_in_report",
+    "answer": "The report gives no analyst fair-value estimate.",
+    "source": "Not part of a Form 10-K"
+   }
+  ],
+  "limits": [
+   "Interest expense is not_in_report because the income statement shows debt interest and finance lease interest as separate lines with no gross total, so interest_coverage is also not_in_report.",
+   "I read only the first page of the risk factors. The tariff and trade risk was taken from a search snippet, not from a full read of that section.",
+   "I did not read the debt note, so I cannot say how much finance lease debt, if any, sits inside the debt captions. Total financial debt uses the three balance-sheet debt captions as printed.",
+   "Capex is the 'Payments for property and equipment' line. Proceeds from disposals are not netted."
+  ]
+ },
+ "run_mode": "manual"
+}
