@@ -1,0 +1,149 @@
+{
+ "id": "HON",
+ "model": "agent",
+ "stop_reason": "end",
+ "valid_json": true,
+ "valid_after_extraction": true,
+ "tool_calls": 24,
+ "tools_used": [
+  "read_statement",
+  "read_section",
+  "search_report",
+  "Calculator"
+ ],
+ "run_mode": "manual",
+ "sheet": {
+  "unit": "millions",
+  "figures": [
+   {
+    "item": "revenue",
+    "value": 37442,
+    "status": "found",
+    "source": "as returned (shortened)",
+    "note": "from Note 22 after statement tool failed"
+   },
+   {
+    "item": "operating_income",
+    "value": 5573,
+    "status": "found",
+    "source": "as returned (shortened)",
+    "note": "MD&A reconciliation value, not a statement line"
+   },
+   {
+    "item": "net_income",
+    "value": 4729,
+    "status": "found",
+    "source": "as returned (shortened)",
+    "note": ""
+   },
+   {
+    "item": "diluted_eps",
+    "value": 7.36,
+    "status": "found",
+    "source": "as returned (shortened)",
+    "note": "total incl. discontinued"
+   },
+   {
+    "item": "operating_cash_flow",
+    "value": 6408,
+    "status": "found",
+    "source": "as returned (shortened)",
+    "note": ""
+   },
+   {
+    "item": "capex",
+    "value": 986,
+    "status": "found",
+    "source": "as returned (shortened)",
+    "note": ""
+   },
+   {
+    "item": "cash",
+    "value": 12487,
+    "status": "found",
+    "source": "as returned (shortened)",
+    "note": ""
+   },
+   {
+    "item": "total_financial_debt",
+    "value": 34580,
+    "status": "found",
+    "source": "as returned (shortened)",
+    "note": "5893+1546+27141"
+   },
+   {
+    "item": "shareholders_equity",
+    "value": 13904,
+    "status": "found",
+    "source": "as returned (shortened)",
+    "note": ""
+   },
+   {
+    "item": "interest_expense",
+    "value": 1344,
+    "status": "found",
+    "source": "as returned (shortened)",
+    "note": "Interest and other financial charges"
+   }
+  ],
+  "computed": [
+   {
+    "item": "revenue_growth",
+    "value": 0.0785,
+    "status": "found",
+    "formula": "37442/34717-1",
+    "inputs": "",
+    "note": ""
+   },
+   {
+    "item": "operating_margin",
+    "value": 0.1488,
+    "status": "found",
+    "formula": "5573/37442",
+    "inputs": "",
+    "note": ""
+   },
+   {
+    "item": "free_cash_flow",
+    "value": 5422,
+    "status": "found",
+    "formula": "6408-986",
+    "inputs": "",
+    "note": ""
+   },
+   {
+    "item": "net_debt",
+    "value": 22093,
+    "status": "found",
+    "formula": "34580-12487",
+    "inputs": "",
+    "note": ""
+   },
+   {
+    "item": "interest_coverage",
+    "value": 4.15,
+    "status": "found",
+    "formula": "5573/1344",
+    "inputs": "",
+    "note": ""
+   },
+   {
+    "item": "debt_to_equity",
+    "value": 2.49,
+    "status": "found",
+    "formula": "34580/13904",
+    "inputs": "",
+    "note": ""
+   },
+   {
+    "item": "cfo_to_debt",
+    "value": 0.1853,
+    "status": "found",
+    "formula": "6408/34580",
+    "inputs": "",
+    "note": ""
+   }
+  ]
+ },
+ "note": "Free-text fields shortened when saved by hand; figures, statuses and computed values as returned. Segments, risks and absent answers were not saved for this run (credit-ratio test)."
+}

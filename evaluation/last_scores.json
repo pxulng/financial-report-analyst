@@ -1,24 +1,27 @@
 [
  {
-  "id": "NEE",
+  "id": "HON",
   "valid_json": true,
   "in": null,
   "out": null,
-  "errors": [],
+  "errors": [
+   "operating_income: invented number 5573 (key: not applicable)",
+   "operating_margin: invented number 0.1488 (key: not applicable)"
+  ],
   "strict_json": true,
-  "read": "8/8",
-  "comp": "3/3",
+  "read": "8/9",
+  "comp": "3/4",
   "absent": "0/0",
-  "wrong": 0,
-  "src": "7/8",
+  "wrong": 2,
+  "src": "9/9",
   "risks_auto": "0/3",
   "n_ok_read": 8,
-  "n_read": 8,
+  "n_read": 9,
   "n_ok_comp": 3,
-  "n_comp": 3,
+  "n_comp": 4,
   "n_ok_abs": 0,
   "n_abs": 0,
-  "n_src_ok": 7,
-  "n_src": 8
+  "n_src_ok": 9,
+  "n_src": 9
  }
 ]
