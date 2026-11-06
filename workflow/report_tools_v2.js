@@ -100,6 +100,23 @@ function runTool(p, txt) {
         if (a === undefined) continue;
         if (b - a > bestLen) { bestLen = b - a; start = a; end = b; }
       }
+      if (start < 0) {
+        // Fallback for reports without "Item 1A" headings (annual-report formats): a heading "Risk Factors" on its own,
+        // ended by the next standard heading (cybersecurity, properties, legal proceedings, controls and procedures...).
+        const isStart = l => (/^risk factors$/i.test(l) || /^RISK FACTORS\./.test(l));
+        const isEnd = l => /^LEGAL PROCEEDINGS\./.test(l) || /^(item\s*(1b|1c|2|3)\b.*|unresolved staff comments|cybersecurity|properties|legal proceedings|controls and procedures)\.?$/i.test(l);
+        let bestFB = 0;
+        for (let i = 0; i < lines.length; i++) {
+          const l = lines[i].replace(/^[#*\s`]+/, "").trim();
+          if (!isStart(l)) continue;
+          let e = -1;
+          for (let k = i + 20; k < Math.min(lines.length, i + 5000); k++) {
+            if (isEnd(lines[k].replace(/^[#*\s`]+/, "").trim())) { e = k; break; }
+          }
+          if (e > 0 && e - i > bestFB) { bestFB = e - i; start = i; end = e; }
+        }
+        if (bestFB < 60) start = -1;
+      }
     } else if (sec) {
       let bestLen = 0;
       for (let i = 0; i < lines.length; i++) {
