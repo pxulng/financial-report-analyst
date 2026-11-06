@@ -265,3 +265,6 @@ FY2025 10-K added (negative equity). Execution 1011, Sonnet 5.5, prompt v5: orig
 
 ## Third holdout and v6 check (2026-11-06)
 NEE check + HON + HD + WFC with prompt v6: balance 2.45 -> 1.58 USD (0.87 USD, about 0.22 per report).
+
+## Fourth holdout (2026-11-06)
+GE + LMT with prompt v7: balance 1.58 -> 1.29 USD (0.29 USD, about 0.15 per report).

@@ -19,4 +19,4 @@ Reports never used to build any rule: GE Aerospace (GE) and Lockheed Martin (LMT
 - Two reports per round is a small sample: this shows the two fixes work, it is not a measure of overall accuracy.
 
 ## Cost
-Balance to be noted.
+Balance 1.58 -> 1.29 USD for two runs (GE, LMT): 0.29 USD, about 0.15 per report.
