@@ -204,3 +204,11 @@ Four runs, one company per execution (MSFT 748, WMT 754, NKE 761, JPM 769). Scor
 - Strict JSON failed on NKE and JPM (text before the fence); valid after extraction.
 - Cost not yet read from the balance.
 - Balance after all 16 Haiku runs of agent v2 (6 v4, 6 v4b, 4 validation): 4.24 USD, from 4.36 before, so about 0.12 USD (about 0.0075 per run).
+
+## Agent v2 (prompt v4b, tools v2), validation set, Sonnet 5.5 adaptive, 2026-11-06 (exploratory, not a clean holdout)
+Four runs, one company per execution (MSFT 775, WMT 782, NKE 789, JPM 796). Scores in `scores_validation_agent_v4b_sonnet.md`.
+- Read 36/36, computed 16/16, absent 11/12, 0 wrong or invented. Agent v3 Sonnet: read 35/36, computed 15/16, 2 wrong. Single prompt Sonnet (project 4): 34/36 read, 1 wrong, 2.30 USD.
+- JPM: bank rule applied correctly (cash, net debt, operating income, capex, FCF, margin not_applicable); debt 499,982 equals the key. The only miss: the guidance question answered "found" with the net interest income outlook for 2026 (Item 7, Outlook), counted as an absent-question miss by the key. This outlook is in the report, so the key's "not in report" is debatable; it is kept as scored.
+- Strict JSON valid on 4/4.
+- Success criteria in docs/V2_DESIGN.md: at most 1 wrong figure on Sonnet (met: 0); JPM sheet on both models (met); new human check of risks (not done yet).
+- Cost not yet read from the balance.
