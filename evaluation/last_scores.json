@@ -1,6 +1,6 @@
 [
  {
-  "id": "MSFT",
+  "id": "WMT",
   "valid_json": true,
   "in": null,
   "out": null,
@@ -10,15 +10,15 @@
   "comp": "4/4",
   "absent": "3/3",
   "wrong": 0,
-  "src": "9/9",
-  "risks_auto": "2/3",
+  "src": "8/9",
+  "risks_auto": "1/3",
   "n_ok_read": 9,
   "n_read": 9,
   "n_ok_comp": 4,
   "n_comp": 4,
   "n_ok_abs": 3,
   "n_abs": 3,
-  "n_src_ok": 9,
+  "n_src_ok": 8,
   "n_src": 9
  }
 ]
