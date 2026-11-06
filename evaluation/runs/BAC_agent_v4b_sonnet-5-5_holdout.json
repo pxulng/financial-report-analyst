@@ -1,0 +1,179 @@
+{
+ "id": "BAC",
+ "model": "agent",
+ "stop_reason": "end",
+ "valid_json": true,
+ "valid_after_extraction": true,
+ "tool_calls": 10,
+ "tools_used": [
+  "read_statement",
+  "read_statement",
+  "read_statement",
+  "search_report",
+  "read_section",
+  "search_report",
+  "search_report",
+  "search_report",
+  "Calculator",
+  "Calculator"
+ ],
+ "run_mode": "single company per execution (n8n execution 857), prompt v4b, tools v2, Sonnet 5.5 with thinking mode adaptive, holdout set (docs/HOLDOUT_FREEZE.md)",
+ "sheet": {
+  "company": "Bank of America Corporation",
+  "fiscal_year_end": "2025-12-31",
+  "reporting_currency": "USD",
+  "unit": "millions",
+  "figures": [
+   {
+    "item": "revenue",
+    "value": 113097,
+    "status": "found",
+    "source": "Total revenue, net of interest expense (Item 7 summary)",
+    "note": "Net interest income 60,096 plus noninterest income 53,001."
+   },
+   {
+    "item": "operating_income",
+    "value": null,
+    "status": "not_applicable",
+    "source": "Consolidated Statement of Income",
+    "note": "Bank: no operating income line; income before income taxes 37,695."
+   },
+   {
+    "item": "net_income",
+    "value": 30509,
+    "status": "found",
+    "source": "Consolidated Statement of Income",
+    "note": "Applicable to common 29,055."
+   },
+   {
+    "item": "diluted_eps",
+    "value": 3.81,
+    "status": "found",
+    "source": "Item 7 selected financial data, per common share data",
+    "note": ""
+   },
+   {
+    "item": "operating_cash_flow",
+    "value": 12613,
+    "status": "found",
+    "source": "Consolidated Statement of Cash Flows, p. 94",
+    "note": ""
+   },
+   {
+    "item": "capex",
+    "value": null,
+    "status": "not_applicable",
+    "source": "Consolidated Statement of Cash Flows, p. 94",
+    "note": "No PP&E purchases line; industrial concepts do not apply to a bank."
+   },
+   {
+    "item": "cash",
+    "value": null,
+    "status": "not_applicable",
+    "source": "Consolidated Statement of Cash Flows, p. 94",
+    "note": "Not applicable for a bank; for reference cash and cash equivalents 231,845."
+   },
+   {
+    "item": "total_financial_debt",
+    "value": 365904,
+    "status": "found",
+    "source": "Short-term borrowings 48,088 + long-term debt 317,816; Note 11, p. 136",
+    "note": "Deposits and leases excluded."
+   },
+   {
+    "item": "shareholders_equity",
+    "value": 303243,
+    "status": "found",
+    "source": "Item 7 balance sheet summary",
+    "note": "Equals the parent-company figure; no noncontrolling interests seen."
+   }
+  ],
+  "computed": [
+   {
+    "item": "revenue_growth",
+    "value": 0.068404247279323,
+    "status": "found",
+    "formula": "revenue 2025 / revenue 2024 - 1",
+    "inputs": "113,097 / 105,856 - 1",
+    "note": ""
+   },
+   {
+    "item": "operating_margin",
+    "value": null,
+    "status": "not_applicable",
+    "formula": "operating_income / revenue",
+    "inputs": "not applicable",
+    "note": ""
+   },
+   {
+    "item": "free_cash_flow",
+    "value": null,
+    "status": "not_applicable",
+    "formula": "operating_cash_flow - capex",
+    "inputs": "capex not applicable",
+    "note": ""
+   },
+   {
+    "item": "net_debt",
+    "value": null,
+    "status": "not_applicable",
+    "formula": "total_financial_debt - cash",
+    "inputs": "cash not applicable",
+    "note": ""
+   }
+  ],
+  "segments": {
+   "count": 4,
+   "names": [
+    "Consumer Banking",
+    "Global Wealth & Investment Management (GWIM)",
+    "Global Banking",
+    "Global Markets"
+   ],
+   "source": "Item 1; Item 7; Note 23"
+  },
+  "major_risks": [
+   {
+    "risk": "Market, fiscal, monetary and regulatory policies and economic conditions (rates, inflation, tariffs, geopolitics) could reduce net interest income and noninterest income and hurt results, capital and liquidity.",
+    "source": "Item 1A, Market"
+   },
+   {
+    "risk": "Increased market volatility and adverse capital market conditions may increase market risk.",
+    "source": "Item 1A, Market"
+   },
+   {
+    "risk": "Lower interest rates would typically lower net interest income and revenue, and delinquencies and credit losses could increase.",
+    "source": "Item 1A, Market (first page)"
+   }
+  ],
+  "not_in_report": [
+   {
+    "question": "Current share price today",
+    "status": "not_in_report",
+    "answer": "No current share price; year-end market capitalization only.",
+    "source": "Item 7 selected financial data"
+   },
+   {
+    "question": "Company's own earnings guidance for the next fiscal year",
+    "status": "not_in_report",
+    "answer": "None found in the sections read; no dedicated search run.",
+    "source": "Not found in sections read"
+   },
+   {
+    "question": "Analyst estimate of fair value",
+    "status": "not_in_report",
+    "answer": "None in the report.",
+    "source": "Not found in sections read"
+   }
+  ],
+  "limits": [
+   "read_statement for the balance sheet returned the noninterest income note and Parent Company information; balance sheet figures come from the Item 7 summary and Item 8 search passages.",
+   "Equity 303,243 matches the parent condensed balance sheet and the Item 7 consolidated summary.",
+   "Three risks come from the first page of Item 1A only; the second and third are closely related to the first.",
+   "Diluted EPS is from the selected financial data table.",
+   "The guidance search was not run separately.",
+   "Page numbers visible only for some items."
+  ]
+ },
+ "note": "Free-text fields shortened when saved by hand; figures, statuses, segments, risks and absent answers as returned."
+}
