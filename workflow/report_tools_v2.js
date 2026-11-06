@@ -35,14 +35,14 @@ function runTool(p, txt) {
     if (!out) out = "No passage matched. Try other words.";
   } else if (p.tool === "statement") {
     const S = {
-      income: { a: [/net (income|earnings)/i, /diluted|dilution/i, /(income tax|provision for income taxes|taxes on income)/i], h: /^(?:.*subsidiaries )?(?:consolidated )?(?:statements? of (?:consolidated )?(?:operations|income|earnings)|income statements?)$/i, m: [/net (income|earnings|\(loss\))/i, /(revenues?|sales)/i, /per (common )?share|diluted/i], title: /consolidated\s+(statements?\s+of\s+(operations|income|earnings)|income statements?)|statements?\s+of\s+(consolidated\s+)?(operations|income|earnings)/i },
+      income: { a: [/net (income|earnings)/i, /diluted|dilution/i, /(income tax|provision for income taxes|taxes on income|tax expense)/i], h: /^(?:.*subsidiaries )?(?:consolidated )?(?:statements? of (?:consolidated )?(?:operations|income|earnings)|income statements?)$/i, m: [/net (income|earnings|\(loss\))/i, /(revenues?|sales)/i, /per (common )?share|diluted/i], title: /consolidated\s+(statements?\s+of\s+(operations|income|earnings)|income statements?)|statements?\s+of\s+(consolidated\s+)?(operations|income|earnings)/i },
       balance: { a: [/total assets/i, /total liabilities/i, /total (stock|share)holders.{0,3} equity|total equity/i], h: /^(?:.*subsidiaries )?(?:consolidated )?(?:balance sheets?|statements? of financial position)$/i, m: [/total assets/i, /total liabilities|liabilities and (share|stock)holders/i, /total (share|stock)holders|total equity/i], title: /consolidated\s+balance sheets?|balance sheets?|statements?\s+of\s+financial position/i },
       cashflow: { a: [/operating activities|from operations/i, /investing/i, /financing/i], h: /^(?:.*subsidiaries )?(?:consolidated )?(?:statements? of cash flows?|cash flows? statements?)$/i, m: [/operating activities|operations/i, /investing/i, /financing/i], title: /consolidated\s+statements?\s+of\s+cash\s+flows?|statements?\s+of\s+cash\s+flows?|cash\s+flows?\s+statements?/i }
     }[String(p.statement || "").toLowerCase()];
     if (!S) out = "Unknown statement. Use one of: income, balance, cashflow.";
     else {
       const bad = /parent company|condensed|quarterly|unaudited|pro forma/i;
-      const nearParent = (i) => { for (let j = Math.max(0, i - 400); j <= Math.min(lines.length - 1, i + 10); j++) { const l = lines[j].trim(); if (l.length < 120 && /parent company|parent-only|registrant/i.test(l)) return true; } return false; };
+      const nearParent = (i) => { for (let j = Math.max(0, i - 120); j <= Math.min(lines.length - 1, i + 10); j++) { const l = lines[j].trim(); if (l.length < 120 && /parent company|parent-only|registrant/i.test(l)) return true; } return false; };
       // Method 1: find the statement by its title line, then check the window.
       let best = -1, bs = -1, firstConsol = -1;
       for (let i = 0; i < lines.length; i++) {
@@ -59,7 +59,7 @@ function runTool(p, txt) {
       let valid = false;
       if (best >= 0) {
         const w = lines.slice(best, best + 115);
-        valid = S.a.every(r => r.test(w.join("\n"))) && numCount(w) >= 18 && !bad.test(lines.slice(Math.max(0, best - 8), best + 9).join("\n")) && !nearParent(best);
+        valid = S.a.every(r => r.test(w.join("\n"))) && numCount(w) >= 18 && !bad.test(lines.slice(Math.max(0, best - 2), best + 6).join("\n")) && !nearParent(best);
       }
       if (!valid) {
         // Method 2: find the statement by its table header and row labels (titles may come after the table).
