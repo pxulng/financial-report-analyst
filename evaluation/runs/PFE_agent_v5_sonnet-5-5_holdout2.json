@@ -1,0 +1,199 @@
+{
+ "id": "PFE",
+ "model": "agent",
+ "stop_reason": "end",
+ "valid_json": true,
+ "valid_after_extraction": true,
+ "tool_calls": 13,
+ "tools_used": [
+  "read_statement",
+  "read_statement",
+  "read_statement",
+  "search_report",
+  "read_section",
+  "search_report",
+  "search_report",
+  "Calculator",
+  "Calculator",
+  "Calculator",
+  "Calculator",
+  "Calculator",
+  "Calculator"
+ ],
+ "run_mode": "agent prompt v5, tools v2, Sonnet 5.5 adaptive thinking, second holdout (n8n execution 989)",
+ "sheet": {
+  "unit": "millions",
+  "figures": [
+   {
+    "item": "revenue",
+    "value": 62579,
+    "status": "found",
+    "source": "as returned (shortened)",
+    "note": ""
+   },
+   {
+    "item": "operating_income",
+    "value": null,
+    "status": "not_applicable",
+    "source": "as returned (shortened)",
+    "note": "no operating income line"
+   },
+   {
+    "item": "net_income",
+    "value": 7771,
+    "status": "found",
+    "source": "as returned (shortened)",
+    "note": ""
+   },
+   {
+    "item": "diluted_eps",
+    "value": 1.36,
+    "status": "found",
+    "source": "as returned (shortened)",
+    "note": ""
+   },
+   {
+    "item": "operating_cash_flow",
+    "value": 11704,
+    "status": "found",
+    "source": "as returned (shortened)",
+    "note": ""
+   },
+   {
+    "item": "capex",
+    "value": 2629,
+    "status": "found",
+    "source": "as returned (shortened)",
+    "note": ""
+   },
+   {
+    "item": "cash",
+    "value": 1142,
+    "status": "found",
+    "source": "as returned (shortened)",
+    "note": ""
+   },
+   {
+    "item": "total_financial_debt",
+    "value": 64795,
+    "status": "found",
+    "source": "as returned (shortened)",
+    "note": "3154+61641"
+   },
+   {
+    "item": "shareholders_equity",
+    "value": 86476,
+    "status": "found",
+    "source": "as returned (shortened)",
+    "note": ""
+   },
+   {
+    "item": "interest_expense",
+    "value": null,
+    "status": "not_in_report",
+    "source": "as returned (shortened)",
+    "note": "no interest line on income statement"
+   }
+  ],
+  "computed": [
+   {
+    "item": "revenue_growth",
+    "value": -0.016470995017838,
+    "status": "found",
+    "formula": "",
+    "inputs": "",
+    "note": ""
+   },
+   {
+    "item": "operating_margin",
+    "value": null,
+    "status": "not_applicable",
+    "formula": "",
+    "inputs": "",
+    "note": ""
+   },
+   {
+    "item": "free_cash_flow",
+    "value": 9075,
+    "status": "found",
+    "formula": "",
+    "inputs": "",
+    "note": ""
+   },
+   {
+    "item": "net_debt",
+    "value": 63653,
+    "status": "found",
+    "formula": "",
+    "inputs": "",
+    "note": ""
+   },
+   {
+    "item": "interest_coverage",
+    "value": null,
+    "status": "not_applicable",
+    "formula": "operating income not applicable; interest expense not in report",
+    "inputs": "",
+    "note": ""
+   },
+   {
+    "item": "debt_to_equity",
+    "value": 0.749283038068366,
+    "status": "found",
+    "formula": "",
+    "inputs": "",
+    "note": ""
+   },
+   {
+    "item": "cfo_to_debt",
+    "value": 0.180631221544872,
+    "status": "found",
+    "formula": "",
+    "inputs": "",
+    "note": ""
+   }
+  ],
+  "segments": {
+   "count": 1,
+   "names": [
+    "Biopharma"
+   ],
+   "source": "Note 1"
+  },
+  "major_risks": [
+   {
+    "risk": "Cost-containment pressure from payors, PBMs and governments (IRA).",
+    "source": "Item 1A"
+   },
+   {
+    "risk": "Competitive launches and generic/biosimilar competition; patent expiries 2026-2030.",
+    "source": "Item 1A"
+   },
+   {
+    "risk": "Tariffs and trade policy could hurt earnings.",
+    "source": "Item 1A"
+   }
+  ],
+  "not_in_report": [
+   {
+    "question": "share price",
+    "status": "not_in_report",
+    "answer": "not in report",
+    "source": ""
+   },
+   {
+    "question": "guidance",
+    "status": "not_in_report",
+    "answer": "no guidance figures found",
+    "source": ""
+   },
+   {
+    "question": "fair value",
+    "status": "not_in_report",
+    "answer": "not in report",
+    "source": ""
+   }
+  ]
+ },
+ "note": "Free-text fields shortened when saved by hand; figures, statuses, computed values, segments, risk topics and absent answers as returned."
+}

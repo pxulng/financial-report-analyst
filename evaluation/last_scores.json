@@ -1,6 +1,6 @@
 [
  {
-  "id": "GS",
+  "id": "PFE",
   "valid_json": true,
   "in": null,
   "out": null,
@@ -10,7 +10,7 @@
   "comp": "4/4",
   "absent": "3/3",
   "wrong": 0,
-  "src": "6/6",
+  "src": "7/8",
   "risks_auto": "0/3",
   "n_ok_read": 9,
   "n_read": 9,
@@ -18,7 +18,7 @@
   "n_comp": 4,
   "n_ok_abs": 3,
   "n_abs": 3,
-  "n_src_ok": 6,
-  "n_src": 6
+  "n_src_ok": 7,
+  "n_src": 8
  }
 ]
