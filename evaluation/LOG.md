@@ -213,3 +213,12 @@ Four runs, one company per execution (MSFT 775, WMT 782, NKE 789, JPM 796). Scor
 - Success criteria in docs/V2_DESIGN.md: at most 1 wrong figure on Sonnet (met: 0); JPM sheet on both models (met); new human check of risks (not done yet).
 - Cost not yet read from the balance.
 - Balance after the 4 Sonnet runs of agent v2: 3.81 USD, from 4.24, so 0.43 USD for 4 companies (about 0.11 per company). Total v2 spend: 4.36 - 3.81 = 0.55 USD.
+
+## Holdout (BAC, VZ, CAT, KO), agent v2 (prompt v4b, tools v2), Haiku 5.5, 6 November 2026
+Freeze: docs/HOLDOUT_FREEZE.md. One run per company; scores in evaluation/scores_holdout_agent_v4b_haiku.md.
+- BAC: step limit (15) reached, no sheet. Counted as 0 of 9 read and 0 of 4 computed, as JPM was for agent v3 on Haiku. A first attempt (execution 803) failed because the published sub-workflow did not yet know the ticker; republished, not counted as a run.
+- VZ: 8/9 read, 4/4 computed, 3/3 absent, 1 wrong: equity 104,460 (total equity minus noncontrolling interests, derived) against the key's 105,741 (the only equity line printed). Known weakness of the key, declared in the freeze.
+- CAT: 9/9, 4/4, 0 wrong. Guidance question not scored for CAT (the report has 2026 expectations; the agent answered not_in_report, so in substance it missed them). Strict JSON invalid (two sentences before the fence), valid after extraction.
+- KO: 9/9, 4/4, 3/3, 0 wrong. The agent did not search for guidance ("not searched") and answered not_in_report, which is right for KO by luck of the key.
+- Totals with BAC as missing: read 26/36, computed 12/16, absent 8/8 on the three sheets scored plus none for BAC (denominator 8), 1 wrong. Hand-saved run files have shortened free text.
+Cost: to be read from the balance after all holdout runs (Paul to give the balance before the Sonnet runs; the Haiku runs cost a few cents).

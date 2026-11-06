@@ -1,5 +1,13 @@
 [
  {
+  "id": "BAC",
+  "valid_json": false,
+  "in": null,
+  "out": null,
+  "errors": [],
+  "strict_json": false
+ },
+ {
   "id": "CAT",
   "valid_json": false,
   "in": null,
@@ -18,6 +26,52 @@
   "n_comp": 4,
   "n_ok_abs": 2,
   "n_abs": 2,
+  "n_src_ok": 8,
+  "n_src": 9
+ },
+ {
+  "id": "KO",
+  "valid_json": true,
+  "in": null,
+  "out": null,
+  "errors": [],
+  "strict_json": true,
+  "read": "9/9",
+  "comp": "4/4",
+  "absent": "3/3",
+  "wrong": 0,
+  "src": "8/9",
+  "risks_auto": "0/3",
+  "n_ok_read": 9,
+  "n_read": 9,
+  "n_ok_comp": 4,
+  "n_comp": 4,
+  "n_ok_abs": 3,
+  "n_abs": 3,
+  "n_src_ok": 8,
+  "n_src": 9
+ },
+ {
+  "id": "VZ",
+  "valid_json": true,
+  "in": null,
+  "out": null,
+  "errors": [
+   "shareholders_equity: WRONG 104460, key 105741"
+  ],
+  "strict_json": true,
+  "read": "8/9",
+  "comp": "4/4",
+  "absent": "3/3",
+  "wrong": 1,
+  "src": "8/9",
+  "risks_auto": "0/3",
+  "n_ok_read": 8,
+  "n_read": 9,
+  "n_ok_comp": 4,
+  "n_comp": 4,
+  "n_ok_abs": 3,
+  "n_abs": 3,
   "n_src_ok": 8,
   "n_src": 9
  }

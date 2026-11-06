@@ -1,0 +1,179 @@
+{
+ "id": "KO",
+ "model": "agent",
+ "stop_reason": "end",
+ "valid_json": true,
+ "valid_after_extraction": true,
+ "tool_calls": 9,
+ "tools_used": [
+  "read_statement",
+  "read_statement",
+  "read_statement",
+  "search_report",
+  "read_section",
+  "Calculator",
+  "Calculator",
+  "Calculator",
+  "Calculator"
+ ],
+ "run_mode": "single company per execution (n8n execution 851), prompt v4b, tools v2, Haiku 5.5 thinking disabled, holdout set (docs/HOLDOUT_FREEZE.md)",
+ "sheet": {
+  "company": "The Coca-Cola Company",
+  "fiscal_year_end": "2025-12-31",
+  "reporting_currency": "USD",
+  "unit": "millions",
+  "figures": [
+   {
+    "item": "revenue",
+    "value": 47941,
+    "status": "found",
+    "source": "Consolidated Statements of Income, Net Operating Revenues",
+    "note": ""
+   },
+   {
+    "item": "operating_income",
+    "value": 13762,
+    "status": "found",
+    "source": "Consolidated Statements of Income, Operating Income",
+    "note": "After other operating charges of 1,261."
+   },
+   {
+    "item": "net_income",
+    "value": 13107,
+    "status": "found",
+    "source": "Consolidated Statements of Income, Net Income Attributable to Shareowners",
+    "note": "Group share; consolidated 13,137."
+   },
+   {
+    "item": "diluted_eps",
+    "value": 3.04,
+    "status": "found",
+    "source": "Consolidated Statements of Income, Diluted Net Income Per Share",
+    "note": ""
+   },
+   {
+    "item": "operating_cash_flow",
+    "value": 7408,
+    "status": "found",
+    "source": "Consolidated Statements of Cash Flows",
+    "note": ""
+   },
+   {
+    "item": "capex",
+    "value": 2112,
+    "status": "found",
+    "source": "Consolidated Statements of Cash Flows, Purchases of property, plant and equipment",
+    "note": "Outflow shown as positive."
+   },
+   {
+    "item": "cash",
+    "value": 10270,
+    "status": "found",
+    "source": "Consolidated Balance Sheets",
+    "note": "Short-term investments 3,602 and marketable securities 1,934 excluded."
+   },
+   {
+    "item": "total_financial_debt",
+    "value": 45492,
+    "status": "found",
+    "source": "Consolidated Balance Sheets: Loans and notes payable 1,551 + Current maturities of long-term debt 1,822 + Long-term debt 42,119",
+    "note": "No lease line merged into these captions."
+   },
+   {
+    "item": "shareholders_equity",
+    "value": 32169,
+    "status": "found",
+    "source": "Consolidated Balance Sheets, Equity Attributable to Shareowners of The Coca-Cola Company",
+    "note": "Noncontrolling interests 2,106 excluded."
+   }
+  ],
+  "computed": [
+   {
+    "item": "revenue_growth",
+    "value": 0.0187,
+    "status": "found",
+    "formula": "revenue FY2025 / revenue FY2024 - 1",
+    "inputs": "47,941 and 47,061",
+    "note": ""
+   },
+   {
+    "item": "operating_margin",
+    "value": 0.2871,
+    "status": "found",
+    "formula": "operating_income / revenue",
+    "inputs": "13,762 and 47,941",
+    "note": ""
+   },
+   {
+    "item": "free_cash_flow",
+    "value": 5296,
+    "status": "found",
+    "formula": "operating_cash_flow - capex",
+    "inputs": "7,408 and 2,112",
+    "note": ""
+   },
+   {
+    "item": "net_debt",
+    "value": 35222,
+    "status": "found",
+    "formula": "total_financial_debt - cash",
+    "inputs": "45,492 and 10,270",
+    "note": ""
+   }
+  ],
+  "segments": {
+   "count": 5,
+   "names": [
+    "EMEA",
+    "Latin America",
+    "North America",
+    "Asia Pacific",
+    "Bottling Investments"
+   ],
+   "source": "Note 20: Operating Segments"
+  },
+  "major_risks": [
+   {
+    "risk": "Unfavorable economic and geopolitical conditions, inflation, interest rates, currencies and trade policies could reduce demand and disrupt operations.",
+    "source": "Item 1A"
+   },
+   {
+    "risk": "Increased competition, including private-label brands, could force price cuts or higher marketing costs.",
+    "source": "Item 1A"
+   },
+   {
+    "risk": "Changes in the retail landscape, such as consolidation, discounters and e-commerce, or loss of key customers could hurt results.",
+    "source": "Item 1A"
+   }
+  ],
+  "not_in_report": [
+   {
+    "question": "Current share price today",
+    "status": "not_in_report",
+    "answer": "No current share price.",
+    "source": "Not found"
+   },
+   {
+    "question": "Company's own earnings guidance for the next fiscal year",
+    "status": "not_in_report",
+    "answer": "Not determined from the report; the report was not searched for a guidance statement.",
+    "source": "Not found in the sections read"
+   },
+   {
+    "question": "Analyst estimate of fair value",
+    "status": "not_in_report",
+    "answer": "None in the report.",
+    "source": "Not found"
+   }
+  ],
+  "limits": [
+   "Operating income is affected by other operating charges of 1,261 (2025) versus 4,163 (2024).",
+   "Assets and liabilities held for sale are not in cash or borrowings.",
+   "Cash excludes restricted cash.",
+   "The debt note was not read to confirm there are no finance leases inside the debt captions.",
+   "Risks are the first three headings of Item 1A.",
+   "The guidance question was not searched with a dedicated query."
+  ]
+ },
+ "note": "Free-text fields shortened when saved by hand; figures, statuses, segments, risks and absent answers as returned."
+}
