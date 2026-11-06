@@ -1,0 +1,233 @@
+{
+ "AAPL": {
+  "interest_expense": {
+   "status": "not_in_report"
+  },
+  "debt_to_equity": {
+   "status": "found",
+   "value": 0.7147
+  },
+  "cfo_to_debt": {
+   "status": "found",
+   "value": 1.8112
+  },
+  "interest_coverage": {
+   "status": "not_in_report"
+  }
+ },
+ "MSFT": {
+  "interest_expense": {
+   "status": "not_in_report"
+  },
+  "debt_to_equity": {
+   "status": "found",
+   "value": 0.0911
+  },
+  "cfo_to_debt": {
+   "status": "found",
+   "value": 4.54
+  },
+  "interest_coverage": {
+   "status": "not_in_report"
+  }
+ },
+ "WMT": {
+  "interest_expense": {
+   "status": "excluded"
+  },
+  "debt_to_equity": {
+   "status": "found",
+   "value": 0.4493
+  },
+  "cfo_to_debt": {
+   "status": "found",
+   "value": 0.9286
+  },
+  "interest_coverage": {
+   "status": "excluded"
+  }
+ },
+ "NKE": {
+  "interest_expense": {
+   "status": "not_in_report"
+  },
+  "debt_to_equity": {
+   "status": "found",
+   "value": 0.5343
+  },
+  "cfo_to_debt": {
+   "status": "found",
+   "value": 0.3611
+  },
+  "interest_coverage": {
+   "status": "not_in_report"
+  }
+ },
+ "JNJ": {
+  "interest_expense": {
+   "status": "found",
+   "value": 971
+  },
+  "debt_to_equity": {
+   "status": "found",
+   "value": 0.5878
+  },
+  "cfo_to_debt": {
+   "status": "found",
+   "value": 0.5118
+  },
+  "interest_coverage": {
+   "status": "not_applicable"
+  }
+ },
+ "XOM": {
+  "interest_expense": {
+   "status": "found",
+   "value": 603
+  },
+  "debt_to_equity": {
+   "status": "found",
+   "value": 0.1678
+  },
+  "cfo_to_debt": {
+   "status": "found",
+   "value": 1.1937
+  },
+  "interest_coverage": {
+   "status": "not_applicable"
+  }
+ },
+ "BA": {
+  "interest_expense": {
+   "status": "found",
+   "value": 2771
+  },
+  "debt_to_equity": {
+   "status": "found",
+   "value": 9.8731
+  },
+  "cfo_to_debt": {
+   "status": "found",
+   "value": 0.0198
+  },
+  "interest_coverage": {
+   "status": "found",
+   "value": 1.54
+  }
+ },
+ "SBUX": {
+  "interest_expense": {
+   "status": "found",
+   "value": 542.6
+  },
+  "debt_to_equity": {
+   "status": "not_applicable"
+  },
+  "cfo_to_debt": {
+   "status": "found",
+   "value": 0.2953
+  },
+  "interest_coverage": {
+   "status": "found",
+   "value": 5.41
+  }
+ },
+ "TSLA": {
+  "interest_expense": {
+   "status": "found",
+   "value": 338
+  },
+  "debt_to_equity": {
+   "status": "found",
+   "value": 0.0993
+  },
+  "cfo_to_debt": {
+   "status": "found",
+   "value": 1.8088
+  },
+  "interest_coverage": {
+   "status": "found",
+   "value": 12.88
+  }
+ },
+ "JPM": {
+  "interest_expense": {
+   "status": "not_applicable"
+  },
+  "debt_to_equity": {
+   "status": "not_applicable"
+  },
+  "cfo_to_debt": {
+   "status": "not_applicable"
+  },
+  "interest_coverage": {
+   "status": "not_applicable"
+  }
+ },
+ "BAC": {
+  "interest_expense": {
+   "status": "not_applicable"
+  },
+  "debt_to_equity": {
+   "status": "not_applicable"
+  },
+  "cfo_to_debt": {
+   "status": "not_applicable"
+  },
+  "interest_coverage": {
+   "status": "not_applicable"
+  }
+ },
+ "VZ": {
+  "interest_expense": {
+   "status": "found",
+   "value": 6694
+  },
+  "debt_to_equity": {
+   "status": "found",
+   "value": 1.4956
+  },
+  "cfo_to_debt": {
+   "status": "found",
+   "value": 0.2348
+  },
+  "interest_coverage": {
+   "status": "found",
+   "value": 4.37
+  }
+ },
+ "CAT": {
+  "interest_expense": {
+   "status": "excluded"
+  },
+  "debt_to_equity": {
+   "status": "found",
+   "value": 2.0326
+  },
+  "cfo_to_debt": {
+   "status": "found",
+   "value": 0.2709
+  },
+  "interest_coverage": {
+   "status": "excluded"
+  }
+ },
+ "KO": {
+  "interest_expense": {
+   "status": "found",
+   "value": 1654
+  },
+  "debt_to_equity": {
+   "status": "found",
+   "value": 1.4142
+  },
+  "cfo_to_debt": {
+   "status": "found",
+   "value": 0.1628
+  },
+  "interest_coverage": {
+   "status": "found",
+   "value": 8.32
+  }
+ }
+}
