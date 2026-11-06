@@ -212,3 +212,4 @@ Four runs, one company per execution (MSFT 775, WMT 782, NKE 789, JPM 796). Scor
 - Strict JSON valid on 4/4.
 - Success criteria in docs/V2_DESIGN.md: at most 1 wrong figure on Sonnet (met: 0); JPM sheet on both models (met); new human check of risks (not done yet).
 - Cost not yet read from the balance.
+- Balance after the 4 Sonnet runs of agent v2: 3.81 USD, from 4.24, so 0.43 USD for 4 companies (about 0.11 per company). Total v2 spend: 4.36 - 3.81 = 0.55 USD.
