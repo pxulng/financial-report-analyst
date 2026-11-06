@@ -35,4 +35,4 @@ Freeze (reports, key, decisions, hashes): [HOLDOUT2_FREEZE.md](HOLDOUT2_FREEZE.m
 Both are plausible one-line changes, but any change made now would be tuned on these three reports and could not be scored on them cleanly.
 
 ## Cost
-Balance read after the three runs: see evaluation/LOG.md.
+Balance went from 3.38 to 2.56 USD for the three runs: 0.82 USD, about 0.27 USD per report (more than the 0.11 USD average of the first eleven because these filings are larger and NEE needed 21 tool calls; still under the 0.3 USD ceiling).
