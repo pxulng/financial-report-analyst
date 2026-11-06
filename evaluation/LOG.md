@@ -188,3 +188,10 @@ Six runs, one company per execution (AAPL 652, JNJ 661, XOM 669, BA 676, SBUX 68
 - Wrong values: AAPL debt (net debt written in the debt field), BA and TSLA debt (finance leases included or excluded differently from the key, gaps of 250 and 24), XOM revenue growth (computed on the sales line, not the total revenue line).
 - Strict JSON failed on JNJ and XOM (reasoning text before the fence); lenient extraction valid.
 - Result: v4 is not better than v3 on the test set. Decision on a v4b is pending (maximum one more prompt version, per docs/V2_DESIGN.md).
+
+## Agent v2, prompt v4b (frozen), test set, Haiku 5.5, 2026-11-06
+Prompt `prompts/agent_system_prompt_v4b.txt` (sha256 66cae5c5585b3c44b17b20e2e66f1591dcb95b6498041a1c71d8799c94c2086c) = v4 + three rules: gross borrowings in the debt field (never net debt), subtract finance leases when the balance-sheet caption merges them, same revenue line for both years in revenue growth. Written after seeing the v4 test-set errors. Six runs (AAPL 701, JNJ 709, XOM 716, BA 724, SBUX 730, TSLA 738). Scores in `scores_test_agent_v4b_haiku.md`.
+- v4b: read 52/54, computed 23/24, absent 17/18, 3 wrong. v4: 51/54, 21/24, 18/18, 6 wrong. v3: 52/54, 23/24, 3 wrong.
+- Fixed: XOM revenue growth, TSLA debt and net debt. Not fixed: AAPL (net debt written in the debt field again, the sheet's own limits give the right 80,111), BA (debt 54,098 vs key 53,848, debt note not searched).
+- New: SBUX marked the guidance question "found" with qualitative expectations (counted as an absent-question miss). Strict JSON failed on JNJ, XOM, SBUX (text before the fence).
+- Decision: v4b equals v3 on figures on this set; no third prompt version (limit in V2_DESIGN.md). v4b is frozen for validation.
