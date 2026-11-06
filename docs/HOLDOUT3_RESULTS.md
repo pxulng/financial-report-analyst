@@ -26,4 +26,4 @@ Total: 0 wrong for HD and WFC; 2 wrong for HON (operating income and the operati
 - Any change now needs a fourth untouched set to be validated.
 
 ## Cost
-Balance to be noted.
+Balance 2.45 -> 1.58 USD for four runs (NEE check, HON, HD, WFC): 0.87 USD, about 0.22 per report (the longer HON run and the longer reports cost more).

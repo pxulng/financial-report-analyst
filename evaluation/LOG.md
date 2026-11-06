@@ -262,3 +262,6 @@ Balance: 2.93 before, 5 USD added by Paul, about 4.6 after. Holdout spend: about
 
 ## McDonald's test (2026-11-06)
 FY2025 10-K added (negative equity). Execution 1011, Sonnet 5.5, prompt v5: original items 9/9, computed 4/4, credit items 4/4, 0 wrong. Cost: 0.11 USD (balance 2.56 -> 2.45).
+
+## Third holdout and v6 check (2026-11-06)
+NEE check + HON + HD + WFC with prompt v6: balance 2.45 -> 1.58 USD (0.87 USD, about 0.22 per report).
