@@ -6,6 +6,8 @@ import json,sys,glob,re
 key=json.load(open('key.json')); risks=json.load(open('risks_reference.json'))
 READ={'revenue':'revenue','operating_income':'operating_income','net_income':'net_income','diluted_eps':'diluted_eps','operating_cash_flow':'operating_cash_flow','capex':'capex','cash':'cash','total_financial_debt':'debt','shareholders_equity':'equity'}
 COMP=['revenue_growth','operating_margin','free_cash_flow','net_debt']
+GUIDANCE_IN_REPORT = {'CAT'}
+
 def close(item,a,b):
     if item in('revenue_growth','operating_margin'): return abs(a-b)<=0.001
     if item=='diluted_eps': return abs(a-b)<=0.0051
@@ -38,7 +40,9 @@ def score(path):
             src_ok+= any(x in txt for x in forms)
     for ci in COMP:
         n_comp+=1; ok_comp+=check(ci,com.get(ci),k['computed'][ci],'comp')
-    nir=s.get('not_in_report',[]); n_abs=len(nir); ok_abs=sum(1 for q in nir if q.get('status')=='not_in_report')
+    nir=s.get('not_in_report',[])
+    if t in GUIDANCE_IN_REPORT: nir=[q for q in nir if 'guidance' not in q.get('question','').lower()]  # CAT publishes 2026 expectations: that question is not an absent item for it (decided before the holdout runs, see docs/HOLDOUT_FREEZE.md)
+    n_abs=len(nir); ok_abs=sum(1 for q in nir if q.get('status')=='not_in_report')
     mr=' '.join(x.get('risk','') for x in s.get('major_risks',[])).lower()
     rf=sum(any(kw.lower() in mr for kw in rk['keywords']) for rk in risks[t])
     out.update(read=f"{ok_read}/{n_read}",comp=f"{ok_comp}/{n_comp}",absent=f"{ok_abs}/{n_abs}",wrong=wrong,src=f"{src_ok}/{src_n}",risks_auto=f"{rf}/3",

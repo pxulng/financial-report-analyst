@@ -1062,5 +1062,442 @@
    }
   },
   "segments": null
+ },
+ "BAC": {
+  "file": "BAC_10-K_FY2025.md",
+  "fiscal_year": "FY2025 (ended 2025-12-31)",
+  "sha256": "f9ef8e91ee6404145488b6b21839264448790adf409af04bcad2b69dd5111757",
+  "unit": "USD millions (EPS in USD per share)",
+  "items": {
+   "revenue": {
+    "status": "found",
+    "value": 113097,
+    "printed": "113,097",
+    "label": "Total revenue, net of interest expense",
+    "line": 2763
+   },
+   "operating_income": {
+    "status": "not_applicable"
+   },
+   "net_income": {
+    "status": "found",
+    "value": 30509,
+    "printed": "30,509",
+    "label": "Net income",
+    "line": 2766
+   },
+   "diluted_eps": {
+    "status": "found",
+    "value": 3.81,
+    "printed": "3.81",
+    "label": "Diluted earnings",
+    "line": 2769
+   },
+   "operating_cash_flow": {
+    "status": "found",
+    "value": 12613,
+    "printed": "12,613",
+    "label": "Net cash provided by (used in) operating activities",
+    "line": 8319
+   },
+   "capex": {
+    "status": "not_applicable"
+   },
+   "cash": {
+    "status": "not_applicable"
+   },
+   "equity": {
+    "status": "found",
+    "value": 303243,
+    "printed": "303,243",
+    "label": "Total shareholders’ equity",
+    "line": 2779
+   },
+   "prev_revenue": {
+    "status": "found",
+    "value": 105856,
+    "printed": "105,856",
+    "line": 2763
+   },
+   "debt": {
+    "status": "found",
+    "value": 365904,
+    "parts": [
+     {
+      "label": "Short-term borrowings",
+      "printed": "48,088",
+      "value": 48088,
+      "line": 2909
+     },
+     {
+      "label": "Long-term debt",
+      "printed": "317,816",
+      "value": 317816,
+      "line": 2910
+     }
+    ]
+   }
+  },
+  "computed": {
+   "revenue_growth": {
+    "status": "found",
+    "value": 0.0684
+   },
+   "operating_margin": {
+    "status": "not_applicable"
+   },
+   "free_cash_flow": {
+    "status": "not_applicable"
+   },
+   "net_debt": {
+    "status": "not_applicable"
+   }
+  },
+  "segments": null
+ },
+ "VZ": {
+  "file": "VZ_10-K_FY2025.md",
+  "fiscal_year": "FY2025 (ended 2025-12-31)",
+  "sha256": "e33fc69d5adab2345d7ee2c73f8a40b6fe9455ff4afe736b00e5cb75905c93e3",
+  "unit": "USD millions (EPS in USD per share)",
+  "items": {
+   "revenue": {
+    "status": "found",
+    "value": 138191,
+    "printed": "138,191",
+    "label": "Total Operating Revenues",
+    "line": 2245
+   },
+   "operating_income": {
+    "status": "found",
+    "value": 29259,
+    "printed": "29,259",
+    "label": "Operating Income",
+    "line": 2255
+   },
+   "net_income": {
+    "status": "found",
+    "value": 17174,
+    "printed": "17,174",
+    "label": "Net income attributable to Verizon",
+    "line": 2265
+   },
+   "diluted_eps": {
+    "status": "found",
+    "value": 4.06,
+    "printed": "4.06",
+    "label": "Net income attributable to Verizon",
+    "line": 2269
+   },
+   "operating_cash_flow": {
+    "status": "found",
+    "value": 37137,
+    "printed": "37,137",
+    "label": "Net cash provided by operating activities",
+    "line": 1819
+   },
+   "capex": {
+    "status": "found",
+    "value": 17011,
+    "printed": "17,011",
+    "label": "Capital expenditures (including capitalized software)",
+    "line": 1820
+   },
+   "cash": {
+    "status": "found",
+    "value": 19048,
+    "printed": "19,048",
+    "label": "Cash and cash equivalents",
+    "line": 2307
+   },
+   "equity": {
+    "status": "found",
+    "value": 105741,
+    "printed": "105,741",
+    "label": "Total equity",
+    "line": 2353
+   },
+   "prev_revenue": {
+    "status": "found",
+    "value": 134788,
+    "printed": "134,788",
+    "line": 2245
+   },
+   "debt": {
+    "status": "found",
+    "value": 158150,
+    "parts": [
+     {
+      "label": "Debt maturing within one year",
+      "printed": "18,618",
+      "value": 18618,
+      "line": 2329
+     },
+     {
+      "label": "Long-term debt",
+      "printed": "139,532",
+      "value": 139532,
+      "line": 2335
+     }
+    ]
+   }
+  },
+  "computed": {
+   "revenue_growth": {
+    "status": "found",
+    "value": 0.0252
+   },
+   "operating_margin": {
+    "status": "found",
+    "value": 0.2117
+   },
+   "free_cash_flow": {
+    "status": "found",
+    "value": 20126
+   },
+   "net_debt": {
+    "status": "found",
+    "value": 139102
+   }
+  },
+  "segments": null
+ },
+ "CAT": {
+  "file": "CAT_10-K_FY2025.md",
+  "fiscal_year": "FY2025 (ended 2025-12-31)",
+  "sha256": "80441fcb25e60a20842388fae6ab7ca1ea94557b32fbf4fbe5e03eb4cc54e1fc",
+  "unit": "USD millions (EPS in USD per share)",
+  "items": {
+   "revenue": {
+    "status": "found",
+    "value": 67589,
+    "printed": "67,589",
+    "label": "Total sales and revenues",
+    "line": 2341
+   },
+   "operating_income": {
+    "status": "found",
+    "value": 11151,
+    "printed": "11,151",
+    "label": "Operating profit",
+    "line": 1532
+   },
+   "net_income": {
+    "status": "found",
+    "value": 8884,
+    "printed": "8,884",
+    "label": "Profit",
+    "line": 2208
+   },
+   "diluted_eps": {
+    "status": "found",
+    "value": 18.81,
+    "printed": "18.81",
+    "label": "Profit per common share — diluted",
+    "line": 2883
+   },
+   "operating_cash_flow": {
+    "status": "found",
+    "value": 11739,
+    "printed": "11,739",
+    "label": "Net cash provided by (used for) operating activities",
+    "line": 2616
+   },
+   "capex": {
+    "status": "found",
+    "value": 2821,
+    "printed": "2,821",
+    "label": "Capital expenditures – excluding equipment leased to others",
+    "line": 3104
+   },
+   "cash": {
+    "status": "found",
+    "value": 9980,
+    "printed": "9,980",
+    "label": "Cash and cash equivalents",
+    "line": 2441
+   },
+   "equity": {
+    "status": "found",
+    "value": 21318,
+    "printed": "21,318",
+    "label": "Total shareholders’ equity",
+    "line": 2541
+   },
+   "prev_revenue": {
+    "status": "found",
+    "value": 64809,
+    "printed": "64,809",
+    "line": 2341
+   },
+   "debt": {
+    "status": "found",
+    "value": 43330,
+    "parts": [
+     {
+      "label": "Financial Products",
+      "printed": "5,514",
+      "value": 5514,
+      "line": 2945
+     },
+     {
+      "label": "Machinery, Power & Energy",
+      "printed": "35",
+      "value": 35,
+      "line": 1486
+     },
+     {
+      "label": "Financial Products",
+      "printed": "7,085",
+      "value": 7085,
+      "line": 2954
+     },
+     {
+      "label": "Machinery, Power & Energy",
+      "printed": "10,678",
+      "value": 10678,
+      "line": 2958
+     },
+     {
+      "label": "Financial Products",
+      "printed": "20,018",
+      "value": 20018,
+      "line": 2959
+     }
+    ]
+   }
+  },
+  "computed": {
+   "revenue_growth": {
+    "status": "found",
+    "value": 0.0429
+   },
+   "operating_margin": {
+    "status": "found",
+    "value": 0.165
+   },
+   "free_cash_flow": {
+    "status": "found",
+    "value": 8918
+   },
+   "net_debt": {
+    "status": "found",
+    "value": 33350
+   }
+  },
+  "segments": null
+ },
+ "KO": {
+  "file": "KO_10-K_FY2025.md",
+  "fiscal_year": "FY2025 (ended 2025-12-31)",
+  "sha256": "845d255e739b40c9fe6f6aaf1414c274f5110593505d8ed669cca6d3ec34e854",
+  "unit": "USD millions (EPS in USD per share)",
+  "items": {
+   "revenue": {
+    "status": "found",
+    "value": 47941,
+    "printed": "47,941",
+    "label": "Net Operating Revenues",
+    "line": 2362
+   },
+   "operating_income": {
+    "status": "found",
+    "value": 13762,
+    "printed": "13,762",
+    "label": "Operating Income",
+    "line": 2536
+   },
+   "net_income": {
+    "status": "found",
+    "value": 13107,
+    "printed": "13,107",
+    "label": "Net Income Attributable to Shareowners of The Coca-Cola Company",
+    "line": 3074
+   },
+   "diluted_eps": {
+    "status": "found",
+    "value": 3.04,
+    "printed": "3.04",
+    "label": "Diluted Net Income Per Share",
+    "line": 3076
+   },
+   "operating_cash_flow": {
+    "status": "found",
+    "value": 7408,
+    "printed": "7,408",
+    "label": "Net Cash Provided by Operating Activities",
+    "line": 2720
+   },
+   "capex": {
+    "status": "found",
+    "value": 2112,
+    "printed": "2,112",
+    "label": "Purchases of property, plant and equipment",
+    "line": 2744
+   },
+   "cash": {
+    "status": "found",
+    "value": 10270,
+    "printed": "10,270",
+    "label": "Cash and cash equivalents",
+    "line": 3122
+   },
+   "equity": {
+    "status": "found",
+    "value": 32169,
+    "printed": "32,169",
+    "label": "Equity Attributable to Shareowners of The Coca-Cola Company",
+    "line": 3161
+   },
+   "prev_revenue": {
+    "status": "found",
+    "value": 47061,
+    "printed": "47,061",
+    "line": 2362
+   },
+   "debt": {
+    "status": "found",
+    "value": 45492,
+    "parts": [
+     {
+      "label": "Loans and notes payable",
+      "printed": "1,551",
+      "value": 1551,
+      "line": 3141
+     },
+     {
+      "label": "Current maturities of long-term debt",
+      "printed": "1,822",
+      "value": 1822,
+      "line": 3142
+     },
+     {
+      "label": "Long-term debt",
+      "printed": "42,119",
+      "value": 42119,
+      "line": 3146
+     }
+    ]
+   }
+  },
+  "computed": {
+   "revenue_growth": {
+    "status": "found",
+    "value": 0.0187
+   },
+   "operating_margin": {
+    "status": "found",
+    "value": 0.2871
+   },
+   "free_cash_flow": {
+    "status": "found",
+    "value": 5296
+   },
+   "net_debt": {
+    "status": "found",
+    "value": 35222
+   }
+  },
+  "segments": null
  }
 }
