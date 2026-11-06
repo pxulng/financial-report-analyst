@@ -1,0 +1,198 @@
+{
+ "id": "GS",
+ "model": "agent",
+ "stop_reason": "end",
+ "valid_json": true,
+ "valid_after_extraction": true,
+ "tool_calls": 10,
+ "tools_used": [
+  "read_statement",
+  "read_statement",
+  "read_statement",
+  "read_section",
+  "search_report",
+  "search_report",
+  "search_report",
+  "Calculator",
+  "Calculator",
+  "Calculator"
+ ],
+ "run_mode": "agent prompt v5, tools v2, Sonnet 5.5 adaptive thinking, second holdout (n8n execution 981)",
+ "sheet": {
+  "unit": "millions",
+  "figures": [
+   {
+    "item": "revenue",
+    "value": 58283,
+    "status": "found",
+    "source": "as returned (shortened)",
+    "note": ""
+   },
+   {
+    "item": "operating_income",
+    "value": null,
+    "status": "not_applicable",
+    "source": "as returned (shortened)",
+    "note": "bank"
+   },
+   {
+    "item": "net_income",
+    "value": 17176,
+    "status": "found",
+    "source": "as returned (shortened)",
+    "note": "Net earnings before preferred dividends"
+   },
+   {
+    "item": "diluted_eps",
+    "value": 51.32,
+    "status": "found",
+    "source": "as returned (shortened)",
+    "note": ""
+   },
+   {
+    "item": "operating_cash_flow",
+    "value": -45154,
+    "status": "found",
+    "source": "as returned (shortened)",
+    "note": ""
+   },
+   {
+    "item": "capex",
+    "value": null,
+    "status": "not_applicable",
+    "source": "as returned (shortened)",
+    "note": "bank"
+   },
+   {
+    "item": "cash",
+    "value": null,
+    "status": "not_applicable",
+    "source": "as returned (shortened)",
+    "note": "bank"
+   },
+   {
+    "item": "total_financial_debt",
+    "value": 355959,
+    "status": "found",
+    "source": "as returned (shortened)",
+    "note": "70459+285500"
+   },
+   {
+    "item": "shareholders_equity",
+    "value": 124972,
+    "status": "found",
+    "source": "as returned (shortened)",
+    "note": "includes preferred 15153"
+   },
+   {
+    "item": "interest_expense",
+    "value": null,
+    "status": "not_applicable",
+    "source": "as returned (shortened)",
+    "note": "bank"
+   }
+  ],
+  "computed": [
+   {
+    "item": "revenue_growth",
+    "value": 0.089157572133353,
+    "status": "found",
+    "formula": "",
+    "inputs": "",
+    "note": ""
+   },
+   {
+    "item": "operating_margin",
+    "value": null,
+    "status": "not_applicable",
+    "formula": "",
+    "inputs": "",
+    "note": ""
+   },
+   {
+    "item": "free_cash_flow",
+    "value": null,
+    "status": "not_applicable",
+    "formula": "",
+    "inputs": "",
+    "note": ""
+   },
+   {
+    "item": "net_debt",
+    "value": null,
+    "status": "not_applicable",
+    "formula": "",
+    "inputs": "",
+    "note": ""
+   },
+   {
+    "item": "interest_coverage",
+    "value": null,
+    "status": "not_applicable",
+    "formula": "",
+    "inputs": "",
+    "note": ""
+   },
+   {
+    "item": "debt_to_equity",
+    "value": 2.848310021444804,
+    "status": "found",
+    "formula": "355959/124972; bank rule not applied",
+    "inputs": "",
+    "note": ""
+   },
+   {
+    "item": "cfo_to_debt",
+    "value": null,
+    "status": "not_applicable",
+    "formula": "bank",
+    "inputs": "",
+    "note": ""
+   }
+  ],
+  "segments": {
+   "count": 3,
+   "names": [
+    "Global Banking & Markets",
+    "Asset & Wealth Management",
+    "Platform Solutions"
+   ],
+   "source": "Note 25"
+  },
+  "major_risks": [
+   {
+    "risk": "Business affected by global financial market and economic conditions, volatility.",
+    "source": "Item 1A"
+   },
+   {
+    "risk": "Liquidity, profitability and funding cost depend on debt market access and credit ratings.",
+    "source": "Item 1A"
+   },
+   {
+    "risk": "Extensive regulation and legal action could cause financial and reputational harm.",
+    "source": "Item 1A"
+   }
+  ],
+  "not_in_report": [
+   {
+    "question": "share price",
+    "status": "not_in_report",
+    "answer": "not in report",
+    "source": ""
+   },
+   {
+    "question": "guidance",
+    "status": "not_in_report",
+    "answer": "no earnings guidance",
+    "source": ""
+   },
+   {
+    "question": "fair value",
+    "status": "not_in_report",
+    "answer": "not in report",
+    "source": ""
+   }
+  ]
+ },
+ "note": "Free-text fields shortened when saved by hand; figures, statuses, computed values, segments, risk topics and absent answers as returned."
+}
