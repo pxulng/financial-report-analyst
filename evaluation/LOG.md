@@ -181,3 +181,10 @@ Design written first: `docs/V2_DESIGN.md` (SHA-256 925c8ec9b26ac5cdb618ad45700b7
 - Free tool test (`workflow/tools_test/tool_test.js`, 59 checks: does the statement the tool returns contain the key's printed values, 10 reports x 3 statements): tools v1 (project 4) 56/59 (failures: JPMorgan income statement and cash flow); tools v2 first version 49/59; v2 after three code iterations on these same checks 59/59. Declared: the tool code was tuned on the 10 reports it is tested on, and one pick (JPMorgan balance sheet) first returned the parent-company statement while still passing the check, found by reading the output and fixed with a nearby-heading rule.
 - `read_section` checked by hand on the 10 reports: the risk-factors span (Item 1A to Item 1B) is found correctly for all 10 (88,100 to 112,271 characters for the large ones).
 - Prompt v4 = v3 plus the `read_section` tool, "read the first page of the risk factors", "use consolidated statements, never parent-company", and the bank rule. File `prompts/agent_system_prompt_v4.txt`, SHA-256 e4e8d8ac97cbeaa37b5ed38c6364b2091c23e2ead620e8c73485cb36362be1b6.
+
+## Agent v2 (prompt v4, tools v2), test set, Haiku 5.5 (thinking disabled), 2026-11-06
+Six runs, one company per execution (AAPL 652, JNJ 661, XOM 669, BA 676, SBUX 684, TSLA 691). Scores in `scores_test_agent_v4_haiku.md`.
+- v4: read 51/54, computed 21/24, absent 18/18, 6 wrong. v3 on the same set: read 52/54, computed 23/24, 3 wrong.
+- Wrong values: AAPL debt (net debt written in the debt field), BA and TSLA debt (finance leases included or excluded differently from the key, gaps of 250 and 24), XOM revenue growth (computed on the sales line, not the total revenue line).
+- Strict JSON failed on JNJ and XOM (reasoning text before the fence); lenient extraction valid.
+- Result: v4 is not better than v3 on the test set. Decision on a v4b is pending (maximum one more prompt version, per docs/V2_DESIGN.md).
