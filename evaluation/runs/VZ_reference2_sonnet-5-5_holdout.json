@@ -1,0 +1,165 @@
+{
+ "id": "VZ",
+ "model": "claude-sonnet-5-5",
+ "stop_reason": "end_turn",
+ "valid_json": true,
+ "input_tokens": 377708,
+ "output_tokens": 3604,
+ "sheet": {
+  "company": "Verizon Communications Inc.",
+  "fiscal_year_end": "2025-12-31",
+  "reporting_currency": "USD",
+  "unit": "millions",
+  "figures": [
+   {
+    "item": "revenue",
+    "value": 138191,
+    "status": "found",
+    "source": "Consolidated Statements of Income (Total Operating Revenues), p. 52",
+    "note": "Fiscal 2025. Prior year 2024 was 134,788."
+   },
+   {
+    "item": "operating_income",
+    "value": 29259,
+    "status": "found",
+    "source": "Consolidated Statements of Income (Operating Income), p. 52",
+    "note": ""
+   },
+   {
+    "item": "net_income",
+    "value": 17174,
+    "status": "found",
+    "source": "Consolidated Statements of Income (Net income attributable to Verizon), p. 52",
+    "note": "Group's share. Consolidated net income including non-controlling interests of 434 is 17,608."
+   },
+   {
+    "item": "diluted_eps",
+    "value": 4.06,
+    "status": "found",
+    "source": "Consolidated Statements of Income (Diluted Earnings Per Common Share), p. 52",
+    "note": "US GAAP diluted EPS in dollars per share."
+   },
+   {
+    "item": "operating_cash_flow",
+    "value": 37137,
+    "status": "found",
+    "source": "Consolidated Statements of Cash Flows (Net cash provided by operating activities), p. 55",
+    "note": ""
+   },
+   {
+    "item": "capex",
+    "value": 17011,
+    "status": "found",
+    "source": "Consolidated Statements of Cash Flows (Capital expenditures, including capitalized software), p. 55",
+    "note": "The published line includes capitalized software and is the only capex line given. It excludes acquisitions of wireless licenses (450) and business acquisitions (0)."
+   },
+   {
+    "item": "cash",
+    "value": 19048,
+    "status": "found",
+    "source": "Consolidated Balance Sheets (Cash and cash equivalents), p. 54",
+    "note": "Excludes restricted cash of 451 (Note 1, p. 60). Cash, cash equivalents and restricted cash total 19,499."
+   },
+   {
+    "item": "total_financial_debt",
+    "value": 155639,
+    "status": "found",
+    "source": "Note 7 Debt (total debt 158,150 = debt maturing within one year 18,618 + long-term debt 139,532), p. 73; finance leases from Note 6, p. 72; carrying amount ex-finance leases in Note 9 fair value table, p. 84",
+    "note": "Total debt of 158,150 less finance lease obligations of 2,511 (943 current + 1,568 long-term), per the rule excluding lease liabilities. The result equals the Note 9 carrying amount of debt excluding finance leases (155,639). Commercial paper outstanding is zero. Includes asset-backed debt of 27.1 billion and short-term vendor financing of 441."
+   },
+   {
+    "item": "shareholders_equity",
+    "value": 104460,
+    "status": "found",
+    "source": "Consolidated Balance Sheets (Total equity 105,741 less Noncontrolling interests 1,281), p. 54",
+    "note": "Computed by excluding non-controlling interests. Cross-check: 429 + 13,372 + 94,744 - 1,727 - 3,255 + 897 = 104,460."
+   }
+  ],
+  "computed": [
+   {
+    "item": "revenue_growth",
+    "value": 0.025247,
+    "status": "found",
+    "formula": "revenue_2025 / revenue_2024 - 1",
+    "inputs": "138,191 / 134,788 - 1",
+    "note": "The report shows consolidated revenue growth of 2.5% (p. 23)."
+   },
+   {
+    "item": "operating_margin",
+    "value": 0.211729,
+    "status": "found",
+    "formula": "operating_income / revenue",
+    "inputs": "29,259 / 138,191",
+    "note": ""
+   },
+   {
+    "item": "free_cash_flow",
+    "value": 20126,
+    "status": "found",
+    "formula": "operating_cash_flow - capex",
+    "inputs": "37,137 - 17,011",
+    "note": "Matches the company's own non-GAAP free cash flow figure (p. 41)."
+   },
+   {
+    "item": "net_debt",
+    "value": 136591,
+    "status": "found",
+    "formula": "total_financial_debt - cash",
+    "inputs": "155,639 - 19,048",
+    "note": "Excludes finance and operating lease liabilities and does not net restricted cash or marketable securities."
+   }
+  ],
+  "segments": {
+   "count": 2,
+   "names": [
+    "Verizon Consumer Group (Consumer)",
+    "Verizon Business Group (Business)"
+   ],
+   "source": "Item 1 Business, p. 4; Note 13 Segment Information, p. 98. 'Corporate and other' is reported separately as a reconciling category, not as a reportable segment."
+  },
+  "major_risks": [
+   {
+    "risk": "Verizon faces intense competition (aggressive pricing, promotions, bundled content, and AI-driven changes) that could pressure its pricing, margins, market share and results, and could trigger impairment charges.",
+    "source": "Item 1A Risk Factors, Economic and Strategic Risks, p. 11-12"
+   },
+   {
+    "risk": "Cyberattacks on Verizon's or its suppliers' networks and systems, including from nation-state actors such as the Salt Typhoon incident, could cause outages, data loss, costs, customer losses and reputational harm.",
+    "source": "Item 1A Risk Factors, Operational Risks, p. 12-13"
+   },
+   {
+    "risk": "Verizon carries a significant amount of debt (about $131.1 billion unsecured and $27.1 billion secured at year-end), which could limit cash available for other uses, flexibility and access to financing.",
+    "source": "Item 1A Risk Factors, Financial Risks, p. 16"
+   }
+  ],
+  "not_in_report": [
+   {
+    "question": "Company's current share price today",
+    "status": "not_in_report",
+    "answer": "The report gives no current share price. It discloses only the aggregate market value of voting stock held by non-affiliates (about $182.4 billion at June 30, 2025) and 4,217,684,168 shares outstanding at January 30, 2026.",
+    "source": "Cover page"
+   },
+   {
+    "question": "Company's own earnings guidance for the next fiscal year",
+    "status": "not_in_report",
+    "answer": "No earnings or EPS guidance for 2026 is given. The report does give some qualitative and partial forward-looking items: 2026 capital program cash requirements of $16.0-16.5 billion, an expectation to repurchase at least $3 billion of stock in 2026 under a new $25 billion authorization, no required pension contributions in 2026, and a statement that 2026 is expected to be a 'transitional year for revenue'.",
+    "source": "Item 7 (Capital Expenditures, Service Revenue Trends, Employee Benefit Plans); Item 1A, p. 17"
+   },
+   {
+    "question": "An analyst's estimate of the company's fair value",
+    "status": "not_in_report",
+    "answer": "The report contains no fair value estimate of the company or its shares. Fair values appear only for debt, derivatives, pension assets and impairment-test purposes.",
+    "source": "Not applicable"
+   }
+  ],
+  "limits": [
+   "total_financial_debt excludes finance lease obligations (2,511) per the definition. Including them gives 158,150, the 'Total debt' shown in Note 7 and Item 7.",
+   "Net income is the group's share (17,174), not consolidated net income (17,608).",
+   "Shareholders' equity (104,460) is computed as total equity minus non-controlling interests, since the balance sheet does not show a single attributable-equity subtotal.",
+   "Capex is the published line including capitalized software (17,011). Spectrum license acquisitions (450) are not included.",
+   "Frontier (closed Jan 20, 2026) and Starry (closed Jan 30, 2026) are after year-end and not in the 2025 figures. Their effects on debt and cash are not reflected. The cash balance includes proceeds of notes issued to fund Frontier, which depresses net debt relative to post-closing levels.",
+   "Page numbers are those printed in the report (Item 8 financial statements start at p. 49). The exhibits attached to the document (executive agreements, debt descriptions) were not used for the figures.",
+   "Risk selection is judgment-based. The report lists many other risks, including regulatory, labor, tax, litigation, lead-sheathed cables and pension costs."
+  ]
+ },
+ "run_mode": "reference 2 single prompt, Sonnet 5.5, holdout set (docs/HOLDOUT_FREEZE.md), n8n execution 895 (four reports in one execution)"
+}

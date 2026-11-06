@@ -60,8 +60,20 @@ Per company on the test set: single prompt about 0.09 USD (Haiku) and 0.38 USD (
 ## Conclusion (round 1)
 With the whole report affordable in one call, the single prompt remained at least as good as the agent: it made fewer wrong figures on validation and its risks were judged better. This confirms project 3's conclusion at the scale of a 10-K. The agent's advantage is cost, strongest when the report is a standard corporate one. Neither method removes the need for human review of a bank's sheet, and a wrong figure on a bank's cash is exactly what a reviewer must catch.
 
+## Round 3: clean holdout (BAC, VZ, CAT, KO)
+Four new reports, chosen on purpose to be hard (a second bank, heavy debt and leases, an industrial with a finance arm, a plain control) and fixed in `docs/HOLDOUT_FREEZE.md` before any run. Nothing was tuned on them.
+
+| Method | Read | Computed | Wrong figures | Cost |
+|---|---|---|---|---|
+| Agent v2, Haiku | 26/36 | 12/16 | 1 | cents |
+| Single prompt, Haiku | 33/36 | 14/16 | 5 | 0.66 USD |
+| Agent v2, Sonnet | 34/36 | 15/16 | 3 | about 0.7 USD |
+| Single prompt, Sonnet | 33/36 | 15/16 | 4 | 2.65 USD |
+
+On Sonnet the agent wins by the rule (fewer wrong figures, at least as many read, a quarter of the cost). On Haiku the single prompt wins because the agent returned no sheet for the bank. Three of the Sonnet agent's errors are on Verizon and come from key ambiguities (equity with noncontrolling interests, finance leases in debt), shared by the single prompt. The single prompt invented a cash figure for the bank, which the agent did not. Details in `docs/HOLDOUT_RESULTS.md`.
+
 ## Conclusion (round 2)
-Round 1 favoured the single prompt; round 2 shows that part of the agent's gap came from its tools and prompt, not from the approach: with a section reader and tighter definitions the Sonnet agent reached 0 wrong figures at a fifth of the cost. Because the tuning used the same companies, the claim is limited to: the agent is competitive and much cheaper, and a clean holdout would settle it.
+Round 1 favoured the single prompt; round 2 shows that part of the agent's gap came from its tools and prompt, not from the approach: with a section reader and tighter definitions the Sonnet agent reached 0 wrong figures at a fifth of the cost. Because the tuning used the same companies, a clean holdout was run (round 3): on Sonnet the agent was at least as accurate as the single prompt and about four times cheaper; on Haiku it was not reliable enough on a large bank report.
 
 ## Reproducing
 Prompts in `prompts/`, the three n8n workflows in `workflow/`, reports in `data/10k/`, runs and scores in `evaluation/`. Prompt hashes and settings are in `VALIDATION_FREEZE.md`; results and the decision in `VALIDATION_RESULTS.md`.

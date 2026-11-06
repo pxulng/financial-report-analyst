@@ -1,0 +1,168 @@
+{
+ "id": "CAT",
+ "model": "claude-sonnet-5-5",
+ "stop_reason": "end_turn",
+ "valid_json": true,
+ "input_tokens": 154028,
+ "output_tokens": 4281,
+ "sheet": {
+  "company": "Caterpillar Inc.",
+  "fiscal_year_end": "2025-12-31",
+  "reporting_currency": "USD",
+  "unit": "millions",
+  "figures": [
+   {
+    "item": "revenue",
+    "value": 67589,
+    "status": "found",
+    "source": "Statement 1, Consolidated Results of Operations, 'Total sales and revenues', p. 58",
+    "note": "Consolidated total: Machinery, Power & Energy sales of 63,980 plus Financial Products revenues of 3,609."
+   },
+   {
+    "item": "operating_income",
+    "value": 11151,
+    "status": "found",
+    "source": "Statement 1, Consolidated Results of Operations, 'Operating profit', p. 58",
+    "note": "The report labels the line 'Operating profit'. It is the US GAAP figure; adjusted operating profit of 11,595 is a non-GAAP measure and is not used."
+   },
+   {
+    "item": "net_income",
+    "value": 8884,
+    "status": "found",
+    "source": "Statement 1, Consolidated Results of Operations, 'Profit' (attributable to common shareholders), p. 58",
+    "note": "Profit of consolidated and affiliated companies is 8,882. The loss attributable to noncontrolling interests is (2). The group share is 8,884."
+   },
+   {
+    "item": "diluted_eps",
+    "value": 18.81,
+    "status": "found",
+    "source": "Statement 1, 'Profit per common share - diluted', p. 58; Note 16, p. 105",
+    "note": "US GAAP diluted figure. Adjusted profit per share of 19.06 is non-GAAP and is not used."
+   },
+   {
+    "item": "operating_cash_flow",
+    "value": 11739,
+    "status": "found",
+    "source": "Statement 5, Consolidated Statement of Cash Flow, 'Net cash provided by (used for) operating activities', p. 63",
+    "note": "Consolidated figure. The Machinery, Power & Energy (MP&E) part is 12,278 and the Financial Products part is 1,074."
+   },
+   {
+    "item": "capex",
+    "value": 2821,
+    "status": "found",
+    "source": "Statement 5, 'Capital expenditures \u2013 excluding equipment leased to others', p. 63",
+    "note": "This is the line the report publishes as capital expenditures. 'Expenditures for equipment leased to others' of 1,465 is a separate line and is excluded. MP&E-only capital expenditures are 2,794 (Item 7, p. 40). The segment note shows total capital expenditures of 4,286 on a different basis (p. 122)."
+   },
+   {
+    "item": "cash",
+    "value": 9980,
+    "status": "found",
+    "source": "Statement 3, Consolidated Financial Position, 'Cash and cash equivalents', p. 60",
+    "note": "Cash and equivalents only. Restricted cash, marketable securities and time deposits are excluded."
+   },
+   {
+    "item": "total_financial_debt",
+    "value": 43330,
+    "status": "found",
+    "source": "Statement 3, p. 60 (short-term borrowings, long-term debt due within one year, long-term debt due after one year); agrees with 'Total debt' in Item 7 Liquidity, p. 38",
+    "note": "Short-term borrowings 5,514 + long-term debt due within one year 7,120 (MP&E 35 + Financial Products 7,085) + long-term debt due after one year 30,696 (MP&E 10,678 + Financial Products 20,018) = 43,330. Includes Cat Financial borrowings of about 32.6 billion, and the MP&E line 'Finance lease obligations & other' (6) cannot be separated. Operating lease liabilities (728) are excluded."
+   },
+   {
+    "item": "shareholders_equity",
+    "value": 21318,
+    "status": "found",
+    "source": "Statement 3, 'Total shareholders' equity', p. 60",
+    "note": "Noncontrolling interests are nil at 12/31/2025 (3 in 2024), so total equity equals equity attributable to shareholders."
+   }
+  ],
+  "computed": [
+   {
+    "item": "revenue_growth",
+    "value": 0.0429,
+    "status": "found",
+    "formula": "revenue 2025 / revenue 2024 - 1",
+    "inputs": "67,589 / 64,809 - 1 = 2,780 / 64,809 = 0.04290",
+    "note": "Both years read from Statement 1. The report states 'an increase of 4 percent'."
+   },
+   {
+    "item": "operating_margin",
+    "value": 0.16498,
+    "status": "found",
+    "formula": "operating_income / revenue",
+    "inputs": "11,151 / 67,589",
+    "note": "The report states 16.5 percent."
+   },
+   {
+    "item": "free_cash_flow",
+    "value": 8918,
+    "status": "found",
+    "formula": "operating_cash_flow - capex",
+    "inputs": "11,739 - 2,821",
+    "note": "Consolidated figure. Equipment leased to others (1,465) is not deducted, per the capex definition. The company's own non-GAAP MP&E free cash flow is 9,484 (12,278 - 2,794) and is not comparable."
+   },
+   {
+    "item": "net_debt",
+    "value": 33350,
+    "status": "found",
+    "formula": "total_financial_debt - cash",
+    "inputs": "43,330 - 9,980",
+    "note": "Consolidated, so it includes Financial Products debt that funds finance receivables."
+   }
+  ],
+  "segments": {
+   "count": 4,
+   "names": [
+    "Construction Industries",
+    "Resource Industries",
+    "Power & Energy",
+    "Financial Products Segment"
+   ],
+   "source": "Note 23 (Segment information), p. 115-116; Item 1, p. 1. The report states five operating segments, of which four are reportable. The 'All Other Segment' is not reportable."
+  },
+  "major_risks": [
+   {
+    "risk": "Demand for the company's products is cyclical and highly sensitive to global and regional economic conditions, commodity prices, infrastructure spending and construction and housing activity.",
+    "source": "Item 1A Risk Factors, Macroeconomic Risks (p. 10)"
+   },
+   {
+    "risk": "Tariffs and other trade-policy changes can raise costs and reduce demand. The report cites higher tariffs as the main driver of unfavorable manufacturing costs in 2025 and expects about $2.6 billion of tariff impact in 2026.",
+    "source": "Item 1A, 'International trade policies may impact demand for our products and our competitive position' (p. 18); Item 7 MD&A (p. 29, 33)"
+   },
+   {
+    "item_note": "",
+    "risk": "The Financial Products segment (Cat Financial) depends on access to capital markets and credit ratings and is exposed to customer credit losses and interest-rate changes, and restrictive debt covenants could limit flexibility.",
+    "source": "Item 1A, Financial Risks (p. 14-17)"
+   }
+  ],
+  "not_in_report": [
+   {
+    "question": "The company's current share price today",
+    "status": "not_in_report",
+    "answer": "The report gives no current share price. It shows only historical reference points: aggregate market value of non-affiliate-held voting stock of about $180.9 billion at June 30, 2025 (cover), and an average price paid in December 2025 repurchases of $588.28 (Item 5, p. 27). These are not the price today.",
+    "source": "Cover page; Item 5"
+   },
+   {
+    "question": "The company's own earnings guidance for the next fiscal year",
+    "status": "found",
+    "answer": "The report gives qualitative and partial quantitative 2026 expectations but no explicit profit or EPS guidance. Sales and revenues are expected to grow around the top end of the 5 to 7 percent CAGR target. Price realization is expected at about 2 percent of sales and revenues. Tariff impact is expected at about $2.6 billion, $800 million higher than 2025. Restructuring costs are expected at about $300-350 million, capital expenditures at around $3.5 billion, and the annual effective tax rate at 23.0 percent excluding discrete items. First-quarter 2026 expectations are also given.",
+    "source": "Item 7 MD&A, 'Full-Year 2026 Company Trends and Expectations' (p. 29-30)"
+   },
+   {
+    "question": "An analyst's estimate of the company's fair value",
+    "status": "not_in_report",
+    "answer": "The report contains no fair-value estimate by any analyst.",
+    "source": "Not in report"
+   }
+  ],
+  "limits": [
+   "Operating income is the line labeled 'Operating profit' in Statement 1, which includes Financial Products' interest expense and other operating items, so it is not a pure industrial operating margin.",
+   "Capex uses the published line 'Capital expenditures \u2013 excluding equipment leased to others' (2,821). Including equipment leased to others (1,465, mostly Cat Financial), free cash flow would be lower. Choose the basis you prefer.",
+   "Total financial debt (43,330) and net debt (33,350) are consolidated and include about 32.6 billion of Financial Products debt. MP&E-only debt is 10,713 (35 + 10,678) against MP&E cash of 9,333, which the analyst may prefer.",
+   "The Rail division moves from Power & Energy to Resource Industries. A Form 8-K in March 2026 will recast the segments, so segment figures here are as reported for 2025 (p. 29).",
+   "The three major risks are my selection from Item 1A. The company does not rank its risks, and the tariff risk draws on both Item 1A and Item 7.",
+   "The 2026 guidance is mostly qualitative and expressed as growth rates and amounts, with no EPS or profit target.",
+   "Page numbers are the report's printed page numbers."
+  ]
+ },
+ "run_mode": "reference 2 single prompt, Sonnet 5.5, holdout set (docs/HOLDOUT_FREEZE.md), n8n execution 895 (four reports in one execution)"
+}

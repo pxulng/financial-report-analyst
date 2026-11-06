@@ -230,3 +230,7 @@ One run per company; scores in evaluation/scores_holdout_agent_v4b_sonnet.md. BA
 n8n execution 894, four reports in one execution, scores in evaluation/scores_holdout_reference2_haiku.md. Tokens: 1,240,064 in and 16,861 out, so 0.66 USD at 0.5/2.5 per million (BAC 466k, VZ 378k, CAT 154k, KO 242k input). Strict JSON 4/4.
 Result: read 33/36, computed 14/16, absent 10/11, 5 wrong or invented: BAC cash 231,845 and net debt 134,059 (the key says not applicable for a bank), KO debt 46,492 against 45,492 and the net debt that follows, VZ equity 104,460 (same key weakness as the agent). 
 Single prompt on Sonnet not run yet: it needs about 2.7 USD (1.24 M input tokens at 2 USD per million plus output) and the balance after these runs is about 2.27 USD (2.93 before, minus 0.66).
+
+## Holdout, single prompt (reference 2), Sonnet 5.5, 6 November 2026
+n8n execution 895, same four reports, scores in evaluation/scores_holdout_reference2_sonnet.md. Tokens 1,240,064 in and 16,837 out, so 2.65 USD at 2/10 per million. Strict JSON 4/4. Read 33/36, computed 15/16, absent 11/11, 4 wrong: BAC cash 231,845 (key: not applicable), and VZ debt 155,639, equity 104,460 and net debt 136,591 (the same three as the agent). The single prompt also subtracted Verizon's finance leases.
+Balance: 2.93 before, 5 USD added by Paul, about 4.6 after. Holdout spend: about 0.88 (8 agent runs and the failed first attempt) + 0.66 + 2.65 = 4.19 USD.
