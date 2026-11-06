@@ -234,3 +234,11 @@ Single prompt on Sonnet not run yet: it needs about 2.7 USD (1.24 M input tokens
 ## Holdout, single prompt (reference 2), Sonnet 5.5, 6 November 2026
 n8n execution 895, same four reports, scores in evaluation/scores_holdout_reference2_sonnet.md. Tokens 1,240,064 in and 16,837 out, so 2.65 USD at 2/10 per million. Strict JSON 4/4. Read 33/36, computed 15/16, absent 11/11, 4 wrong: BAC cash 231,845 (key: not applicable), and VZ debt 155,639, equity 104,460 and net debt 136,591 (the same three as the agent). The single prompt also subtracted Verizon's finance leases.
 Balance: 2.93 before, 5 USD added by Paul, about 4.6 after. Holdout spend: about 0.88 (8 agent runs and the failed first attempt) + 0.66 + 2.65 = 4.19 USD.
+
+## Prompt v5 (credit ratios): Haiku test block
+
+- Test set reduced from 6 to 3 companies (BA, SBUX, AAPL) to save budget; declared before looking at the results. No prompt correction was made (v5 stays frozen as committed).
+- Runs (Haiku 5.5, thinking disabled, one execution each): BA = n8n 896, SBUX = 902, AAPL = 909. Run files: `runs/{BA,SBUX,AAPL}_agent_v5_haiku-5-5_test.json` (free text shortened, figures as returned; segments/risks/absent answers not saved for these runs).
+- Credit items (score_credit.py): 11/12 right, 1 wrong. The wrong item is BA debt_to_equity (9.919 vs key 9.8731), caused by the known BA finance-lease error in total_financial_debt, not by the new definitions.
+- New definitions behaved as designed: SBUX (negative equity) debt_to_equity = not_applicable; AAPL (no interest line) interest_expense and interest_coverage = not_in_report; BA interest_expense = 2,771 and coverage 1.54 right.
+- AAPL: the final message had one sentence before the JSON (valid only after extraction, valid_json false). Tool calls: BA 13, SBUX 14, AAPL 17 (message count in the 15-step limit is not the same as tool calls).

@@ -1,0 +1,162 @@
+{
+ "id": "AAPL",
+ "model": "agent",
+ "stop_reason": "end",
+ "valid_json": false,
+ "valid_after_extraction": true,
+ "tool_calls": 17,
+ "tools_used": [
+  "read_statement",
+  "read_statement",
+  "read_statement",
+  "search_report",
+  "read_section",
+  "search_report",
+  "Calculator",
+  "Calculator",
+  "Calculator",
+  "Calculator",
+  "Calculator",
+  "Calculator",
+  "Calculator",
+  "Calculator",
+  "Calculator",
+  "Calculator",
+  "Calculator"
+ ],
+ "run_mode": "agent prompt v5, tools v2, Haiku 5.5 thinking disabled, credit test (n8n execution 909; answer had one sentence before the JSON, valid only after extraction)",
+ "sheet": {
+  "unit": "millions",
+  "figures": [
+   {
+    "item": "revenue",
+    "value": 478834,
+    "status": "found",
+    "source": "as returned (shortened)",
+    "note": ""
+   },
+   {
+    "item": "operating_income",
+    "value": 158063,
+    "status": "found",
+    "source": "as returned (shortened)",
+    "note": ""
+   },
+   {
+    "item": "net_income",
+    "value": 132175,
+    "status": "found",
+    "source": "as returned (shortened)",
+    "note": ""
+   },
+   {
+    "item": "diluted_eps",
+    "value": 8.98,
+    "status": "found",
+    "source": "as returned (shortened)",
+    "note": ""
+   },
+   {
+    "item": "operating_cash_flow",
+    "value": 145097,
+    "status": "found",
+    "source": "as returned (shortened)",
+    "note": ""
+   },
+   {
+    "item": "capex",
+    "value": 9041,
+    "status": "found",
+    "source": "as returned (shortened)",
+    "note": ""
+   },
+   {
+    "item": "cash",
+    "value": 36305,
+    "status": "found",
+    "source": "as returned (shortened)",
+    "note": ""
+   },
+   {
+    "item": "total_financial_debt",
+    "value": 80111,
+    "status": "found",
+    "source": "as returned (shortened)",
+    "note": "1997+9906+68208"
+   },
+   {
+    "item": "shareholders_equity",
+    "value": 112093,
+    "status": "found",
+    "source": "as returned (shortened)",
+    "note": ""
+   },
+   {
+    "item": "interest_expense",
+    "value": null,
+    "status": "not_in_report",
+    "source": "as returned (shortened)",
+    "note": "no interest line on income statement"
+   }
+  ],
+  "computed": [
+   {
+    "item": "revenue_growth",
+    "value": 0.1506,
+    "status": "found",
+    "formula": "",
+    "inputs": "",
+    "note": ""
+   },
+   {
+    "item": "operating_margin",
+    "value": 0.3301,
+    "status": "found",
+    "formula": "",
+    "inputs": "",
+    "note": ""
+   },
+   {
+    "item": "free_cash_flow",
+    "value": 136056,
+    "status": "found",
+    "formula": "",
+    "inputs": "",
+    "note": ""
+   },
+   {
+    "item": "net_debt",
+    "value": 43806,
+    "status": "found",
+    "formula": "",
+    "inputs": "",
+    "note": ""
+   },
+   {
+    "item": "interest_coverage",
+    "value": null,
+    "status": "not_in_report",
+    "formula": "",
+    "inputs": "",
+    "note": ""
+   },
+   {
+    "item": "debt_to_equity",
+    "value": 0.7147,
+    "status": "found",
+    "formula": "",
+    "inputs": "",
+    "note": ""
+   },
+   {
+    "item": "cfo_to_debt",
+    "value": 1.8112,
+    "status": "found",
+    "formula": "",
+    "inputs": "",
+    "note": ""
+   }
+  ]
+ },
+ "note": "Free-text fields shortened when saved by hand; figures, statuses and computed values as returned. Segments, risks and absent answers were not saved for this run (credit-ratio test)."
+}
