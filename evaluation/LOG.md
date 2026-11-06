@@ -175,3 +175,9 @@ Paul's balance after the Sonnet single-prompt passes: 4.36 USD (6.66 after top-u
 
 ## Blind human check (8 sheets, Sonnet, validation set)
 Ratings received; results and key in `human_review_ratings.md`. Faithful 24/24 both methods; top-risk mean single prompt 0.96, agent 0.62. The reviewer identified the method of all 8 sheets, so the blinding failed (agent limits speak in the first person about tools).
+
+## 2026-11-06: agent v2 (project 4b), tools and prompt v4
+Design written first: `docs/V2_DESIGN.md` (SHA-256 925c8ec9b26ac5cdb618ad45700b728975d20b0e13837c15315b7d4d583102bf).
+- Free tool test (`workflow/tools_test/tool_test.js`, 59 checks: does the statement the tool returns contain the key's printed values, 10 reports x 3 statements): tools v1 (project 4) 56/59 (failures: JPMorgan income statement and cash flow); tools v2 first version 49/59; v2 after three code iterations on these same checks 59/59. Declared: the tool code was tuned on the 10 reports it is tested on, and one pick (JPMorgan balance sheet) first returned the parent-company statement while still passing the check, found by reading the output and fixed with a nearby-heading rule.
+- `read_section` checked by hand on the 10 reports: the risk-factors span (Item 1A to Item 1B) is found correctly for all 10 (88,100 to 112,271 characters for the large ones).
+- Prompt v4 = v3 plus the `read_section` tool, "read the first page of the risk factors", "use consolidated statements, never parent-company", and the bank rule. File `prompts/agent_system_prompt_v4.txt`, SHA-256 e4e8d8ac97cbeaa37b5ed38c6364b2091c23e2ead620e8c73485cb36362be1b6.
