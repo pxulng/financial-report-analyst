@@ -1,0 +1,98 @@
+{
+  "name": "Annual-report analyst: compare companies",
+  "nodes": [
+    {
+      "name": "Run",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        0,
+        0
+      ],
+      "parameters": {}
+    },
+    {
+      "name": "Tickers",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        224,
+        0
+      ],
+      "parameters": {
+        "jsCode": "const IDS = [\"LMT\", \"GE\"]; return IDS.map(id => ({ json: { id } }));"
+      }
+    },
+    {
+      "name": "Analyst (one run per company)",
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        448,
+        0
+      ],
+      "parameters": {
+        "source": "database",
+        "workflowId": {
+          "__rl": true,
+          "mode": "id",
+          "value": "<ID of the agent workflow>"
+        },
+        "mode": "each",
+        "options": {
+          "waitForSubWorkflow": true
+        }
+      }
+    },
+    {
+      "name": "Compare",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        672,
+        0
+      ],
+      "parameters": {
+        "jsCode": "const results = $input.all().flatMap(it => JSON.parse(it.json.results));\nconst ok = results.filter(r => r.sheet && r.sheet.figures && r.sheet.computed);\nif (ok.length < 2) return [{ json: { comparison: null, note: 'Need at least two valid fact sheets to compare (got ' + ok.length + ').', failed: results.filter(r => !r.sheet).map(r => r.id) } }];\nconst F = ['revenue','operating_income','net_income','diluted_eps','operating_cash_flow','capex','cash','total_financial_debt','shareholders_equity','interest_expense'];\nconst C = ['revenue_growth','operating_margin','free_cash_flow','net_debt','interest_coverage','debt_to_equity','cfo_to_debt'];\nconst choice = /restricted cash|includes? (discontinued|internal-use|finance lease)|discontinued operations|continuing operations/i;\nconst maps = ok.map(r => { const m = {}; for (const x of r.sheet.figures.concat(r.sheet.computed)) m[x.item] = x; return m; });\nconst names = ok.map(r => r.sheet.company || r.id);\nconst warnings = [];\nconst ends = new Set(ok.map(r => r.sheet.fiscal_year_end)); if (ends.size > 1) warnings.push('Fiscal years end on different dates: ' + [...ends].join(', ') + '.');\nconst units = new Set(ok.map(r => (r.sheet.reporting_currency || '') + ' ' + (r.sheet.unit || ''))); if (units.size > 1) warnings.push('Currency or unit differs: the amounts are NOT in the same unit.');\nconst rows = F.concat(C).map(k => {\n  const vals = maps.map(m => m[k] || { status: 'not_in_report', value: null });\n  const statuses = new Set(vals.map(v => v.status));\n  let comparability;\n  if (statuses.size > 1) comparability = 'NOT COMPARABLE: ' + vals.map((v, i) => names[i] + ' = ' + v.status.replace(/_/g, ' ')).join('; ');\n  else if (!statuses.has('found')) comparability = 'Not available for any company';\n  else {\n    const flagged = vals.map((v, i) => (choice.test(v.note || '') ? names[i] : null)).filter(Boolean);\n    comparability = flagged.length ? 'Check definitions (' + flagged.join(', ') + ')' : \"Comparable on the agents' definitions\";\n  }\n  return { item: k, values: vals.map(v => v.status === 'found' ? v.value : v.status), comparability };\n});\nreturn [{ json: { comparison: { companies: names, warnings, rows } } }];"
+      }
+    }
+  ],
+  "connections": {
+    "Run": {
+      "main": [
+        [
+          {
+            "node": "Tickers",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Tickers": {
+      "main": [
+        [
+          {
+            "node": "Analyst (one run per company)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Analyst (one run per company)": {
+      "main": [
+        [
+          {
+            "node": "Compare",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  }
+}

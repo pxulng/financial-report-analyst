@@ -21,7 +21,7 @@
       ],
       "parameters": {
         "method": "GET",
-        "url": "https://raw.githubusercontent.com/pxulng/financial-report-analyst/main/prompts/agent_system_prompt_v5.txt",
+        "url": "https://raw.githubusercontent.com/pxulng/financial-report-analyst/main/prompts/agent_system_prompt_v9.txt",
         "options": {
           "timeout": 60000,
           "response": {
@@ -42,7 +42,7 @@
         112
       ],
       "parameters": {
-        "jsCode": "const IDS = [\"KO\"]; return IDS.map(id => ({ json: { id } }));"
+        "jsCode": "let ids = [\"LMT\"];\ntry { const t = $('When called').all(); if (t.length && t[0].json.id) ids = t.map(x => x.json.id); } catch (e) {}\nreturn ids.map(id => ({ json: { id } }));"
       }
     },
     {
@@ -201,6 +201,18 @@
           }
         }
       }
+    },
+    {
+      "name": "When called",
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        0,
+        300
+      ],
+      "parameters": {
+        "inputSource": "passthrough"
+      }
     }
   ],
   "connections": {
@@ -298,6 +310,17 @@
           {
             "node": "Analyst agent",
             "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "When called": {
+      "main": [
+        [
+          {
+            "node": "Fetch prompt",
+            "type": "main",
             "index": 0
           }
         ]
