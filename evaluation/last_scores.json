@@ -1,6 +1,6 @@
 [
  {
-  "id": "HD",
+  "id": "WFC",
   "valid_json": true,
   "in": null,
   "out": null,
@@ -10,7 +10,7 @@
   "comp": "4/4",
   "absent": "0/0",
   "wrong": 0,
-  "src": "8/9",
+  "src": "5/6",
   "risks_auto": "0/3",
   "n_ok_read": 9,
   "n_read": 9,
@@ -18,7 +18,7 @@
   "n_comp": 4,
   "n_ok_abs": 0,
   "n_abs": 0,
-  "n_src_ok": 8,
-  "n_src": 9
+  "n_src_ok": 5,
+  "n_src": 6
  }
 ]
