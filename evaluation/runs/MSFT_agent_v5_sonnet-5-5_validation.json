@@ -1,0 +1,200 @@
+{
+ "id": "MSFT",
+ "model": "agent",
+ "stop_reason": "end",
+ "valid_json": true,
+ "valid_after_extraction": true,
+ "tool_calls": 12,
+ "tools_used": [
+  "read_statement",
+  "read_statement",
+  "read_statement",
+  "read_section",
+  "search_report",
+  "search_report",
+  "Calculator",
+  "Calculator",
+  "Calculator",
+  "Calculator",
+  "Calculator",
+  "Calculator"
+ ],
+ "run_mode": "agent prompt v5, tools v2, Sonnet 5.5 adaptive thinking, validation (n8n execution 917; execution 916 failed on a model-locator configuration error before any model call, not counted)",
+ "sheet": {
+  "unit": "millions",
+  "figures": [
+   {
+    "item": "revenue",
+    "value": 331839,
+    "status": "found",
+    "source": "as returned (shortened)",
+    "note": ""
+   },
+   {
+    "item": "operating_income",
+    "value": 155237,
+    "status": "found",
+    "source": "as returned (shortened)",
+    "note": ""
+   },
+   {
+    "item": "net_income",
+    "value": 133749,
+    "status": "found",
+    "source": "as returned (shortened)",
+    "note": ""
+   },
+   {
+    "item": "diluted_eps",
+    "value": 17.95,
+    "status": "found",
+    "source": "as returned (shortened)",
+    "note": ""
+   },
+   {
+    "item": "operating_cash_flow",
+    "value": 182935,
+    "status": "found",
+    "source": "as returned (shortened)",
+    "note": ""
+   },
+   {
+    "item": "capex",
+    "value": 115948,
+    "status": "found",
+    "source": "as returned (shortened)",
+    "note": ""
+   },
+   {
+    "item": "cash",
+    "value": 20935,
+    "status": "found",
+    "source": "as returned (shortened)",
+    "note": ""
+   },
+   {
+    "item": "total_financial_debt",
+    "value": 40294,
+    "status": "found",
+    "source": "as returned (shortened)",
+    "note": "9227+31067"
+   },
+   {
+    "item": "shareholders_equity",
+    "value": 442387,
+    "status": "found",
+    "source": "as returned (shortened)",
+    "note": ""
+   },
+   {
+    "item": "interest_expense",
+    "value": null,
+    "status": "not_in_report",
+    "source": "as returned (shortened)",
+    "note": "no interest line on income statement"
+   }
+  ],
+  "computed": [
+   {
+    "item": "revenue_growth",
+    "value": 0.177886867998467,
+    "status": "found",
+    "formula": "",
+    "inputs": "",
+    "note": ""
+   },
+   {
+    "item": "operating_margin",
+    "value": 0.467808184089272,
+    "status": "found",
+    "formula": "",
+    "inputs": "",
+    "note": ""
+   },
+   {
+    "item": "free_cash_flow",
+    "value": 66987,
+    "status": "found",
+    "formula": "",
+    "inputs": "",
+    "note": ""
+   },
+   {
+    "item": "net_debt",
+    "value": 19359,
+    "status": "found",
+    "formula": "",
+    "inputs": "",
+    "note": ""
+   },
+   {
+    "item": "interest_coverage",
+    "value": null,
+    "status": "not_in_report",
+    "formula": "",
+    "inputs": "",
+    "note": ""
+   },
+   {
+    "item": "debt_to_equity",
+    "value": 0.09108314665666,
+    "status": "found",
+    "formula": "",
+    "inputs": "",
+    "note": ""
+   },
+   {
+    "item": "cfo_to_debt",
+    "value": 4.54000595622177,
+    "status": "found",
+    "formula": "",
+    "inputs": "",
+    "note": ""
+   }
+  ],
+  "segments": {
+   "count": 3,
+   "names": [
+    "Productivity and Business Processes",
+    "Intelligent Cloud",
+    "More Personal Computing"
+   ],
+   "source": "Item 1; Note 18"
+  },
+  "major_risks": [
+   {
+    "risk": "Intense competition across all markets (AI, cloud, platform ecosystems, advertising-funded models).",
+    "source": "Item 1A"
+   },
+   {
+    "risk": "Cloud and AI strategy requires substantial capital investment (datacenters, components, energy) ahead of revenue.",
+    "source": "Item 1A"
+   },
+   {
+    "risk": "Expanding vertically integrated capabilities (hardware, infrastructure, AI models) could raise costs and reduce margins.",
+    "source": "Item 1A"
+   }
+  ],
+  "not_in_report": [
+   {
+    "question": "share price",
+    "status": "not_in_report",
+    "answer": "not in report",
+    "source": ""
+   },
+   {
+    "question": "guidance",
+    "status": "not_in_report",
+    "answer": "none found in sections read",
+    "source": ""
+   },
+   {
+    "question": "fair value",
+    "status": "not_in_report",
+    "answer": "not in report",
+    "source": ""
+   }
+  ]
+ },
+ "note": "Free-text fields shortened when saved by hand; figures, statuses, computed values, segments, risk topics and absent answers as returned."
+}
