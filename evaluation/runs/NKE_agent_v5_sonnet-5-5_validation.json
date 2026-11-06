@@ -1,0 +1,198 @@
+{
+ "id": "NKE",
+ "model": "agent",
+ "stop_reason": "end",
+ "valid_json": true,
+ "valid_after_extraction": true,
+ "tool_calls": 8,
+ "tools_used": [
+  "read_statement",
+  "read_statement",
+  "read_statement",
+  "read_section",
+  "search_report",
+  "Calculator",
+  "Calculator",
+  "Calculator"
+ ],
+ "run_mode": "agent prompt v5, tools v2, Sonnet 5.5 adaptive thinking, validation (n8n execution 931)",
+ "sheet": {
+  "unit": "millions",
+  "figures": [
+   {
+    "item": "revenue",
+    "value": 46398,
+    "status": "found",
+    "source": "as returned (shortened)",
+    "note": ""
+   },
+   {
+    "item": "operating_income",
+    "value": null,
+    "status": "not_applicable",
+    "source": "as returned (shortened)",
+    "note": "no operating income line"
+   },
+   {
+    "item": "net_income",
+    "value": 3108,
+    "status": "found",
+    "source": "as returned (shortened)",
+    "note": ""
+   },
+   {
+    "item": "diluted_eps",
+    "value": 2.1,
+    "status": "found",
+    "source": "as returned (shortened)",
+    "note": ""
+   },
+   {
+    "item": "operating_cash_flow",
+    "value": 2868,
+    "status": "found",
+    "source": "as returned (shortened)",
+    "note": ""
+   },
+   {
+    "item": "capex",
+    "value": 684,
+    "status": "found",
+    "source": "as returned (shortened)",
+    "note": ""
+   },
+   {
+    "item": "cash",
+    "value": 7563,
+    "status": "found",
+    "source": "as returned (shortened)",
+    "note": ""
+   },
+   {
+    "item": "total_financial_debt",
+    "value": 7942,
+    "status": "found",
+    "source": "as returned (shortened)",
+    "note": "2000+5942"
+   },
+   {
+    "item": "shareholders_equity",
+    "value": 14865,
+    "status": "found",
+    "source": "as returned (shortened)",
+    "note": ""
+   },
+   {
+    "item": "interest_expense",
+    "value": null,
+    "status": "not_in_report",
+    "source": "as returned (shortened)",
+    "note": "net line only"
+   }
+  ],
+  "computed": [
+   {
+    "item": "revenue_growth",
+    "value": 0.001921872638148,
+    "status": "found",
+    "formula": "",
+    "inputs": "",
+    "note": ""
+   },
+   {
+    "item": "operating_margin",
+    "value": null,
+    "status": "not_applicable",
+    "formula": "",
+    "inputs": "",
+    "note": ""
+   },
+   {
+    "item": "free_cash_flow",
+    "value": 2184,
+    "status": "found",
+    "formula": "",
+    "inputs": "",
+    "note": ""
+   },
+   {
+    "item": "net_debt",
+    "value": 379,
+    "status": "found",
+    "formula": "",
+    "inputs": "",
+    "note": ""
+   },
+   {
+    "item": "interest_coverage",
+    "value": null,
+    "status": "not_applicable",
+    "formula": "operating income not applicable",
+    "inputs": "",
+    "note": ""
+   },
+   {
+    "item": "debt_to_equity",
+    "value": 0.534275142953246,
+    "status": "found",
+    "formula": "",
+    "inputs": "",
+    "note": ""
+   },
+   {
+    "item": "cfo_to_debt",
+    "value": 0.361118106270461,
+    "status": "found",
+    "formula": "",
+    "inputs": "",
+    "note": ""
+   }
+  ],
+  "segments": {
+   "count": 5,
+   "names": [
+    "North America",
+    "Europe, Middle East & Africa (EMEA)",
+    "Greater China",
+    "Asia Pacific & Latin America (APLA)",
+    "Converse"
+   ],
+   "source": "Note 15"
+  },
+  "major_risks": [
+   {
+    "risk": "Weak global economic conditions (inflation, rates, currency) reduce consumer spending and raise inventories and costs.",
+    "source": "Item 1A"
+   },
+   {
+    "risk": "Tariffs, trade policies and supply chain disruptions affect availability and cost of products.",
+    "source": "Item 1A"
+   },
+   {
+    "risk": "Intense competition and changing consumer preferences, including Greater China.",
+    "source": "Item 1A"
+   }
+  ],
+  "not_in_report": [
+   {
+    "question": "share price",
+    "status": "not_in_report",
+    "answer": "not in report",
+    "source": ""
+   },
+   {
+    "question": "guidance",
+    "status": "not_in_report",
+    "answer": "no numerical guidance found",
+    "source": ""
+   },
+   {
+    "question": "fair value",
+    "status": "not_in_report",
+    "answer": "not in report",
+    "source": ""
+   }
+  ]
+ },
+ "note": "Free-text fields shortened when saved by hand; figures, statuses, computed values, segments, risk topics and absent answers as returned."
+}
