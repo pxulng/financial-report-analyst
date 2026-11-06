@@ -1,0 +1,216 @@
+{
+ "id": "HON",
+ "model": "agent",
+ "stop_reason": "end",
+ "valid_json": true,
+ "valid_after_extraction": true,
+ "input_tokens": null,
+ "output_tokens": null,
+ "tool_calls": 15,
+ "tools_used": [
+  "read_statement",
+  "read_statement",
+  "read_statement",
+  "search_report",
+  "search_report",
+  "read_section",
+  "search_report",
+  "search_report",
+  "search_report",
+  "Calculator",
+  "Calculator",
+  "Calculator",
+  "Calculator",
+  "Calculator",
+  "Calculator"
+ ],
+ "sheet": {
+  "company": "Honeywell International Inc.",
+  "fiscal_year_end": "2025-12-31",
+  "reporting_currency": "USD",
+  "unit": "millions",
+  "figures": [
+   {
+    "item": "revenue",
+    "value": 37442,
+    "status": "found",
+    "source": "Consolidated Statement of Operations, Net sales, p. 55",
+    "note": "Net sales line. Product sales were 24,515 and service sales were 12,927."
+   },
+   {
+    "item": "operating_income",
+    "value": null,
+    "status": "not_applicable",
+    "source": "Consolidated Statement of Operations, p. 55",
+    "note": "The income statement does not print an operating income line. An operating income figure (5,573) appears in a later note, but it is not on the income statement, so it was not used."
+   },
+   {
+    "item": "net_income",
+    "value": 4729,
+    "status": "found",
+    "source": "Consolidated Statement of Operations, p. 55",
+    "note": "Net income attributable to Honeywell. Total net income was 4,772, including 43 attributable to the noncontrolling interest. The 4,729 includes 304 from discontinued operations."
+   },
+   {
+    "item": "diluted_eps",
+    "value": 7.36,
+    "status": "found",
+    "source": "Consolidated Statement of Operations, p. 55",
+    "note": "Total EPS assuming dilution. The continuing-operations figure is 6.94."
+   },
+   {
+    "item": "operating_cash_flow",
+    "value": 6408,
+    "status": "found",
+    "source": "Consolidated Statement of Cash Flows, p. 58",
+    "note": "Net cash provided by operating activities, including discontinued operations (333). The continuing-operations figure is 6,075."
+   },
+   {
+    "item": "capex",
+    "value": 986,
+    "status": "found",
+    "source": "Consolidated Statement of Cash Flows, Capital expenditures, p. 58",
+    "note": "Shown as (986) in the cash-flow statement. Given here as a positive number."
+   },
+   {
+    "item": "cash",
+    "value": 12487,
+    "status": "found",
+    "source": "Consolidated Balance Sheet, p. 57",
+    "note": "Cash and cash equivalents only. Short-term investments of 443 are excluded."
+   },
+   {
+    "item": "total_financial_debt",
+    "value": 34516,
+    "status": "found",
+    "source": "Consolidated Balance Sheet p. 57; Note 9 Debt and Credit Agreements; Note 10 Leases",
+    "note": "Balance-sheet figures: commercial paper and other short-term borrowings 5,893, current maturities of long-term debt 1,546, and long-term debt 27,141. These total 34,580. I checked the debt note. Note 10 shows that finance leases sit inside the debt captions: 37 current and 27 non-current, 64 in total. Borrowings alone are 34,580 - 64 = 34,516."
+   },
+   {
+    "item": "shareholders_equity",
+    "value": 13904,
+    "status": "found",
+    "source": "Consolidated Balance Sheet, Total Honeywell shareowners' equity, p. 57",
+    "note": "Excludes noncontrolling interest of 1,126. Total shareowners' equity including noncontrolling interest is 15,030."
+   },
+   {
+    "item": "interest_expense",
+    "value": 1344,
+    "status": "found",
+    "source": "Consolidated Statement of Operations, Interest and other financial charges, p. 55",
+    "note": "The income statement caption is 'Interest and other financial charges'. It is the only gross interest line on the income statement."
+   }
+  ],
+  "computed": [
+   {
+    "item": "revenue_growth",
+    "value": 0.0785,
+    "status": "found",
+    "formula": "37442 / 34717 - 1",
+    "inputs": "Net sales 2025 = 37,442; Net sales 2024 = 34,717",
+    "note": "Both years are read from this report's income statement."
+   },
+   {
+    "item": "operating_margin",
+    "value": null,
+    "status": "not_applicable",
+    "formula": "operating_income / revenue",
+    "inputs": "operating_income is not_applicable",
+    "note": "The income statement prints no operating income line."
+   },
+   {
+    "item": "free_cash_flow",
+    "value": 5422,
+    "status": "found",
+    "formula": "operating_cash_flow - capex = 6408 - 986",
+    "inputs": "CFO 6,408; capex 986",
+    "note": "CFO includes discontinued operations. Using continuing-operations CFO of 6,075 would give 5,089."
+   },
+   {
+    "item": "net_debt",
+    "value": 22029,
+    "status": "found",
+    "formula": "total_financial_debt - cash = 34516 - 12487",
+    "inputs": "Debt 34,516; cash 12,487",
+    "note": "Short-term investments of 443 are not deducted."
+   },
+   {
+    "item": "interest_coverage",
+    "value": null,
+    "status": "not_applicable",
+    "formula": "operating_income / interest_expense",
+    "inputs": "operating_income is not_applicable; interest_expense 1,344",
+    "note": "The ratio takes the status of operating_income, which is not_applicable."
+   },
+   {
+    "item": "debt_to_equity",
+    "value": 2.4825,
+    "status": "found",
+    "formula": "total_financial_debt / shareholders_equity = 34516 / 13904",
+    "inputs": "Debt 34,516; Honeywell shareowners' equity 13,904",
+    "note": "Uses equity attributable to Honeywell, excluding noncontrolling interest."
+   },
+   {
+    "item": "cfo_to_debt",
+    "value": 0.1857,
+    "status": "found",
+    "formula": "operating_cash_flow / total_financial_debt = 6408 / 34516",
+    "inputs": "CFO 6,408; debt 34,516",
+    "note": "CFO includes discontinued operations."
+   }
+  ],
+  "segments": {
+   "count": 4,
+   "names": [
+    "Aerospace Technologies",
+    "Industrial Automation",
+    "Building Automation",
+    "Energy and Sustainability Solutions"
+   ],
+   "source": "Item 1 Major Businesses and Item 7 Review of Business Segments. The report says a realignment is planned for Q1 2026 to form Process Automation and Technology. That would give four segments: Aerospace Technologies, Building Automation, Process Automation and Technology, and Industrial Automation."
+  },
+  "major_risks": [
+   {
+    "risk": "Demand in each business (aerospace, industrial automation, building automation, energy and sustainability) depends on end-market conditions such as air travel, construction activity, industrial and refinery investment, and oil and gas price volatility.",
+    "source": "Item 1A Risk Factors, Macroeconomic and Industry Risks"
+   },
+   {
+    "risk": "More than half of sales come from international operations. Those operations face risks from currency fluctuations, trade restrictions, tariffs, sanctions, geopolitical conflicts (including Russia/Ukraine) and complex regulation.",
+    "source": "Item 1A Risk Factors, Macroeconomic and Industry Risks"
+   },
+   {
+    "risk": "Global macroeconomic conditions, including inflation, high interest rates, supply chain and labor disruptions, and tariffs or trade wars, could materially hurt demand, costs, and results.",
+    "source": "Item 1A Risk Factors, Macroeconomic and Industry Risks"
+   }
+  ],
+  "not_in_report": [
+   {
+    "question": "The company's current share price today",
+    "status": "not_in_report",
+    "answer": "The report does not give a current share price.",
+    "source": "Searched the annual report; none found."
+   },
+   {
+    "question": "The company's own earnings guidance for the next fiscal year",
+    "status": "not_in_report",
+    "answer": "My search did not find any 2026 earnings guidance in the report. The report describes a planned 2026 segment realignment, but gives no earnings outlook.",
+    "source": "Search of the annual report; guidance not found."
+   },
+   {
+    "question": "An analyst's estimate of the company's fair value",
+    "status": "not_in_report",
+    "answer": "The report contains no analyst fair-value estimate.",
+    "source": "Annual report; none found."
+   }
+  ],
+  "limits": [
+   "Only the first page of the risk factors was read, so the three risks come from the opening macroeconomic and international sections. Later sections (for example legal, pension or cyber risks) were not reviewed.",
+   "The income statement has no operating income line, so operating_income, operating_margin and interest_coverage are not_applicable. A note says operating income was revised to 5,573 (14.9% margin), but that is outside the income statement and was not used.",
+   "Net income of 4,729 and diluted EPS of 7.36 include discontinued operations (Advanced Materials spin-off, completed October 30, 2025). Continuing-operations net income is 4,468 and diluted EPS is 6.94.",
+   "Operating cash flow of 6,408 includes 333 from discontinued operations. Capex of 986 is the line as printed, and may include or exclude discontinued-operations capex; I did not check.",
+   "The 2025 cash flow includes large one-off items, among them a Resideo-related termination payment of 1,590 and an asbestos liabilities divestiture payment of (1,428)."
+  ]
+ },
+ "run_mode": "manual",
+ "raw": null
+}

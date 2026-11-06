@@ -8,7 +8,7 @@ Fix (`workflow/report_tools_v2.js`, also in the n8n sub-workflow): a fallback is
 
 Check, offline on all 23 reports: the four reports now return a section of 47,000 to 105,000 characters (GE 62,000, HON 105,000, MCD 47,000, WFC 100,000); the 19 other reports use the old method and are unchanged. The content of the four sections was not read line by line, and the agent was not re-run on them.
 
-## 2. Prompt v8: always check the debt note
+## 2. Prompt v8: always check the debt note (REJECTED after validation, see docs/V8_VALIDATION.md)
 
 Problem: on Lockheed Martin the v7 agent wrote in its limits that it had not read the debt note, so finance leases inside the debt captions could have gone unnoticed.
 

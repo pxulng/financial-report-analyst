@@ -1,0 +1,213 @@
+{
+ "id": "VZ",
+ "model": "agent",
+ "stop_reason": "end",
+ "valid_json": true,
+ "valid_after_extraction": true,
+ "input_tokens": null,
+ "output_tokens": null,
+ "tool_calls": 15,
+ "tools_used": [
+  "read_statement",
+  "read_statement",
+  "read_statement",
+  "search_report",
+  "search_report",
+  "read_section",
+  "search_report",
+  "read_section",
+  "Calculator",
+  "Calculator",
+  "Calculator",
+  "Calculator",
+  "Calculator",
+  "Calculator",
+  "Calculator"
+ ],
+ "sheet": {
+  "company": "Verizon Communications Inc.",
+  "fiscal_year_end": "2025-12-31",
+  "reporting_currency": "USD",
+  "unit": "millions",
+  "figures": [
+   {
+    "item": "revenue",
+    "value": 138191,
+    "status": "found",
+    "source": "Consolidated Statements of Income, p. 52",
+    "note": "Total Operating Revenues, 2025."
+   },
+   {
+    "item": "operating_income",
+    "value": 29259,
+    "status": "found",
+    "source": "Consolidated Statements of Income, p. 52",
+    "note": "Operating Income line printed on the income statement."
+   },
+   {
+    "item": "net_income",
+    "value": 17174,
+    "status": "found",
+    "source": "Consolidated Statements of Income, p. 52",
+    "note": "Net income attributable to Verizon. Consolidated net income including noncontrolling interests is 17,608."
+   },
+   {
+    "item": "diluted_eps",
+    "value": 4.06,
+    "status": "found",
+    "source": "Consolidated Statements of Income, p. 52",
+    "note": "Diluted EPS attributable to Verizon, in US dollars per share."
+   },
+   {
+    "item": "operating_cash_flow",
+    "value": 37137,
+    "status": "found",
+    "source": "Consolidated Statements of Cash Flows, p. 55",
+    "note": "Net cash provided by operating activities."
+   },
+   {
+    "item": "capex",
+    "value": 17011,
+    "status": "found",
+    "source": "Consolidated Statements of Cash Flows, p. 55",
+    "note": "Capital expenditures (including capitalized software), shown as an outflow of 17,011. It is a positive number here."
+   },
+   {
+    "item": "cash",
+    "value": 19048,
+    "status": "found",
+    "source": "Consolidated Balance Sheets, p. 54",
+    "note": "Cash and cash equivalents only. Restricted cash is excluded; cash, cash equivalents and restricted cash total 19,499."
+   },
+   {
+    "item": "total_financial_debt",
+    "value": 155639,
+    "status": "found",
+    "source": "Consolidated Balance Sheets, p. 54; Note 7 Debt, p. 73",
+    "note": "Debt maturing within one year 18,618 plus long-term debt 139,532 equals 158,150, which matches the Total debt in Note 7. The debt note was checked. It shows that this total includes finance lease obligations of 2,511. I subtracted that amount to get 155,639. The note gives only the combined finance lease figure and no current/non-current split. The 155,639 still includes vendor financing arrangements (16 long-term and 441 short-term) and asset-backed debt."
+   },
+   {
+    "item": "shareholders_equity",
+    "value": 104460,
+    "status": "found",
+    "source": "Consolidated Balance Sheets, p. 54",
+    "note": "Total equity of 105,741 minus noncontrolling interests of 1,281. The report does not print a separate Verizon shareholders' equity total in the part I read, so this is a subtraction."
+   },
+   {
+    "item": "interest_expense",
+    "value": 6694,
+    "status": "found",
+    "source": "Consolidated Statements of Income, p. 52",
+    "note": "Interest expense line, printed as (6,694). It is shown here as a positive number."
+   }
+  ],
+  "computed": [
+   {
+    "item": "revenue_growth",
+    "value": 0.025247,
+    "status": "found",
+    "formula": "138191 / 134788 - 1",
+    "inputs": "Revenue 2025 = 138,191; revenue 2024 = 134,788",
+    "note": "Uses the Total Operating Revenues line for both years."
+   },
+   {
+    "item": "operating_margin",
+    "value": 0.211729,
+    "status": "found",
+    "formula": "29259 / 138191",
+    "inputs": "Operating income 29,259; revenue 138,191",
+    "note": ""
+   },
+   {
+    "item": "free_cash_flow",
+    "value": 20126,
+    "status": "found",
+    "formula": "37137 - 17011",
+    "inputs": "Operating cash flow 37,137; capex 17,011",
+    "note": ""
+   },
+   {
+    "item": "net_debt",
+    "value": 136591,
+    "status": "found",
+    "formula": "155639 - 19048",
+    "inputs": "Total financial debt 155,639; cash 19,048",
+    "note": "Uses borrowings excluding finance leases."
+   },
+   {
+    "item": "interest_coverage",
+    "value": 4.3709,
+    "status": "found",
+    "formula": "29259 / 6694",
+    "inputs": "Operating income 29,259; interest expense 6,694",
+    "note": ""
+   },
+   {
+    "item": "debt_to_equity",
+    "value": 1.4899,
+    "status": "found",
+    "formula": "155639 / 104460",
+    "inputs": "Total financial debt 155,639; shareholders' equity 104,460",
+    "note": ""
+   },
+   {
+    "item": "cfo_to_debt",
+    "value": 0.2386,
+    "status": "found",
+    "formula": "37137 / 155639",
+    "inputs": "Operating cash flow 37,137; total financial debt 155,639",
+    "note": ""
+   }
+  ],
+  "segments": {
+   "count": 2,
+   "names": [
+    "Verizon Consumer Group (Consumer)",
+    "Verizon Business Group (Business)"
+   ],
+   "source": "Item 1 Business, General; Note 1; Item 7 Segment Results of Operations"
+  },
+  "major_risks": [
+   {
+    "risk": "Significant competition from telecom, cable, satellite and other providers, with aggressive pricing and promotions, could hurt the company's market share, pricing, margins and operating results, and could trigger impairment charges.",
+    "source": "Item 1A Risk Factors, Economic and Strategic Risks"
+   },
+   {
+    "risk": "If the company cannot keep pace with technological change and changing consumer demand, including the use of AI, it may lose customers and see reduced profits.",
+    "source": "Item 1A Risk Factors, Economic and Strategic Risks"
+   },
+   {
+    "risk": "Adverse economic conditions, inflation and changes to trade and tariff policy could reduce demand and raise costs, which would hurt results of operations and financial condition.",
+    "source": "Item 1A Risk Factors, Economic and Strategic Risks"
+   }
+  ],
+  "not_in_report": [
+   {
+    "question": "The company's current share price today",
+    "status": "not_in_report",
+    "answer": "The report gives no current share price. It says only that the stock trades on the NYSE under the symbol VZ.",
+    "source": "Item 5"
+   },
+   {
+    "question": "The company's own earnings guidance for the next fiscal year",
+    "status": "not_in_report",
+    "answer": "My search of the report found no earnings guidance for 2026. I did not read the full MD&A, so the analyst may want to confirm.",
+    "source": "Search of the report"
+   },
+   {
+    "question": "An analyst's estimate of the company's fair value",
+    "status": "not_in_report",
+    "answer": "The report contains no analyst fair-value estimate.",
+    "source": "Search of the report"
+   }
+  ],
+  "limits": [
+   "The finance lease adjustment uses the combined finance lease total of 2,511 from Note 7, because the note gives no current/non-current split. The analyst may want to check where the lease amounts sit on the balance sheet.",
+   "Shareholders' equity is total equity minus noncontrolling interests, computed from the balance sheet.",
+   "Only the first page of the risk factors was read, so the three risks were chosen from that page.",
+   "The Frontier acquisition is mentioned in the debt note as funded by 2025 note proceeds. Its effect on the figures was not analyzed."
+  ]
+ },
+ "run_mode": "manual",
+ "raw": null
+}

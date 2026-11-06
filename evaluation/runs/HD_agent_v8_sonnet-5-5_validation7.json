@@ -1,0 +1,213 @@
+{
+ "id": "HD",
+ "model": "agent",
+ "stop_reason": "end",
+ "valid_json": true,
+ "valid_after_extraction": true,
+ "input_tokens": null,
+ "output_tokens": null,
+ "tool_calls": 15,
+ "tools_used": [
+  "read_statement",
+  "read_statement",
+  "read_statement",
+  "search_report",
+  "search_report",
+  "read_section",
+  "search_report",
+  "Calculator",
+  "Calculator",
+  "Calculator",
+  "Calculator",
+  "Calculator",
+  "Calculator",
+  "Calculator",
+  "Calculator"
+ ],
+ "sheet": {
+  "company": "The Home Depot, Inc.",
+  "fiscal_year_end": "2026-02-01",
+  "reporting_currency": "USD",
+  "unit": "millions",
+  "figures": [
+   {
+    "item": "revenue",
+    "value": 164683,
+    "status": "found",
+    "source": "Consolidated Statements of Earnings (Net sales), Fiscal 2025 Form 10-K, p. 40",
+    "note": "Net sales for fiscal 2025 (52 weeks)."
+   },
+   {
+    "item": "operating_income",
+    "value": 20890,
+    "status": "found",
+    "source": "Consolidated Statements of Earnings, p. 40",
+    "note": "Operating income line as printed."
+   },
+   {
+    "item": "net_income",
+    "value": 14156,
+    "status": "found",
+    "source": "Consolidated Statements of Earnings, p. 40",
+    "note": "Net earnings. The statement shows no non-controlling interests."
+   },
+   {
+    "item": "diluted_eps",
+    "value": 14.23,
+    "status": "found",
+    "source": "Consolidated Statements of Earnings, p. 40",
+    "note": "Diluted earnings per share in USD."
+   },
+   {
+    "item": "operating_cash_flow",
+    "value": 16325,
+    "status": "found",
+    "source": "Consolidated Statements of Cash Flows, p. 43",
+    "note": "Net cash provided by operating activities."
+   },
+   {
+    "item": "capex",
+    "value": 3679,
+    "status": "found",
+    "source": "Consolidated Statements of Cash Flows, p. 43",
+    "note": "Capital expenditures, printed as (3,679). Shown here as a positive number."
+   },
+   {
+    "item": "cash",
+    "value": 1389,
+    "status": "found",
+    "source": "Consolidated Balance Sheets, February 1, 2026, p. 39",
+    "note": "Cash and cash equivalents only."
+   },
+   {
+    "item": "total_financial_debt",
+    "value": 52809,
+    "status": "found",
+    "source": "Consolidated Balance Sheets, p. 39; lease note (finance lease liabilities)",
+    "note": "Balance-sheet figures used: short-term debt 4,464, current installments of long-term debt 4,967 and long-term debt excluding current installments 46,341, which total 55,772. The debt captions include finance leases. The lease note gives finance lease liabilities of 288 (current, inside current installments) and 2,675 (non-current, inside long-term debt). The debt note was checked. Borrowings alone are 4,464 + (4,967 - 288) + (46,341 - 2,675) = 52,809."
+   },
+   {
+    "item": "shareholders_equity",
+    "value": 12813,
+    "status": "found",
+    "source": "Consolidated Balance Sheets, p. 39",
+    "note": "Total stockholders' equity. No non-controlling interests are shown."
+   },
+   {
+    "item": "interest_expense",
+    "value": 2412,
+    "status": "found",
+    "source": "Consolidated Statements of Earnings, p. 40",
+    "note": "Gross interest expense line. The net 'Interest and other, net' line is 2,288."
+   }
+  ],
+  "computed": [
+   {
+    "item": "revenue_growth",
+    "value": 0.0324,
+    "status": "found",
+    "formula": "164683 / 159514 - 1",
+    "inputs": "Net sales fiscal 2025 164,683; fiscal 2024 159,514",
+    "note": "Fiscal 2024 had 53 weeks and fiscal 2025 had 52 weeks. The calculator result is 0.032405, rounded to 0.0324."
+   },
+   {
+    "item": "operating_margin",
+    "value": 0.12685,
+    "status": "found",
+    "formula": "20890 / 164683",
+    "inputs": "Operating income 20,890; net sales 164,683",
+    "note": ""
+   },
+   {
+    "item": "free_cash_flow",
+    "value": 12646,
+    "status": "found",
+    "formula": "16325 - 3679",
+    "inputs": "Operating cash flow 16,325; capex 3,679",
+    "note": ""
+   },
+   {
+    "item": "net_debt",
+    "value": 51420,
+    "status": "found",
+    "formula": "52809 - 1389",
+    "inputs": "Total financial debt 52,809; cash 1,389",
+    "note": ""
+   },
+   {
+    "item": "interest_coverage",
+    "value": 8.66,
+    "status": "found",
+    "formula": "20890 / 2412",
+    "inputs": "Operating income 20,890; interest expense 2,412",
+    "note": "Times."
+   },
+   {
+    "item": "debt_to_equity",
+    "value": 4.12,
+    "status": "found",
+    "formula": "52809 / 12813",
+    "inputs": "Total financial debt 52,809; shareholders' equity 12,813",
+    "note": "Times. Equity is small because of large treasury stock."
+   },
+   {
+    "item": "cfo_to_debt",
+    "value": 0.309,
+    "status": "found",
+    "formula": "16325 / 52809",
+    "inputs": "Operating cash flow 16,325; total financial debt 52,809",
+    "note": "Times."
+   }
+  ],
+  "segments": {
+   "count": 1,
+   "names": [
+    "Primary segment (the U.S., Canada and Mexico geographic operating segments aggregated into one reportable segment)"
+   ],
+   "source": "Note 1 and Note 2, Notes to Consolidated Financial Statements. The Company has one reportable segment plus other non-reportable operating segments (the SRS operating segments, shown as 'Other')."
+  },
+  "major_risks": [
+   {
+    "risk": "Damage to the company's brand and reputation could hurt relationships with customers, associates, suppliers and others, and could hurt results and the stock price.",
+    "source": "Item 1A. Risk Factors, Strategic Risks"
+   },
+   {
+    "risk": "Strong competition, including from online and AI-enabled competitors, could reduce prices, margins, demand and market share.",
+    "source": "Item 1A. Risk Factors, Strategic Risks"
+   },
+   {
+    "risk": "The company may fail to identify and respond in time to changing customer needs, expectations and trends, which could hurt demand, inventory management and market share.",
+    "source": "Item 1A. Risk Factors, Strategic Risks"
+   }
+  ],
+  "not_in_report": [
+   {
+    "question": "The company's current share price today",
+    "status": "not_in_report",
+    "answer": "The report does not give a current share price.",
+    "source": "Searched the report; no current price found"
+   },
+   {
+    "question": "The company's own earnings guidance for the next fiscal year",
+    "status": "not_in_report",
+    "answer": "The searches found no formal earnings guidance for fiscal 2026. The report only gives store-opening plans (about 80 new stores by fiscal 2027, then 15 to 20 per year).",
+    "source": "Item 1, Business; search for outlook and guidance"
+   },
+   {
+    "question": "An analyst's estimate of the company's fair value",
+    "status": "not_in_report",
+    "answer": "The report contains no analyst fair-value estimate.",
+    "source": "Not in the report"
+   }
+  ],
+  "limits": [
+   "Only the first page of the risk factors was read. The three risks chosen are the first three listed, not a ranking of the most severe risks.",
+   "The guidance search was a keyword search, so a forward-looking statement could have been missed.",
+   "Fiscal 2024 had 53 weeks, which affects the revenue growth comparison.",
+   "Total financial debt excludes finance lease liabilities of 2,963 (288 current plus 2,675 non-current), taken from the lease note.",
+   "The source page for the lease and debt notes was not visible. The balance sheet is on p. 39."
+  ]
+ },
+ "run_mode": "manual",
+ "raw": null
+}
