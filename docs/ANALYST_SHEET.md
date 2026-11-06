@@ -15,3 +15,10 @@ Not done: the n8n workflow still returns JSON; connecting this converter to the 
 - **Comparison**: every figure and ratio for both companies (ratios are live formulas), the gap, and an automatic "comparability" column: red when a number exists for one company only (here: GE prints no operating income, so operating margin and interest coverage cannot be compared), yellow when the agent made a definition choice for one company (restricted cash in GE's cash, discontinued operations in its net income and cash flow, internal-use software in its capex). A warning appears at the top if the fiscal year ends, currency or unit differ.
 - **Sources and notes** and **To verify** carry both companies' sources, notes and review items.
 - Checked: formulas recalculated in LibreOffice; the rules do not know if two companies use the same accounting definitions beyond what the agent wrote in its notes.
+
+## Comparison inside the n8n workflow (status)
+
+- `workflow/compare_node.js` holds the comparison logic. It is installed as a Code node named "Compare" after "Reading" in the agent workflow (same rules as `tools/compare_excel.py`, no model call).
+- Offline test on the real LMT and GE fact sheets: correct side-by-side table, operating income flagged NOT COMPARABLE (GE prints no operating income line).
+- Workflow test (three executions, about 0.4 USD): the "Compare" node correctly refuses when it receives fewer than two valid sheets. However the AI Agent node (v3.1, Sonnet 5.5, adaptive thinking) fails with "Bad request" on the SECOND item of a run, in either order (LMT then GE, GE then LMT), with 0 tool calls, also with batch size 1. The cause is not identified. So one run still handles one company; two companies are compared by running the agent twice and passing both sheets to `tools/compare_excel.py` or to the Compare logic.
+- Next idea: call the single-company agent from a parent workflow with "Execute Sub-workflow", one execution per ticker, then Compare.
