@@ -171,6 +171,21 @@ D = {
   capex=NA, cash=NA,
   debt=[("Short-term borrowings","18,323",18323),("Long-term debt","174,712",174712)],
   equity=("Total Wells Fargo stockholders.{1,2}equity","181,117",181117), segments=None),
+"GE": dict(file="GE_10-K_FY2025.md", fy="FY2025 (ended 2025-12-31)", prev_revenue=("Total revenue","38,702",38702),
+  revenue=("Total revenue","45,855",45855), operating_income=NA,
+  net_income=("Net income \\(loss\\) attributable to the Company","8,704",8704), diluted_eps=("Diluted earnings \\(loss\\) per share","8.14",8.14),
+  operating_cash_flow=("Cash from \\(used for\\) operating activities","8,537",8537),
+  capex=EXC, cash=EXC,
+  debt=[("Short-term borrowings","1,686",1686),("Long-term borrowings","18,808",18808)],
+  equity=("Total shareholders.{1,2}equity","18,677",18677), segments=None),
+"LMT": dict(file="LMT_10-K_FY2025.md", fy="FY2025 (ended 2025-12-31)", prev_revenue=("Total sales","71,043",71043),
+  revenue=("Total sales","75,048",75048), operating_income=("Operating profit","7,731",7731),
+  net_income=("Net earnings","5,017",5017), diluted_eps=("Diluted","21.49",21.49),
+  operating_cash_flow=("Net cash provided by operating activities","8,557",8557),
+  capex=("Capital expenditures","1,649",1649),
+  cash=("Cash and cash equivalents","4,121",4121),
+  debt=[("Current maturities of long-term debt","1,168",1168),("Long-term debt, net","20,532",20532)],
+  equity=("Total stockholders.{1,2}equity","6,721",6721), segments=None),
 }
 BASE="../data/10k/"
 out={}; problems=[]
@@ -209,7 +224,8 @@ for t,c in D.items():
     if I["capex"]["status"]==EXC: cm["free_cash_flow"]={"status":EXC}
     elif I["capex"]["status"]==NA: cm["free_cash_flow"]={"status":NA}
     else: cm["free_cash_flow"]={"status":"found","value":round(I["operating_cash_flow"]["value"]-I["capex"]["value"],1)}
-    if I["cash"]["status"]==NA: cm["net_debt"]={"status":NA}
+    if I["cash"]["status"]==EXC: cm["net_debt"]={"status":EXC}
+    elif I["cash"]["status"]==NA: cm["net_debt"]={"status":NA}
     else: cm["net_debt"]={"status":"found","value":round(I["debt"]["value"]-I["cash"]["value"],1)}
     rec["computed"]=cm; rec["segments"]=c["segments"]
     out[t]=rec

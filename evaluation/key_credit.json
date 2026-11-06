@@ -342,5 +342,39 @@
   "interest_coverage": {
    "status": "not_applicable"
   }
+ },
+ "GE": {
+  "interest_expense": {
+   "status": "excluded"
+  },
+  "debt_to_equity": {
+   "status": "found",
+   "value": 1.0973
+  },
+  "cfo_to_debt": {
+   "status": "found",
+   "value": 0.4166
+  },
+  "interest_coverage": {
+   "status": "excluded"
+  }
+ },
+ "LMT": {
+  "interest_expense": {
+   "status": "found",
+   "value": 1118
+  },
+  "debt_to_equity": {
+   "status": "found",
+   "value": 3.2287
+  },
+  "cfo_to_debt": {
+   "status": "found",
+   "value": 0.3943
+  },
+  "interest_coverage": {
+   "status": "found",
+   "value": 6.92
+  }
  }
 }

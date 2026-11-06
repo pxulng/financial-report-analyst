@@ -2221,5 +2221,204 @@
    }
   },
   "segments": null
+ },
+ "GE": {
+  "file": "GE_10-K_FY2025.md",
+  "fiscal_year": "FY2025 (ended 2025-12-31)",
+  "sha256": "fe1d82827c6c1df84d81984884a7427de80e610c7bf6ca014d60076fd8c657ec",
+  "unit": "USD millions (EPS in USD per share)",
+  "items": {
+   "revenue": {
+    "status": "found",
+    "value": 45855,
+    "printed": "45,855",
+    "label": "Total revenue",
+    "line": 394
+   },
+   "operating_income": {
+    "status": "not_applicable"
+   },
+   "net_income": {
+    "status": "found",
+    "value": 8704,
+    "printed": "8,704",
+    "label": "Net income (loss) attributable to the Company",
+    "line": 1703
+   },
+   "diluted_eps": {
+    "status": "found",
+    "value": 8.14,
+    "printed": "8.14",
+    "label": "Diluted earnings (loss) per share",
+    "line": 1721
+   },
+   "operating_cash_flow": {
+    "status": "found",
+    "value": 8537,
+    "printed": "8,537",
+    "label": "Cash from (used for) operating activities",
+    "line": 1792
+   },
+   "capex": {
+    "status": "excluded"
+   },
+   "cash": {
+    "status": "excluded"
+   },
+   "equity": {
+    "status": "found",
+    "value": 18677,
+    "printed": "18,677",
+    "label": "Total shareholders.{1,2}equity",
+    "line": 1763
+   },
+   "prev_revenue": {
+    "status": "found",
+    "value": 38702,
+    "printed": "38,702",
+    "line": 394
+   },
+   "debt": {
+    "status": "found",
+    "value": 20494,
+    "parts": [
+     {
+      "label": "Short-term borrowings",
+      "printed": "1,686",
+      "value": 1686,
+      "line": 1743
+     },
+     {
+      "label": "Long-term borrowings",
+      "printed": "18,808",
+      "value": 18808,
+      "line": 1751
+     }
+    ]
+   }
+  },
+  "computed": {
+   "revenue_growth": {
+    "status": "found",
+    "value": 0.1848
+   },
+   "operating_margin": {
+    "status": "not_applicable"
+   },
+   "free_cash_flow": {
+    "status": "excluded"
+   },
+   "net_debt": {
+    "status": "excluded"
+   }
+  },
+  "segments": null
+ },
+ "LMT": {
+  "file": "LMT_10-K_FY2025.md",
+  "fiscal_year": "FY2025 (ended 2025-12-31)",
+  "sha256": "05b1a5b93a0007939c3fe9bc4525ef876e9c0b1191ba540aaee2748cd6605df1",
+  "unit": "USD millions (EPS in USD per share)",
+  "items": {
+   "revenue": {
+    "status": "found",
+    "value": 75048,
+    "printed": "75,048",
+    "label": "Total sales",
+    "line": 1442
+   },
+   "operating_income": {
+    "status": "found",
+    "value": 7731,
+    "printed": "7,731",
+    "label": "Operating profit",
+    "line": 1423
+   },
+   "net_income": {
+    "status": "found",
+    "value": 5017,
+    "printed": "5,017",
+    "label": "Net earnings",
+    "line": 1429
+   },
+   "diluted_eps": {
+    "status": "found",
+    "value": 21.49,
+    "printed": "21.49",
+    "label": "Diluted",
+    "line": 1430
+   },
+   "operating_cash_flow": {
+    "status": "found",
+    "value": 8557,
+    "printed": "8,557",
+    "label": "Net cash provided by operating activities",
+    "line": 1843
+   },
+   "capex": {
+    "status": "found",
+    "value": 1649,
+    "printed": "1,649",
+    "label": "Capital expenditures",
+    "line": 1866
+   },
+   "cash": {
+    "status": "found",
+    "value": 4121,
+    "printed": "4,121",
+    "label": "Cash and cash equivalents",
+    "line": 1846
+   },
+   "equity": {
+    "status": "found",
+    "value": 6721,
+    "printed": "6,721",
+    "label": "Total stockholders.{1,2}equity",
+    "line": 2349
+   },
+   "prev_revenue": {
+    "status": "found",
+    "value": 71043,
+    "printed": "71,043",
+    "line": 1442
+   },
+   "debt": {
+    "status": "found",
+    "value": 21700,
+    "parts": [
+     {
+      "label": "Current maturities of long-term debt",
+      "printed": "1,168",
+      "value": 1168,
+      "line": 2337
+     },
+     {
+      "label": "Long-term debt, net",
+      "printed": "20,532",
+      "value": 20532,
+      "line": 2340
+     }
+    ]
+   }
+  },
+  "computed": {
+   "revenue_growth": {
+    "status": "found",
+    "value": 0.0564
+   },
+   "operating_margin": {
+    "status": "found",
+    "value": 0.103
+   },
+   "free_cash_flow": {
+    "status": "found",
+    "value": 6908
+   },
+   "net_debt": {
+    "status": "found",
+    "value": 17579
+   }
+  },
+  "segments": null
  }
 }
