@@ -1,0 +1,34 @@
+{"company":"Lockheed Martin Corporation","fiscal_year_end":"2025-12-31","reporting_currency":"USD","unit":"millions",
+"figures":[
+{"item":"revenue","value":75048,"status":"found","source":"Consolidated Statements of Earnings, p. 52","note":"Total sales."},
+{"item":"operating_income","value":7731,"status":"found","source":"Consolidated Statements of Earnings, p. 52","note":"Line printed as 'Operating profit'."},
+{"item":"net_income","value":5017,"status":"found","source":"Consolidated Statements of Earnings, p. 52","note":"Net earnings. The income statement shows no non-controlling interest split."},
+{"item":"diluted_eps","value":21.49,"status":"found","source":"Consolidated Statements of Earnings, p. 52","note":"Diluted earnings per common share, in USD."},
+{"item":"operating_cash_flow","value":8557,"status":"found","source":"Consolidated Statements of Cash Flows, p. 55","note":"Net cash provided by operating activities."},
+{"item":"capex","value":1649,"status":"found","source":"Consolidated Statements of Cash Flows, p. 55","note":"Capital expenditures, shown as an outflow of (1,649) and reported here as a positive number."},
+{"item":"cash","value":4121,"status":"found","source":"Consolidated Balance Sheets, p. 54","note":"Cash and cash equivalents at December 31, 2025."},
+{"item":"total_financial_debt","value":21700,"status":"found","source":"Consolidated Balance Sheets, p. 54","note":"Current maturities of long-term debt 1,168 plus long-term debt, net 20,532. The balance sheet shows no commercial paper or short-term borrowings line. Finance leases are not separately merged into these captions on the face of the statements, and I did not check the debt note."},
+{"item":"shareholders_equity","value":6721,"status":"found","source":"Consolidated Balance Sheets, p. 54","note":"Total stockholders' equity. The balance sheet shows no non-controlling interest line."},
+{"item":"interest_expense","value":1118,"status":"found","source":"Consolidated Statements of Earnings, p. 52","note":"Gross interest expense line, shown as (1,118) and reported here as a positive number."}],
+"computed":[
+{"item":"revenue_growth","value":0.056374308517377,"status":"found","formula":"75048 / 71043 - 1","inputs":"Total sales 2025 = 75048; total sales 2024 = 71043","note":"Uses the Total sales line for both years."},
+{"item":"operating_margin","value":0.103014070994563,"status":"found","formula":"7731 / 75048","inputs":"Operating profit 7731; total sales 75048","note":""},
+{"item":"free_cash_flow","value":6908,"status":"found","formula":"8557 - 1649","inputs":"Operating cash flow 8557; capex 1649","note":""},
+{"item":"net_debt","value":17579,"status":"found","formula":"21700 - 4121","inputs":"Total financial debt 21700; cash 4121","note":""},
+{"item":"interest_coverage","value":6.915026833631485,"status":"found","formula":"7731 / 1118","inputs":"Operating profit 7731; interest expense 1118","note":"Operating profit includes 'Other income, net' of 112, as printed on the income statement."},
+{"item":"debt_to_equity","value":3.228686207409612,"status":"found","formula":"21700 / 6721","inputs":"Total financial debt 21700; stockholders' equity 6721","note":"Equity is small relative to debt. The 2025 balance sheet shows accumulated other comprehensive loss of (7,542) and 2025 share repurchases of 3,000."},
+{"item":"cfo_to_debt","value":0.394331797235023,"status":"found","formula":"8557 / 21700","inputs":"Operating cash flow 8557; total financial debt 21700","note":""}],
+"segments":{"count":4,"names":["Aeronautics","Missiles and Fire Control (MFC)","Rotary and Mission Systems (RMS)","Space"],"source":"Item 1, Business Segments (report says 'We operate in four business segments')"},
+"major_risks":[
+{"risk":"The company depends heavily on U.S. Government contracts (72% of 2025 sales, including 63% from the Department of War), so changes in priorities, budget delays, continuing resolutions, shutdowns or reduced defense spending could materially hurt its business.","source":"Item 1A, Risks Related to our Reliance on Government Contracts, our Industry and the Economy"},
+{"risk":"The F-35 program, 27% of 2025 consolidated sales, is the largest program, and funding cuts or delays, or problems with performance, schedule, cost or requirements, could adversely affect results.","source":"Item 1A, Risks Related to our Reliance on Government Contracts, our Industry and the Economy"},
+{"risk":"The company must comply with extensive procurement laws, regulations and contract terms, including U.S. Government rights to terminate contracts for convenience. Violations could bring fines, termination, suspension or debarment, and reputational harm.","source":"Item 1A, Risks Related to our Reliance on Government Contracts, our Industry and the Economy"}],
+"not_in_report":[
+{"question":"The company's current share price today","status":"not_in_report","answer":"The report gives no current share price. It gives only the aggregate market value of shares held by non-affiliates at June 27, 2025 (about $106.5 billion) and 230,080,240 shares outstanding at January 26, 2026.","source":"Cover page"},
+{"question":"The company's own earnings guidance for the next fiscal year","status":"not_in_report","answer":"My search for 2026 outlook and guidance found no earnings guidance for 2026 in the report. Only a search was done, so a passage could have been missed.","source":"Search of the report; Item 7 not read in full"},
+{"question":"An analyst's estimate of the company's fair value","status":"not_in_report","answer":"The report contains no analyst fair-value estimate.","source":"Whole report (search-based; no such passage found)"}],
+"limits":[
+"Only the first page of the risk factors was read, so the three risks come from that page and are not a ranking of the whole section.",
+"The debt note was not read. Total financial debt is the sum of the two balance-sheet debt captions, and the debt note might show finance leases inside those captions.",
+"Interest coverage uses operating profit as printed on the income statement, which includes other income, net of 112.",
+"The 2025 results include pension settlement charges and reach-forward losses on select programs; these were not adjusted."]}
