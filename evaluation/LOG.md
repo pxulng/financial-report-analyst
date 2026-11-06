@@ -195,3 +195,11 @@ Prompt `prompts/agent_system_prompt_v4b.txt` (sha256 66cae5c5585b3c44b17b20e2e66
 - Fixed: XOM revenue growth, TSLA debt and net debt. Not fixed: AAPL (net debt written in the debt field again, the sheet's own limits give the right 80,111), BA (debt 54,098 vs key 53,848, debt note not searched).
 - New: SBUX marked the guidance question "found" with qualitative expectations (counted as an absent-question miss). Strict JSON failed on JNJ, XOM, SBUX (text before the fence).
 - Decision: v4b equals v3 on figures on this set; no third prompt version (limit in V2_DESIGN.md). v4b is frozen for validation.
+
+## Agent v2 (prompt v4b, tools v2), validation set, Haiku 5.5, 2026-11-06 (exploratory, not a clean holdout)
+Four runs, one company per execution (MSFT 748, WMT 754, NKE 761, JPM 769). Scores in `scores_validation_agent_v4b_haiku.md`.
+- Read 35/36, computed 16/16, absent 12/12, 1 wrong or invented. Agent v3 Haiku (same set, JPM without sheet): read 25/27 on 3 companies, 3 wrong. Single prompt Haiku (project 4): read 32/36, computed 13/16, 5 wrong.
+- JPM now produces a sheet (v3 stopped at the step limit): operating income, capex, FCF, margin and net debt are not_applicable as in the key; debt 499,982 equals the key.
+- The one error: JPM `cash` has value 21,742 with status not_applicable (the note says the value is null). Counted as an invented number by the scorer. Kept as returned.
+- Strict JSON failed on NKE and JPM (text before the fence); valid after extraction.
+- Cost not yet read from the balance.
