@@ -1,0 +1,183 @@
+{
+ "id": "CAT",
+ "model": "agent",
+ "stop_reason": "end",
+ "valid_json": true,
+ "valid_after_extraction": true,
+ "tool_calls": 14,
+ "tools_used": [
+  "read_statement",
+  "read_statement",
+  "read_statement",
+  "read_section",
+  "search_report",
+  "search_report",
+  "search_report",
+  "search_report",
+  "read_section",
+  "Calculator",
+  "Calculator",
+  "Calculator",
+  "Calculator",
+  "Calculator"
+ ],
+ "run_mode": "single company per execution (n8n execution 877), prompt v4b, tools v2, Sonnet 5.5 with thinking mode adaptive, holdout set (docs/HOLDOUT_FREEZE.md)",
+ "sheet": {
+  "company": "Caterpillar Inc.",
+  "fiscal_year_end": "2025-12-31",
+  "reporting_currency": "USD",
+  "unit": "millions",
+  "figures": [
+   {
+    "item": "revenue",
+    "value": 67589,
+    "status": "found",
+    "source": "Consolidated Results of Operations (Statement 1), p. 58",
+    "note": "Total sales and revenues line."
+   },
+   {
+    "item": "operating_income",
+    "value": 11151,
+    "status": "found",
+    "source": "Statement 1, p. 58",
+    "note": "Published as Operating profit."
+   },
+   {
+    "item": "net_income",
+    "value": 8884,
+    "status": "found",
+    "source": "Statement 1, p. 58",
+    "note": "Profit attributable to common shareholders."
+   },
+   {
+    "item": "diluted_eps",
+    "value": 18.81,
+    "status": "found",
+    "source": "Statement 1, p. 58",
+    "note": "Adjusted 19.06 not used."
+   },
+   {
+    "item": "operating_cash_flow",
+    "value": 11739,
+    "status": "found",
+    "source": "Consolidated Statement of Cash Flow (Statement 5), p. 63",
+    "note": ""
+   },
+   {
+    "item": "capex",
+    "value": 2821,
+    "status": "found",
+    "source": "Statement 5, p. 63",
+    "note": "Capital expenditures excluding equipment leased to others; the 1,465 line is excluded."
+   },
+   {
+    "item": "cash",
+    "value": 9980,
+    "status": "found",
+    "source": "Consolidated Financial Position (Statement 3), p. 60",
+    "note": "Cash incl. restricted 9,986 not used."
+   },
+   {
+    "item": "total_financial_debt",
+    "value": 43330,
+    "status": "found",
+    "source": "Statement 3, p. 60",
+    "note": "5,514 + 35 + 7,085 + 10,678 + 20,018; no merged finance-lease captions."
+   },
+   {
+    "item": "shareholders_equity",
+    "value": 21318,
+    "status": "found",
+    "source": "Statement 3, p. 60",
+    "note": "Noncontrolling interests zero at year end."
+   }
+  ],
+  "computed": [
+   {
+    "item": "revenue_growth",
+    "value": 0.042895,
+    "status": "found",
+    "formula": "revenue 2025 / revenue 2024 - 1",
+    "inputs": "67589 / 64809 - 1",
+    "note": ""
+   },
+   {
+    "item": "operating_margin",
+    "value": 0.164982,
+    "status": "found",
+    "formula": "operating_income / revenue",
+    "inputs": "11151 / 67589",
+    "note": "Matches 16.5 percent in the MD&A."
+   },
+   {
+    "item": "free_cash_flow",
+    "value": 8918,
+    "status": "found",
+    "formula": "operating_cash_flow - capex",
+    "inputs": "11739 - 2821",
+    "note": "7,453 if leased equipment is deducted."
+   },
+   {
+    "item": "net_debt",
+    "value": 33350,
+    "status": "found",
+    "formula": "total_financial_debt - cash",
+    "inputs": "43330 - 9980",
+    "note": "Includes Financial Products debt of 32,617."
+   }
+  ],
+  "segments": {
+   "count": 4,
+   "names": [
+    "Construction Industries",
+    "Resource Industries",
+    "Power & Energy",
+    "Financial Products"
+   ],
+   "source": "Note 23; Item 1"
+  },
+  "major_risks": [
+   {
+    "risk": "Demand is cyclical and highly sensitive to economic conditions, infrastructure spending, energy, mining and commodity prices.",
+    "source": "Item 1A, Macroeconomic Risks"
+   },
+   {
+    "risk": "Catastrophic events such as disasters, pandemics, cyber-attacks or war could disrupt workforce, systems, production and distribution.",
+    "source": "Item 1A, Macroeconomic Risks"
+   },
+   {
+    "risk": "Commodity price increases, supplier problems and shortages could raise costs or prevent meeting customer commitments.",
+    "source": "Item 1A, Macroeconomic Risks"
+   }
+  ],
+  "not_in_report": [
+   {
+    "question": "Current share price today",
+    "status": "not_in_report",
+    "answer": "No current share price; no price search run.",
+    "source": "Not applicable"
+   },
+   {
+    "question": "Company's own earnings guidance for the next fiscal year",
+    "status": "found",
+    "answer": "For 2026: sales and revenues around the top end of the 5 to 7 percent CAGR target, price realization about 2 percent, and a tariff impact (amount cut off in the excerpt). No profit-per-share guidance in the passages read.",
+    "source": "Item 7, Full-Year 2026 Company Trends and Expectations, p. 28"
+   },
+   {
+    "question": "Analyst estimate of fair value",
+    "status": "not_in_report",
+    "answer": "None in the report.",
+    "source": "Not applicable"
+   }
+  ],
+  "limits": [
+   "read_statement did not return the income statement; taken from read_section, figures match the MD&A.",
+   "The 2026 tariff impact amount was cut off and not reported.",
+   "Share price not searched directly.",
+   "Operating profit includes Financial Products.",
+   "The Rail division moves to Resource Industries in a March 2026 recast.",
+   "Risks from the first page of Item 1A only."
+  ]
+ },
+ "note": "Free-text fields shortened when saved by hand; figures, statuses, segments, risks and absent answers as returned. The guidance question is marked found, which is correct for CAT and is not scored (HOLDOUT_FREEZE.md)."
+}
