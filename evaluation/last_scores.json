@@ -1,24 +1,24 @@
 [
  {
-  "id": "GE",
+  "id": "LMT",
   "valid_json": true,
   "in": null,
   "out": null,
   "errors": [],
   "strict_json": true,
-  "read": "7/7",
-  "comp": "2/2",
+  "read": "9/9",
+  "comp": "4/4",
   "absent": "0/0",
   "wrong": 0,
-  "src": "6/6",
+  "src": "9/9",
   "risks_auto": "0/3",
-  "n_ok_read": 7,
-  "n_read": 7,
-  "n_ok_comp": 2,
-  "n_comp": 2,
+  "n_ok_read": 9,
+  "n_read": 9,
+  "n_ok_comp": 4,
+  "n_comp": 4,
   "n_ok_abs": 0,
   "n_abs": 0,
-  "n_src_ok": 6,
-  "n_src": 6
+  "n_src_ok": 9,
+  "n_src": 9
  }
 ]
