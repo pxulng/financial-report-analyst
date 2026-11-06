@@ -1,0 +1,168 @@
+{
+ "id": "BAC",
+ "model": "claude-haiku-5-5",
+ "stop_reason": "end_turn",
+ "valid_json": true,
+ "input_tokens": 466130,
+ "output_tokens": 3365,
+ "sheet": {
+  "company": "Bank of America Corporation",
+  "fiscal_year_end": "2025-12-31",
+  "reporting_currency": "USD",
+  "unit": "millions",
+  "figures": [
+   {
+    "item": "revenue",
+    "value": 113097,
+    "status": "found",
+    "source": "Consolidated Statement of Income, p. 91 (Total revenue, net of interest expense)",
+    "note": "Bank-style total revenue (net interest income plus noninterest income). Not a 'sales' line; used as the revenue definition per the instructions."
+   },
+   {
+    "item": "operating_income",
+    "value": null,
+    "status": "not_applicable",
+    "source": "Consolidated Statement of Income, p. 91",
+    "note": "The income statement does not publish an 'Operating income' line. Income before income taxes (37,695) is the nearest published subtotal but is not an operating income line; not used. Operating margin therefore not_applicable."
+   },
+   {
+    "item": "net_income",
+    "value": 30509,
+    "status": "found",
+    "source": "Consolidated Statement of Income, p. 91",
+    "note": "Net income as published (before preferred stock dividends of 1,454). Net income applicable to common shareholders is 29,055. The report does not separate non-controlling interests on the face of the statement; the group's share is taken as published."
+   },
+   {
+    "item": "diluted_eps",
+    "value": 3.81,
+    "status": "found",
+    "source": "Consolidated Statement of Income, p. 91; Note 15, p. 145",
+    "note": "Diluted earnings per common share, US dollars."
+   },
+   {
+    "item": "operating_cash_flow",
+    "value": 12613,
+    "status": "found",
+    "source": "Consolidated Statement of Cash Flows, p. 94 (Net cash provided by (used in) operating activities)",
+    "note": "Net cash provided by operating activities for 2025."
+   },
+   {
+    "item": "capex",
+    "value": null,
+    "status": "not_applicable",
+    "source": "Consolidated Statement of Cash Flows, p. 94",
+    "note": "The cash flow statement has no 'purchases of premises and equipment' line. Investing activities are reported as debt securities, loans, and 'other investing activities, net' (4,331). Capex is not separately published, so it is not estimated. Free cash flow therefore not_applicable."
+   },
+   {
+    "item": "cash",
+    "value": 231845,
+    "status": "found",
+    "source": "Consolidated Balance Sheet, p. 92 (Cash and cash equivalents)",
+    "note": "Cash and cash equivalents only, excluding time deposits (7,474), fed funds sold and resale agreements (316,578) and trading assets. Cash and due from banks (28,595) is a separate line and is not used."
+   },
+   {
+    "item": "total_financial_debt",
+    "value": 365904,
+    "status": "found",
+    "source": "Consolidated Balance Sheet, p. 92; Table 5, p. 29",
+    "note": "Computed as the sum of published borrowing lines: short-term borrowings 48,088 + long-term debt 317,816 = 365,904. The report has no separate line for the current portion of long-term debt; it is included in long-term debt as published. Deposits, repo agreements (344,716) and structured liabilities inside accrued expenses are excluded. Lease liabilities (9,086, Note 8) are excluded as instructed. Note: the fact sheet definition includes only commercial paper/short-term borrowings, current portion and long-term debt, and this figure follows that definition."
+   },
+   {
+    "item": "shareholders_equity",
+    "value": 303243,
+    "status": "found",
+    "source": "Consolidated Balance Sheet, p. 92 (Total shareholders' equity)",
+    "note": "Total shareholders' equity of 303,243 includes preferred stock of 25,992. Total common shareholders' equity is 277,251 (Table 1, p. 27). Per the definition (attributable to the company's shareholders, excluding non-controlling interests), 303,243 is used. The report shows no non-controlling interests line."
+   }
+  ],
+  "computed": [
+   {
+    "item": "revenue_growth",
+    "value": 0.0684,
+    "status": "found",
+    "formula": "revenue_2025 / revenue_2024 - 1",
+    "inputs": "revenue_2025 = 113,097 (Consolidated Statement of Income, p. 91); revenue_2024 = 105,856 (same statement)",
+    "note": "113,097 / 105,856 - 1 = 0.06838, rounded to 0.0684."
+   },
+   {
+    "item": "operating_margin",
+    "value": null,
+    "status": "not_applicable",
+    "formula": "operating_income / revenue",
+    "inputs": "operating_income = not_applicable (no published operating income line)",
+    "note": "Propagated from operating_income status."
+   },
+   {
+    "item": "free_cash_flow",
+    "value": null,
+    "status": "not_applicable",
+    "formula": "operating_cash_flow - capex",
+    "inputs": "operating_cash_flow = 12,613; capex = not_applicable",
+    "note": "Propagated from capex status. Operating cash flow is shown for reference only: 12,613. Note that 2024 operating cash flow was negative (-8,805), so year-over-year comparison is volatile."
+   },
+   {
+    "item": "net_debt",
+    "value": 134059,
+    "status": "found",
+    "formula": "total_financial_debt - cash",
+    "inputs": "total_financial_debt = 365,904; cash = 231,845",
+    "note": "365,904 - 231,845 = 134,059. For a bank, this measure is of limited meaning because deposits (2,018,729) are the main funding source and are excluded from the definition. Analyst should interpret with care."
+   }
+  ],
+  "segments": {
+   "count": 4,
+   "names": [
+    "Consumer Banking",
+    "Global Wealth & Investment Management (GWIM)",
+    "Global Banking",
+    "Global Markets"
+   ],
+   "source": "Item 1, Business, p. 2; Item 7 MD&A, Business Segment Operations, p. 36; Note 23, p. 165. All Other is recorded as the remaining operations and is not counted as a reportable segment."
+  },
+  "major_risks": [
+   {
+    "risk": "Adverse macroeconomic, market and geopolitical developments (including interest rate volatility, tariffs, inflation and recession) could reduce net interest and noninterest income, increase credit losses and affect capital and liquidity.",
+    "source": "Item 1A, Risk Factors \u2013 Market, pp. 8-9"
+   },
+   {
+    "risk": "Cybersecurity incidents, technology failures and third-party disruptions, increasingly amplified by AI and quantum computing, could disrupt operations, cause financial losses and harm reputation.",
+    "source": "Item 1A, Risk Factors \u2013 Business Operations, pp. 14-16"
+   },
+   {
+    "risk": "Extensive and evolving regulation, supervisory actions, and legal or regulatory proceedings (including the BANA OCC Consent Order on BSA/AML and sanctions compliance) could result in significant fines, operating restrictions, higher capital requirements or reputational harm.",
+    "source": "Item 1A, Risk Factors \u2013 Regulatory, Compliance and Legal, pp. 17-19; Note 12, p. 139-141"
+   }
+  ],
+  "not_in_report": [
+   {
+    "question": "What is the company's current share price today?",
+    "status": "not_in_report",
+    "answer": "The report gives market value of common stock held by non-affiliates at June 30, 2025 (approximately $351,903,673,230), the monthly weighted-average repurchase prices for Q4 2025 (e.g., $53.81 for the quarter), and year-end market capitalization ($396,686 million). It does not give a share price as of today.",
+    "source": "Cover page; Item 5, p. 24; Table 6, p. 32"
+   },
+   {
+    "question": "What is the company's own earnings guidance for the next fiscal year?",
+    "status": "not_in_report",
+    "answer": "The report contains no earnings guidance for 2026. It mentions forward-looking expectations only in general terms (for example, the G-SIB surcharge increasing to 3.5% from 3.0% in 2027, and a dividend of $0.28 per share declared for March 2026). It contains no numerical earnings or revenue guidance.",
+    "source": "Forward-looking statements, pp. 25-26; Item 1A, p. 19; Recent Developments, p. 27"
+   },
+   {
+    "question": "What is an analyst's estimate of the company's fair value?",
+    "status": "not_in_report",
+    "answer": "The report contains no analyst estimate of fair value. Its goodwill impairment test uses internal forecasts and discount rates, but it does not state a fair value of the company as a whole.",
+    "source": "Critical Accounting Estimates \u2013 Goodwill and Intangible Assets, pp. 85; Note 7, p. 131"
+   }
+  ],
+  "limits": [
+   "Total financial debt follows the defined components only. The report gives no separate current portion of long-term debt, so it is included within long-term debt as published.",
+   "Operating income and capex are not published as lines in the statements, so related computed items (operating margin, free cash flow) are not_applicable. Derived proxies were not substituted.",
+   "Revenue follows the defined 'total revenue, net of interest expense' line, which is net of interest expense. Gross interest income (138,566) is not used.",
+   "Shareholders' equity of 303,243 includes preferred stock (25,992). Common shareholders' equity (277,251) is reported separately; the analyst should confirm which measure is intended.",
+   "Per the report's note, prior-year figures (2024) were revised for an accounting method change for tax-related equity investments. Revenue growth uses the 2024 figure as presented in the 2025 report (105,856), which reflects the revised presentation.",
+   "The report's income statement figures match the Table 6 and quarterly data; no internal inconsistencies were identified for the nine figures used.",
+   "Page numbers are taken from the printed page footers in the text provided and may differ slightly from the 10-K's table-of-contents pages for some items; please verify against the original filing.",
+   "Cash flow from operating activities for 2025 (12,613) follows a negative 2024 figure (-8,805). This change should be reviewed by the analyst if relevant."
+  ]
+ },
+ "run_mode": "reference 2 single prompt, Haiku 5.5, holdout set (docs/HOLDOUT_FREEZE.md), n8n execution 894 (four reports in one execution)"
+}

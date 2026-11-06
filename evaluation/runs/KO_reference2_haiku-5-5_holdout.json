@@ -1,0 +1,169 @@
+{
+ "id": "KO",
+ "model": "claude-haiku-5-5",
+ "stop_reason": "end_turn",
+ "valid_json": true,
+ "input_tokens": 242198,
+ "output_tokens": 3337,
+ "sheet": {
+  "company": "The Coca-Cola Company",
+  "fiscal_year_end": "2025-12-31",
+  "reporting_currency": "USD",
+  "unit": "millions",
+  "figures": [
+   {
+    "item": "revenue",
+    "value": 47941,
+    "status": "found",
+    "source": "Consolidated Statements of Income, p. 61 (Net Operating Revenues)",
+    "note": "Total net operating revenues for 2025. Prior year 47,061 (2024), used only for revenue_growth."
+   },
+   {
+    "item": "operating_income",
+    "value": 13762,
+    "status": "found",
+    "source": "Consolidated Statements of Income, p. 61 (Operating Income)",
+    "note": "Includes other operating charges of 1,261 in 2025 (BodyArmor trademark impairment 960, among others), as published."
+   },
+   {
+    "item": "net_income",
+    "value": 13107,
+    "status": "found",
+    "source": "Consolidated Statements of Income, p. 61 (Net Income Attributable to Shareowners of The Coca-Cola Company)",
+    "note": "Group share. Consolidated net income including noncontrolling interests is 13,137."
+   },
+   {
+    "item": "diluted_eps",
+    "value": 3.04,
+    "status": "found",
+    "source": "Consolidated Statements of Income, p. 61 (Diluted Net Income Per Share)",
+    "note": "US$ per share, as published. Calculated on net income attributable to shareowners."
+   },
+   {
+    "item": "operating_cash_flow",
+    "value": 7408,
+    "status": "found",
+    "source": "Consolidated Statements of Cash Flows, p. 64 (Net Cash Provided by Operating Activities)",
+    "note": "Includes approx. 6.1 billion fairlife final milestone payment (MD&A, p. 55), which reduced operating cash flow in 2025."
+   },
+   {
+    "item": "capex",
+    "value": 2112,
+    "status": "found",
+    "source": "Consolidated Statements of Cash Flows, p. 64 (Purchases of Property, Plant and Equipment)",
+    "note": "Shown as (2,112) in investing activities."
+   },
+   {
+    "item": "cash",
+    "value": 10270,
+    "status": "found",
+    "source": "Consolidated Balance Sheets, p. 63 (Cash and cash equivalents)",
+    "note": "Excludes short-term investments of 3,602 and marketable securities of 1,934. Restricted cash of 740 is excluded (held in other noncurrent assets)."
+   },
+   {
+    "item": "total_financial_debt",
+    "value": 46492,
+    "status": "found",
+    "source": "Consolidated Balance Sheets, p. 63 (Loans and notes payable 1,551 + Current maturities of long-term debt 1,822 + Long-term debt 42,119)",
+    "note": "Sum of the three borrowing lines on the balance sheet. Excludes lease liabilities (operating lease liabilities 1,722, Note 10). Excludes 'Liabilities held for sale' (includes 187 loans, 398 current debt and 850 long-term debt related to African bottling operations held for sale, Note 2); analyst should check whether to include these."
+   },
+   {
+    "item": "shareholders_equity",
+    "value": 32169,
+    "status": "found",
+    "source": "Consolidated Balance Sheets, p. 63 (Equity Attributable to Shareowners of The Coca-Cola Company)",
+    "note": "Excludes equity attributable to noncontrolling interests (2,106). Total Equity is 34,275."
+   }
+  ],
+  "computed": [
+   {
+    "item": "revenue_growth",
+    "value": 0.0187,
+    "status": "found",
+    "formula": "revenue_2025 / revenue_2024 - 1",
+    "inputs": "47,941 (2025) and 47,061 (2024), both from Consolidated Statements of Income, p. 61",
+    "note": "Report states an increase of 2%. Value rounded to 4 decimals."
+   },
+   {
+    "item": "operating_margin",
+    "value": 0.2871,
+    "status": "found",
+    "formula": "operating_income / revenue",
+    "inputs": "13,762 / 47,941",
+    "note": "Matches the 28.7% consolidated operating margin in MD&A, p. 48."
+   },
+   {
+    "item": "free_cash_flow",
+    "value": 5296,
+    "status": "found",
+    "formula": "operating_cash_flow - capex",
+    "inputs": "7,408 - 2,112",
+    "note": "Uses the published capex line. Operating cash flow is depressed by the 6.1 billion fairlife payment, so the 2025 figure is not comparable with prior years without adjustment."
+   },
+   {
+    "item": "net_debt",
+    "value": 36222,
+    "status": "found",
+    "formula": "total_financial_debt - cash",
+    "inputs": "46,492 - 10,270",
+    "note": "Based on the definitions above. Excludes short-term investments and marketable securities (13,872 + 1,934 excluded from cash per definition) and excludes held-for-sale debt."
+   }
+  ],
+  "segments": {
+   "count": 5,
+   "names": [
+    "EMEA",
+    "Latin America",
+    "North America",
+    "Asia Pacific",
+    "Bottling Investments"
+   ],
+   "source": "Item 1, Operating Segments, p. 2; Note 20, Operating Segments, p. 116. Corporate is presented separately and is not counted as a reportable segment."
+  },
+  "major_risks": [
+   {
+    "risk": "Unfavorable general economic and geopolitical conditions, including inflation, currency movements and trade restrictions, could reduce consumer demand and profitability.",
+    "source": "Item 1A. Risk Factors, p. 12"
+   },
+   {
+    "risk": "Dependence on independent bottling partners: the deterioration of their financial condition, or conflicts with their interests, could reduce concentrate and syrup revenues and equity income; one bottler accounted for 10% of 2025 net operating revenues.",
+    "source": "Item 1A. Risk Factors, p. 18"
+   },
+   {
+    "risk": "The IRS tax litigation for 2007 through 2009 could result in additional liabilities of approximately 14 billion for 2010 through 2025 and non-refund of the 6.0 billion deposit if the Company's positions are not sustained on appeal.",
+    "source": "Item 1A. Risk Factors, p. 19-20; Item 3, Legal Proceedings, p. 28-31; Note 12, p. 89-92"
+   }
+  ],
+  "not_in_report": [
+   {
+    "question": "What is the company's current share price today?",
+    "status": "not_in_report",
+    "answer": "The report gives only the closing price context for the June 27, 2025 market value calculation and average repurchase prices in Q4 2025 (average 68.97 per share for October to December 2025). No current share price is reported.",
+    "source": "Cover page, p. 1; Item 5, p. 34"
+   },
+   {
+    "question": "What is the company's own earnings guidance for the next fiscal year?",
+    "status": "found",
+    "answer": "The report gives some 2026 expectations but no earnings or EPS guidance: 2026 capital expenditures of approximately 2.2 billion; effective tax rate of approximately 20.9%; foreign currency expected to have a favorable impact on 2026 net operating revenues; net periodic pension cost of approximately 87 million; a 3.5% annual effective tax rate increase if the Tax Court Methodology is applied in 2026; and inflationary pressures expected to continue in 2026.",
+    "source": "Item 7, MD&A: Net Operating Revenues p. 46; Income Taxes p. 50; Liquidity p. 51; Operations Review, Pensions p. 40; Item 3 p. 31"
+   },
+   {
+    "question": "What is an analyst's estimate of the company's fair value?",
+    "status": "not_in_report",
+    "answer": "The report contains no fair value estimate of the company as a whole. It does disclose fair values of certain equity-method investments in publicly traded companies (total 34,286 at December 31, 2025) and fair value of long-term debt (39,385), but these are not an estimate of company value.",
+    "source": "Note 6, p. 86; Note 17, p. 116"
+   }
+  ],
+  "limits": [
+   "total_financial_debt excludes 'Liabilities held for sale' (including 1,435 of debt-related items for the African bottling operations). Including them would give approx. 47,927 and would change net_debt accordingly. The analyst should decide on the treatment.",
+   "Operating cash flow of 7,408 includes the 6.1 billion fairlife contingent consideration payment (MD&A p. 55; Note 21). Free cash flow and operating cash flow are therefore not comparable with 2024 (6,805) without adjustment. The 2024 figure includes the 6.0 billion IRS deposit in the same line.",
+   "Operating income of 13,762 includes other operating charges of 1,261 (including a 960 BodyArmor impairment). Operating income in 2024 (9,992) was depressed by a 3,109 fairlife remeasurement charge.",
+   "Net income attributable to shareowners (13,107) includes a gain of 1,952 on the sale of the Coca-Cola Consolidated interest and a 1,274 charge for African bottling operations held for sale (both in other income, Note 18).",
+   "Cash excludes restricted cash of 740 and short-term investments of 3,602. Cash and cash equivalents of 10,270 is the figure used per the definition.",
+   "The report refers to Item 1A and Item 3 for the IRS dispute. The IRS claim is about 3.3 billion of tax for 2007 to 2009 plus interest; the company paid 6.0 billion into a deposit and reports an accrued interest receivable of 385. This is not a contingent liability in the balance sheet beyond the tax reserve of 512.",
+   "The report states that the net income figures for segments are based on consistent calculation with consolidated operating income. No segment net income is provided, so segment-level analysis is limited to revenue and operating income.",
+   "Revenue_growth uses the 2024 revenue as shown in the 2025 report; the report notes some prior-year figures were revised to conform to current presentation (Note 1)."
+  ]
+ },
+ "run_mode": "reference 2 single prompt, Haiku 5.5, holdout set (docs/HOLDOUT_FREEZE.md), n8n execution 894 (four reports in one execution)"
+}

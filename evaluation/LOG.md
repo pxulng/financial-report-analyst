@@ -225,3 +225,8 @@ Cost: to be read from the balance after all holdout runs (Paul to give the balan
 
 ## Holdout, agent v2, Sonnet 5.5 (adaptive thinking), 6 November 2026
 One run per company; scores in evaluation/scores_holdout_agent_v4b_sonnet.md. BAC, CAT and KO have 0 wrong figures. VZ has 3 wrong against the frozen key: equity 104,460 (key 105,741, the only equity line printed; known key weakness), total financial debt 155,639 (key 158,150) and the net debt that follows (136,591 against 139,102). The agent subtracted Verizon's finance lease liabilities (943 + 1,568) as the prompt's debt definition says ("do not include lease liabilities"); the key sums the balance-sheet captions as printed. The key was frozen before the run and is not changed; this ambiguity of the key is reported as a finding, not corrected. CAT guidance: found this time (correct, not scored). Strict JSON 4/4. Hand-saved run files have shortened free text.
+
+## Holdout, single prompt (reference 2), Haiku 5.5, 6 November 2026
+n8n execution 894, four reports in one execution, scores in evaluation/scores_holdout_reference2_haiku.md. Tokens: 1,240,064 in and 16,861 out, so 0.66 USD at 0.5/2.5 per million (BAC 466k, VZ 378k, CAT 154k, KO 242k input). Strict JSON 4/4.
+Result: read 33/36, computed 14/16, absent 10/11, 5 wrong or invented: BAC cash 231,845 and net debt 134,059 (the key says not applicable for a bank), KO debt 46,492 against 45,492 and the net debt that follows, VZ equity 104,460 (same key weakness as the agent). 
+Single prompt on Sonnet not run yet: it needs about 2.7 USD (1.24 M input tokens at 2 USD per million plus output) and the balance after these runs is about 2.27 USD (2.93 before, minus 0.66).

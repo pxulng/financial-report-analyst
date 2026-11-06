@@ -1,0 +1,166 @@
+{
+ "id": "VZ",
+ "model": "claude-haiku-5-5",
+ "stop_reason": "end_turn",
+ "valid_json": true,
+ "input_tokens": 377708,
+ "output_tokens": 3192,
+ "sheet": {
+  "company": "Verizon Communications Inc.",
+  "fiscal_year_end": "2025-12-31",
+  "reporting_currency": "USD",
+  "unit": "millions",
+  "figures": [
+   {
+    "item": "revenue",
+    "value": 138191,
+    "status": "found",
+    "source": "Consolidated Statements of Income, p. 52 (Total Operating Revenues)",
+    "note": "Read from the 2025 column. Matches Item 7 Consolidated Operating Revenues, p. 23."
+   },
+   {
+    "item": "operating_income",
+    "value": 29259,
+    "status": "found",
+    "source": "Consolidated Statements of Income, p. 52 (Operating Income)",
+    "note": "Published line, 2025 column."
+   },
+   {
+    "item": "net_income",
+    "value": 17174,
+    "status": "found",
+    "source": "Consolidated Statements of Income, p. 52 (Net Income attributable to Verizon)",
+    "note": "Group share used per the definition. Consolidated net income including noncontrolling interests is 17,608 (p. 52). Noncontrolling interests were 434."
+   },
+   {
+    "item": "diluted_eps",
+    "value": 4.06,
+    "status": "found",
+    "source": "Consolidated Statements of Income, p. 52 (Diluted EPS, net income attributable to Verizon)",
+    "note": "US GAAP diluted EPS as published, 2025 column. Weighted-average diluted shares 4,231 million."
+   },
+   {
+    "item": "operating_cash_flow",
+    "value": 37137,
+    "status": "found",
+    "source": "Consolidated Statements of Cash Flows, p. 55 (Net cash provided by operating activities)",
+    "note": ""
+   },
+   {
+    "item": "capex",
+    "value": 17011,
+    "status": "found",
+    "source": "Consolidated Statements of Cash Flows, p. 55 (Capital expenditures, including capitalized software)",
+    "note": "The line includes capitalized software, as published. Excludes acquisitions of wireless licenses (450), which are a separate line."
+   },
+   {
+    "item": "cash",
+    "value": 19048,
+    "status": "found",
+    "source": "Consolidated Balance Sheets, p. 54 (Cash and cash equivalents)",
+    "note": "Excludes restricted cash of 451 (p. 60 note). Cash, cash equivalents and restricted cash in the cash-flow statement is 19,499."
+   },
+   {
+    "item": "total_financial_debt",
+    "value": 158150,
+    "status": "found",
+    "source": "Note 7 Debt, p. 73 (Total debt); also balance sheet p. 54: Debt maturing within one year 18,618 + Long-term debt 139,532",
+    "note": "Includes finance lease obligations (2,511) and vendor financing (457), which the report includes within debt. Operating lease liabilities are excluded. The definition says to exclude lease liabilities (operating or finance), so finance lease obligations of 2,511 should be removed: 158,150 - 2,511 = 155,639, which matches the carrying amount of long-term debt excluding finance leases on p. 84. Analyst should confirm which figure to use. The value shown is the report's total debt including finance leases, pending confirmation."
+   },
+   {
+    "item": "shareholders_equity",
+    "value": 104460,
+    "status": "found",
+    "source": "Consolidated Balance Sheets, p. 54 (Total equity 105,741 less Noncontrolling interests 1,281)",
+    "note": "Computed as total equity attributable to Verizon shareholders. Components: common stock 429 + APIC 13,372 + retained earnings 94,744 + AOCI (1,727) + treasury stock (3,255) + ESOP deferred compensation 897 = 104,460. The report does not publish this subtotal directly; the figure is derived from balance-sheet lines."
+   }
+  ],
+  "computed": [
+   {
+    "item": "revenue_growth",
+    "value": 0.0251,
+    "status": "found",
+    "formula": "revenue_2025 / revenue_2024 - 1",
+    "inputs": "138,191 (2025) and 134,788 (2024), both from Consolidated Statements of Income, p. 52",
+    "note": "138,191 / 134,788 - 1 = 0.02524, rounded to 0.0252. Item 7 reports 2.5%."
+   },
+   {
+    "item": "operating_margin",
+    "value": 0.2117,
+    "status": "found",
+    "formula": "operating_income / revenue",
+    "inputs": "29,259 / 138,191",
+    "note": "Result 0.21174."
+   },
+   {
+    "item": "free_cash_flow",
+    "value": 20126,
+    "status": "found",
+    "formula": "operating_cash_flow - capex",
+    "inputs": "37,137 - 17,011",
+    "note": "Matches the company's own non-GAAP reconciliation on p. 41 (20,126)."
+   },
+   {
+    "item": "net_debt",
+    "value": 139102,
+    "status": "found",
+    "formula": "total_financial_debt - cash",
+    "inputs": "158,150 - 19,048",
+    "note": "Uses total_financial_debt as shown (including finance leases). If finance lease obligations are excluded per the definition, total_financial_debt is 155,639 and net_debt is 136,591. Follows the pending decision in the total_financial_debt note."
+   }
+  ],
+  "segments": {
+   "count": 2,
+   "names": [
+    "Verizon Consumer Group (Consumer)",
+    "Verizon Business Group (Business)"
+   ],
+   "source": "Item 1, Business, p. 4; Note 13 Segment Information, p. 98"
+  },
+  "major_risks": [
+   {
+    "risk": "Verizon faces significant competition, including aggressive pricing and promotions from rivals, which could reduce its margins and market share, and the wireless customer growth rate is expected to moderate.",
+    "source": "Item 1A Risk Factors, Economic and Strategic Risks (p. 11)"
+   },
+   {
+    "risk": "Cyberattacks on its networks or systems, including attacks by nation-state actors such as Salt Typhoon, could cause service disruption, data loss, customer loss and reputational harm.",
+    "source": "Item 1A Risk Factors, Operational Risks (pp. 12-13)"
+   },
+   {
+    "risk": "Verizon has a significant amount of debt (about $131.1 billion unsecured and $27.1 billion secured at year-end 2025), which could reduce cash flow available for other purposes and raise borrowing costs.",
+    "source": "Item 1A Risk Factors, Financial Risks (p. 16)"
+   }
+  ],
+  "not_in_report": [
+   {
+    "question": "Current share price today",
+    "status": "not_in_report",
+    "answer": "The report gives only the aggregate market value of non-affiliate voting stock at June 30, 2025 (about $182.4 billion) and a stock performance graph. No current share price is given.",
+    "source": "Cover page; Item 5, p. 20"
+   },
+   {
+    "question": "Company's own earnings guidance for the next fiscal year",
+    "status": "not_in_report",
+    "answer": "The report gives qualitative 2026 outlook statements (for example, 2026 as a transitional year for revenue; capital program of $16.0-16.5 billion; no required qualified pension contributions through 2030; about $700 million of other postretirement contributions). It gives no EPS or earnings guidance.",
+    "source": "Item 7, Service Revenue Trends (p. 36), Capital Expenditures (p. 37), Employee Benefit Plans (pp. 41-42)"
+   },
+   {
+    "question": "Analyst estimate of the company's fair value",
+    "status": "not_in_report",
+    "answer": "The report contains no analyst estimate of fair value. It discusses impairment tests for wireless licenses and the Business reporting unit, but these are not valuation estimates of the company.",
+    "source": "Item 7, Critical Accounting Estimates (pp. 42-44)"
+   }
+  ],
+  "limits": [
+   "total_financial_debt: The definition excludes lease liabilities, but the report's total debt of 158,150 includes finance lease obligations of 2,511. The value is shown as the report's published total. On the definition, the figure is 155,639 (long-term debt carrying amount excluding finance leases, Note 9, p. 84). Analyst should choose one; net_debt changes accordingly (139,102 vs 136,591).",
+   "shareholders_equity: Not published as a single line. Derived as total equity 105,741 less noncontrolling interests 1,281 = 104,460. Verify against the Statement of Changes in Equity (p. 56), where the attributable-to-Verizon components are shown.",
+   "net_income: Group share (17,174) is used per the definition. Consolidated net income is 17,608.",
+   "diluted_eps: 4.06 is the same as basic EPS for 2025; reported diluted EPS is 4.06 on p. 52.",
+   "capex: The published line includes capitalized software. Acquisitions of wireless licenses (450) are excluded per the definition.",
+   "cash: Cash and cash equivalents of 19,048 exclude restricted cash of 451. Cash-flow statement total cash including restricted is 19,499.",
+   "Subsequent events: Frontier was acquired on January 20, 2026 (about $22.3 billion total consideration, including $12.9 billion of assumed debt), and Starry on January 30, 2026. These are after year-end and are not reflected in the 2025 balance sheet figures. The report states that approximately $9.4 billion was paid in cash for Frontier, net of cash acquired.",
+   "The 2025 net income figure may be affected by pension remeasurement items and special items totaling $3,609 million (p. 34); the report does not present an adjusted EPS for 2025 in the financial statements."
+  ]
+ },
+ "run_mode": "reference 2 single prompt, Haiku 5.5, holdout set (docs/HOLDOUT_FREEZE.md), n8n execution 894 (four reports in one execution)"
+}

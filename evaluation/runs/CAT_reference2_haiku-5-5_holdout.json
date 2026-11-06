@@ -1,0 +1,170 @@
+{
+ "id": "CAT",
+ "model": "claude-haiku-5-5",
+ "stop_reason": "end_turn",
+ "valid_json": true,
+ "input_tokens": 154028,
+ "output_tokens": 6967,
+ "sheet": {
+  "company": "Caterpillar Inc.",
+  "fiscal_year_end": "2025-12-31",
+  "reporting_currency": "USD",
+  "unit": "millions",
+  "figures": [
+   {
+    "item": "revenue",
+    "value": 67589,
+    "status": "found",
+    "source": "Consolidated Results of Operations (Statement 1), p. 58: Total sales and revenues",
+    "note": "Sum of Sales of Machinery, Power & Energy 63,980 and Revenues of Financial Products 3,609. Ties to MD&A p. 30 and p. 31."
+   },
+   {
+    "item": "operating_income",
+    "value": 11151,
+    "status": "found",
+    "source": "Consolidated Results of Operations (Statement 1), p. 58: Operating profit",
+    "note": "The company labels this line 'Operating profit', not 'Operating income'. Taken as the equivalent line. Margin reported as 16.5%."
+   },
+   {
+    "item": "net_income",
+    "value": 8884,
+    "status": "found",
+    "source": "Consolidated Results of Operations (Statement 1), p. 58: Profit (attributable to common shareholders)",
+    "note": "Profit of consolidated and affiliated companies is 8,882; profit attributable to noncontrolling interests is (2). The group share of 8,884 is used."
+   },
+   {
+    "item": "diluted_eps",
+    "value": 18.81,
+    "status": "found",
+    "source": "Consolidated Results of Operations (Statement 1), p. 58: Profit per common share, diluted",
+    "note": "US GAAP diluted figure. Basic is 18.90. The adjusted figure of 19.06 (MD&A, non-GAAP) is not used."
+   },
+   {
+    "item": "operating_cash_flow",
+    "value": 11739,
+    "status": "found",
+    "source": "Consolidated Statement of Cash Flow (Statement 5), p. 63: Net cash provided by operating activities",
+    "note": "Consolidated figure. MP&E alone is 12,278 and Financial Products 1,074; the consolidated figure is used."
+   },
+   {
+    "item": "capex",
+    "value": 2821,
+    "status": "found",
+    "source": "Consolidated Statement of Cash Flow (Statement 5), p. 63: Capital expenditures \u2013 excluding equipment leased to others",
+    "note": "Judgment call. A second cash-flow line, 'Expenditures for equipment leased to others' (1,465), is also PP&E-type spending. Including it gives total capital expenditures of 4,286 (Note 23, p. 122). If that is the intended definition, free cash flow would be 7,453 instead of 8,918. The analyst should choose the basis."
+   },
+   {
+    "item": "cash",
+    "value": 9980,
+    "status": "found",
+    "source": "Consolidated Financial Position (Statement 3), p. 60: Cash and cash equivalents",
+    "note": "Excludes restricted cash (cash flow statement end balance is 9,986 including restricted cash) and MP&E available-for-sale securities of 1,230 (MD&A p. 38)."
+   },
+   {
+    "item": "total_financial_debt",
+    "value": 43330,
+    "status": "found",
+    "source": "Consolidated Financial Position (Statement 3), p. 60: Short-term borrowings 5,514 + Long-term debt due within one year 7,120 + Long-term debt due after one year 30,696",
+    "note": "Ties to 'Total debt ... $43.330 billion' in MD&A p. 39. Of this total, about 32,617 relates to Financial Products (short-term 5,514 + long-term 27,103). The MP&E finance lease obligation of 6 sits within long-term debt (Note 14, p. 103) and is not separated, so it is included here; the amount is immaterial."
+   },
+   {
+    "item": "shareholders_equity",
+    "value": 21318,
+    "status": "found",
+    "source": "Consolidated Financial Position (Statement 3), p. 60: Total shareholders' equity",
+    "note": "Noncontrolling interests are nil at December 31, 2025 (3 in 2024), so this equals total equity attributable to shareholders."
+   }
+  ],
+  "computed": [
+   {
+    "item": "revenue_growth",
+    "value": 0.0429,
+    "status": "found",
+    "formula": "revenue_2025 / revenue_2024 - 1",
+    "inputs": "67,589 (Statement 1, p. 58) / 64,809 (Statement 1, p. 58) - 1",
+    "note": "Equals 2,780 / 64,809 = 4.3%, as stated in MD&A."
+   },
+   {
+    "item": "operating_margin",
+    "value": 0.165,
+    "status": "found",
+    "formula": "operating_income / revenue",
+    "inputs": "11,151 / 67,589",
+    "note": "About 16.50%, reported as 16.5% in MD&A (p. 30). Adjusted operating margin of 17.2% is not used."
+   },
+   {
+    "item": "free_cash_flow",
+    "value": 8918,
+    "status": "found",
+    "formula": "operating_cash_flow - capex",
+    "inputs": "11,739 (Statement 5, p. 63) - 2,821 (Statement 5, p. 63)",
+    "note": "Consolidated basis. If capex includes equipment leased to others (4,286 total), free cash flow is 7,453. The company's own 'MP&E free cash flow' of 9,484 (p. 49) is a different, segment-level measure and is not used."
+   },
+   {
+    "item": "net_debt",
+    "value": 33350,
+    "status": "found",
+    "formula": "total_financial_debt - cash",
+    "inputs": "43,330 (Statement 3, p. 60) - 9,980 (Statement 3, p. 60)",
+    "note": "Consolidated, including Financial Products borrowings that fund finance receivables. The company does not report a net debt figure."
+   }
+  ],
+  "segments": {
+   "count": 4,
+   "names": [
+    "Construction Industries",
+    "Resource Industries",
+    "Power & Energy",
+    "Financial Products Segment"
+   ],
+   "source": "Item 1, Business (p. 1\u20134); Note 23, Segment information, Section B (p. 116). The company has five operating segments; the All Other Segment is not reportable."
+  },
+  "major_risks": [
+   {
+    "risk": "Demand for the company's products is cyclical and highly sensitive to global and regional economic conditions, so weaker economic activity, interest rates or credit conditions can significantly reduce sales.",
+    "source": "Item 1A, Risk Factors \u2013 Macroeconomic risks (p. 10)"
+   },
+   {
+    "risk": "Increases in steel and other commodity prices, supplier production problems, supply chain disruptions and labor shortages may raise costs or prevent the company from meeting customer commitments if not offset by pricing or productivity.",
+    "source": "Item 1A, Risk Factors \u2013 Macroeconomic risks (p. 11)"
+   },
+   {
+    "risk": "New or higher tariffs, trade restrictions, sanctions and changes in trade agreements can reduce demand for the company's products, weaken its competitive position and affect results (MD&A quantifies expected 2026 tariff impact at about $2.6 billion).",
+    "source": "Item 1A, Risk Factors \u2013 Legal & Regulatory risks, 'International trade policies' (p. 18) and Item 7, Full-Year 2026 Company Trends and Expectations (p. 29)"
+   }
+  ],
+  "not_in_report": [
+   {
+    "question": "Current share price today",
+    "status": "not_in_report",
+    "answer": "The report gives no current share price. Item 5 shows average prices paid for repurchases in Oct\u2013Dec 2025 ($385.64, $559.93, $588.28) and a cumulative total return index, but neither is a current price.",
+    "source": "Item 5, Issuer Purchases of Equity Securities (p. 27)"
+   },
+   {
+    "question": "The company's own earnings guidance for the next fiscal year",
+    "status": "found",
+    "answer": "The report gives qualitative and partial guidance for 2026 but no earnings-per-share or profit guidance. It expects sales and revenues to grow around the top end of a 5\u20137% CAGR target; favorable price realization of about 2%; tariff impact of about $2.6 billion; restructuring costs of $300\u2013350 million; capital expenditures of about $3.5 billion (MP&E); and an annual effective tax rate of 23.0%, excluding discrete items. Services revenue is also expected to grow.",
+    "source": "Item 7, MD&A \u2013 Full-Year 2026 Company Trends and Expectations (p. 29); Restructuring costs (p. 36); Liquidity \u2013 MP&E capital expenditures (p. 40)"
+   },
+   {
+    "question": "An analyst's estimate of the company's fair value",
+    "status": "not_in_report",
+    "answer": "The report contains no fair value estimate for the company's shares. Goodwill impairment tests conclude that reporting-unit fair values exceed carrying values, which is not a valuation of the company.",
+    "source": "Item 7, Critical Accounting Estimates \u2013 Fair values for goodwill impairment tests (p. 42)"
+   }
+  ],
+  "limits": [
+   "Operating income: the company publishes this line as 'Operating profit'. It is used as the equivalent of 'Operating income'.",
+   "Capex basis: the cash-flow line 'Capital expenditures \u2013 excluding equipment leased to others' (2,821) is used. Including 'Expenditures for equipment leased to others' (1,465) gives 4,286 (Note 23). This changes free cash flow from 8,918 to 7,453. The analyst should confirm the intended definition.",
+   "Total financial debt: includes the MP&E finance lease item of 6 (Note 14), which is embedded in long-term debt and not separated on the balance sheet. The amount is immaterial. Operating lease liabilities (728, Note 20) are excluded as required.",
+   "Most of the debt (about 32.6 billion of 43.3 billion) belongs to Financial Products (Cat Financial). Consolidated net debt therefore reflects finance-subsidiary borrowings that fund receivables and is not a measure of industrial leverage. The report presents MP&E and Financial Products separately (pp. 51\u201353).",
+   "Cash excludes restricted cash and MP&E available-for-sale securities of 1,230, as the rules require.",
+   "Page numbers come from the printed page markers in the supplied text. Some sections (for example Item 1A risks) span page breaks, so the page cited is where the risk heading appears.",
+   "The company states that from March 2026 it will recast historical segment figures to move the Rail division from Power & Energy to Resource Industries (p. 29). Segment names and figures in this sheet are as reported for 2025.",
+   "The company reports net income as 'Profit' attributable to common shareholders. The figure of 8,884 is used and differs from profit of consolidated companies (8,882 before noncontrolling interests, 8,773 after taxes but before equity income).",
+   "Diluted EPS is taken from the GAAP statement, not the adjusted profit per share of 19.06 in the MD&A non-GAAP reconciliation.",
+   "No figures were estimated. All values are read from the statements listed, and computed values use the stated inputs."
+  ]
+ },
+ "run_mode": "reference 2 single prompt, Haiku 5.5, holdout set (docs/HOLDOUT_FREEZE.md), n8n execution 894 (four reports in one execution)"
+}
