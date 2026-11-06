@@ -203,3 +203,4 @@ Four runs, one company per execution (MSFT 748, WMT 754, NKE 761, JPM 769). Scor
 - The one error: JPM `cash` has value 21,742 with status not_applicable (the note says the value is null). Counted as an invented number by the scorer. Kept as returned.
 - Strict JSON failed on NKE and JPM (text before the fence); valid after extraction.
 - Cost not yet read from the balance.
+- Balance after all 16 Haiku runs of agent v2 (6 v4, 6 v4b, 4 validation): 4.24 USD, from 4.36 before, so about 0.12 USD (about 0.0075 per run).
