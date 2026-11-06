@@ -1,0 +1,187 @@
+{
+ "id": "CAT",
+ "model": "agent",
+ "stop_reason": "end",
+ "valid_json": false,
+ "valid_after_extraction": true,
+ "tool_calls": 18,
+ "tools_used": [
+  "read_statement",
+  "read_statement",
+  "read_statement",
+  "search_report",
+  "read_section",
+  "search_report",
+  "search_report",
+  "search_report",
+  "search_report",
+  "search_report",
+  "search_report",
+  "search_report",
+  "read_section",
+  "Calculator",
+  "Calculator",
+  "Calculator",
+  "Calculator",
+  "Calculator"
+ ],
+ "run_mode": "single company per execution (n8n execution 837), prompt v4b, tools v2, Haiku 5.5 thinking disabled, holdout set (docs/HOLDOUT_FREEZE.md)",
+ "raw_note": "Strict parse failed: the final message started with two sentences, then a ```json fence. The JSON inside is complete and valid (lenient extraction). The model node ran 9 times; the tool_calls count is from the intermediate steps.",
+ "sheet": {
+  "company": "Caterpillar Inc.",
+  "fiscal_year_end": "2025-12-31",
+  "reporting_currency": "USD",
+  "unit": "millions",
+  "figures": [
+   {
+    "item": "revenue",
+    "value": 67589,
+    "status": "found",
+    "source": "Consolidated Results of Operations (Statement 1), Total sales and revenues, p. 57",
+    "note": ""
+   },
+   {
+    "item": "operating_income",
+    "value": 11151,
+    "status": "found",
+    "source": "Statement 1, Operating profit, p. 57",
+    "note": ""
+   },
+   {
+    "item": "net_income",
+    "value": 8884,
+    "status": "found",
+    "source": "Statement 1, Profit attributable to common shareholders, p. 57",
+    "note": ""
+   },
+   {
+    "item": "diluted_eps",
+    "value": 18.81,
+    "status": "found",
+    "source": "Statement 1, Profit per common share - diluted, p. 57",
+    "note": ""
+   },
+   {
+    "item": "operating_cash_flow",
+    "value": 11739,
+    "status": "found",
+    "source": "Statement 5, Net cash provided by operating activities, p. 63",
+    "note": ""
+   },
+   {
+    "item": "capex",
+    "value": 2821,
+    "status": "found",
+    "source": "Statement 5, Capital expenditures - excluding equipment leased to others, p. 63",
+    "note": "Excludes 'Expenditures for equipment leased to others' of 1,465, a separate line."
+   },
+   {
+    "item": "cash",
+    "value": 9980,
+    "status": "found",
+    "source": "Statement 3, Cash and cash equivalents, p. 60",
+    "note": ""
+   },
+   {
+    "item": "total_financial_debt",
+    "value": 43330,
+    "status": "found",
+    "source": "Statement 3: short-term borrowings (Financial Products 5,514) + long-term debt due within one year (35 and 7,085) + due after one year (10,678 and 20,018), p. 60",
+    "note": "Matches the MD&A total debt of 43.330 billion; no finance-lease adjustment needed."
+   },
+   {
+    "item": "shareholders_equity",
+    "value": 21318,
+    "status": "found",
+    "source": "Statement 3, Total shareholders' equity, p. 60",
+    "note": "Noncontrolling interests nil at year end."
+   }
+  ],
+  "computed": [
+   {
+    "item": "revenue_growth",
+    "value": 0.0429,
+    "status": "found",
+    "formula": "revenue_2025 / revenue_2024 - 1",
+    "inputs": "67,589 and 64,809",
+    "note": ""
+   },
+   {
+    "item": "operating_margin",
+    "value": 0.165,
+    "status": "found",
+    "formula": "operating_income / revenue",
+    "inputs": "11,151 and 67,589",
+    "note": ""
+   },
+   {
+    "item": "free_cash_flow",
+    "value": 8918,
+    "status": "found",
+    "formula": "operating_cash_flow - capex",
+    "inputs": "11,739 and 2,821",
+    "note": ""
+   },
+   {
+    "item": "net_debt",
+    "value": 33350,
+    "status": "found",
+    "formula": "total_financial_debt - cash",
+    "inputs": "43,330 and 9,980",
+    "note": ""
+   }
+  ],
+  "segments": {
+   "count": 4,
+   "names": [
+    "Construction Industries",
+    "Resource Industries",
+    "Energy & Transportation",
+    "Financial Products Segment"
+   ],
+   "source": "Segment note; Enterprise Strategy section"
+  },
+  "major_risks": [
+   {
+    "risk": "Demand is highly cyclical and sensitive to global economic conditions and commodity prices in energy, transportation and mining.",
+    "source": "Item 1A, Macroeconomic Risks"
+   },
+   {
+    "risk": "Commodity price changes, supplier disruptions and labor and material shortages may raise costs or limit delivery to customers.",
+    "source": "Item 1A, Macroeconomic Risks"
+   },
+   {
+    "risk": "Catastrophic events, including natural disasters, pandemics, cyber-attacks and war, could disrupt workforce, systems, production and distribution.",
+    "source": "Item 1A, Macroeconomic Risks"
+   }
+  ],
+  "not_in_report": [
+   {
+    "question": "Current share price today",
+    "status": "not_in_report",
+    "answer": "No current share price; only historical stock-award items.",
+    "source": "Stock-based compensation note"
+   },
+   {
+    "question": "Company's own earnings guidance for the next fiscal year",
+    "status": "not_in_report",
+    "answer": "No forward-looking earnings guidance for 2026 was found in the passages reviewed. (The report does contain 2026 expectations in Item 7; the agent missed them. Not scored, see HOLDOUT_FREEZE.md.)",
+    "source": "Search of the report"
+   },
+   {
+    "question": "Analyst estimate of fair value",
+    "status": "not_in_report",
+    "answer": "None in the report.",
+    "source": "Search of the report"
+   }
+  ],
+  "limits": [
+   "The income statement was not returned by read_statement; figures were taken from Statement 1 via read_section.",
+   "Total financial debt includes Financial Products borrowings of about 32,617.",
+   "Capex follows the published line excluding equipment leased to others (1,465).",
+   "Diluted EPS is US GAAP (18.81), not the adjusted 19.06.",
+   "Risk factors read from the first page only."
+  ]
+ },
+ "note": "Free-text fields shortened when saved by hand; figures, statuses, segments, risks and absent answers as returned. The bracketed remark in the guidance answer was added by the evaluator."
+}
