@@ -33,12 +33,15 @@ def score(path):
         if close(item,float(v),float(kv['value'])): return True
         wrong+=1; out['errors'].append(f"{item}: WRONG {v}, key {kv['value']}"); return False
     for mi,ki in READ.items():
+        if k['items'][ki]['status']=='excluded': continue   # declared ambiguous in the key (docs/HOLDOUT2_FREEZE.md)
         n_read+=1; ok_read+=check(mi,fig.get(mi),k['items'][ki],'read')
         m=fig.get(mi)
+        if k['items'][ki]['status']=='excluded': m=None
         if m and m.get('status')=='found' and m.get('value') is not None:
             src_n+=1; v=float(m['value']); forms=[f"{abs(v):,.1f}" if abs(v)!=int(abs(v)) else f"{int(abs(v)):,}", f"{abs(v):,.2f}"]
             src_ok+= any(x in txt for x in forms)
     for ci in COMP:
+        if k['computed'][ci]['status']=='excluded': continue
         n_comp+=1; ok_comp+=check(ci,com.get(ci),k['computed'][ci],'comp')
     nir=s.get('not_in_report',[])
     if t in GUIDANCE_IN_REPORT: nir=[q for q in nir if 'guidance' not in q.get('question','').lower()]  # CAT publishes 2026 expectations: that question is not an absent item for it (decided before the holdout runs, see docs/HOLDOUT_FREEZE.md)

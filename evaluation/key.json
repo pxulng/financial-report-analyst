@@ -1499,5 +1499,313 @@
    }
   },
   "segments": null
+ },
+ "GS": {
+  "file": "GS_10-K_FY2025.md",
+  "fiscal_year": "FY2025 (ended 2025-12-31)",
+  "sha256": "92862d96c8ff72c61312022880b8b32ed5b6ab43f0f6d88905fb27615c30db4c",
+  "unit": "USD millions (EPS in USD per share)",
+  "items": {
+   "revenue": {
+    "status": "found",
+    "value": 58283,
+    "printed": "58,283",
+    "label": "Total net revenues",
+    "line": 6488
+   },
+   "operating_income": {
+    "status": "not_applicable"
+   },
+   "net_income": {
+    "status": "found",
+    "value": 17176,
+    "printed": "17,176",
+    "label": "Net earnings",
+    "line": 6425
+   },
+   "diluted_eps": {
+    "status": "found",
+    "value": 51.32,
+    "printed": "51.32",
+    "label": "Diluted",
+    "line": 5967
+   },
+   "operating_cash_flow": {
+    "status": "found",
+    "value": -45154,
+    "printed": "(45,154)",
+    "label": "Net cash used for operating activities",
+    "line": 12813
+   },
+   "capex": {
+    "status": "not_applicable"
+   },
+   "cash": {
+    "status": "not_applicable"
+   },
+   "equity": {
+    "status": "found",
+    "value": 124972,
+    "printed": "124,972",
+    "label": "Total shareholders’ equity",
+    "line": 8313
+   },
+   "prev_revenue": {
+    "status": "found",
+    "value": 53512,
+    "printed": "53,512",
+    "line": 6488
+   },
+   "debt": {
+    "status": "found",
+    "value": 355959,
+    "parts": [
+     {
+      "label": "Unsecured short-term borrowings",
+      "printed": "70,459",
+      "value": 70459,
+      "line": 8377
+     },
+     {
+      "label": "Unsecured long-term borrowings",
+      "printed": "285,500",
+      "value": 285500,
+      "line": 8312
+     }
+    ]
+   }
+  },
+  "computed": {
+   "revenue_growth": {
+    "status": "found",
+    "value": 0.0892
+   },
+   "operating_margin": {
+    "status": "not_applicable"
+   },
+   "free_cash_flow": {
+    "status": "not_applicable"
+   },
+   "net_debt": {
+    "status": "not_applicable"
+   }
+  },
+  "segments": null
+ },
+ "PFE": {
+  "file": "PFE_10-K_FY2025.md",
+  "fiscal_year": "FY2025 (ended 2025-12-31)",
+  "sha256": "b67625916a3761fb4f9d8890a637e117bd793efba458c8d83e22350bcb23db3e",
+  "unit": "USD millions (EPS in USD per share)",
+  "items": {
+   "revenue": {
+    "status": "found",
+    "value": 62579,
+    "printed": "62,579",
+    "label": "Total revenues",
+    "line": 2278
+   },
+   "operating_income": {
+    "status": "not_applicable"
+   },
+   "net_income": {
+    "status": "found",
+    "value": 7771,
+    "printed": "7,771",
+    "label": "Net income attributable to Pfizer Inc. common shareholders",
+    "line": 3408
+   },
+   "diluted_eps": {
+    "status": "found",
+    "value": 1.36,
+    "printed": "1.36",
+    "label": "Net income attributable to Pfizer Inc. common shareholders",
+    "line": 3419
+   },
+   "operating_cash_flow": {
+    "status": "found",
+    "value": 11704,
+    "printed": "11,704",
+    "label": "Net cash provided by/(used in) operating activities",
+    "line": 3602
+   },
+   "capex": {
+    "status": "found",
+    "value": 2629,
+    "printed": "2,629",
+    "label": "Purchases of property, plant and equipment",
+    "line": 3605
+   },
+   "cash": {
+    "status": "found",
+    "value": 1142,
+    "printed": "1,142",
+    "label": "Cash and cash equivalents",
+    "line": 3474
+   },
+   "equity": {
+    "status": "found",
+    "value": 86476,
+    "printed": "86,476",
+    "label": "Total Pfizer Inc. shareholders",
+    "line": 3511
+   },
+   "prev_revenue": {
+    "status": "found",
+    "value": 63627,
+    "printed": "63,627",
+    "line": 2278
+   },
+   "debt": {
+    "status": "found",
+    "value": 64795,
+    "parts": [
+     {
+      "label": "Short-term borrowings, including current portion of long-term debt",
+      "printed": "3,154",
+      "value": 3154,
+      "line": 3491
+     },
+     {
+      "label": "Long-term debt",
+      "printed": "61,641",
+      "value": 61641,
+      "line": 3499
+     }
+    ]
+   }
+  },
+  "computed": {
+   "revenue_growth": {
+    "status": "found",
+    "value": -0.0165
+   },
+   "operating_margin": {
+    "status": "not_applicable"
+   },
+   "free_cash_flow": {
+    "status": "found",
+    "value": 9075
+   },
+   "net_debt": {
+    "status": "found",
+    "value": 63653
+   }
+  },
+  "segments": null
+ },
+ "NEE": {
+  "file": "NEE_10-K_FY2025.md",
+  "fiscal_year": "FY2025 (ended 2025-12-31)",
+  "sha256": "805d684d71cb5e96d642e0009436e6408d80316eb49802c010477bbca52cbeda",
+  "unit": "USD millions (EPS in USD per share)",
+  "items": {
+   "revenue": {
+    "status": "found",
+    "value": 27412,
+    "printed": "27,412",
+    "label": "OPERATING REVENUES",
+    "line": 2549
+   },
+   "operating_income": {
+    "status": "found",
+    "value": 8280,
+    "printed": "8,280",
+    "label": "OPERATING INCOME",
+    "line": 2550
+   },
+   "net_income": {
+    "status": "found",
+    "value": 6835,
+    "printed": "6,835",
+    "label": "NET INCOME ATTRIBUTABLE TO NEE",
+    "line": 3358
+   },
+   "diluted_eps": {
+    "status": "found",
+    "value": 3.3,
+    "printed": "3.30",
+    "label": "Assuming dilution",
+    "line": 3361
+   },
+   "operating_cash_flow": {
+    "status": "found",
+    "value": 12485,
+    "printed": "12,485",
+    "label": "Net cash provided by operating activities",
+    "line": 3489
+   },
+   "capex": {
+    "status": "excluded"
+   },
+   "cash": {
+    "status": "found",
+    "value": 2812,
+    "printed": "2,812",
+    "label": "Cash and cash equivalents",
+    "line": 3404
+   },
+   "equity": {
+    "status": "found",
+    "value": 54608,
+    "printed": "54,608",
+    "label": "Total common shareholders' equity",
+    "line": 3455
+   },
+   "prev_revenue": {
+    "status": "found",
+    "value": 24753,
+    "printed": "24,753",
+    "line": 3335
+   },
+   "debt": {
+    "status": "found",
+    "value": 95619,
+    "parts": [
+     {
+      "label": "Commercial paper",
+      "printed": "1,955",
+      "value": 1955,
+      "line": 3426
+     },
+     {
+      "label": "Other short-term debt",
+      "printed": "608",
+      "value": 608,
+      "line": 3427
+     },
+     {
+      "label": "Current portion of long-term debt",
+      "printed": "3,500",
+      "value": 3500,
+      "line": 3428
+     },
+     {
+      "label": "Long-term debt",
+      "printed": "89,556",
+      "value": 89556,
+      "line": 3438
+     }
+    ]
+   }
+  },
+  "computed": {
+   "revenue_growth": {
+    "status": "found",
+    "value": 0.1074
+   },
+   "operating_margin": {
+    "status": "found",
+    "value": 0.3021
+   },
+   "free_cash_flow": {
+    "status": "excluded"
+   },
+   "net_debt": {
+    "status": "found",
+    "value": 92807
+   }
+  },
+  "segments": null
  }
 }

@@ -50,7 +50,7 @@
     0
    ],
    "parameters": {
-    "jsCode": "const FILES = { AAPL: \"AAPL_10-K_FY2026.md\", MSFT: \"MSFT_10-K_FY2026.md\", WMT: \"WMT_10-K_FY2026.md\", NKE: \"NKE_10-K_FY2026.md\", JNJ: \"JNJ_10-K_FY2025.md\", XOM: \"XOM_10-K_FY2025.md\", BA: \"BA_10-K_FY2025.md\", SBUX: \"SBUX_10-K_FY2025.md\", TSLA: \"TSLA_10-K_FY2025.md\", JPM: \"JPM_10-K_FY2025.md\", BAC: \"BAC_10-K_FY2025.md\", VZ: \"VZ_10-K_FY2025.md\", CAT: \"CAT_10-K_FY2025.md\", KO: \"KO_10-K_FY2025.md\" };\nconst p = $input.first().json;\nconst t = String(p.ticker || \"\").trim().toUpperCase();\nreturn [{ json: { ...p, ticker: t, url: FILES[t] ? \"https://raw.githubusercontent.com/pxulng/financial-report-analyst/main/data/10k/\" + FILES[t] : \"\" } }];"
+    "jsCode": "const FILES = { AAPL: \"AAPL_10-K_FY2026.md\", MSFT: \"MSFT_10-K_FY2026.md\", WMT: \"WMT_10-K_FY2026.md\", NKE: \"NKE_10-K_FY2026.md\", JNJ: \"JNJ_10-K_FY2025.md\", XOM: \"XOM_10-K_FY2025.md\", BA: \"BA_10-K_FY2025.md\", SBUX: \"SBUX_10-K_FY2025.md\", TSLA: \"TSLA_10-K_FY2025.md\", JPM: \"JPM_10-K_FY2025.md\", BAC: \"BAC_10-K_FY2025.md\", VZ: \"VZ_10-K_FY2025.md\", CAT: \"CAT_10-K_FY2025.md\", KO: \"KO_10-K_FY2025.md\", GS: \"GS_10-K_FY2025.md\", PFE: \"PFE_10-K_FY2025.md\", NEE: \"NEE_10-K_FY2025.md\" };\nconst p = $input.first().json;\nconst t = String(p.ticker || \"\").trim().toUpperCase();\nreturn [{ json: { ...p, ticker: t, url: FILES[t] ? \"https://raw.githubusercontent.com/pxulng/financial-report-analyst/main/data/10k/\" + FILES[t] : \"\" } }];"
    }
   },
   {

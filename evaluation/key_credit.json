@@ -229,5 +229,53 @@
    "status": "found",
    "value": 8.32
   }
+ },
+ "GS": {
+  "interest_expense": {
+   "status": "not_applicable"
+  },
+  "debt_to_equity": {
+   "status": "not_applicable"
+  },
+  "cfo_to_debt": {
+   "status": "not_applicable"
+  },
+  "interest_coverage": {
+   "status": "not_applicable"
+  }
+ },
+ "PFE": {
+  "interest_expense": {
+   "status": "not_in_report"
+  },
+  "debt_to_equity": {
+   "status": "found",
+   "value": 0.7493
+  },
+  "cfo_to_debt": {
+   "status": "found",
+   "value": 0.1806
+  },
+  "interest_coverage": {
+   "status": "not_in_report"
+  }
+ },
+ "NEE": {
+  "interest_expense": {
+   "status": "found",
+   "value": 4572
+  },
+  "debt_to_equity": {
+   "status": "found",
+   "value": 1.751
+  },
+  "cfo_to_debt": {
+   "status": "found",
+   "value": 0.1306
+  },
+  "interest_coverage": {
+   "status": "found",
+   "value": 1.81
+  }
  }
 }

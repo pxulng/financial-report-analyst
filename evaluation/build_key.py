@@ -4,6 +4,7 @@ whose label matches and whose +/-2 line window contains the printed value, and r
 Computed items are derived with the frozen formulas. Run: python3 build_key.py (from evaluation/)."""
 import re, json, hashlib, sys
 NA = "not_applicable"
+EXC = "excluded"
 # item: (label_regex, printed_value, numeric_value)   units: millions of USD except EPS (USD/share)
 D = {
 "AAPL": dict(file="AAPL_10-K_FY2026.md", fy="FY2026 (ended 2026-09-26)", prev_revenue=("Total net sales","416,161",416161),
@@ -116,6 +117,29 @@ D = {
   cash=("Cash and cash equivalents","10,270",10270),
   debt=[("Loans and notes payable","1,551",1551),("Current maturities of long-term debt","1,822",1822),("Long-term debt","42,119",42119)],
   equity=("Equity Attributable to Shareowners of The Coca-Cola Company","32,169",32169), segments=None),
+"GS": dict(file="GS_10-K_FY2025.md", fy="FY2025 (ended 2025-12-31)", prev_revenue=("Total net revenues","53,512",53512),
+  revenue=("Total net revenues","58,283",58283), operating_income=NA,
+  net_income=("Net earnings","17,176",17176), diluted_eps=("Diluted","51.32",51.32),
+  operating_cash_flow=("Net cash used for operating activities","(45,154)",-45154),
+  capex=NA, cash=NA,
+  debt=[("Unsecured short-term borrowings","70,459",70459),("Unsecured long-term borrowings","285,500",285500)],
+  equity=("Total shareholders’ equity","124,972",124972), segments=None),
+"PFE": dict(file="PFE_10-K_FY2025.md", fy="FY2025 (ended 2025-12-31)", prev_revenue=("Total revenues","63,627",63627),
+  revenue=("Total revenues","62,579",62579), operating_income=NA,
+  net_income=("Net income attributable to Pfizer Inc. common shareholders","7,771",7771), diluted_eps=("Net income attributable to Pfizer Inc. common shareholders","1.36",1.36),
+  operating_cash_flow=("Net cash provided by/\\(used in\\) operating activities","11,704",11704),
+  capex=("Purchases of property, plant and equipment","2,629",2629),
+  cash=("Cash and cash equivalents","1,142",1142),
+  debt=[("Short-term borrowings, including current portion of long-term debt","3,154",3154),("Long-term debt","61,641",61641)],
+  equity=("Total Pfizer Inc\\. shareholders","86,476",86476), segments=None),
+"NEE": dict(file="NEE_10-K_FY2025.md", fy="FY2025 (ended 2025-12-31)", prev_revenue=("OPERATING REVENUES","24,753",24753),
+  revenue=("OPERATING REVENUES","27,412",27412), operating_income=("OPERATING INCOME","8,280",8280),
+  net_income=("NET INCOME ATTRIBUTABLE TO NEE","6,835",6835), diluted_eps=("Assuming dilution","3.30",3.30),
+  operating_cash_flow=("Net cash provided by operating activities","12,485",12485),
+  capex=EXC,
+  cash=("Cash and cash equivalents","2,812",2812),
+  debt=[("Commercial paper","1,955",1955),("Other short-term debt","608",608),("Current portion of long-term debt","3,500",3500),("Long-term debt","89,556",89556)],
+  equity=("Total common shareholders' equity","54,608",54608), segments=None),
 }
 BASE="../data/10k/"
 out={}; problems=[]
@@ -132,6 +156,7 @@ for t,c in D.items():
     for k in ["revenue","operating_income","net_income","diluted_eps","operating_cash_flow","capex","cash","equity"]:
         v=c[k]
         if v==NA: rec["items"][k]={"status":NA}; continue
+        if v==EXC: rec["items"][k]={"status":EXC}; continue
         ln=locate(v[0],v[1])
         if ln is None: problems.append((t,k)); 
         rec["items"][k]={"status":"found","value":v[2],"printed":v[1],"label":v[0].replace("\\",""),"line":ln}
@@ -150,7 +175,8 @@ for t,c in D.items():
     cm["revenue_growth"]={"status":"found","value":round(I["revenue"]["value"]/I["prev_revenue"]["value"]-1,4)}
     if I["operating_income"]["status"]==NA: cm["operating_margin"]={"status":NA}
     else: cm["operating_margin"]={"status":"found","value":round(I["operating_income"]["value"]/I["revenue"]["value"],4)}
-    if I["capex"]["status"]==NA: cm["free_cash_flow"]={"status":NA}
+    if I["capex"]["status"]==EXC: cm["free_cash_flow"]={"status":EXC}
+    elif I["capex"]["status"]==NA: cm["free_cash_flow"]={"status":NA}
     else: cm["free_cash_flow"]={"status":"found","value":round(I["operating_cash_flow"]["value"]-I["capex"]["value"],1)}
     if I["cash"]["status"]==NA: cm["net_debt"]={"status":NA}
     else: cm["net_debt"]={"status":"found","value":round(I["debt"]["value"]-I["cash"]["value"],1)}
