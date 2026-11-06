@@ -44,7 +44,7 @@ def score(path):
     if t in GUIDANCE_IN_REPORT: nir=[q for q in nir if 'guidance' not in q.get('question','').lower()]  # CAT publishes 2026 expectations: that question is not an absent item for it (decided before the holdout runs, see docs/HOLDOUT_FREEZE.md)
     n_abs=len(nir); ok_abs=sum(1 for q in nir if q.get('status')=='not_in_report')
     mr=' '.join(x.get('risk','') for x in s.get('major_risks',[])).lower()
-    rf=sum(any(kw.lower() in mr for kw in rk['keywords']) for rk in risks[t])
+    rf=sum(any(kw.lower() in mr for kw in rk['keywords']) for rk in risks.get(t,[]))
     out.update(read=f"{ok_read}/{n_read}",comp=f"{ok_comp}/{n_comp}",absent=f"{ok_abs}/{n_abs}",wrong=wrong,src=f"{src_ok}/{src_n}",risks_auto=f"{rf}/3",
                n_ok_read=ok_read,n_read=n_read,n_ok_comp=ok_comp,n_comp=n_comp,n_ok_abs=ok_abs,n_abs=n_abs,n_src_ok=src_ok,n_src=src_n)
     return out

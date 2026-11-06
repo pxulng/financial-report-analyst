@@ -1,0 +1,181 @@
+{
+ "id": "VZ",
+ "model": "agent",
+ "stop_reason": "end",
+ "valid_json": true,
+ "valid_after_extraction": true,
+ "tool_calls": 15,
+ "tools_used": [
+  "read_statement",
+  "read_statement",
+  "read_statement",
+  "search_report",
+  "read_section",
+  "search_report",
+  "search_report",
+  "search_report",
+  "read_section",
+  "Calculator",
+  "Calculator",
+  "Calculator",
+  "Calculator",
+  "Calculator",
+  "Calculator"
+ ],
+ "run_mode": "single company per execution (n8n execution 827), prompt v4b, tools v2, Haiku 5.5 thinking disabled, holdout set (docs/HOLDOUT_FREEZE.md)",
+ "sheet": {
+  "company": "Verizon Communications Inc.",
+  "fiscal_year_end": "2025-12-31",
+  "reporting_currency": "USD",
+  "unit": "millions",
+  "figures": [
+   {
+    "item": "revenue",
+    "value": 138191,
+    "status": "found",
+    "source": "Consolidated Statements of Income, Total Operating Revenues",
+    "note": ""
+   },
+   {
+    "item": "operating_income",
+    "value": 29259,
+    "status": "found",
+    "source": "Consolidated Statements of Income",
+    "note": "Operating Income line as published."
+   },
+   {
+    "item": "net_income",
+    "value": 17174,
+    "status": "found",
+    "source": "Consolidated Statements of Income, Net income attributable to Verizon",
+    "note": "Group share; total net income 17,608."
+   },
+   {
+    "item": "diluted_eps",
+    "value": 4.06,
+    "status": "found",
+    "source": "Consolidated Statements of Income, Diluted Earnings Per Common Share",
+    "note": ""
+   },
+   {
+    "item": "operating_cash_flow",
+    "value": 37137,
+    "status": "found",
+    "source": "Consolidated Statements of Cash Flows",
+    "note": ""
+   },
+   {
+    "item": "capex",
+    "value": 17011,
+    "status": "found",
+    "source": "Consolidated Statements of Cash Flows, Capital expenditures (including capitalized software)",
+    "note": "Outflow shown as positive."
+   },
+   {
+    "item": "cash",
+    "value": 19048,
+    "status": "found",
+    "source": "Consolidated Balance Sheets",
+    "note": "Excludes restricted cash (19,499 with restricted cash)."
+   },
+   {
+    "item": "total_financial_debt",
+    "value": 158150,
+    "status": "found",
+    "source": "Consolidated Balance Sheets (Debt maturing within one year 18,618 + Long-term debt 139,532)",
+    "note": "Finance leases not deducted because the captions do not merge them; the note shows finance lease liabilities of 2,511; see limits."
+   },
+   {
+    "item": "shareholders_equity",
+    "value": 104460,
+    "status": "found",
+    "source": "Consolidated Balance Sheets, Total equity less Noncontrolling interests",
+    "note": "105,741 minus 1,281; derived, no separate parent subtotal read."
+   }
+  ],
+  "computed": [
+   {
+    "item": "revenue_growth",
+    "value": 0.0252,
+    "status": "found",
+    "formula": "revenue 2025 / revenue 2024 - 1",
+    "inputs": "138,191 and 134,788",
+    "note": ""
+   },
+   {
+    "item": "operating_margin",
+    "value": 0.2117,
+    "status": "found",
+    "formula": "operating_income / revenue",
+    "inputs": "29,259 and 138,191",
+    "note": ""
+   },
+   {
+    "item": "free_cash_flow",
+    "value": 20126,
+    "status": "found",
+    "formula": "operating_cash_flow - capex",
+    "inputs": "37,137 and 17,011",
+    "note": ""
+   },
+   {
+    "item": "net_debt",
+    "value": 139102,
+    "status": "found",
+    "formula": "total_financial_debt - cash",
+    "inputs": "158,150 and 19,048",
+    "note": ""
+   }
+  ],
+  "segments": {
+   "count": 2,
+   "names": [
+    "Verizon Consumer Group (Consumer)",
+    "Verizon Business Group (Business)"
+   ],
+   "source": "Note 1; Item 1; Note 13"
+  },
+  "major_risks": [
+   {
+    "risk": "Significant competition from cable, wireless, satellite and other providers may pressure pricing, promotions and margins.",
+    "source": "Item 1A, Economic and Strategic Risks"
+   },
+   {
+    "risk": "Adverse economic conditions, inflation and new tariffs could reduce demand, increase non-payment and raise costs.",
+    "source": "Item 1A, Economic and Strategic Risks"
+   },
+   {
+    "risk": "Cyberattacks on its networks, systems or suppliers' could adversely affect its business.",
+    "source": "Item 1A, Operational Risks"
+   }
+  ],
+  "not_in_report": [
+   {
+    "question": "Current share price today",
+    "status": "not_in_report",
+    "answer": "No current share price given.",
+    "source": "Item 5"
+   },
+   {
+    "question": "Company's own earnings guidance for the next fiscal year",
+    "status": "not_in_report",
+    "answer": "No earnings or EPS guidance for 2026; only qualitative expectations and an expected repurchase of at least 3 billion.",
+    "source": "Item 7; Liquidity"
+   },
+   {
+    "question": "Analyst estimate of fair value",
+    "status": "not_in_report",
+    "answer": "None in the report.",
+    "source": "Not found"
+   }
+  ],
+  "limits": [
+   "Total financial debt 158,150 is the balance-sheet sum; the analyst should check whether the captions include finance leases (2,511 per the note); if deducted, debt would be 155,639 and net debt 136,591.",
+   "Shareholders' equity derived as total equity less noncontrolling interests (105,741 - 1,281); the parent subtotal was not located.",
+   "Net income is attributable to Verizon (17,174); total 17,608.",
+   "Page numbers were not visible; statement names given.",
+   "Cash excludes restricted cash."
+  ]
+ },
+ "note": "Free-text fields shortened when saved by hand; figures, statuses, segments, risks and absent answers as returned."
+}
