@@ -1,0 +1,208 @@
+{
+ "id": "NEE",
+ "model": "agent",
+ "stop_reason": "end",
+ "valid_json": true,
+ "valid_after_extraction": true,
+ "tool_calls": 21,
+ "tools_used": [
+  "read_statement",
+  "read_statement",
+  "read_statement",
+  "read_section",
+  "search_report",
+  "search_report",
+  "search_report",
+  "search_report",
+  "search_report",
+  "search_report",
+  "search_report",
+  "search_report",
+  "search_report",
+  "Calculator",
+  "Calculator",
+  "Calculator",
+  "Calculator",
+  "Calculator",
+  "Calculator",
+  "Calculator",
+  "Calculator"
+ ],
+ "run_mode": "agent prompt v5, tools v2, Sonnet 5.5 adaptive thinking, second holdout (n8n execution 997)",
+ "sheet": {
+  "unit": "millions",
+  "figures": [
+   {
+    "item": "revenue",
+    "value": 27412,
+    "status": "found",
+    "source": "as returned (shortened)",
+    "note": ""
+   },
+   {
+    "item": "operating_income",
+    "value": 8280,
+    "status": "found",
+    "source": "as returned (shortened)",
+    "note": ""
+   },
+   {
+    "item": "net_income",
+    "value": 6835,
+    "status": "found",
+    "source": "as returned (shortened)",
+    "note": ""
+   },
+   {
+    "item": "diluted_eps",
+    "value": 3.3,
+    "status": "found",
+    "source": "as returned (shortened)",
+    "note": ""
+   },
+   {
+    "item": "operating_cash_flow",
+    "value": 12485,
+    "status": "found",
+    "source": "as returned (shortened)",
+    "note": ""
+   },
+   {
+    "item": "capex",
+    "value": 24053,
+    "status": "found",
+    "source": "as returned (shortened)",
+    "note": "sum of three investing lines (judgement, excluded from scoring)"
+   },
+   {
+    "item": "cash",
+    "value": 2812,
+    "status": "found",
+    "source": "as returned (shortened)",
+    "note": ""
+   },
+   {
+    "item": "total_financial_debt",
+    "value": 95619,
+    "status": "found",
+    "source": "as returned (shortened)",
+    "note": "1955+608+3500+89556"
+   },
+   {
+    "item": "shareholders_equity",
+    "value": 54608,
+    "status": "found",
+    "source": "as returned (shortened)",
+    "note": ""
+   },
+   {
+    "item": "interest_expense",
+    "value": 4305,
+    "status": "found",
+    "source": "as returned (shortened)",
+    "note": "derived by subtraction from other income lines because the printed line was not returned; analyst told to verify"
+   }
+  ],
+  "computed": [
+   {
+    "item": "revenue_growth",
+    "value": 0.107421322667959,
+    "status": "found",
+    "formula": "",
+    "inputs": "",
+    "note": ""
+   },
+   {
+    "item": "operating_margin",
+    "value": 0.302057493068729,
+    "status": "found",
+    "formula": "",
+    "inputs": "",
+    "note": ""
+   },
+   {
+    "item": "free_cash_flow",
+    "value": -11568,
+    "status": "found",
+    "formula": "uses summed capex (excluded from scoring)",
+    "inputs": "",
+    "note": ""
+   },
+   {
+    "item": "net_debt",
+    "value": 92807,
+    "status": "found",
+    "formula": "",
+    "inputs": "",
+    "note": ""
+   },
+   {
+    "item": "interest_coverage",
+    "value": 1.923344947735192,
+    "status": "found",
+    "formula": "8280/4305, depends on derived interest expense",
+    "inputs": "",
+    "note": ""
+   },
+   {
+    "item": "debt_to_equity",
+    "value": 1.751007178435394,
+    "status": "found",
+    "formula": "",
+    "inputs": "",
+    "note": ""
+   },
+   {
+    "item": "cfo_to_debt",
+    "value": 0.130570284148548,
+    "status": "found",
+    "formula": "",
+    "inputs": "",
+    "note": ""
+   }
+  ],
+  "segments": {
+   "count": 2,
+   "names": [
+    "FPL",
+    "NEER"
+   ],
+   "source": "Note 16"
+  },
+  "major_risks": [
+   {
+    "risk": "Extensive regulation; cost recovery and return risk.",
+    "source": "Item 1A"
+   },
+   {
+    "risk": "Reduction of government incentives for clean energy, tariffs.",
+    "source": "Item 1A"
+   },
+   {
+    "risk": "Regulatory decisions and new laws could delay or cancel capital expenditures.",
+    "source": "Item 1A"
+   }
+  ],
+  "not_in_report": [
+   {
+    "question": "share price",
+    "status": "not_in_report",
+    "answer": "not in report",
+    "source": ""
+   },
+   {
+    "question": "guidance",
+    "status": "not_in_report",
+    "answer": "none found (not specifically searched)",
+    "source": ""
+   },
+   {
+    "question": "fair value",
+    "status": "not_in_report",
+    "answer": "not in report",
+    "source": ""
+   }
+  ]
+ },
+ "note": "Free-text fields shortened when saved by hand; figures, statuses, computed values, segments, risk topics and absent answers as returned."
+}
