@@ -259,3 +259,6 @@ Balance: 2.93 before, 5 USD added by Paul, about 4.6 after. Holdout spend: about
 - Original items: 0 wrong (read 26/26, computed 11/11, absent 9/9). Credit items: 8/12 right, 3 wrong (GS debt_to_equity for a bank; NEE interest_expense and interest_coverage), 1 status mismatch (PFE coverage).
 - NEE: read_statement returned an EPS note instead of the income statement; the agent derived interest expense by subtraction (flagged in the notes). Tool and prompt were not changed afterwards.
 - Cost: balance 3.38 USD before, 2.56 USD after: 0.82 USD for three reports (about 0.27 each).
+
+## McDonald's test (2026-11-06)
+FY2025 10-K added (negative equity). Execution 1011, Sonnet 5.5, prompt v5: original items 9/9, computed 4/4, credit items 4/4, 0 wrong. Cost not recorded yet (balance to be noted).
